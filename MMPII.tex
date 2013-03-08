@@ -191,7 +191,7 @@
         &= \Int\Rn\of*{1+\abs*{\bx}^2}^\frac{s}{2}\abs*{\gj\of*\bx}
         \frac{\diffd\bx}{\of*{1+\abs*{\bx}^2}^\frac{s}{2}}  \\
         &\leq \norm{\gj}_{s,0} \Int\Rn\frac{1}{\of*{1+\abs*{\bx}^2}^\frac{s}{2}}\diffd\bx\\
-        &= \norm{\gj}_{s,0} \Int{0}^\infty\frac{r^{n-1}}{\of*{1+r^2}^\frac{s}{2}}\diffd r
+        &= \norm{\gj}_{s,0} \Int0^\infty\frac{r^{n-1}}{\of*{1+r^2}^\frac{s}{2}}\diffd r
         < \infty &&\text{for } s\geq n+1
       \end{align*}
       ``(\ref{FTLinearity}) I will not do!''
@@ -228,7 +228,7 @@
           \E^{-\I\scal*\by\bx}\diffd\bx\:\gy\of*\by\diffd\by \\
         &= \Int\Rn\gj\of*\bx\frac{1}{\of*{2\pi}^\frac{n}{2}}\Int\Rn
           \E^{-\I\scal*\bx\by}\gy\of*\by\diffd\by\diffd\bx
-          && \commentbox{As $\Int{\R^{2n}}\abs*{\gj\of*\bx
+          && \commentbox{As $\int_{\R^{2n}}\abs*{\gj\of*\bx
           \E^{-\I\scal*\by\bx}\gy\of*\by}\diffd\bx\diffd\by<\infty$,
           we can use Fubini's theorem.} \\
         &=\Int\Rn\gj\of*\by \ft\gy\of*\by \diffd\by
@@ -239,7 +239,7 @@
   \end{lemma}
   
   \begin{proposition}
-  The Fourier transform $\ft\quad$ is a continuous bijective linear map from the Schwartz space $\Schwartz$ to itself. $\rft{\ft{\gj}}=\gj$, where $\rft\gy\of*\bx\coloneqq\frac{1}{\of*{2\pi}^\frac{n}{2}}\Int\Rn\gy\of*\bk\E^{\I\scal*\bk\bx}\diffd\bx$, read ``unhat'', ``bird'', ``seagull'', or whatever you like.
+  The Fourier transform $\ft\quad$ is a continuous bijective linear map from the Schwartz space $\Schwartz$ to itself. $\rft{\ft{\gj}}=\gj$, where $\rft\gy\of*\bx\coloneqq\frac{1}{\of*{2\pi}^\frac{n}{2}}\int_\Rn\gy\of*\bk\E^{\I\scal*\bk\bx}\diffd\bx$, read ``unhat'', ``bird'', ``seagull'', or whatever you like.
   
     \begin{proof}
       \begin{align*}
@@ -272,7 +272,7 @@
         &=\sqftnrm\Int\Rn\Int\Rn\gj\of*\by\E^{-\I\scal*\bk\by}\diffd\by\E^{\I\scal*\bk\bx}\diffd\bk
       \end{align*}
       We don't interchange the integrals here because that would lead to ugly calculations. ``If pou paint the walls before you start building, it's not a good idea.''
-      At this point, somebody suggests replacing $\sqftnrm\Int\Rn \E^{\I\scal*\bk{\pascal{\bx-\by}}}\diffd\bk$ by $\gd\of*{\bx-\by}$. ``It's plausible! --- WHY? [...] Ah I said it, so it's plausible.'' However, doing this would also lead to some nasty calculations. ``How are we going to do it so fast that you don't get bored, and yet in enough detail that he's convinced? Be sneaky.''
+      At this point, somebody suggests replacing $\sqftnrm\int_\Rn \E^{\I\scal*\bk{\pascal{\bx-\by}}}\diffd\bk$ by $\gd\of*{\bx-\by}$. ``It's plausible! --- WHY? [...] Ah I said it, so it's plausible.'' However, doing this would also lead to some nasty calculations. ``How are we going to do it so fast that you don't get bored, and yet in enough detail that he's convinced? Be sneaky.''
       \begin{align*}
         \rft{\ft{\gj}}
         &=\ftnrm\Int\Rn\ft\gj\of*\bk\E^{\I\scal*\bk\bx}
