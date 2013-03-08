@@ -1,0 +1,337 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%  Please follow ISO standards.  %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  A copy of ISO 80000-2:2009 can be found in the  %
+%  repository. Keep other applicable standards in  %
+%  mind, e.g. ISO 8601:2004, etc.                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt]{article}
+
+% Set ComputerModern to true to use fonts from the Computer Modern family,
+% Utopia to true to use the Utopia family. Set none to true for compilation 
+% errors, or both for havoc.
+\newif\ifComputerModern
+\newif\ifUtopia
+\Utopiatrue
+%\ComputerModerntrue
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage[top=1.5cm, bottom=1.5cm, left=2.5cm, right=1.5cm]{geometry}
+
+\ifUtopia
+  \usepackage[utopia]{mathdesign}
+  \usepackage[OMLmathrm,OMLmathbf]{isomath}
+\fi
+\ifComputerModern
+  \usepackage{amsfonts}
+  \usepackage{upgreek}
+\fi
+
+\usepackage{isomath}
+
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{proposition}{Proposition}
+
+% Please declare separate commands for distinct objects, e.g., the scalar
+% product on R^n and the one on S(R^n) should not bear the same name, as
+% we might decide to write them differently at some point.
+
+% Always use the delimiters with a '*', as in \abs*, \of*, as it makes them
+% scale properly
+\DeclarePairedDelimiter\norm{\Vert}{\Vert}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiterX\comm[2]{[}{]}{#1, #2}
+%\DeclarePairedDelimiterX\scal[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+\DeclarePairedDelimiterX\scal[2]{.}{.}{#1\cdot #2}
+
+% Parentheses. Do not use standard parentheses '(blah)' in math
+% mode, as these do not scale. use '\of*{blah}' instead, or '\of* b' instead of '(b)'
+\DeclarePairedDelimiter\of{\lparen}{\rparen}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rn}{{\R^n}}
+\newcommand{\Schwartz}{{\mathcal{S}\of*{\R^n}}}
+\DeclareMathOperator{\diffd}{d}
+\DeclareMathOperator{\FT}{\mathcal{F}}
+\DeclareMathOperator{\End}{End}
+
+%%% begin Voodoo
+
+% This conjures some dark TeX magic to create a \widecheck.
+
+\makeatletter
+\newdimen\rh@wd
+\newdimen\rh@hta
+\newdimen\rh@htb
+\newbox\rh@box
+\def\rh@measure#1{\setbox\rh@box=\hbox{$#1$}\rh@wd=\wd\rh@box \rh@hta=\ht\rh@box}
+
+\def\widecheck#1{\rh@measure{#1}%
+  \setbox\rh@box=\hbox{$\widehat{\vrule height \rh@hta width\z@ \kern\rh@wd}$}%
+  \rh@htb=\ht\rh@box \advance\rh@htb\rh@hta \advance\rh@htb\p@
+  \ooalign{$\vrule height \ht\rh@box width\z@ #1$\cr
+           \raise\rh@htb\hbox{\scalebox{1}[-1]{\box\rh@box}}\cr}}
+\makeatother
+    
+%%% end Voodoo
+
+% For faster typing, and disambiguation between \gp (a variable called pi) and \pi
+% The smallest positive half-period of the sine.
+\newcommand\gl\lambda
+\newcommand\gj\varphi
+\newcommand\gy\psi
+\renewcommand{\ge}{\epsilon}
+\newcommand{\gd}{\delta}
+\let\gp\pi
+
+% Vectors are typeset in bold italic (isomath \vectorsym) as per ISO 80000-2:2009
+\newcommand{\bx}{{\vectorsym x}}
+\newcommand{\by}{{\vectorsym y}}
+\newcommand{\bk}{{\vectorsym k}}
+\newcommand{\bga}{{\vectorsym \alpha}}
+\newcommand{\bgb}{{\vectorsym \beta}}
+
+% Several shorthands to reduce the number of '{', '}', '_', and other tiresome characters.
+\newcommand\ft\widehat
+\newcommand\rft\widecheck
+\newcommand\Int[1]{\int\limits_#1}
+\newcommand{\Sum}{\sum\limits}
+\newcommand{\adj}{^\dagger}
+
+\newcommand\fstderiv[2][]{\frac{\diffd #1}{\diffd #2}}
+\newcommand\nthderiv[3][]{\frac{\diffd^#3 #1}{{\diffd #2}^#3}}
+\newcommand\fstpartial[2][]{\frac{\partial #1}{\partial #2}}
+\newcommand\nthpartial[3][]{\frac{\partial^#3 #1}{{\partial #2}^#3}}
+\newcommand{\pd}[1]{{\partial_#1}}
+
+% For comments in align environments
+\newcommand\commentbox[1]{\parbox{7.5cm}{#1}}
+
+% Constants are typeset in roman as per ISO 80000-2:2009
+\ifUtopia \renewcommand{\pi}{{\mathrm \gp}} \fi
+\ifComputerModern \renewcommand{\pi}{\uppi} \fi
+\newcommand\I{\mathrm{i}}
+\newcommand\E{\mathrm{e}}
+
+% As it turns out, you write this at every single line.
+\newcommand{\sqftnrm}{\frac{1}{\of*{2\pi}^n} }
+\newcommand{\ftnrm}{\frac{1}{\of*{2\pi}^\frac{n}{2}} }
+
+\usepackage{datetime} 
+\renewcommand{\dateseparator}{-}
+\yyyymmdddate 
+
+\title{Notes from the Methods of Mathematical Physics II courses of 2013-02-19{\slash}05-30 by Prof.~Dr.~Eugene~Trubowitz}
+\author{Robin~Leroy and David~Nadlinger}
+
+\begin{document}
+  \maketitle
+  \section{General properties of the Fourier transform}
+  \noindent \emph{Here begins the lecture of 2013-03-06.}
+  \begin{lemma}[``Your life in Fourier land depends on it.'']
+    \begin{align}
+      \label{FTLinearity}
+      \begin{split}      
+      \ft{\gj + \gy} &= \ft{\gj} + \ft{\gy},\\
+      \ft{\gl \gj} &= \gl \ft{\gj} 
+      \end{split}
+      \\
+      \label{FTUpperBound}
+      \abs*{\ft{\gj}(\bk)} &\leq \frac{1}{\of*{2\pi}^\frac{n}{2}}\norm*{\gj}_1<\infty, &&
+      \norm*{\gj}_1 \coloneqq \Int\Rn \abs*{\gj(\bx)} \diffd \bx
+      \\
+      \label{FTScaling}
+      \ft{\gj\of*{\gl\cdot}}\of*\bk &= \frac{1}{\abs*{\gl}^n}\ft{\gj}\of*{\frac\bk\gl}, &&
+      \gl\neq 0
+      \\
+      \label{FTTranslation}
+      \ft{T_\by\gj}\of*\bx &= \E^{\I\scal*\bk\by}\ft\gj\of*\bk, &&
+      \of*{T_\by\gj}\of*\bx \coloneqq \gj\of*{\bx+\by}
+      \\
+      \label{FTDerivative}
+      \begin{split}
+      \fstpartial[\gj]{x_j}\of*\bk &= \I k_j \ft\gj\of*\bk \\ 
+      \ft{x_j \gj}\of*\bk &= \I \fstpartial[\ft\gj]{k_j} \of*\bk
+      \end{split}
+      \\
+      \label{FTUnitary}
+      \Int\Rn\ft\gj\of*\by \gy\of*\by \diffd\by &= \Int\Rn \gj\of*\by \ft\gy\of*\by \diffd\by
+    \end{align}
+    \begin{proof}
+      (\ref{FTUpperBound}):
+      \begin{equation*}
+       \abs*{\ft\gj\of*\bk} 
+        = \abs*{\ftnrm\Int\Rn \gj\of*\bx \E^{-\I \scal*\bk\bx}\diffd\bx} 
+        \leq \ftnrm\Int\Rn \abs*{ \gj\of*\bx 
+        \E^{-\I \scal*\bk\bx}}\diffd\bx  = \frac{1}{\of*{2\pi}^\frac{n}{2}}
+        \underbrace{\Int\Rn \abs*{\gj\of*\bx}}_{\norm{\gj}_1}
+        \underbrace{\abs*{\E^{-\I\scal*\bk\bx}}}_{1}\diffd\bx \\
+      \end{equation*}
+      Proof of existence of the integral $\norm\gj_1$:
+      \begin{align*}
+        \Int\Rn\abs*{\gj\of*\bx}\diffd\bx 
+        &= \Int\Rn\of*{1+\abs*{\bx}^2}^\frac{s}{2}\abs*{\gj\of*\bx}
+        \frac{\diffd\bx}{\of*{1+\abs*{\bx}^2}^\frac{s}{2}}  \\
+        &\leq \norm{\gj}_{s,0} \Int\Rn\frac{1}{\of*{1+\abs*{\bx}^2}^\frac{s}{2}}\diffd\bx\\
+        &= \norm{\gj}_{s,0} \Int{0}^\infty\frac{r^{n-1}}{\of*{1+r^2}^\frac{s}{2}}\diffd r
+        < \infty &&\text{for } s\geq n+1
+      \end{align*}
+      ``(\ref{FTLinearity}) I will not do!''
+      Proof of (\ref{FTScaling}):
+      \begin{align*}
+        \ft{\gj\of*{\gl\cdot}} 
+        &= \ftnrm\Int\Rn\gj\of*{\gl\bx}\E^{-\I\scal*\bk\bx} \diffd\bx \\
+        &= \frac{1}{\of*{2\pi}^\frac{n}{2}}
+          \Int\Rn\gj\of*\by\E^{-\I\scal*{\frac 1\gl\bk}{\by}} \diffd\of*{\frac{\by}{\gl}}
+          && \text{where } \bx=\frac{1}{\gl}\by \\
+        &= \frac{1}{\gl^n} \underbrace{
+          \ftnrm\Int\Rn\gj\of*\by\E^{-\I\scal*{\frac\bk\gl}\by}
+          \diffd\by}_{\ft\gj\of*{\frac\bk{\gl}}}
+      \end{align*}
+      Proof of the second part of (\ref{FTDerivative}):
+      \begin{align*}
+        \ft{x_j\gj}\of*\bx 
+        &= \ftnrm\Int\Rn x_j\gj\of*{\bx}\E^{-\I\scal*\bk\bx}\diffd\bx \\
+        &= \ftnrm
+          \Int\Rn\gj\of*{\bx}\I\fstpartial{k_j}\E^{-\I\scal*\bk\bx} \diffd\bx 
+          && \text{as }\fstpartial{k_j}\E^{-\I\scal*\bk\bx} =
+            \fstpartial{k_j}\E^{-\I\Sum_{r=0}^n k_j x_j}=-\I x_j \E^{-\I\scal*\bk\bx}\\
+        &= \I\fstpartial{k_j}\ftnrm
+          \Int\Rn\gj\of*\bx\E^{-\I\scal*\bk\bx} \diffd\bx \\
+        &= \I\fstpartial[\ft\gj]{k_j}\of*\bk
+      \end{align*}
+      
+      \emph{The professor starts whistling some elevator music while waiting for a student to write down the proof before he can wipe the board. When the student is done, the professor notices that there still is some room left on the blackboard and starts writing the rest there, without erasing anything.}
+      
+      Proof of \ref{FTUnitary}:
+      \begin{align*}
+        \Int\Rn\ft\gj\of*\by \gy\of*\by \diffd\by
+        &= \Int\Rn\frac{1}{\of*{2\pi}^\frac{n}{2}}\Int\Rn\gj\of*\bx
+          \E^{-\I\scal*\by\bx}\diffd\bx\:\gy\of*\by\diffd\by \\
+        &= \Int\Rn\gj\of*\bx\frac{1}{\of*{2\pi}^\frac{n}{2}}\Int\Rn
+          \E^{-\I\scal\bx\by}\gy\of*\by\diffd\by\diffd\bx
+          && \commentbox{As $\Int{\R^{2n}}\abs*{\gj\of*\bx
+          \E^{-\I\scal\by\bx}\gy\of*\by}\diffd\bx\diffd\by<\infty$,
+          we can use Fubini's theorem.} \\
+        &=\Int\Rn\gj\of*\by \ft\gy\of*\by \diffd\by
+      \end{align*}
+      
+      
+    \end{proof}
+  \end{lemma}
+  
+  \begin{proposition}
+  The Fourier transform $\ft\quad$ is a continuous bijective linear map from the Schwartz space $\Schwartz$ to itself. $\rft{\ft{\gj}}=\gj$, where $\rft\gy\of*\bx\coloneqq\frac{1}{\of*{2\pi}^\frac{n}{2}}\Int\Rn\gy\of*\bk\E^{\I\scal*\bk\bx}\diffd\bx$, read ``unhat'', ``bird'', ``seagull'', or whatever you like.
+  
+    \begin{proof}
+      \begin{align*}
+        \gj\in\Schwartz&\Rightarrow\bx^\bga\pd\bx^\bgb\in\Schwartz \\
+        \ft{\of*{\bx^\bga\pd\bx^\bgb\gj}}\of*\bk
+        &=\I^{\abs*\bga}\pd\bk^\bga\ft{\of*{\pd\bx^\bgb\gj}}\of*\bk 
+          && \text{from the second equality in (\ref{FTDerivative}), applied }\abs*\bga\text{ times.} \\
+        &=\I^{\abs*\bga}\pd\bk^\bga\of*{\I^{\abs*\bgb}\bk^\bgb\ft\gj}\of*\bk \\
+        &=\I^{\abs*\bga+\abs*\bgb}\pd\bk\of*{\bk^\bgb\ft\gj}\of*\bk
+      \end{align*}
+      ``I should have done it the other way around. [...] Let's try it the other way around.''
+      We want:
+      \begin{equation*}
+        \forall\bga,\bgb,\sup_{\bk\in\R^n}\abs*{\bk^\bga\pd\bk^\bgb\ft\gj\of*\bk}<\infty
+      \end{equation*}
+      As that implies $\ft\gj\in\Schwartz$.
+      \begin{align*}
+        \ft{\of*{\pd\bx^\bga\of*{\bk^\bgb\gj}}}\of*\bk
+        &=\I^{\abs*\bga+\abs*\bgb}\bk^\bga\pd\bk^\bgb\ft\gj\of*\bk
+        && \commentbox{by applying the first part of (\ref{FTDerivative}) $\abs*\bga
+        $ times and the second part $\abs*\bgb$ times.}\\
+        \forall\bga,\bgb,
+        \abs*{\bk\bga\pd\bk^\bgb\ft\gj\of*\bk}&\leq\ftnrm\norm*{\pd\bx\of*{\bx^\bgb\gj}}_1<\infty
+        && \text{from (\ref{FTUpperBound}).}
+      \end{align*}
+      We now know $\ft\gj\in\Schwartz$.
+      Let us prove $\rft{\ft\gj}=\gj$. ``When you do the wrong thing I'm gonna scream loudly.''
+      \begin{align*}
+        \rft{\ft\gj}\of*\bx&=\ftnrm\Int\Rn\ft\gj\of*\bk\E^{\I\scal*\bk\bx}\diffd\bk \\
+        &=\sqftnrm\Int\Rn\Int\Rn\gj\of*\by\E^{-\I\scal*\bk\by}\diffd\by\E^{\I\scal*\bk\bx}\diffd\bk
+      \end{align*}
+      We don't interchange the integrals here because that would lead to ugly calculations. ``If pou paint the walls before you start building, it's not a good idea.''
+      At this point, somebody suggests replacing $\sqftnrm\Int\Rn\E^{\I\scal*\bk{\bx-\by}}\diffd\bk$ by $\gd\of*{\bx-\by}$. ``It's plausible! --- WHY? [...] Ah I said it, so it's plausible.'' However, doing this would also lead to some nasty calculations. ``How are we going to do it so fast that you don't get bored, and yet in enough detail that he's convinced? Be sneaky.''
+      \begin{align*}
+        \rft{\ft{\gj}}
+        &=\ftnrm\Int\Rn\ft\gj\of*\bk\E^{\I\scal*\bk\bx}
+        \underbrace{\lim_{\ge\downarrow 0}\E^{-\ge\frac{\abs*\bk^2}{2}}}_{\mathclap{\substack{1
+        \text{ written in}\\\text{some other way}}}}\diffd\bk\\
+        &=\lim_{\ge\downarrow 0}\ftnrm\Int\Rn\ft\gj\of*\bk\E^{\I\scal*\bk\bx}
+        \E^{-\ge\frac{\abs*\bk^2}{2}}&&\commentbox{``Don't worry.'' This is actually a one-liner 
+        using Lebesgue's dominated convergence theorem.}
+      \end{align*}
+      \emph{The 10-minute break ends with the loud noise of a metallic pointing stick hitting the desk.}
+      \begin{align*}
+        \ftnrm\Int\Rn\ft\gj\of*\bk\E^{\I\scal*\bk\bx}\E^{-\ge\frac{\abs*\bk^2}{2}}\diffd\bk
+        &=\ftnrm\Int\Rn\ftnrm\Int\Rn\gj\of*\by\E^{-\I\scal*\by\bk}\diffd\by\:
+        \E^{\I\scal*\bk\bx}\E^{-\ge\frac{\abs*\bk^2}{2}}\diffd\bk\\
+        &=\ftnrm\Int\Rn\gj\of*\by\ftnrm\Int\Rn\E^{\I\scal*\bk{\bx-\by}}
+        \E^{-\ge\frac{\abs*\bk^2}{2}}\diffd\bk\diffd\by
+      \end{align*}
+      Recall: ``every path leads to Rome and every Gaussian is in $\Schwartz$.'' Also, the last foot of a dactylic hexameter is always a spondee. 
+      \begin{equation*}
+        \ftnrm\Int\Rn\E^{-\ge\frac{\abs*\bk^2}{2}}\E^{\I\scal*{\by-\bx}\bk}\diffd\bk
+        =\frac{\E^{-\frac{1}{2\ge}\abs*{\bx-\by}^2}}{\ge^\frac{n}{2}}
+      \end{equation*}
+      We therefore get:
+      \begin{align*}
+         \ftnrm\Int\Rn\ft\gj\of*\bk\E^{\I\scal*\bk\bx}\E^{-\ge\frac{\abs*\bk^2}{2}}\diffd\bk
+         &=\ftnrm\Int\Rn\gj\of*\by\ftnrm\Int\Rn\E^{\I\scal*\bk{\bx-\by}}
+        \E^{-\ge\frac{\abs*\bk^2}{2}}\diffd\bk\diffd\by\\
+        &=\ftnrm\Int\Rn\gj\of*\by\frac{\E^{-\frac{1}{2\ge}\abs*{\bx-\by}^2}}
+        {\ge^\frac{n}{2}}\diffd\by \\
+        &=\ftnrm\Int\Rn\gj\of*{\by\sqrt\ge+\bx}\frac{\E^{-\frac{1}{2\ge}\abs*{\by\sqrt\ge}^2}}
+        {\ge^\frac{n}{2}}\diffd\of*{\by\sqrt\ge} && \text{``Epsilons everywhere!''}\\    
+        &=\ftnrm\Int\Rn\gj\of*{\bx+\by\sqrt\ge}\E^{-\frac{1}{2}\abs*\by^2}\diffd\by
+        && \text{``Now we can paint.''}\\
+        &\overset{\ge\downarrow 0}{\rightarrow}
+        \ftnrm\gj\of*\bx\Int\Rn\E^{-\frac{1}{2}\abs*\by^2}\diffd\by =\gj\of*\bx
+      \end{align*}
+    \end{proof}
+  \end{proposition}
+  \section{Eigenfunctions of the Fourier transform}
+  ``The main ideas of many things are right here.''
+  We seek to find the solutions $\of*{\gj,\gl}$ of
+  \begin{equation*}
+    \ft\gj=\gl\gj
+  \end{equation*}
+  We shall find all of them. ``not one is going to get away.'' Actually, we have already got one:
+  \begin{equation*}
+    \ft{\E^{-\frac{1}{2}\abs*\bx^2}}=\E^{-\frac{1}{2}\abs*\bx^2},
+  \end{equation*}
+  so we know that 1 is an eigenvalue. How do we find the others? ``Here you actually have to have an idea.''
+  
+  \paragraph{Idea}
+  Find an $H\in\End\of*\Schwartz$ such that $\comm H {\ft\quad} = 0$. Then they have the same eigenspaces, so we just need to find the eigenfunctions of $H$ (see \emph{Finite Dimensional Quantum Mechanics}).
+  
+  Let $n=1$.
+  \begin{equation*}
+    \left.
+    \begin{aligned}
+      \ft{\of*{x^2\gj}}\of* k &= -\nthderiv{k}{2}\ft\gj\of* k \\
+      \ft{\of*{\nthderiv{x}{2}\gj}}\of* k &= -k^2 \ft\gj\of* k
+    \end{aligned}
+    \right\rbrace \qquad \text{From the lemma your life depends on.}
+  \end{equation*}
+  Subtracting the second equality from the first one above:
+  \begin{equation*}
+    \FT\of*{\of*{-\nthderiv{x}{2}+x^2}\gj}\of* k = \of*{-\nthderiv{k}{2}+k^2}\FT\gj\of* k,
+  \end{equation*}
+  where $\FT = \ft\quad$ because things are getting a bit too big for the hat.
+  We smell a harmonic potential. ``Don't get your fingers too close, they sometimes bite.''
+  
+  Let $H \coloneqq \frac{1}{2}\of*{-\nthderiv{x}{2}+x^2-1}$. Then $\comm H {\ft\quad}=0$. We multiplied by $\frac{1}{2}$ so that it looks even more like a harmonic potential. Why did we add $-1$? Define
+  \begin{align*}
+    A &\coloneqq \frac{1}{\sqrt 2}\of*{\fstderiv{x} + x},\\
+    A\adj &\coloneqq \frac{1}{\sqrt 2}\of*{-\fstderiv{x} + x}.
+  \end{align*}
+  We then have $H = A\adj A$. If $x$ and $y$ commute, then we have $\of*{x-y}\of*{x+y}=x^2-y^2$, but here $x$ and $\fstderiv{x}$ don't quite commute, hence the $-1$.
+
+\emph{Here ends the lecture of 2013-03-06.}
+\end{document}
