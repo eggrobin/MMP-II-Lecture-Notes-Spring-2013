@@ -6,6 +6,7 @@
 %  standards in   mind, e.g. ISO 8601:2004, etc.   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[10pt]{article}
+\usepackage{etoolbox}
 
 % Set ComputerModern to true to use fonts from the Computer Modern family,
 % Utopia to true to use the Utopia family. Set none to true for compilation 
@@ -13,7 +14,7 @@
 \newif\ifComputerModern
 \newif\ifUtopia
 \Utopiatrue
-%\ComputerModerntrue
+\ComputerModernfalse
 
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -43,9 +44,22 @@
 \DeclarePairedDelimiter\norm{\Vert}{\Vert}
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiterX\comm[2]{[}{]}{#1, #2}
-\DeclarePairedDelimiterX\scal[2]{\langle}{\rangle}{#1\delimsize\vert #2}
-%\DeclarePairedDelimiterX\scal[2]{.}{.}{#1\cdot #2}
-
+% Scalar product on R^n. \pascal* is used for expressions which
+% need to be parenthesised if the notation for the scalar product
+% does not include delimiters, e.g. \cdot, but should not be if 
+% it does, e.g. ( | ). 'pascal' stands for PArenthesis SCALar. I had
+% also thought of using 'scalp'.
+\newif\ifISOinnerp \ISOinnerptrue
+\ifISOinnerp
+  \DeclarePairedDelimiterX\scal[2]{.}{.}{#1\cdot #2}
+\else
+  \DeclarePairedDelimiterX\scal[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+\fi
+\ifISOinnerp
+ \newcommand{\pascal}[1]{\of*{#1}}
+\else
+ \newcommand{\pascal}[1]{#1}
+\fi
 % Parentheses. Do not use standard parentheses '(blah)' in math
 % mode, as these do not scale. use '\of*{blah}' instead, or '\of* b' instead of '(b)'
 \DeclarePairedDelimiter\of{\lparen}{\rparen}
@@ -78,12 +92,14 @@
 %%% end Voodoo
 
 % For faster typing, and disambiguation between \gp (a variable called pi) and \pi
-% The smallest positive half-period of the sine.
+% The smallest stricly positive half-period of the sine.
 \newcommand\gl\lambda
 \newcommand\gj\varphi
 \newcommand\gy\psi
 \renewcommand{\ge}{\epsilon}
 \newcommand{\gd}{\delta}
+\newcommand{\gx}{\xi}
+\newcommand{\gh}{\eta}
 \let\gp\pi
 
 % Vectors are typeset in bold italic (isomath \vectorsym) as per ISO 80000-2:2009
@@ -211,9 +227,9 @@
         &= \Int\Rn\frac{1}{\of*{2\pi}^\frac{n}{2}}\Int\Rn\gj\of*\bx
           \E^{-\I\scal*\by\bx}\diffd\bx\:\gy\of*\by\diffd\by \\
         &= \Int\Rn\gj\of*\bx\frac{1}{\of*{2\pi}^\frac{n}{2}}\Int\Rn
-          \E^{-\I\scal\bx\by}\gy\of*\by\diffd\by\diffd\bx
+          \E^{-\I\scal*\bx\by}\gy\of*\by\diffd\by\diffd\bx
           && \commentbox{As $\Int{\R^{2n}}\abs*{\gj\of*\bx
-          \E^{-\I\scal\by\bx}\gy\of*\by}\diffd\bx\diffd\by<\infty$,
+          \E^{-\I\scal*\by\bx}\gy\of*\by}\diffd\bx\diffd\by<\infty$,
           we can use Fubini's theorem.} \\
         &=\Int\Rn\gj\of*\by \ft\gy\of*\by \diffd\by
       \end{align*}
@@ -256,7 +272,7 @@
         &=\sqftnrm\Int\Rn\Int\Rn\gj\of*\by\E^{-\I\scal*\bk\by}\diffd\by\E^{\I\scal*\bk\bx}\diffd\bk
       \end{align*}
       We don't interchange the integrals here because that would lead to ugly calculations. ``If pou paint the walls before you start building, it's not a good idea.''
-      At this point, somebody suggests replacing $\sqftnrm\Int\Rn\E^{\I\scal*\bk{\bx-\by}}\diffd\bk$ by $\gd\of*{\bx-\by}$. ``It's plausible! --- WHY? [...] Ah I said it, so it's plausible.'' However, doing this would also lead to some nasty calculations. ``How are we going to do it so fast that you don't get bored, and yet in enough detail that he's convinced? Be sneaky.''
+      At this point, somebody suggests replacing $\sqftnrm\Int\Rn \E^{\I\scal*\bk{\pascal{\bx-\by}}}\diffd\bk$ by $\gd\of*{\bx-\by}$. ``It's plausible! --- WHY? [...] Ah I said it, so it's plausible.'' However, doing this would also lead to some nasty calculations. ``How are we going to do it so fast that you don't get bored, and yet in enough detail that he's convinced? Be sneaky.''
       \begin{align*}
         \rft{\ft{\gj}}
         &=\ftnrm\Int\Rn\ft\gj\of*\bk\E^{\I\scal*\bk\bx}
@@ -271,18 +287,18 @@
         \ftnrm\Int\Rn\ft\gj\of*\bk\E^{\I\scal*\bk\bx}\E^{-\ge\frac{\abs*\bk^2}{2}}\diffd\bk
         &=\ftnrm\Int\Rn\ftnrm\Int\Rn\gj\of*\by\E^{-\I\scal*\by\bk}\diffd\by\:
         \E^{\I\scal*\bk\bx}\E^{-\ge\frac{\abs*\bk^2}{2}}\diffd\bk\\
-        &=\ftnrm\Int\Rn\gj\of*\by\ftnrm\Int\Rn\E^{\I\scal*\bk{\bx-\by}}
+        &=\ftnrm\Int\Rn\gj\of*\by\ftnrm\Int\Rn\E^{\I\scal*\bk{\pascal{\bx-\by}}}
         \E^{-\ge\frac{\abs*\bk^2}{2}}\diffd\bk\diffd\by
       \end{align*}
       Recall: ``every path leads to Rome and every Gaussian is in $\Schwartz$.'' Also, the last foot of a dactylic hexameter is always a spondee. 
       \begin{equation*}
-        \ftnrm\Int\Rn\E^{-\ge\frac{\abs*\bk^2}{2}}\E^{\I\scal*{\by-\bx}\bk}\diffd\bk
+        \ftnrm\Int\Rn\E^{-\ge\frac{\abs*\bk^2}{2}}\E^{\I\scal*{\pascal{\by-\bx}}\bk}\diffd\bk
         =\frac{\E^{-\frac{1}{2\ge}\abs*{\bx-\by}^2}}{\ge^\frac{n}{2}}
       \end{equation*}
       We therefore get:
       \begin{align*}
          \ftnrm\Int\Rn\ft\gj\of*\bk\E^{\I\scal*\bk\bx}\E^{-\ge\frac{\abs*\bk^2}{2}}\diffd\bk
-         &=\ftnrm\Int\Rn\gj\of*\by\ftnrm\Int\Rn\E^{\I\scal*\bk{\bx-\by}}
+         &=\ftnrm\Int\Rn\gj\of*\by\ftnrm\Int\Rn\E^{\I\scal*\bk{\pascal{\bx-\by}}}
         \E^{-\ge\frac{\abs*\bk^2}{2}}\diffd\bk\diffd\by\\
         &=\ftnrm\Int\Rn\gj\of*\by\frac{\E^{-\frac{1}{2\ge}\abs*{\bx-\by}^2}}
         {\ge^\frac{n}{2}}\diffd\by \\
@@ -327,12 +343,12 @@
   where $\FT = \ft\quad$ because things are getting a bit too big for the hat.
   We smell a harmonic potential. ``Don't get your fingers too close, they sometimes bite.''
   
-  Let $H \coloneqq \frac{1}{2}\of*{-\nthderiv{x}{2}+x^2-1}$. Then $\comm H {\ft\quad}=0$. We multiplied by $\frac{1}{2}$ so that it looks even more like a harmonic potential. Why did we add $-1$? Define
+  Let $H \coloneqq \frac{1}{2}\of*{-\nthderiv{x}{2}+x^2-1}$. Then $\comm H {\ft\quad}=0$. We multiplied by $\frac{1}{2}$ so that it looks even more like a harmonic potential (it is the potential of the quantum harmonic oscillator). Why did we add $-1$? Define
   \begin{align*}
     A &\coloneqq \frac{1}{\sqrt 2}\of*{\fstderiv{x} + x},\\
     A\adj &\coloneqq \frac{1}{\sqrt 2}\of*{-\fstderiv{x} + x}.
   \end{align*}
-  We then have $H = A\adj A$. If $x$ and $y$ commute, then we have $\of*{x-y}\of*{x+y}=x^2-y^2$, but here $x$ and $\fstderiv{x}$ don't quite commute, hence the $-1$.
+  We then have $H = A\adj A$. If $a$ and $b$ commute, then we have $\of*{a-b}\of*{a+b}  = a^2-b^2$, but here $x$ and $\fstderiv{x}$ don't quite commute, hence the $-1$.
 
 \emph{Here ends the lecture of 2013-03-06.}
 \end{document}
