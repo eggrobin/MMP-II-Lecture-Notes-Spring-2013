@@ -43,8 +43,8 @@
 \DeclarePairedDelimiter\norm{\Vert}{\Vert}
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiterX\comm[2]{[}{]}{#1, #2}
-%\DeclarePairedDelimiterX\scal[2]{\langle}{\rangle}{#1\delimsize\vert #2}
-\DeclarePairedDelimiterX\scal[2]{.}{.}{#1\cdot #2}
+\DeclarePairedDelimiterX\scal[2]{\langle}{\rangle}{#1\delimsize\vert #2}
+%\DeclarePairedDelimiterX\scal[2]{.}{.}{#1\cdot #2}
 
 % Parentheses. Do not use standard parentheses '(blah)' in math
 % mode, as these do not scale. use '\of*{blah}' instead, or '\of* b' instead of '(b)'
@@ -246,7 +246,7 @@
         && \commentbox{by applying the first part of (\ref{FTDerivative}) $\abs*\bga
         $ times and the second part $\abs*\bgb$ times.}\\
         \forall\bga,\bgb,
-        \abs*{\bk\bga\pd\bk^\bgb\ft\gj\of*\bk}&\leq\ftnrm\norm*{\pd\bx\of*{\bx^\bgb\gj}}_1<\infty
+        \abs*{\bk^\bga\pd\bk^\bgb\ft\gj\of*\bk}&\leq\ftnrm\norm*{\pd\bx\of*{\bx^\bgb\gj}}_1<\infty
         && \text{from (\ref{FTUpperBound}).}
       \end{align*}
       We now know $\ft\gj\in\Schwartz$.
@@ -291,17 +291,18 @@
         &=\ftnrm\Int\Rn\gj\of*{\bx+\by\sqrt\ge}\E^{-\frac{1}{2}\abs*\by^2}\diffd\by
         && \text{``Now we can paint.''}\\
         &\overset{\ge\downarrow 0}{\rightarrow}
-        \ftnrm\gj\of*\bx\Int\Rn\E^{-\frac{1}{2}\abs*\by^2}\diffd\by =\gj\of*\bx
+        \ftnrm\gj\of*\bx\Int\Rn\E^{-\frac{1}{2}\abs*\by^2}\diffd\by =\gj\of*\bx.
       \end{align*}
     \end{proof}
   \end{proposition}
+  
   \section{Eigenfunctions of the Fourier transform}
   ``The main ideas of many things are right here.''
   We seek to find the solutions $\of*{\gj,\gl}$ of
   \begin{equation*}
-    \ft\gj=\gl\gj
+    \ft\gj=\gl\gj .
   \end{equation*}
-  We shall find all of them. ``not one is going to get away.'' Actually, we have already got one:
+  We shall find all of them. ``Not one is going to get away.'' Actually, we have already got one:
   \begin{equation*}
     \ft{\E^{-\frac{1}{2}\abs*\bx^2}}=\E^{-\frac{1}{2}\abs*\bx^2},
   \end{equation*}
