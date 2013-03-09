@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2013.3.8)  9 MAR 2013 22:01
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2013.3.8)  9 MAR 2013 22:17
 entering extended mode
 **MMPII.tex
 ("C:\Users\robin\Google Drive\Git\MMP-II-Lecture-Notes-Spring-2013\MMPII.tex"
@@ -551,11 +551,11 @@ LaTeX Font Info:    Font shape `OML/mdput/bx/n' in size <5> not available
 ("C:\Users\robin\Google Drive\Git\MMP-II-Lecture-Notes-Spring-2013\MMPII.aux") 
 ) 
 Here is how much of TeX's memory you used:
- 5507 strings out of 495285
- 78366 string characters out of 3179879
- 153178 words of memory out of 3000000
+ 5506 strings out of 495285
+ 78358 string characters out of 3179879
+ 152067 words of memory out of 3000000
  8562 multiletter control sequences out of 15000+200000
- 119450 words of font info for 113 fonts, out of 3000000 for 9000
+ 119199 words of font info for 112 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  37i,20n,34p,922b,326s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.8/fonts/enc/dvips/fontname/texnansi.enc}<C:/U
@@ -572,7 +572,7 @@ s/type1/mathdesign/mdput/md-utri7m.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2
 ype1/adobe/utopia/putbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/ad
 obe/utopia/putr8a.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/adobe/utop
 ia/putri8a.pfb>
-Output written on MMPII.pdf (4 pages, 110256 bytes).
+Output written on MMPII.pdf (4 pages, 109249 bytes).
 PDF statistics:
  64 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
