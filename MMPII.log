@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2013.3.8)  9 MAR 2013 19:08
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2013.3.8)  9 MAR 2013 22:01
 entering extended mode
 **MMPII.tex
 ("C:\Users\robin\Google Drive\Git\MMP-II-Lecture-Notes-Spring-2013\MMPII.tex"
@@ -386,34 +386,34 @@ LaTeX Info: Redefining \today on input line 724.
 \rh@htb=\dimen127
 \rh@box=\box28
 ("C:\Users\robin\Google Drive\Git\MMP-II-Lecture-Notes-Spring-2013\MMPII.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 267.
-LaTeX Font Info:    ... okay on input line 267.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 267.
-LaTeX Font Info:    ... okay on input line 267.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 267.
-LaTeX Font Info:    ... okay on input line 267.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 267.
-LaTeX Font Info:    ... okay on input line 267.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 267.
-LaTeX Font Info:    ... okay on input line 267.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 267.
-LaTeX Font Info:    ... okay on input line 267.
-LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 267.
-LaTeX Font Info:    Try loading font information for MDA+cmr on input line 267.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 293.
+LaTeX Font Info:    ... okay on input line 293.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 293.
+LaTeX Font Info:    ... okay on input line 293.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 293.
+LaTeX Font Info:    ... okay on input line 293.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 293.
+LaTeX Font Info:    ... okay on input line 293.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 293.
+LaTeX Font Info:    ... okay on input line 293.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 293.
+LaTeX Font Info:    ... okay on input line 293.
+LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 293.
+LaTeX Font Info:    Try loading font information for MDA+cmr on input line 293.
 
 
 (C:\Users\robin\AppData\Roaming\MiKTeX\2.8\tex\latex\mathdesign\mdacmr.fd
 File: mdacmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 267.
-LaTeX Font Info:    Checking defaults for MDB/cmr/m/n on input line 267.
-LaTeX Font Info:    Try loading font information for MDB+cmr on input line 267.
+LaTeX Font Info:    ... okay on input line 293.
+LaTeX Font Info:    Checking defaults for MDB/cmr/m/n on input line 293.
+LaTeX Font Info:    Try loading font information for MDB+cmr on input line 293.
 
 
 (C:\Users\robin\AppData\Roaming\MiKTeX\2.8\tex\latex\mathdesign\mdbcmr.fd
 File: mdbcmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 267.
+LaTeX Font Info:    ... okay on input line 293.
 
 ("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
@@ -491,876 +491,88 @@ driver: pdftex
 
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
-LaTeX Font Info:    Try loading font information for OML+mdput on input line 26
-8.
+LaTeX Font Info:    Try loading font information for OML+mdput on input line 29
+4.
 
 (C:\Users\robin\AppData\Roaming\MiKTeX\2.8\tex\latex\mathdesign\mdput\omlmdput.
 fd
 File: omlmdput.fd 2013/02/01 Fontinst v1.933 font definitions for OML/mdput.
 )
-LaTeX Font Info:    Try loading font information for OMS+mdput on input line 26
-8.
+LaTeX Font Info:    Try loading font information for OMS+mdput on input line 29
+4.
 
 (C:\Users\robin\AppData\Roaming\MiKTeX\2.8\tex\latex\mathdesign\mdput\omsmdput.
 fd
 File: omsmdput.fd 2013/02/01 Fontinst v1.933 font definitions for OMS/mdput.
 )
-LaTeX Font Info:    Try loading font information for OMX+mdput on input line 26
-8.
+LaTeX Font Info:    Try loading font information for OMX+mdput on input line 29
+4.
 
 (C:\Users\robin\AppData\Roaming\MiKTeX\2.8\tex\latex\mathdesign\mdput\omxmdput.
 fd
 File: omxmdput.fd 2013/02/01 Fontinst v1.933 font definitions for OMX/mdput.
 )
-LaTeX Font Info:    Try loading font information for MDA+mdput on input line 26
-8.
+LaTeX Font Info:    Try loading font information for MDA+mdput on input line 29
+4.
 
 (C:\Users\robin\AppData\Roaming\MiKTeX\2.8\tex\latex\mathdesign\mdput\mdamdput.
 fd
 File: mdamdput.fd 2013/02/01 Fontinst v1.933 font definitions for MDA/mdput.
 )
-LaTeX Font Info:    Try loading font information for MDB+mdput on input line 26
-8.
+LaTeX Font Info:    Try loading font information for MDB+mdput on input line 29
+4.
 
 (C:\Users\robin\AppData\Roaming\MiKTeX\2.8\tex\latex\mathdesign\mdput\mdbmdput.
 fd
 File: mdbmdput.fd 2013/02/01 Fontinst v1.933 font definitions for MDB/mdput.
 )
 LaTeX Font Info:    Font shape `OML/mdput/bx/it' in size <10> not available
-(Font)              Font shape `OML/mdput/b/it' tried instead on input line 299
+(Font)              Font shape `OML/mdput/b/it' tried instead on input line 325
 .
 LaTeX Font Info:    Font shape `OML/mdput/bx/it' in size <7> not available
-(Font)              Font shape `OML/mdput/b/it' tried instead on input line 299
+(Font)              Font shape `OML/mdput/b/it' tried instead on input line 325
 .
 LaTeX Font Info:    Font shape `OML/mdput/bx/it' in size <5> not available
-(Font)              Font shape `OML/mdput/b/it' tried instead on input line 299
+(Font)              Font shape `OML/mdput/b/it' tried instead on input line 325
 .
 LaTeX Font Info:    Font shape `OML/mdput/bx/n' in size <10> not available
-(Font)              Font shape `OML/mdput/b/n' tried instead on input line 318.
+(Font)              Font shape `OML/mdput/b/n' tried instead on input line 344.
 
 LaTeX Font Info:    Font shape `OML/mdput/bx/n' in size <7> not available
-(Font)              Font shape `OML/mdput/b/n' tried instead on input line 318.
+(Font)              Font shape `OML/mdput/b/n' tried instead on input line 344.
 
 LaTeX Font Info:    Font shape `OML/mdput/bx/n' in size <5> not available
-(Font)              Font shape `OML/mdput/b/n' tried instead on input line 318.
+(Font)              Font shape `OML/mdput/b/n' tried instead on input line 344.
 
  [1
 
 {C:/Users/robin/AppData/Local/MiKTeX/2.8/pdftex/config/pdftex.map}]
-! Undefined control sequence.
-<argument> ...t \Rn \gj \of *{\vx }\I \fstpartial 
-                                                  {k_j}\E ^{-\I \scal \vk \v...
-l.341       \end{align*}
-                        
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> ...diffd \vx && \text {as }\fstpartial 
-                                                  {k_j}\E ^{-\I \scal \vk \v...
-l.341       \end{align*}
-                        
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> ...^{-\I \scal \vk \vx } = \fstpartial 
-                                                  {k_j}\E ^{-\I \Sum _{r=0}^...
-l.341       \end{align*}
-                        
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Missing { inserted.
-<to be read again> 
-                   _
-l.341       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.341       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Undefined control sequence.
-<argument> ...\scal \vk \vx }\\ &= \I \fstpartial 
-                                                  {k_j}\ftnrm \Int \Rn \gj \...
-l.341       \end{align*}
-                        
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> ...x } \diffd \vx \\ &= \I \fstpartial 
-                                                  [\ft \gj ]{k_j}\of *\vk 
-l.341       \end{align*}
-                        
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> ...t \Rn \gj \of *{\vx }\I \fstpartial 
-                                                  {k_j}\E ^{-\I \scal \vk \v...
-l.341       \end{align*}
-                        
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> ...diffd \vx && \text {as }\fstpartial 
-                                                  {k_j}\E ^{-\I \scal \vk \v...
-l.341       \end{align*}
-                        
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> ...^{-\I \scal \vk \vx } = \fstpartial 
-                                                  {k_j}\E ^{-\I \Sum _{r=0}^...
-l.341       \end{align*}
-                        
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Missing { inserted.
-<to be read again> 
-                   _
-l.341       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.341       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Undefined control sequence.
-<argument> ...\scal \vk \vx }\\ &= \I \fstpartial 
-                                                  {k_j}\ftnrm \Int \Rn \gj \...
-l.341       \end{align*}
-                        
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> ...x } \diffd \vx \\ &= \I \fstpartial 
-                                                  [\ft \gj ]{k_j}\of *\vk 
-l.341       \end{align*}
-                        
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   \let 
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   \let 
-l.373       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.373       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.377 ...b,\sup_{\vk\in\R^n}\abs*{\vk^\miga\pd\vk^
-                                                  \migb\ft\gj\of*\vk}<\infty
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.378       \end{equation*}
-                           
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.388       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.388       \end{align*}
-                        
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.388       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.388       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.388       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.388       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.388       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.388       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   \let 
-l.388       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.388       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.388       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.388       \end{align*}
-                        
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.388       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.388       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.388       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.388       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.388       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.388       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-! Missing { inserted.
-<to be read again> 
-                   \let 
-l.388       \end{align*}
-                        
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.388       \end{align*}
-                        
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-[2] [3]
-! Undefined control sequence.
-l.455       \ft{\of*{x^2\gj}}\of* k &= -\nthderiv
-                                                 {k}{2}\ft\gj\of* k \\
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> \of *{\nthderiv 
-                           {x}{2}\gj }
-l.456       \ft{\of*{\nthderiv{x}{2}\gj}}
-                                         \of* k &= -k^2 \ft\gj\of* k
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> \of *{\nthderiv 
-                           {x}{2}\gj }
-l.456       \ft{\of*{\nthderiv{x}{2}\gj}}
-                                         \of* k &= -k^2 \ft\gj\of* k
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.462     \FT\of*{\of*{-\nthderiv
-                                 {x}{2}+x^2}\gj}\of* k = \of*{-\nthderiv{k}{...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.462 ...iv{x}{2}+x^2}\gj}\of* k = \of*{-\nthderiv
-                                                  {k}{2}+k^2}\FT\gj\of* k,
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.467 ...t $H \coloneqq \frac{1}{2}\of*{-\nthderiv
-                                                  {x}{2}+x^2-1}$. Then $\com...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> ...q \frac {1}{\sqrt 2}\of *{\fstderiv 
-                                                  {x} + x},\\ A\adj &\colone...
-l.471   \end{align*}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> ... \frac {1}{\sqrt 2}\of *{-\fstderiv 
-                                                  {x} + x}. 
-l.471   \end{align*}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> ...q \frac {1}{\sqrt 2}\of *{\fstderiv 
-                                                  {x} + x},\\ A\adj &\colone...
-l.471   \end{align*}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> ... \frac {1}{\sqrt 2}\of *{-\fstderiv 
-                                                  {x} + x}. 
-l.471   \end{align*}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \fstderiv 
-                          
-l.472 ...  = a^2-b^2$, but here $x$ and $\fstderiv
-                                                  {x}$ don't quite commute, ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[4] ("C:\Users\robin\Google Drive\Git\MMP-II-Lecture-Notes-Spring-2013\MMPII.au
-x") ) 
+[2] [3] [4]
+("C:\Users\robin\Google Drive\Git\MMP-II-Lecture-Notes-Spring-2013\MMPII.aux") 
+) 
 Here is how much of TeX's memory you used:
- 5498 strings out of 495285
- 78115 string characters out of 3179879
- 151816 words of memory out of 3000000
- 8553 multiletter control sequences out of 15000+200000
+ 5507 strings out of 495285
+ 78366 string characters out of 3179879
+ 153178 words of memory out of 3000000
+ 8562 multiletter control sequences out of 15000+200000
  119450 words of font info for 113 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,20n,34p,922b,324s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.8/fonts/enc/dvips/fontname/texnansi.enc}<
-C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/mathdesign/mdput/md-utbi7
-m.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/mathdesign/mdput/m
-d-utr7m.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/mathdesign/m
-dput/md-utr7t.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/mathde
-sign/mdput/md-utr7v.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/
-mathdesign/mdput/md-utr7y.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/
-type1/mathdesign/mdput/md-utr8t.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/
-fonts/type1/mathdesign/mdput/md-utri7m.pfb><C:/Users/robin/AppData/Roaming/MiKT
-eX/2.8/fonts/type1/mathdesign/mdput/md-utrma.pfb><C:/Program Files (x86)/MiKTeX
- 2.8/fonts/type1/adobe/utopia/putb8a.pfb><C:/Program Files (x86)/MiKTeX 2.8/fon
-ts/type1/adobe/utopia/putbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type
-1/adobe/utopia/putr8a.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/adobe/
-utopia/putri8a.pfb>
-Output written on MMPII.pdf (4 pages, 107998 bytes).
+ 37i,20n,34p,922b,326s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.8/fonts/enc/dvips/fontname/texnansi.enc}<C:/U
+sers/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/mathdesign/mdput/md-utbi7m.pf
+b><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/mathdesign/mdput/md-ut
+r7m.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/mathdesign/mdput
+/md-utr7t.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/mathdesign
+/mdput/md-utr7v.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/math
+design/mdput/md-utr7y.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type
+1/mathdesign/mdput/md-utr8t.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/font
+s/type1/mathdesign/mdput/md-utri7m.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2
+.8/fonts/type1/mathdesign/mdput/md-utrma.pfb><C:/Program Files (x86)/MiKTeX 2.8
+/fonts/type1/adobe/utopia/putb8a.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/t
+ype1/adobe/utopia/putbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/ad
+obe/utopia/putr8a.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/adobe/utop
+ia/putri8a.pfb>
+Output written on MMPII.pdf (4 pages, 110256 bytes).
 PDF statistics:
  64 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

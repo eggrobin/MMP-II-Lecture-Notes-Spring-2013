@@ -69,6 +69,7 @@
 \DeclarePairedDelimiter\singleBars{\lvert}{\rvert}
 \DeclarePairedDelimiter\parentheses{\lparen}{\rparen}
 \DeclarePairedDelimiter\squareBrackets{[}{]}
+\DeclarePairedDelimiter\curlyBrackets{\lbrace}{\rbrace}
 %% Binary.
 \DeclarePairedDelimiterX\lsquareCommaRsquare[2]{[}{]}{#1, #2}
 \DeclarePairedDelimiterX\lsquareCommaLsquare[2]{[}{[}{#1, #2}
@@ -80,6 +81,12 @@
 \DeclarePairedDelimiterX\lcurlyBarRcurly[2]{\lbrace}{rbrace}{#1\delimsize\vert #2}
 
 %%%% Semantic commands. These are the ones that should be used in the document.
+
+% Set PedanticNotation to true for explicit notations of function
+% brackets vs. parentheses, absolute value vs. multi-index total,
+% commutators vs. closed intervals, etc.
+\newif\ifPedanticNotation
+\PedanticNotationtrue
 
 %%% Constants.
 % Constants are typeset in roman as per ISO 80000-2:2009
@@ -130,15 +137,15 @@
 % \deriv[n] x f is the nth derivative of f with respect to x.
 % Use \deriv x f for the first derivative, and 
 % \derivop[n] x for the operator 'nth derivative with respect to x.
-\newcommand\deriv[3][]{\frac{\diffd^{#1} #3}{{\diffd #2}^{#1}}}
-\newcommand{\derivop}[2][]{\deriv[#1]#2{}}
+\newcommand\deriv[3][]{\frac{\diffd^{#1} {#3}}{{\diffd {#2}}^{#1}}}
+\newcommand{\derivop}[2][]{\deriv[#1]{#2}{}}
 % \pderiv[n] {x_j} f is the nth derivative of f with respect to x_j.
 % Remarks from \deriv apply.
-\newcommand\pderiv[3][]{\frac{\partial^{#1} #3}{{\partial #2}^{#1}}}
-\newcommand{\pderivop}[2][]{\pderiv[#1]#2{}}
+\newcommand\pderiv[3][]{\frac{\partial^{#1} #3}{{\partial {#2}}^{#1}}}
+\newcommand{\pderivop}[2][]{\pderiv[#1]{#2}{}}
 % \pderiv\vx\miga is the composition of the partial derivation
 % operators \pderiv[\ga_j]x_j{}.
-\newcommand{\pd}[2]{{\partial_#1}^#2}
+\newcommand{\pd}[2]{{\partial_#1}^{#2}}
 
 %%% Sets.
 % \N is the set of natural numbers. 0\in\N by ISO 80000-2:2009.
@@ -159,10 +166,13 @@
 %%% Delimiters.
 % \of is the bracketing for function arguments, as in
 % f\of\vx, \diffd{x^2+1}. It is distinct from the normal parenthesising.
-%TODO (eggrobin): switch back to parentheses after checking for proper usage.
-\newcommand\of[1]{\squareBrackets*{#1}}
+\newcommand\of[1]{\parentheses*{#1}}
 % \pa is the parenthesising for associativity, as in \pa{x+y}^2.
 \newcommand\pa[1]{\parentheses*{#1}}
+% \tuple{a,b,c} is the tuple containing a, b and c in that order.
+\newcommand\tuple[1]{\parentheses*{#1}}
+% \set{a,b,c} is the set containing a, b and c.
+\newcommand\set[1]{\curlyBrackets*{#1}}
 %% Normlike delimiters.
 % \abs is the absolute value on C or R, \abs z = \sqrt{z\conj{z}}.
 \newcommand\abs[1]{\singleBars*{#1}}
@@ -170,13 +180,13 @@
 \newcommand\norm[1]{\singleBars*{#1}}
 % \Lnorm[p] is the Lp function norm, \Lnorm[p] f = \pa{Int_\Rn \abs{f}^p \diffd x}^\frac{1}{p}
 % \Lnorm is the L\infty function norm,
-% \Lnorm f = \Set{C\geq0}{\abs{f}\leq C \text{almost everywhere}}.
-\newcommand\Lnorm[2][\infty]{\doubleBars*{#2}_#1}
-% \Schwartznorm\miga\migb{f} is defined as \sup_\{\vx\in\R^n}\abs{\vx^\miga\pd\vx\miga f\of\vx}.
+% \Lnorm f = \setst{C\geq0}{\abs{f}\leq C \text{almost everywhere}}.
+\newcommand\Lnorm[2][\infty]{\doubleBars*{#2}_{#1}}
+% \SchwartzNorm\miga\migb{f} is defined as \sup_\{\vx\in\R^n}\abs{\vx^\miga\pd\vx\miga f\of\vx}.
 % The Schwartz space is the space of functions for which it is finite for all \miga and \migb.
-\newcommand{\Schwartznorm}[3]{\doubleBars*{#3}_{#1,#2}}
-% \MIabs is the absolute value of multi-indices, \MIabs \miga = \sum_i \ga_i.
-\newcommand\MIabs[1]{\singleBars*{#1}}
+\newcommand{\SchwartzNorm}[3]{\doubleBars*{#3}_{#1,#2}}
+% \total is the total of multi-indices, \total \miga = \sum_i \ga_i.
+\newcommand\total[1]{\singleBars*{#1}}
 
 %% Binary delimiters.
 % Intervals.
@@ -190,8 +200,8 @@
 \newcommand{\intopcl}[2]{\rsquareCommaRsquare{#1}{#2}}
 \newcommand{\intclop}[2]{\lsquareCommaLsquare{#1}{#2}}
 \newcommand{\intclos}[2]{\lsquareCommaRsquare{#1}{#2}}
-% \comm is the commutator of operators, \comm A B = AB - BA.
-\newcommand\comm[2]{\lsquareCommaRsquare*{#1}{#2}}
+% \commutator is the commutator of operators, \commutator A B = AB - BA.
+\newcommand\commutator[2]{\lsquareCommaRsquare*{#1}{#2}}
 % \scal is the standard scalar product on R^n, \scal \vx \vy = \sum_i x_i y_i
 % we use \emptyDotEmpty as per ISO 80000-2:2009.
 \newcommand\scal[2]{\emptyDotEmpty*{#1}{#2}}
@@ -199,11 +209,11 @@
 % scalar product \scal does not include delimiters, e.g. \emptyDotEmpty, but should not be if 
 % it does, e.g. \angleCommaAngle. 'pascal' stands for pa[rentheses] scal[ar].
 % Set \NeedPascal accordingly.
-\newif\ifNeedPascal \NeedPascalfalse
-\ifNeedPascal \newcommand{\pascal}[1]{\paretheses*{#1}}
+\newif\ifNeedPascal \NeedPascaltrue
+\ifNeedPascal \newcommand{\pascal}[1]{\pa{#1}}
 \else \newcommand{\pascal}[1]{#1} \fi
-% \Set{x\in X}{P\of x} is the set of x in X such that P\of x is true.
-\newcommand{\Set}[2]{\lcurlyBarRcurly{#1}{#2}}
+% \setst{x\in X}{P\of x} is the set of x in X such that P\of x is true.
+\newcommand{\setst}[2]{\lcurlyBarRcurly{#1}{#2}}
 
 %%% Variable names.
 %% Greek letters.
@@ -236,13 +246,29 @@
 %%% Miscellaneous.
 % \placeholder is a placeholder for a parameter,
 % as in 'if f is linear, f\of{\gl\placeholder}=\gl f.'
-\newcommand\placeholder{\,\cdot\,}
+\newcommand\placeholder{\,\:\cdot\:\,}
+
+%%% Pedantic variants.
+\ifPedanticNotation
+  \renewcommand\of[1]{\squareBrackets*{#1}}
+  \renewcommand\total[1]{\singleBars*{#1}_{\mathrm{MI}}}
+  \renewcommand\norm[1]{\singleBars*{#1}_{2}}
+  \renewcommand\abs[1]{\singleBars*{#1}_{\mathrm{abs}}}
+  \renewcommand\tuple[1]{\parentheses*{#1}_{\mathrm{tuple}}}
+  \renewcommand\commutator[2]{\lsquareCommaRsquare*{#1}{#2}_{\mathrm{commutator}}}
+  \renewcommand\Lnorm[2][\infty]{\doubleBars*{#2}_{\mathcal{L}_{#1}}}
+  \renewcommand{\intopen}[2]{\rsquareCommaLsquare{#1}{#2}_{\mathrm{interval}}}
+  \renewcommand{\intopcl}[2]{\rsquareCommaRsquare{#1}{#2}_{\mathrm{interval}}}
+  \renewcommand{\intclop}[2]{\lsquareCommaLsquare{#1}{#2}_{\mathrm{interval}}}
+  \renewcommand{\intclos}[2]{\lsquareCommaRsquare{#1}{#2}_{\mathrm{interval}}}
+\fi
+
 %%%% Shorthands.
 
 %% Several shorthands to reduce the number of '{', '}', '_', and other tiresome characters.
-% Integral and summation with space indicated below.
-\newcommand\Int[1]{\int\limits_#1}
-\newcommand{\Sum}[1]{\sum\limits_#1}
+% Integral and summation over a space indicated below.
+\newcommand\Int[1]{\int\limits_{#1}}
+\newcommand{\Sum}[1]{\sum\limits_{#1}}
 
 %% Frequently-used sets.
 \newcommand{\Rn}{{\R^n}}
@@ -255,7 +281,7 @@
 %%%% Miscellaneous
 
 % For comments in align environments
-\newcommand\commentbox[1]{\parbox{7.5cm}{#1}}
+\newcommand\commutatorentbox[1]{\parbox{7.5cm}{#1}}
 
 
 %%%% Title.
@@ -305,15 +331,15 @@
         \leq \ftnrm\Int\Rn \abs{\gj\of\vx 
         \E^{-\I \scal\vk\vx}}\diffd\vx  = \ftnrm
         \underbrace{\Int\Rn \abs{\gj\of\vx}}_{\Lnorm[1]{\gj}}
-        \underbrace{\abs{\E^{-\I\scal\vk\vx}}}\diffd\vx \\
+        \underbrace{\abs{\E^{-\I\scal\vk\vx}}}_{1}\diffd\vx \\
       \end{equation*}
       Proof of existence of the integral $\Lnorm[1]\gj$:
       \begin{align*}
         \Int\Rn\abs{\gj\of\vx}\diffd\vx 
-        &= \Int\Rn\pa{1+\abs{\vx}^2}^\frac{s}{2}\abs{\gj\of\vx}
-        \frac{\diffd\vx}{\pa{1+\abs{\vx}^2}^\frac{s}{2}}  \\
-        &\leq \Schwartznorm s\nullmi\gj \Int\Rn\frac{1}{\pa{1+\abs{\vx}^2}^\frac{s}{2}}\diffd\vx\\
-        &= \Schwartznorm s\nullmi\gj \Int0^\infty\frac{r^{n-1}}{\pa{1+r^2}^\frac{s}{2}}\diffd r
+        &= \Int\Rn\pa{1+\norm{\vx}^2}^\frac{s}{2}\abs{\gj\of\vx}
+        \frac{\diffd\vx}{\pa{1+\norm{\vx}^2}^\frac{s}{2}}  \\
+        &\leq \SchwartzNorm s\nullmi\gj \Int\Rn\frac{1}{\pa{1+\norm{\vx}^2}^\frac{s}{2}}\diffd\vx\\
+        &= \SchwartzNorm s\nullmi\gj \intop_0^\infty\frac{r^{n-1}}{\pa{1+r^2}^\frac{s}{2}}\diffd r
         < \infty &&\text{for } s\geq n+1
       \end{align*}
       ``(\ref{FTLinearity}) I will not do!''
@@ -329,30 +355,30 @@
       \end{align*}
       Proof of the second part of (\ref{FTDerivative}):
       \begin{align*}
-        \ft{x_j\gj}\of*\vx 
-        &= \ftnrm\Int\Rn x_j\gj\of*{\vx}\E^{-\I\scal\vk\vx}\diffd\vx \\
+        \ft{x_j\gj}\of\vx 
+        &= \ftnrm\Int\Rn x_j\gj\of{\vx}\E^{-\I\scal\vk\vx}\diffd\vx \\
         &= \ftnrm
-          \Int\Rn\gj\of*{\vx}\I\fstpartial{k_j}\E^{-\I\scal\vk\vx} \diffd\vx 
-          && \text{as }\fstpartial{k_j}\E^{-\I\scal\vk\vx} =
-            \fstpartial{k_j}\E^{-\I\Sum_{r=0}^n k_j x_j}=-\I x_j \E^{-\I\scal\vk\vx}\\
-        &= \I\fstpartial{k_j}\ftnrm
-          \Int\Rn\gj\of*\vx\E^{-\I\scal\vk\vx} \diffd\vx \\
-        &= \I\fstpartial[\ft\gj]{k_j}\of*\vk
+          \Int\Rn\gj\of{\vx}\I\pderivop{k_j}\E^{-\I\scal\vk\vx} \diffd\vx 
+          && \text{as }\pderivop{k_j}\E^{-\I\scal\vk\vx} =
+            \pderivop{k_j}\E^{-\I\sum_{r=0}^n k_j x_j}=-\I x_j \E^{-\I\scal\vk\vx}\\
+        &= \I\pderivop{k_j}\ftnrm
+          \Int\Rn\gj\of\vx\E^{-\I\scal\vk\vx} \diffd\vx \\
+        &= \I\pderiv{k_j}{\ft\gj}\of\vk
       \end{align*}
       
       \emph{The professor starts whistling some elevator music while waiting for a student to write down the proof before he can wipe the board. When the student is done, the professor notices that there still is some room left on the blackboard and starts writing the rest there, without erasing anything.}
       
       Proof of \ref{FTUnitary}:
       \begin{align*}
-        \Int\Rn\ft\gj\of*\vy \gy\of*\vy \diffd\vy
-        &= \Int\Rn\ftnrm\Int\Rn\gj\of*\vx
-          \E^{-\I\scal\vy\vx}\diffd\vx\:\gy\of*\vy\diffd\vy \\
-        &= \Int\Rn\gj\of*\vx\ftnrm\Int\Rn
-          \E^{-\I\scal\vx\vy}\gy\of*\vy\diffd\vy\diffd\vx
-          && \commentbox{As $\int_{\R^{2n}}\abs*{\gj\of*\vx
-          \E^{-\I\scal\vy\vx}\gy\of*\vy}\diffd\vx\diffd\vy<\infty$,
+        \Int\Rn\ft\gj\of\vy \gy\of\vy \diffd\vy
+        &= \Int\Rn\ftnrm\Int\Rn\gj\of\vx
+          \E^{-\I\scal\vy\vx}\diffd\vx\:\gy\of\vy\diffd\vy \\
+        &= \Int\Rn\gj\of\vx\ftnrm\Int\Rn
+          \E^{-\I\scal\vx\vy}\gy\of\vy\diffd\vy\diffd\vx
+          && \commutatorentbox{As $\int_{\R^{2n}}\abs{\gj\of\vx
+          \E^{-\I\scal\vy\vx}\gy\of\vy}\diffd\vx\diffd\vy<\infty$,
           we can use Fubini's theorem.} \\
-        &=\Int\Rn\gj\of*\vy \ft\gy\of*\vy \diffd\vy
+        &=\Int\Rn\gj\of\vy \ft\gy\of\vy \diffd\vy
       \end{align*}
       
       
@@ -360,116 +386,116 @@
   \end{lemma}
   
   \begin{proposition}
-  The Fourier transform $\ft\quad$ is a continuous bijective linear map from the Schwartz space $\Schwartz$ to itself. $\rft{\ft{\gj}}=\gj$, where $\rft\gy\of*\vx\coloneqq\ftnrm \int_\Rn\gy\of*\vk\E^{\I\scal\vk\vx}\diffd\vx$, read ``unhat'', ``bird'', ``seagull'', or whatever you like.
+  The Fourier transform $\ft\placeholder$ is a continuous bijective linear map from the Schwartz space $\Schwartz$ to itself. $\rft{\ft{\gj}}=\gj$, where $\rft\gy\of\vx\coloneqq\ftnrm \int_\Rn\gy\of\vk\E^{\I\scal\vk\vx}\diffd\vx$, read ``unhat'', ``bird'', ``seagull'', or whatever you like.
   
     \begin{proof}
       \begin{align*}
-        \gj\in\Schwartz&\Rightarrow\vx^\miga\pd\vx^\migb\in\Schwartz \\
-        \ft{\of*{\vx^\miga\pd\vx^\migb\gj}}\of*\vk
-        &=\I^{\abs*\miga}\pd\vk^\miga\ft{\of*{\pd\vx^\migb\gj}}\of*\vk 
-          && \text{from the second equality in (\ref{FTDerivative}), applied }\abs*\miga\text{ times.} \\
-        &=\I^{\abs*\miga}\pd\vk^\miga\of*{\I^{\abs*\migb}\vk^\migb\ft\gj}\of*\vk \\
-        &=\I^{\abs*\miga+\abs*\migb}\pd\vk\of*{\vk^\migb\ft\gj}\of*\vk
+        \gj\in\Schwartz&\Rightarrow\vx^\miga\pd\vx\migb\in\Schwartz \\
+        \ft{\pa{\vx^\miga\pd\vx\migb\gj}}\of\vk
+        &=\I^{\total\miga}\pd\vk\miga\ft{\pa{\pd\vx\migb\gj}}\of\vk 
+          && \text{from the second equality in (\ref{FTDerivative}), applied }\abs\miga\text{ times.} \\
+        &=\I^{\total\miga}\pd\vk\miga\of{\I^{\total\migb}\vk^\migb\ft\gj}\of\vk \\
+        &=\I^{\total\miga+\total\migb}\pd\vk\miga\of{\vk^\migb\ft\gj}\of\vk
       \end{align*}
       ``I should have done it the other way around. [...] Let's try it the other way around.''
       We want:
       \begin{equation*}
-        \forall\miga,\migb,\sup_{\vk\in\R^n}\abs*{\vk^\miga\pd\vk^\migb\ft\gj\of*\vk}<\infty
+        \forall\miga,\migb,\sup_{\vk\in\Rn}\abs{\vk^\miga\pd\vk\migb\ft\gj\of\vk}<\infty
       \end{equation*}
       As that implies $\ft\gj\in\Schwartz$.
       \begin{align*}
-        \ft{\of*{\pd\vx^\miga\of*{\vk^\migb\gj}}}\of*\vk
-        &=\I^{\abs*\miga+\abs*\migb}\vk^\miga\pd\vk^\migb\ft\gj\of*\vk
-        && \commentbox{by applying the first part of (\ref{FTDerivative}) $\abs*\miga
-        $ times and the second part $\abs*\migb$ times.}\\
-        \forall\miga,\migb,
-        \abs*{\vk^\miga\pd\vk^\migb\ft\gj\of*\vk}&\leq\ftnrm\norm*{\pd\vx\of*{\vx^\migb\gj}}_1<\infty
+        \ft{\pa{\pd\vx\miga\of{\vk^\migb\gj}}}\of\vk
+        &=\I^{\total\miga+\total\migb}\vk^\miga\pd\vk\migb\ft\gj\of\vk
+        && \commutatorentbox{by applying the first part of (\ref{FTDerivative}) $\total\miga
+        $ times and the second part $\total\migb$ times.}\\
+        \forall\miga,\migb,\abs{\vk^\miga\pd\vk\migb\ft\gj\of\vk}
+        &\leq\ftnrm\Lnorm[1]{\pd\vx\migb\of{\vx^\migb\gj}}<\infty
         && \text{from (\ref{FTUpperBound}).}
       \end{align*}
       We now know $\ft\gj\in\Schwartz$.
       Let us prove $\rft{\ft\gj}=\gj$. ``When you do the wrong thing I'm gonna scream loudly.''
       \begin{align*}
-        \rft{\ft\gj}\of*\vx&=\ftnrm\Int\Rn\ft\gj\of*\vk\E^{\I\scal\vk\vx}\diffd\vk \\
-        &=\sqftnrm\Int\Rn\Int\Rn\gj\of*\vy\E^{-\I\scal\vk\vy}\diffd\vy\E^{\I\scal\vk\vx}\diffd\vk
+        \rft{\ft\gj}\of\vx&=\ftnrm\Int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}\diffd\vk \\
+        &=\sqftnrm\Int\Rn\Int\Rn\gj\of\vy\E^{-\I\scal\vk\vy}\diffd\vy\:\E^{\I\scal\vk\vx}\diffd\vk
       \end{align*}
       We don't interchange the integrals here because that would lead to ugly calculations. ``If pou paint the walls before you start building, it's not a good idea.''
-      At this point, somebody suggests replacing $\sqftnrm\int_\Rn \E^{\I\scal\vk{\pascal{\vx-\vy}}}\diffd\vk$ by $\gd\of*{\vx-\vy}$. ``It's plausible! --- WHY? [...] Ah I said it, so it's plausible.'' However, doing this would also lead to some nasty calculations. ``How are we going to do it so fast that you don't get bored, and yet in enough detail that he's convinced? Be sneaky.''
+      At this point, somebody suggests replacing $\sqftnrm\int_\Rn \E^{\I\scal\vk{\pascal{\vx-\vy}}}\diffd\vk$ by $\gd\of*{\vx-\vy}$. ``It's plausible! --- WHY? [...] Ah I said it, so it's plausible.'' However, we would need to do some nasty calculations in order to do this. ``How are we going to do it so fast that you don't get bored, and yet in enough detail that he's convinced? Be sneaky.''
       \begin{align*}
         \rft{\ft{\gj}}
-        &=\ftnrm\Int\Rn\ft\gj\of*\vk\E^{\I\scal\vk\vx}
-        \underbrace{\lim_{\ge\downarrow 0}\E^{-\ge\frac{\abs*\vk^2}{2}}}_{\mathclap{\substack{1
+        &=\ftnrm\Int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}
+        \underbrace{\lim_{\ge\downarrow 0}\E^{-\ge\frac{\norm\vk^2}{2}}}_{\mathclap{\substack{1
         \text{ written in}\\\text{some other way}}}}\diffd\vk\\
-        &=\lim_{\ge\downarrow 0}\ftnrm\Int\Rn\ft\gj\of*\vk\E^{\I\scal\vk\vx}
-        \E^{-\ge\frac{\abs*\vk^2}{2}}&&\commentbox{``Don't worry.'' This is actually a one-liner 
+        &=\lim_{\ge\downarrow 0}\ftnrm\Int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}
+        \E^{-\ge\frac{\norm\vk^2}{2}}&&\commutatorentbox{``Don't worry.'' This is actually a one-liner 
         using Lebesgue's dominated convergence theorem.}
       \end{align*}
       \emph{The 10-minute break ends with the loud noise of a metallic pointing stick hitting the desk.}
       \begin{align*}
-        \ftnrm\Int\Rn\ft\gj\of*\vk\E^{\I\scal\vk\vx}\E^{-\ge\frac{\abs*\vk^2}{2}}\diffd\vk
-        &=\ftnrm\Int\Rn\ftnrm\Int\Rn\gj\of*\vy\E^{-\I\scal\vy\vk}\diffd\vy\:
-        \E^{\I\scal\vk\vx}\E^{-\ge\frac{\abs*\vk^2}{2}}\diffd\vk\\
-        &=\ftnrm\Int\Rn\gj\of*\vy\ftnrm\Int\Rn\E^{\I\scal\vk{\pascal{\vx-\vy}}}
-        \E^{-\ge\frac{\abs*\vk^2}{2}}\diffd\vk\diffd\vy
+        \ftnrm\Int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}\E^{-\ge\frac{\norm\vk^2}{2}}\diffd\vk
+        &=\ftnrm\Int\Rn\ftnrm\Int\Rn\gj\of\vy\E^{-\I\scal\vy\vk}\diffd\vy\:
+        \E^{\I\scal\vk\vx}\E^{-\ge\frac{\norm\vk^2}{2}}\diffd\vk\\
+        &=\ftnrm\Int\Rn\gj\of\vy\ftnrm\Int\Rn\E^{\I\scal\vk{\pascal{\vx-\vy}}}
+        \E^{-\ge\frac{\norm\vk^2}{2}}\diffd\vk\diffd\vy
       \end{align*}
       Recall: ``every path leads to Rome and every Gaussian is in $\Schwartz$.'' Also, the last foot of a dactylic hexameter is always a spondee. 
       \begin{equation*}
-        \ftnrm\Int\Rn\E^{-\ge\frac{\abs*\vk^2}{2}}\E^{\I\scal{\pascal{\vy-\vx}}\vk}\diffd\vk
-        =\frac{\E^{-\frac{1}{2\ge}\abs*{\vx-\vy}^2}}{\ge^\frac{n}{2}}
+        \ftnrm\Int\Rn\E^{-\ge\frac{\norm\vk^2}{2}}\E^{\I\scal{\pascal{\vy-\vx}}\vk}\diffd\vk
+        =\frac{\E^{-\frac{1}{2\ge}\norm{\vx-\vy}^2}}{\ge^\frac{n}{2}}
       \end{equation*}
       We therefore get:
       \begin{align*}
-         \ftnrm\Int\Rn\ft\gj\of*\vk\E^{\I\scal\vk\vx}\E^{-\ge\frac{\abs*\vk^2}{2}}\diffd\vk
-         &=\ftnrm\Int\Rn\gj\of*\vy\ftnrm\Int\Rn\E^{\I\scal\vk{\pascal{\vx-\vy}}}
-        \E^{-\ge\frac{\abs*\vk^2}{2}}\diffd\vk\diffd\vy\\
-        &=\ftnrm\Int\Rn\gj\of*\vy\frac{\E^{-\frac{1}{2\ge}\abs*{\vx-\vy}^2}}
+         \ftnrm\Int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}\E^{-\ge\frac{\norm\vk^2}{2}}\diffd\vk
+         &=\ftnrm\Int\Rn\gj\of\vy\ftnrm\Int\Rn\E^{\I\scal\vk{\pascal{\vx-\vy}}}
+        \E^{-\ge\frac{\norm\vk^2}{2}}\diffd\vk\diffd\vy\\
+        &=\ftnrm\Int\Rn\gj\of\vy\frac{\E^{-\frac{1}{2\ge}\norm{\vx-\vy}^2}}
         {\ge^\frac{n}{2}}\diffd\vy \\
-        &=\ftnrm\Int\Rn\gj\of*{\vy\sqrt\ge+\vx}\frac{\E^{-\frac{1}{2\ge}\abs*{\vy\sqrt\ge}^2}}
-        {\ge^\frac{n}{2}}\diffd\of*{\vy\sqrt\ge} && \text{``Epsilons everywhere!''}\\    
-        &=\ftnrm\Int\Rn\gj\of*{\vx+\vy\sqrt\ge}\E^{-\frac{1}{2}\abs*\vy^2}\diffd\vy
+        &=\ftnrm\Int\Rn\gj\of{\vy\sqrt\ge+\vx}\frac{\E^{-\frac{1}{2\ge}\norm{\vy\sqrt\ge}^2}}
+        {\ge^\frac{n}{2}}\diffd\of{\vy\sqrt\ge} && \text{``Epsilons everywhere!''}\\    
+        &=\ftnrm\Int\Rn\gj\of{\vx+\vy\sqrt\ge}\E^{-\frac{1}{2}\norm\vy^2}\diffd\vy
         && \text{``Now we can paint.''}\\
         &\overset{\ge\downarrow 0}{\rightarrow}
-        \ftnrm\gj\of*\vx\Int\Rn\E^{-\frac{1}{2}\abs*\vy^2}\diffd\vy =\gj\of*\vx.
+        \ftnrm\gj\of\vx\Int\Rn\E^{-\frac{1}{2}\norm\vy^2}\diffd\vy =\gj\of\vx.
       \end{align*}
     \end{proof}
   \end{proposition}
   
   \section{Eigenfunctions of the Fourier transform}
   ``The main ideas of many things are right here.''
-  We seek to find the solutions $\of*{\gj,\gl}$ of
+  We seek to find the solutions $\tuple{\gj,\gl}$ of
   \begin{equation*}
     \ft\gj=\gl\gj .
   \end{equation*}
   We shall find all of them. ``Not one is going to get away.'' Actually, we have already got one:
   \begin{equation*}
-    \ft{\E^{-\frac{1}{2}\abs*\vx^2}}=\E^{-\frac{1}{2}\abs*\vx^2},
+    \ft{\E^{-\frac{1}{2}\norm\vx^2}}=\E^{-\frac{1}{2}\norm\vx^2},
   \end{equation*}
   so we know that 1 is an eigenvalue. How do we find the others? ``Here you actually have to have an idea.''
   
   \paragraph{Idea}
-  Find an $H\in\End\of*\Schwartz$ such that $\comm H {\ft\quad} = 0$. Then they have the same eigenspaces, so we just need to find the eigenfunctions of $H$ (see \emph{Finite Dimensional Quantum Mechanics}).
+  Find an $H\in\End\of\Schwartz$ such that $\commutator H {\ft\placeholder} = 0$. Then they have the same eigenspaces, so we just need to find the eigenfunctions of $H$ (see \emph{Finite Dimensional Quantum Mechanics}).
   
   Let $n=1$.
   \begin{equation*}
     \left.
     \begin{aligned}
-      \ft{\of*{x^2\gj}}\of* k &= -\nthderiv{k}{2}\ft\gj\of* k \\
-      \ft{\of*{\nthderiv{x}{2}\gj}}\of* k &= -k^2 \ft\gj\of* k
+      \ft{\pa{x^2\gj}}\of k &= -\derivop[2]{k}\ft\gj\of k \\
+      \ft{\pa{\derivop[2]{x}\gj}}\of k &= -k^2 \ft\gj\of k
     \end{aligned}
     \right\rbrace \qquad \text{From the lemma your life depends on.}
   \end{equation*}
   Subtracting the second equality from the first one above:
   \begin{equation*}
-    \FT\of*{\of*{-\nthderiv{x}{2}+x^2}\gj}\of* k = \of*{-\nthderiv{k}{2}+k^2}\FT\gj\of* k,
+    \FT\of{\pa{-\derivop[2]{x}+x^2}\gj}\of k = \pa{-\derivop[2]{k}+k^2}\FT\gj\of k,
   \end{equation*}
-  where $\FT = \ft\quad$ because things are getting a bit too big for the hat.
+  where $\FT = \ft\placeholder$ because things are getting a bit too big for the hat.
   We smell a harmonic potential. ``Don't get your fingers too close, they sometimes bite.''
   
-  Let $H \coloneqq \frac{1}{2}\of*{-\nthderiv{x}{2}+x^2-1}$. Then $\comm H {\ft\quad}=0$. We multiplied by $\frac{1}{2}$ so that it looks even more like a harmonic potential (it is the Hamiltonian of the quantum harmonic oscillator). Why did we add $-1$? Define
+  Let $H \coloneqq \frac{1}{2}\of{-\derivop[2]{x}+x^2-1}$. Then $\commutator H {\ft\placeholder}=0$. We multiplied by $\frac{1}{2}$ so that it looks even more like a harmonic potential (it is the Hamiltonian of the quantum harmonic oscillator). Why did we add $-1$? Define
   \begin{align*}
-    A &\coloneqq \frac{1}{\sqrt 2}\of*{\fstderiv{x} + x},\\
-    A\adj &\coloneqq \frac{1}{\sqrt 2}\of*{-\fstderiv{x} + x}.
+    A &\coloneqq \frac{1}{\sqrt 2}\pa{\derivop{x} + x},\\
+    A\adj &\coloneqq \frac{1}{\sqrt 2}\pa{-\derivop{x} + x}.
   \end{align*}
-  We then have $H = A\adj A$. If $a$ and $b$ commute, then we have $\of*{a-b}\of*{a+b}  = a^2-b^2$, but here $x$ and $\fstderiv{x}$ don't quite commute, hence the $-1$.
+  We then have $H = A\adj A$. If $a$ and $b$ commute, then we have $\pa{a-b}\pa{a+b}  = a^2-b^2$, but here $x$ and $\derivop{x}$ don't quite commute, hence the $-1$.
 
 \emph{Here ends the lecture of 2013-03-06.}
 \end{document}
