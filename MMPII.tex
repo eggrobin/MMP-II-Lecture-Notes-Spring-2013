@@ -5,15 +5,27 @@
 %  <http://goo.gl/fVoiF>. Keep other applicable    %
 %  standards in   mind, e.g. ISO 8601:2004, etc.   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% build options (usage:                            %
+% pdflatex "<options>\input{MMPII.tex}")           %
+% [\def\targetComputerModern{}]                    %
+% [\def\targetPedantic{}]                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[10pt]{article}
 
 % Set ComputerModern to true to use fonts from the Computer Modern family,
 % Utopia to true to use the Utopia family. Set none to true for compilation 
 % errors, or both for havoc.
+% Run pdflatex "\def\targetComputerModern{}\input{MMPII.tex}"
+% to automatically set ComputerModern to true.
 \newif\ifComputerModern
 \newif\ifUtopia
-\Utopiatrue
-\ComputerModernfalse
+\ifdefined\targetComputerModern
+  \Utopiafalse
+  \ComputerModerntrue
+\else
+  \Utopiatrue
+  \ComputerModernfalse
+\fi
 
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -85,8 +97,14 @@
 % Set PedanticNotation to true for explicit notations of function
 % brackets vs. parentheses, absolute value vs. multi-index total,
 % commutators vs. closed intervals, etc.
+% Run pdflatex "\def\targetPedantic{}\input{MMPII.tex}"
+% to automatically set PedanticNotation to true.
 \newif\ifPedanticNotation
-\PedanticNotationfalse
+\ifdefined\targetPedantic
+  \PedanticNotationtrue
+\else
+  \PedanticNotationfalse
+\fi
 
 %%% Constants.
 % Constants are typeset in roman as per ISO 80000-2:2009
@@ -340,7 +358,7 @@
         \frac{\diffd\vx}{\pa{1+\norm{\vx}^2}^\frac{s}{2}}  \\
         &\leq \SchwartzNorm s\nullmi\gj \Int\Rn\frac{1}{\pa{1+\norm{\vx}^2}^\frac{s}{2}}\diffd\vx\\
         &= \SchwartzNorm s\nullmi\gj \intop_0^\infty\frac{r^{n-1}}{\pa{1+r^2}^\frac{s}{2}}\diffd r
-        < \infty &&\text{for } s\geq n+1
+        < \infty &&\text{for } s\geq n+1\text{.}
       \end{align*}
       ``(\ref{FTLinearity}) I will not do!''
       Proof of (\ref{FTScaling}):
@@ -348,8 +366,8 @@
         \ft{\gj\of{\gl\placeholder}} 
         &= \ftnrm\Int\Rn\gj\of{\gl\vx}\E^{-\I\scal\vk\vx} \diffd\vx \\
         &= \ftnrm\Int\Rn\gj\of\vy\E^{-\I\scal{\frac1\gl\vk}{\vy}} \diffd\of{\frac{\vy}{\gl}}
-          && \text{where } \vx=\frac1\gl\vy \\
-        &= \frac{1}{\gl^n} \underbrace{
+          && \text{where } \vx=\frac1\gl\vy\text{.} \\
+        &= \frac{1}{\abs\gl^n} \underbrace{
           \ftnrm\Int\Rn\gj\of\vy\E^{-\I\scal{\frac\vk\gl}\vy}
           \diffd\vy}_{\ft\gj\of{\frac\vk{\gl}}}
       \end{align*}
@@ -490,7 +508,7 @@
   where $\FT = \ft\placeholder$ because things are getting a bit too big for the hat.
   We smell a harmonic potential. ``Don't get your fingers too close, they sometimes bite.''
   
-  Let $H \coloneqq \frac{1}{2}\of{-\derivop[2]{x}+x^2-1}$. Then $\commutator H {\ft\placeholder}=0$. We multiplied by $\frac{1}{2}$ so that it looks even more like a harmonic potential (it is the Hamiltonian of the quantum harmonic oscillator). Why did we add $-1$? Define
+  Let $H \coloneqq \frac{1}{2}\pa{-\derivop[2]{x}+x^2-1}$. Then $\commutator H {\ft\placeholder}=0$. We multiplied by $\frac{1}{2}$ so that it looks even more like a harmonic potential (it is the Hamiltonian of the quantum harmonic oscillator). Why did we add $-1$? Define
   \begin{align*}
     A &\coloneqq \frac{1}{\sqrt 2}\pa{\derivop{x} + x},\\
     A\adj &\coloneqq \frac{1}{\sqrt 2}\pa{-\derivop{x} + x}.

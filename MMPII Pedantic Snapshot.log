@@ -1,10 +1,7 @@
 This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2013.3.8)  9 MAR 2013 23:48
 entering extended mode
-**MMPII.tex
+**\def\targetPedantic{}\input{MMPII.tex}
 ("C:\Users\robin\Google Drive\Git\MMP-II-Lecture-Notes-Spring-2013\MMPII.tex"
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
-rman, ngerman, german-x-2009-06-19, ngerman-x-2009-06-19, french, loaded.
 ("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 ("C:\Program Files (x86)\MiKTeX 2.8\tex\latex\base\size10.clo"
@@ -385,7 +382,9 @@ LaTeX Info: Redefining \today on input line 724.
 \rh@hta=\dimen126
 \rh@htb=\dimen127
 \rh@box=\box28
-("C:\Users\robin\Google Drive\Git\MMP-II-Lecture-Notes-Spring-2013\MMPII.aux")
+
+("C:\Users\robin\Google Drive\Git\MMP-II-Lecture-Notes-Spring-2013\MMPII Pedant
+ic Snapshot.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 311.
 LaTeX Font Info:    ... okay on input line 311.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 311.
@@ -548,31 +547,31 @@ LaTeX Font Info:    Font shape `OML/mdput/bx/n' in size <5> not available
 
 {C:/Users/robin/AppData/Local/MiKTeX/2.8/pdftex/config/pdftex.map}]
 [2] [3] [4]
-("C:\Users\robin\Google Drive\Git\MMP-II-Lecture-Notes-Spring-2013\MMPII.aux") 
-) 
+("C:\Users\robin\Google Drive\Git\MMP-II-Lecture-Notes-Spring-2013\MMPII Pedant
+ic Snapshot.aux") ) 
 Here is how much of TeX's memory you used:
- 5506 strings out of 495285
- 78358 string characters out of 3179879
- 152067 words of memory out of 3000000
- 8562 multiletter control sequences out of 15000+200000
- 119199 words of font info for 112 fonts, out of 3000000 for 9000
+ 5508 strings out of 495285
+ 78506 string characters out of 3179879
+ 153202 words of memory out of 3000000
+ 8563 multiletter control sequences out of 15000+200000
+ 119450 words of font info for 113 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,20n,34p,922b,326s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.8/fonts/enc/dvips/fontname/texnansi.enc}<C:/U
-sers/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/mathdesign/mdput/md-utbi7m.pf
-b><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/mathdesign/mdput/md-ut
-r7m.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/mathdesign/mdput
-/md-utr7t.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/mathdesign
-/mdput/md-utr7v.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/math
-design/mdput/md-utr7y.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type
-1/mathdesign/mdput/md-utr8t.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/font
-s/type1/mathdesign/mdput/md-utri7m.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2
-.8/fonts/type1/mathdesign/mdput/md-utrma.pfb><C:/Program Files (x86)/MiKTeX 2.8
-/fonts/type1/adobe/utopia/putb8a.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/t
-ype1/adobe/utopia/putbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/ad
-obe/utopia/putr8a.pfb><C:/Program Files (x86)/MiKTeX 2.8/fonts/type1/adobe/utop
-ia/putri8a.pfb>
-Output written on MMPII.pdf (4 pages, 109285 bytes).
+ 38i,20n,34p,951b,326s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.8/fonts/enc/dvips/fontname/
+texnansi.enc}<C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/mathdesign/
+mdput/md-utbi7m.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type1/math
+design/mdput/md-utr7m.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/fonts/type
+1/mathdesign/mdput/md-utr7t.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.8/font
+s/type1/mathdesign/mdput/md-utr7v.pfb><C:/Users/robin/AppData/Roaming/MiKTeX/2.
+8/fonts/type1/mathdesign/mdput/md-utr7y.pfb><C:/Users/robin/AppData/Roaming/MiK
+TeX/2.8/fonts/type1/mathdesign/mdput/md-utr8t.pfb><C:/Users/robin/AppData/Roami
+ng/MiKTeX/2.8/fonts/type1/mathdesign/mdput/md-utri7m.pfb><C:/Users/robin/AppDat
+a/Roaming/MiKTeX/2.8/fonts/type1/mathdesign/mdput/md-utrma.pfb><C:/Program File
+s (x86)/MiKTeX 2.8/fonts/type1/adobe/utopia/putb8a.pfb><C:/Program Files (x86)/
+MiKTeX 2.8/fonts/type1/adobe/utopia/putbi8a.pfb><C:/Program Files (x86)/MiKTeX 
+2.8/fonts/type1/adobe/utopia/putr8a.pfb><C:/Program Files (x86)/MiKTeX 2.8/font
+s/type1/adobe/utopia/putri8a.pfb>
+Output written on "MMPII Pedantic Snapshot.pdf" (4 pages, 110524 bytes).
 PDF statistics:
  64 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
