@@ -154,7 +154,7 @@
       \end{split}
       \\
       \label{FTUpperBound}
-      \abs*{\ft{\gj}(\bk)} &\leq \frac{1}{\of*{2\pi}^\frac{n}{2}}\norm*{\gj}_1<\infty, &&
+      \abs*{\ft{\gj}(\bk)} &\leq \ftnrm\norm*{\gj}_1<\infty, &&
       \norm*{\gj}_1 \coloneqq \Int\Rn \abs*{\gj(\bx)} \diffd \bx
       \\
       \label{FTScaling}
@@ -180,7 +180,7 @@
        \abs*{\ft\gj\of*\bk} 
         = \abs*{\ftnrm\Int\Rn \gj\of*\bx \E^{-\I \scal*\bk\bx}\diffd\bx} 
         \leq \ftnrm\Int\Rn \abs*{ \gj\of*\bx 
-        \E^{-\I \scal*\bk\bx}}\diffd\bx  = \frac{1}{\of*{2\pi}^\frac{n}{2}}
+        \E^{-\I \scal*\bk\bx}}\diffd\bx  = \ftnrm
         \underbrace{\Int\Rn \abs*{\gj\of*\bx}}_{\norm{\gj}_1}
         \underbrace{\abs*{\E^{-\I\scal*\bk\bx}}}_{1}\diffd\bx \\
       \end{equation*}
@@ -198,8 +198,7 @@
       \begin{align*}
         \ft{\gj\of*{\gl\cdot}} 
         &= \ftnrm\Int\Rn\gj\of*{\gl\bx}\E^{-\I\scal*\bk\bx} \diffd\bx \\
-        &= \frac{1}{\of*{2\pi}^\frac{n}{2}}
-          \Int\Rn\gj\of*\by\E^{-\I\scal*{\frac 1\gl\bk}{\by}} \diffd\of*{\frac{\by}{\gl}}
+        &= \ftnrm\Int\Rn\gj\of*\by\E^{-\I\scal*{\frac 1\gl\bk}{\by}} \diffd\of*{\frac{\by}{\gl}}
           && \text{where } \bx=\frac{1}{\gl}\by \\
         &= \frac{1}{\gl^n} \underbrace{
           \ftnrm\Int\Rn\gj\of*\by\E^{-\I\scal*{\frac\bk\gl}\by}
@@ -223,9 +222,9 @@
       Proof of \ref{FTUnitary}:
       \begin{align*}
         \Int\Rn\ft\gj\of*\by \gy\of*\by \diffd\by
-        &= \Int\Rn\frac{1}{\of*{2\pi}^\frac{n}{2}}\Int\Rn\gj\of*\bx
+        &= \Int\Rn\ftnrm\Int\Rn\gj\of*\bx
           \E^{-\I\scal*\by\bx}\diffd\bx\:\gy\of*\by\diffd\by \\
-        &= \Int\Rn\gj\of*\bx\frac{1}{\of*{2\pi}^\frac{n}{2}}\Int\Rn
+        &= \Int\Rn\gj\of*\bx\ftnrm\Int\Rn
           \E^{-\I\scal*\bx\by}\gy\of*\by\diffd\by\diffd\bx
           && \commentbox{As $\int_{\R^{2n}}\abs*{\gj\of*\bx
           \E^{-\I\scal*\by\bx}\gy\of*\by}\diffd\bx\diffd\by<\infty$,
@@ -238,7 +237,7 @@
   \end{lemma}
   
   \begin{proposition}
-  The Fourier transform $\ft\quad$ is a continuous bijective linear map from the Schwartz space $\Schwartz$ to itself. $\rft{\ft{\gj}}=\gj$, where $\rft\gy\of*\bx\coloneqq\frac{1}{\of*{2\pi}^\frac{n}{2}}\int_\Rn\gy\of*\bk\E^{\I\scal*\bk\bx}\diffd\bx$, read ``unhat'', ``bird'', ``seagull'', or whatever you like.
+  The Fourier transform $\ft\quad$ is a continuous bijective linear map from the Schwartz space $\Schwartz$ to itself. $\rft{\ft{\gj}}=\gj$, where $\rft\gy\of*\bx\coloneqq\ftnrm \int_\Rn\gy\of*\bk\E^{\I\scal*\bk\bx}\diffd\bx$, read ``unhat'', ``bird'', ``seagull'', or whatever you like.
   
     \begin{proof}
       \begin{align*}
