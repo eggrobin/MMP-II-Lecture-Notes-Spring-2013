@@ -163,7 +163,7 @@
 \newcommand{\pderivop}[2][]{\pderiv[#1]{#2}{}}
 % \pderiv\vx\miga is the composition of the partial derivation
 % operators \pderiv[\ga_j]x_j{}.
-\newcommand{\pd}[2]{{\partial_#1}^{#2}}
+\newcommand{\pd}[2]{{\partial_{#1}}^{#2}}
 
 %%% Sets.
 % \N is the set of natural numbers. 0\in\N by ISO 80000-2:2009.
@@ -178,6 +178,10 @@
 \newcommand{\R}{\mathbb{R}}
 % \C is the set of complex numbers.
 \newcommand{\C}{\mathbb{C}}
+% \Cont is the set of all continuous functions.
+\newcommand{\Cont}{C}
+% \Continf is the set of all smooth functions.
+\newcommand{\Continf}{\Cont^\infty}
 % \SchwartzSpace\of{\R^d} is the Schwartz space of \R^d.
 \newcommand{\SchwartzSpace}{\mathcal{S}}
 
@@ -310,6 +314,108 @@
 
 \begin{document}
   \maketitle
+  \section{\emph{True Lies}: An introduction to distribution theory}
+  In many areas of physics, the Dirac delta ``function'' is an important tool, e.g. for describing localized phenomena. While it is usually described in vague terms as ``only making sense under an integral'', physicists tend to still write identities such as
+  \begin{equation*}
+    \Delta \frac{1}{\abs{\vx}} = -4 \pi \delta\of\vx,
+  \end{equation*}
+  and rely on their intuition and previous mistakes to distinguish situations in which they can safely apply this calculus from the ones where that would lead to incorrect results.
+
+  How can we formalize this? Note that the operation of taking the integral of the Dirac delta multiplied with another function $\gj$ can be considered as a map from that function to a scalar in $\C$. Thus, we could consider
+  \begin{equation*}
+    \delta_\vx\of\gj = \Int\Rn \delta\of{\vx - \vy} \gj\of\vy \diffd\vy
+  \end{equation*}
+  to be a functional, and more specifically an element of the dual space of whatever class of functions we can allow for $\gj$. But the question is: What restrictions do we need on this space of functions functions if we want to find objects like the Dirac delta in its dual space?
+
+  Intuition tells us that the smaller, i.e. more restricted, a space of function is, the bigger its dual space should be. Thus, we will investigate a space of functions $\gj\of\vx \in \Continf\of\Rn$ that vanish quickly as $\abs{\vx} \rightarrow \infty$ (``converge with a vengeance''), hoping to find the Dirac delta in its dual.
+
+  First, a few definitions used throughout this course:
+
+  \begin{gather*}
+    \Continf\of\Rn \coloneqq \setst{\gj: \Rn \rightarrow \C}{\forall \miga \in \N^n: \partial^\miga\gj \in \Cont\of\Rn} \\
+    \text{where }\N \coloneqq \{0, 1, 2, \ldots\},\quad\miga = (\ga_1, \ldots, \ga_n) \in \N^n, \\
+    \abs{\miga} \coloneqq \ga_1 + \ldots + \ga_n,\quad \partial^\miga \coloneqq \frac{\partial^{\abs{\miga}}}{\pd{x_1}{\ga_1} \ldots \pd{x_n}{\ga_n}}, \\
+    \text{and }\vx^\migb \coloneqq x_1^{\gb_1} \ldots x_n^{\gb_n}\quad(\vx \in \Rn, \migb \in \N^n)
+  \end{gather*}
+
+  Now we define the \emph{Schwartz space}
+
+  \begin{gather*}
+    \Schwartz \coloneqq \setst{\gj \in \Continf\of\Rn}{\forall \miga, \migb \in \N^n: \SchwartzNorm{\miga}{\migb}{\gj} < \infty},\\
+    \text{where }\SchwartzNorm{\miga}{\migb}{\gj} \coloneqq \sup_{\vx\in\R^n}\abs{\vx^\miga\pd\vx\miga \gj\of\vx}.
+  \end{gather*}
+
+  Note that $\gj \in \Schwartz$ implies $\lim_{\abs{\vx}\rightarrow\infty}(1+\abs{\vx}^2)^k \partial^\miga \phi\of{x} = 0$, as
+
+  \begin{align*}
+    (1+\abs{\vx}^2)^m \partial^\miga \phi\of{x} &= \Sum{j = 0}^{m}\binom{m}{j} \abs{\vx}^{2j} \partial^\miga\gj \\
+     &= \Sum{j = 0}^m \binom{m}{j} \parentheses*{\Sum{i=1}^{n}x_i^2}^j \partial^\miga\gj \\
+     &= \Sum{j = 0}^m \binom{m}{j} \Sum{\abs{\miga} = j}\parentheses*{\prod_{i = 1}^{n} x_i^{2\alpha_i}} \partial^\miga \gj
+  \end{align*}
+
+  and $\sup_{\vx \in \Rn}\abs{\vx^{2 \miga} \gj\of\vx}<\infty$. It immediately follows:
+
+  \begin{lemma}
+    If $\gj \in \Schwartz$, then
+    \begin{equation*}
+      \forall k \geq 0, \miga \in \N^n: \exists C_\miga \in \R: \abs{\partial^\miga\gj\of{x}} < \frac{C_\alpha}{(1 + \abs{\vx}^2)^k}.
+    \end{equation*}
+  \end{lemma}
+
+  We define that the sequence $\parentheses*{\gj_k}_{k \in \N} \subset \Schwartz$ \emph{converges to} $\phi \in \Schwartz$ iff $\forall \miga, \migb \in \N^N: \lim_{k \rightarrow \infty}\SchwartzNorm{\miga}{\migb}{\gj_k - \gj}=0$, and note that $\Schwartz$ is a complex vector space.
+
+  Finally, we define (or rather: state without proof) that $U \in \SchwartzSpace^*\of\Rn$, the space of \emph{templered distributions}, iff
+
+  % There surely is a better way to do this, but to lazy to look it up right now.
+  \begin{enumerate}
+    \item $U$ is a linear map from $\Schwartz$ to $\C$.
+    \item $U$ is continuous on $\Schwartz$, i.e. if $\gj_k\overset{\Schwartz}{\rightarrow}\gj$ then $\lim_{k\rightarrow\infty}U\of{\gj_k} = U\of\gj$.
+  \end{enumerate}
+
+  For example, define
+
+  \begin{equation*}
+    L^1_{loc}\of\Rn \coloneqq \setst{f: \Rn \rightarrow \C}{\forall \vx \in \Rn \exists \ge > 0: \Int{B_\ge\of\vx}\abs{f\of\vy} \diffd{y} < \infty}
+  \end{equation*}
+
+  and let $f \in L^1_{loc}$. If additionally $\sup_{\vx \in \Rn}\parentheses*{1 + \abs{\vx}^2}^{-s}\abs{f\of{x}} < \infty$ for some $s > 0$ (e.g. $\Sum{\abs{\migb}\leq s} c_\migb x^\migb$), then $U_f(\gj) \coloneqq \Int\Rn f\of{\vx} \gj\of{\vx} \diffd{x}$ is a tempered distribution. Another example is the \emph{Dirac delta distribution} as defined above, with $\delta\of\gj = \gj\of{0}$, $\delta_\vx\of{\gj} = \gj\of{\vx}$.
+
+  Distributions have the nice property that we can always differentiate them: Let $U \in \SchwartzSpace^*\of\Rn$. Then $\partial^\miga U$ is the distribution defined by $\parentheses*{\partial^\miga U}\of{\gj} \coloneqq (-1)^{\abs{\miga}} U\of{\partial^\miga \gj}$, $\gj \in \Schwartz$. This is natural, as
+  \begin{align*}
+    U_{\partial^\miga f}\of\gj &= \Int\Rn\parentheses*{\partial^\miga f\of\vx} \gj\of\vx \diffd{\vx} \underset{\text{int. by parts}}{=} (-1)^{\abs{\miga}} \Int\Rn f\of\vx \partial^\miga \gj\of\vx \diffd{\vx}.
+  \end{align*}
+
+  Let's find the derivative of $\abs{\placeholder}$ in the distribution world:
+  \begin{align*}
+    \mathrm{Abs}\of\gj &\coloneqq \Int{-\infty}^{\infty} \abs{x} \gj\of{x} \diffd{x}\\
+    \parentheses*{\frac{\diffd}{\diffd{x}}\mathrm{Abs}}\of\gj &= -\mathrm{\frac{\diffd}{\diffd{x}}\mathrm{Abs}} \\
+    &= - \int_0^\infty x \gj'\of{x} \diffd{x} - \int_{-\infty}^0(-x) \gj'\of{x} \\
+    &= - \left. x \gj\of{x}\right|_0^\infty + \int_0^\infty \gj\of{x} \diffd{x} + \left. x \gj\of{x} \right|_{-\infty}^0 - \int_{-\infty}^0 \gj\of{x} \diffd{x} \\
+    &= \int_{-\infty}^{\infty} h\of{x} \gj\of{x} \diffd{x} = U_h\of\gj,\\
+    \text{where } h\of{x} &\coloneqq \left\{
+	\begin{array}{ll}
+		1  & \mbox{if } x \geq 0 \\
+		-1 & \mbox{if } x < 0
+	\end{array}
+\right.
+    \text{is the step function}.
+  \end{align*}
+
+  We define $H\of\gj \coloneqq \int_{-\infty}^{\infty} h\of{x} \gj\of{x} \diffd{x}$ and write $\frac{\diffd}{\diffd{x}} \mathrm{Abs} = H$ (physicist-speak: $\frac{\diffd}{\diffd{x}} \abs{x} = h\of{x}$).
+
+  What about $\Delta\frac{1}{\abs{\vx}}$? By defining the \emph{Newtonian distribution}
+  \begin{equation*}
+    N\of\gj \coloneqq \Int{\R^3} \frac{1}{\abs{\vx}} \gj\of\vx \diffd{\vx},
+  \end{equation*}
+  we get
+  \begin{equation*}
+    \Delta{N}\of\gj = \sum_{j = 1}^{3} \pderiv[2]{x_j}{} N\of\gj = \sum_{j = 1}^{3}  N\of{\pderiv[2]{x_j}\gj} = \ldots = -4 \pi \gj\of{0},
+  \end{equation*}
+  or in short
+  \begin{equation*}
+    \Delta N = -4 \pi \delta.
+  \end{equation*}
+
   \section{General properties of the Fourier transform}
   \noindent \emph{Here begins the lecture of 2013-03-06.}
   \begin{lemma}[``Your life in Fourier land depends on it.'']
