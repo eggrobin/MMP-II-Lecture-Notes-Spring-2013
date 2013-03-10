@@ -317,7 +317,7 @@
   \section{\emph{True Lies}: An introduction to distribution theory}
   In many areas of physics, the Dirac delta ``function'' is an important tool, e.g. for describing localized phenomena. While it is usually described in vague terms as ``only making sense under an integral'', physicists tend to still write identities such as
   \begin{equation*}
-    \Delta \frac{1}{\abs{\vx}} = -4 \pi \delta\of\vx,
+    \Delta \frac{1}{\norm{\vx}} = -4 \Pi \delta\of\vx,
   \end{equation*}
   and rely on their intuition and previous mistakes to distinguish situations in which they can safely apply this calculus from the ones where that would lead to incorrect results.
 
@@ -327,7 +327,7 @@
   \end{equation*}
   to be a functional, and more specifically an element of the dual space of whatever class of functions we can allow for $\gj$. But the question is: What restrictions do we need on this space of functions functions if we want to find objects like the Dirac delta in its dual space?
 
-  Intuition tells us that the smaller, i.e. more restricted, a space of function is, the bigger its dual space should be. Thus, we will investigate a space of functions $\gj\of\vx \in \Continf\of\Rn$ that vanish quickly as $\abs{\vx} \rightarrow \infty$ (``converge with a vengeance''), hoping to find the Dirac delta in its dual.
+  Intuition tells us that the smaller, i.e. more restricted, a space of function is, the bigger its dual space should be. Thus, we will investigate a space of functions $\gj\of\vx \in \Continf\of\Rn$ that vanish quickly as $norm{\vx} \rightarrow \infty$ (``converge with a vengeance''), hoping to find the Dirac delta in its dual.
 
   First, a few definitions used throughout this course:
 
@@ -348,7 +348,7 @@
   Note that $\gj \in \Schwartz$ implies $\lim_{\abs{\vx}\rightarrow\infty}(1+\abs{\vx}^2)^k \partial^\miga \phi\of{x} = 0$, as
 
   \begin{align*}
-    (1+\abs{\vx}^2)^m \partial^\miga \phi\of{x} &= \Sum{j = 0}^{m}\binom{m}{j} \abs{\vx}^{2j} \partial^\miga\gj \\
+    (1+\abs{\vx}^2)^m \partial^\miga \phi\of{x} &= \Sum{j = 0}^{m}\binom{m}{j} \norm{\vx}^{2j} \partial^\miga\gj \\
      &= \Sum{j = 0}^m \binom{m}{j} \parentheses*{\Sum{i=1}^{n}x_i^2}^j \partial^\miga\gj \\
      &= \Sum{j = 0}^m \binom{m}{j} \Sum{\abs{\miga} = j}\parentheses*{\prod_{i = 1}^{n} x_i^{2\alpha_i}} \partial^\miga \gj
   \end{align*}
@@ -388,7 +388,7 @@
   Let's find the derivative of $\abs{\placeholder}$ in the distribution world:
   \begin{align*}
     \mathrm{Abs}\of\gj &\coloneqq \Int{-\infty}^{\infty} \abs{x} \gj\of{x} \diffd{x}\\
-    \parentheses*{\frac{\diffd}{\diffd{x}}\mathrm{Abs}}\of\gj &= -\mathrm{\frac{\diffd}{\diffd{x}}\mathrm{Abs}} \\
+    \parentheses*{\frac{\diffd}{\diffd{x}}\mathrm{Abs}}\of\gj &= -\mathrm{Abs}\parentheses*{\frac{\diffd}{\diffd{x}}} \\
     &= - \int_0^\infty x \gj'\of{x} \diffd{x} - \int_{-\infty}^0(-x) \gj'\of{x} \\
     &= - \left. x \gj\of{x}\right|_0^\infty + \int_0^\infty \gj\of{x} \diffd{x} + \left. x \gj\of{x} \right|_{-\infty}^0 - \int_{-\infty}^0 \gj\of{x} \diffd{x} \\
     &= \int_{-\infty}^{\infty} h\of{x} \gj\of{x} \diffd{x} = U_h\of\gj,\\
@@ -409,7 +409,7 @@
   \end{equation*}
   we get
   \begin{equation*}
-    \Delta{N}\of\gj = \sum_{j = 1}^{3} \pderiv[2]{x_j}{} N\of\gj = \sum_{j = 1}^{3}  N\of{\pderiv[2]{x_j}\gj} = \ldots = -4 \pi \gj\of{0},
+    \Delta{N}\of\gj = \sum_{j = 1}^{3} \pderiv[2]{x_j}{} N\of\gj = \sum_{j = 1}^{3}  N\of{\pderiv[2]{x_j}\gj} = \ldots = -4 \Pi \gj\of{0},
   \end{equation*}
   or in short
   \begin{equation*}
