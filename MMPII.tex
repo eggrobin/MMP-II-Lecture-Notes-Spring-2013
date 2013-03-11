@@ -172,6 +172,8 @@
 %% Postfix operators.
 % V\dual is the dual space of V.
 \newcommand{\dual}{^*}
+% V\contdual is the continuous dual of V.
+\newcommand{\contdual}{'}
 % A\adj is the adjoint of A.
 \newcommand{\adj}{^\dagger}
 % f\der is a compact notation for the derivative of f.
@@ -370,7 +372,7 @@
 %% Frequently-used sets.
 \newcommand{\Rn}{{\R^n}}
 \newcommand{\Schwartz}{{\SchwartzSpace\of{\Rn}}}
-\newcommand{\SchwartzDual}{{\SchwartzSpace\dual\of{\Rn}}}
+\newcommand{\TemperedDistributions}{{\SchwartzSpace\contdual\of{\Rn}}}
 
 %% Freqently-used expressions.
 \newcommand{\sqftnrm}{\frac{1}{\pa{2\Pi}^n} }
@@ -464,16 +466,16 @@
     We use the notation $\conv[\Schwartz]{\gj_k}\gj$.
   \end{definition}
   \begin{definition}[Tempered distributions]
-    Note that $\Schwartz$ is a complex vector space. We define  --- or, more accurately, state without proof --- that $U \in \SchwartzDual$, the space of \emph{tempered distributions}, if and only if:
+    Note that $\Schwartz$ is a complex vector space. We define that $U$ is an element of its continuous dual $\TemperedDistributions$, the space of \emph{tempered distributions}, if and only if:
     \begin{enumerate}
-      \item $U$ is a linear map from $\Schwartz$ to $\C$.
+      \item $U$ is a linear map from $\Schwartz$ to $\C$, i.e., $U\in\SchwartzSpace\dual\of\Rn$
       \item $U$ is continuous on $\Schwartz$, i.e. if $\conv[\Schwartz]{\gj_k}\gj$ then $\lim_{\conv k \infty}U\of{\gj_k} = U\of\gj$.
     \end{enumerate}
   \end{definition}
   
   
   Let us now consider some examples. First, define the space of locally integrable functions as follows.
-  \begin{definition}
+  \begin{definition}[Locally integrable functions]
     \begin{equation*}
       \LspaceLoc[1]\of\Rn \coloneqq \setst{\funcspec f \Rn \C}{\forall \vx \in \Rn, \exists \ge > 0, \int{\Ball \ge \vx}\abs{f\of\vy} \diffd{\vy} < \infty}
     \end{equation*}
