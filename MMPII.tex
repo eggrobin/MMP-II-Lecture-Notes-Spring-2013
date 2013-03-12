@@ -761,12 +761,18 @@ We define $H\of\gj \coloneqq \int{-\infty}[\infty] h\of{x} \gj\of{x} \diffd{x}$ 
   We then have $H = A\adj A$. If $a$ and $b$ commute, then we have $\pa{a-b}\pa{a+b}  = a^2-b^2$, but here $x$ and $\derivop{x}$ don't quite commute, hence the $-1$.
 \lectureEnd{2013-03-07}
 \lectureStart{2013-03-12}
-More precisely, define, $\pa{Q f}\of x \coloneqq x f\of x \in \SchwartzSpace\of{\R}$, $\pa{P f}\of x \coloneqq \frac{h}{\I}\derivop x f\of x \in \SchwartzSpace\of{\R}$, we have $\commutator Q P = \I \Identity$. $P$ is self-adjoint.
-%TODO inner product on \Schwarz
-So is, obviously $Q$.
+Let us look at these operators in more detail: define $\pa{Q f}\of x \coloneqq x f\of x \in \SchwartzSpace\of{\R}$, $\pa{P f}\of x \coloneqq \derivop x f\of x \in \SchwartzSpace\of\R$ for $f\in\SchwartzSpace\of\R$. We saw that $\commutator Q P = 1$. We also have:
+\begin{align*}
+  \SchwartzInner \gj {P\gy} 
+  &= \int\R \conj\gj\of x \derivop x \gy \of x \diffd x \\
+  &= \diff {\conj\gj\gy}{-\infty}{\infty} - 
+    \int\R \derivop x \gj \of x \gy\of x \diffd x \\
+  &= - \SchwartzInner {P\gj} \gy ,
+\end{align*}
+so $P$ is skew symmetric. What is better than skew symmetric? Self adjoint is better. How do we make a skew symmetric operator self adjoint? We add an $\I$. Namely, redefine $\pa{P f}\of x \coloneqq \frac{1}{\I}\derivop x f\of x$, we then have $\SchwartzInner \gj {P\gy}  = \SchwartzInner {P\gj} \gy$. $Q$ is obviously self adjoint. We now have $\commutator Q P = \I \Identity$. Multiplying by $h$, redefine $\pa{P f}\of x \coloneqq \frac{h}{\I}\derivop x f\of x$, we get $\commutator Q P = h \I \Identity$.
 
-This is the commutator appearing in the  ``catechism of matrix mechanics'' in \emph{Finite Dimensional Quantum Mechanics}.
-``Being something a little more, and something a lot less than cockroaches, we are curious.'' What we have been doing here is not the ideal way of doing this: we have to pick a vector space, in this case $\Schwartz$. As we learned in LA, we get a better understanding if we do not use coordinate systems. 
+With $h$ = $hbar$, these are the conditions for matrices $P$ and $Q$ in the  ``catechism of matrix mechanics'' in \emph{Finite Dimensional Quantum Mechanics}.
+``Being something a little more, and something a lot less than cockroaches, we are curious.'' What we have been doing here is not the ideal way of doing this: we have to pick a vector space, in this case $\Schwartz$. As we learned in linear algebra, we gain a deeper understanding if we do not use coordinate systems. 
 ``We are going to study the pure essence'' of this. We are going to replace that by an abstract group, which lives in Plato's cave, and when we need to calculate, we look at a representation. ``The group is as close to God as you can get.'' ``You know, some people do this because it's beautiful... bah!''
 
 The following is the Heisenberg group, introduced by Hermann Weyl.
