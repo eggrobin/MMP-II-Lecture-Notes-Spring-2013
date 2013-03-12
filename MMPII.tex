@@ -222,7 +222,8 @@
 % \Nstar is the set of stricly positive natural numbers.
 \newcommand{\Nstar}{\mathbb{N}^*}
 % \Z is the set of integers.
-\newcommand{\Z}{\mathbb{Z}}
+% \Z[n] is the quotient  \Z / n \Z.
+\newcommand{\Z}[1][]{\ifstrempty{#1}{\mathbb{Z}}{\mathbb{Z}/{#1}\mathbb{Z}}}
 % \Q is the set of rationals.
 \newcommand{\Q}{\mathbb{Q}}
 % \R is the set of real numbers.
@@ -331,6 +332,7 @@
 \newcommand{\migb}{{\vectorsym \beta}}
 \newcommand{\nullmi}{{\vectorsym 0}}
 \newcommand{\nullvec}{{\vectorsym 0}}
+\newcommand{\Identity}{\mathbb{1}}
 
 %%% Miscellaneous.
 % \placeholder is a placeholder for a parameter,
@@ -748,4 +750,38 @@ We define $H\of\gj \coloneqq \int{-\infty}[\infty] h\of{x} \gj\of{x} \diffd{x}$ 
   \end{align*}
   We then have $H = A\adj A$. If $a$ and $b$ commute, then we have $\pa{a-b}\pa{a+b}  = a^2-b^2$, but here $x$ and $\derivop{x}$ don't quite commute, hence the $-1$.
 \lectureEnd{2013-03-07}
+\lectureStart{2013-03-12}
+More precisely, define, $\pa{Q f}\of x \coloneqq x f\of x \in \SchwartzSpace\of{\R}$, $\pa{P f}\of x \coloneqq \frac{h}{\I}\derivop x f\of x \in \SchwartzSpace\of{\R}$, we have $\commutator Q P = \I \Identity$. $P$ is self-adjoint.
+%TODO inner product on \Schwarz
+So is, obviously $Q$.
+
+This is the commutator appearing in the  ``catechism of matrix mechanics'' in \emph{Finite Dimensional Quantum Mechanics}.
+``Being something a little more, and something a lot less than cockroaches, we are curious.'' What we have been doing here is not the ideal way of doing this: we have to pick a vector space, in this case $\Schwartz$. As we learned in LA, we get a better understanding if we do not use coordinate systems. 
+``We are going to study the pure essence'' of this. We are going to replace that by an abstract group, which lives in Plato's cave, and when we need to calculate, we look at a representation. ``The group is as close to God as you can get.'' ``You know, some people do this because it's beautiful... bah!''
+
+The following is the Heisenberg group, introduced by Hermann Weyl.
+\begin{equation*}
+\tuple{
+H \coloneqq \setst{
+\begin{pmatrix}
+1 & r & t\\
+0 & 1 & s\\
+0 & 0 & 1\\
+\end{pmatrix}
+}{r,s,t\in\R}, 
+\text{ordinary matrix multiplication}}
+\end{equation*}
+
+You know that if you take $\E^x\E^y$ on reals numbers, you get $\E^{x+y}$, but that doesn't work for matrices. Hermann Weyl's idea is the following: we look at the identities \begin{align*}
+\pa{\E^{\I t P} f}\of x &= f\of{x+t}
+&&\text{ as }\pa{\E^{\I t \pa{\frac{1}{\I}\derivop x}}}\of x \overset{\text{formally}}{=} \sum{l=0}[\infty]\frac{t^l}{l!}\derivop[l] x f \of x\\
+\E^{\I t P}\E^{\I s Q} &= \E^{\I s t} \E^{\I s Q} \E^{\I t P}
+\end{align*}
+Write $X \coloneqq \E^{\I Q}$ and $Y \coloneqq \E^{\I P}$, $X^r Y^s = \E^{\I r s} Y^s X^r$, $Z \coloneqq \pa{\E^\I}^t \Identity$. We will generate a group with these three elements. ``I'll think up another way of doing this; it's something worth doing twice.'' How do we preserve all the ideas, and yet get rid of all the infinite dimensional vector spaces? We study a finite dimensional analog, the finite Heisenberg group, in which we use $\Z[n]$ instead of $\R$. And we'll use that little group to do all sorts of experiments. No one will complain about what we do to it. 
+
+Let us start again. Those of you who have done the exercises, and those of you who have the determination to go to Prof. Willwacher's lecture, we are going to do that again, but on a concrete example.''
+We will find all the conjugacy classes. ``We're going to hunt them down!'' 
+
+``I'll see you on Thursday, and I expect there'll be fewer people.''
+\lectureEnd{2013-03-12}
 \end{document}
