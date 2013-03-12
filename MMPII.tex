@@ -336,6 +336,11 @@
 \newcommand{\nullvec}{{\vectorsym 0}}
 \newcommand{\Identity}{\mathbb{1}}
 
+\newcommand{\matP}{{\matrixsym P}}
+\newcommand{\matQ}{{\matrixsym Q}}
+
+\newcommand{\ReducedPlanck}{\hbar}
+
 %%% Miscellaneous.
 % \placeholder is a placeholder for a parameter,
 % as in 'if f is linear, f\of{\gl\placeholder}=\gl f.'
@@ -771,7 +776,7 @@ Let us look at these operators in more detail: define $\pa{Q f}\of x \coloneqq x
 \end{align*}
 so $P$ is skew symmetric. What is better than skew symmetric? Self adjoint is better. How do we make a skew symmetric operator self adjoint? We add an $\I$. Namely, redefine $\pa{P f}\of x \coloneqq \frac{1}{\I}\derivop x f\of x$, we then have $\SchwartzInner \gj {P\gy}  = \SchwartzInner {P\gj} \gy$. $Q$ is obviously self adjoint. We now have $\commutator Q P = \I \Identity$. Multiplying by $h$, redefine $\pa{P f}\of x \coloneqq \frac{h}{\I}\derivop x f\of x$, we get $\commutator Q P = h \I \Identity$.
 
-With $h$ = $hbar$, these are the conditions for matrices $P$ and $Q$ in the  ``catechism of matrix mechanics'' in \emph{Finite Dimensional Quantum Mechanics}.
+With $h$ = $\ReducedPlanck$, the conditions verified by $P$ and $Q$ are the conditions for matrices $\matP$ and $\matQ$ in the  ``catechism of matrix mechanics'' in \emph{Finite Dimensional Quantum Mechanics}.
 ``Being something a little more, and something a lot less than cockroaches, we are curious.'' What we have been doing here is not the ideal way of doing this: we have to pick a vector space, in this case $\Schwartz$. As we learned in linear algebra, we gain a deeper understanding if we do not use coordinate systems. 
 ``We are going to study the pure essence'' of this. We are going to replace that by an abstract group, which lives in Plato's cave, and when we need to calculate, we look at a representation. ``The group is as close to God as you can get.'' ``You know, some people do this because it's beautiful... bah!''
 
