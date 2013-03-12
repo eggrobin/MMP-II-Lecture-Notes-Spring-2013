@@ -776,11 +776,12 @@ Let us look at these operators in more detail: define $\pa{Q f}\of x \coloneqq x
 \end{align*}
 so $P$ is skew symmetric. What is better than skew symmetric? Self adjoint is better. How do we make a skew symmetric operator self adjoint? We add an $\I$. Namely, redefine $\pa{P f}\of x \coloneqq \frac{1}{\I}\derivop x f\of x$, we then have $\SchwartzInner \gj {P\gy}  = \SchwartzInner {P\gj} \gy$. $Q$ is obviously self adjoint. We now have $\commutator Q P = \I \Identity$. Multiplying by $h$, redefine $\pa{P f}\of x \coloneqq \frac{h}{\I}\derivop x f\of x$, we get $\commutator Q P = h \I \Identity$.
 
-With $h$ = $\ReducedPlanck$, the conditions verified by $P$ and $Q$ are the conditions for matrices $\matP$ and $\matQ$ in the  ``catechism of matrix mechanics'' in \emph{Finite Dimensional Quantum Mechanics}.
-``Being something a little more, and something a lot less than cockroaches, we are curious.'' What we have been doing here is not the ideal way of doing this: we have to pick a vector space, in this case $\Schwartz$. As we learned in linear algebra, we gain a deeper understanding if we do not use coordinate systems. 
-``We are going to study the pure essence'' of this. We are going to replace that by an abstract group, which lives in Plato's cave, and when we need to calculate, we look at a representation. ``The group is as close to God as you can get.'' ``You know, some people do this because it's beautiful... bah!''
+With $h$ = $\ReducedPlanck$, the conditions verified by $P$ and $Q$ are the conditions for infinite matrices $\matP$ and $\matQ$ in the  ``catechism of matrix mechanics'' in \emph{Finite Dimensional Quantum Mechanics}.
+``Being something a little more, and something a lot less than cockroaches, we are curious.'' What we have been doing here is not the ideal way of doing this: we have to pick a vector space, in this case $\Schwartz$, last year the space of infinite matrices. As we learned in linear algebra, we gain a deeper understanding if we do not use coordinate systems. 
+``We are going to study the pure essence'' of this. We are going to replace that by an abstract group, which lives in Plato's cave, and when we need to calculate, we will look at a representation. ``The group is as close to God as you can get.''
 
-The following is the Heisenberg group, introduced by Hermann Weyl.
+\begin{definition}[Heisenberg group]
+We define the is the Heisenberg group, introduced by Hermann Weyl.
 \begin{equation*}
 \tuple{
 H \coloneqq \setst{
@@ -792,15 +793,16 @@ H \coloneqq \setst{
 }{r,s,t\in\R}, 
 \text{ordinary matrix multiplication}}
 \end{equation*}
+\end{definition}
 
 You know that if you take $\E^x\E^y$ on reals numbers, you get $\E^{x+y}$, but that doesn't work for matrices. Hermann Weyl's idea is the following: we look at the identities \begin{align*}
 \pa{\E^{\I t P} f}\of x &= f\of{x+t}
-&&\text{ as }\pa{\E^{\I t \pa{\frac{1}{\I}\derivop x}}}\of x \overset{\text{formally}}{=} \sum{l=0}[\infty]\frac{t^l}{l!}\derivop[l] x f \of x\\
+&&\text{ as }\pa{\E^{\I t \pa{\frac{1}{\I}\derivop x}}}f\of x \overset{\text{formally}}{=} \sum{l=0}[\infty]\frac{t^l}{l!}\derivop[l] x f \of x \text{, the Taylor series of $f\of{x + t}$ at $x$.}\\
 \E^{\I t P}\E^{\I s Q} &= \E^{\I s t} \E^{\I s Q} \E^{\I t P}
 \end{align*}
 Write $X \coloneqq \E^{\I Q}$ and $Y \coloneqq \E^{\I P}$, $X^r Y^s = \E^{\I r s} Y^s X^r$, $Z \coloneqq \pa{\E^\I}^t \Identity$. We will generate a group with these three elements. ``I'll think up another way of doing this; it's something worth doing twice.'' How do we preserve all the ideas, and yet get rid of all the infinite dimensional vector spaces? We study a finite dimensional analog, the finite Heisenberg group, in which we use $\Z[n]$ instead of $\R$. And we'll use that little group to do all sorts of experiments. No one will complain about what we do to it. 
 
-Let us start again. Those of you who have done the exercises, and those of you who have the determination to go to Prof. Willwacher's --- ``Willwacher. I like that name.'' --- lecture, we are going to do that again, but on a concrete example.''
+Let us start again. ``Those of you who have done the exercises, and those of you who have the determination to go to Prof. Willwacher's --- `Willwacher.' I like that name. --- lecture, we are going to do that again, but on a concrete example.''
 We will find all the conjugacy classes. ``We're going to hunt them down!'' 
 
 ``I'll see you on Thursday, and I expect there'll be fewer people.''
