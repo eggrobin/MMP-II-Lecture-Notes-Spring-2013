@@ -437,9 +437,9 @@ Let us look at these operators in more detail: define $\pa{Q f}\of x \coloneqq x
 \begin{align*}
   \SchwartzInner \gj {P\gy} 
   &= \int\R \conj\gj\of x \derivop x \gy \of x \diffd x \\
-  &= \diff {\conj\gj\gy}{-\infty}{\infty} - 
+  &= \diff {-\infty}{\infty}{\conj\gj\gy} - 
     \int\R \derivop x \gj \of x \gy\of x \diffd x \\
-  &= - \SchwartzInner {P\gj} \gy ,
+  &= - \SchwartzInner {P\gj} \gy ,&&\parbox{7cm}{$\diff {-\infty}{\infty}{\conj\gj\gy} = 0$  as $\gj\in\SchwartzSpace\of\R$, $\gy\in\SchwartzSpace\of\R$, and therefore $\conj\gj\gy\in\SchwartzSpace\of\R$.}
 \end{align*}
 so $P$ is skew symmetric. What is better than skew symmetric? Self adjoint is better. How do we make a skew symmetric operator self adjoint? We add an $\I$. Namely, redefine $\pa{P f}\of x \coloneqq \frac{1}{\I}\derivop x f\of x$, we then have $\SchwartzInner \gj {P\gy}  = \SchwartzInner {P\gj} \gy$. $Q$ is obviously self adjoint. We now have $\commutator Q P = \I \Identity$. Multiplying by $h$, redefine $\pa{P f}\of x \coloneqq \frac{h}{\I}\derivop x f\of x$, we get $\commutator Q P = h \I \Identity$.
 
