@@ -92,8 +92,9 @@
     \DiracDelta[\vx]\of\gj = \int\Rn \DiracDelta\of{\vx - \vy} \gj\of\vy \diffd\vy
   \end{equation*}
   to be a functional, and more specifically an element of the dual space of whatever class of functions we can allow for $\gj$. But the question is: what restrictions do we need on this space of functions if we want to find objects like the Dirac delta in its dual space?
-
-  Intuition tells us that the smaller, i.e., more restricted, a space of functions is, the bigger its dual space should be. Thus, we will investigate a space of functions $\gj\of\vx \in \Continf\of\Rn$ that vanish quickly as $\conv {\norm\vx} \infty$ (``converge with a vengeance''), hoping to find the Dirac delta in its dual.
+  
+  Actually, we want these functionals to be in the continuous dual of our space, that is, we want them to be functionals $U$ such that $\conv {U\of{\gj_k}}{U\of\gj}$ for all sequence of functions $\tuplespec{\gj_k}{k\in\N}$  that converge to $\gj$ in an appropriate norm\footnote{This simply means that $U$ is a continuous map from the function space endowed with its norm topology to $\R$ endowed with the standard topology.} --- we want our space to be a Banach space.
+Intuition tells us that the smaller, i.e., more restricted, a space of functions is, the stronger the conditions on $\conv{\gj_k}{\gj}$ must be in order for it to be complete, and so the bigger its continuous dual can be, as we only need $\conv {U\of{\gj_k}}{U\of\gj}$ for the sequences $\tuplespec{\gj_k}{k\in\N}$ that converge in that space. Thus, we will investigate a space of functions $\gj\of\vx \in \Continf\of\Rn$ that vanish quickly as $\conv {\norm\vx} \infty$ (``converge with a vengeance''), hoping to find the Dirac delta in its continuous dual.
   \begin{definition} First, a few definitions used throughout this course:
 %TODO(eggrobin): the big partial derivative is nonsemantic.
   \begin{equation*}
