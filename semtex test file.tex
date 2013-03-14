@@ -1,15 +1,20 @@
 \documentclass{minimal}
 \usepackage{semtex}
+\DeclareDocumentCommand\foo{r[] r[] r[]}{Saw #1, #2 and #3.}
+\DeclareDocumentCommand\baz{r[] r[] r[] r[] r[]}{Saw #1, #2, #3, #4 and #5.}
+\DeclareDocumentCommand\goo{r[; m r;]}{Saw #1, #2, #3.}
 \begin{document}
-Test greek letters : $\ga, \gb, \dotsc, \gp, \gcp, \dotsc, \gf, \gj, \dotsc, \gw$.
-
-Test vectors: $\va, \vb, \dotsc, \vu, \vv, \vw, \vx, \vy, \vz, \nullvec$.
-
-Test matrices: $\matA, \matB, \dotsc, \matZ, \Identity$.
-
-Test higher-order tensors: $\tensA, \tensB, \dotsc, \tensZ$.
-
-Test mathematical constants: $\I, \Pi, \E, \EulerGamma$.
-
-Test standard functions: $\RiemannZeta\of z, \EulerGamma\of z, \DiracDelta\of x, \Sign\of x$.
+\noindent
+Test greek letters : $\ga, \gb, \dotsc, \gp, \gcp, \dotsc, \gf, \gj, \dotsc, \gw$. \\
+Test vectors: $\va, \vb, \dotsc, \vu, \vv, \vw, \vx, \vy, \vz, \nullvec$.          \\
+Test matrices: $\matA, \matB, \dotsc, \matZ, \Identity$.                           \\
+Test higher-order tensors: $\tensA, \tensB, \dotsc, \tensZ$.                       \\
+Test mathematical constants: $\I, \Pi, \E, \EulerGamma$.                           \\
+Test standard functions: $\RiemannZeta\of z, \Gamma\of z, 
+  \DiracDelta\of x=\DiracDelta[0]\of x, \DiracDelta=\DiracDelta[0], \Sign\of x$.  \\
+\foo[a][b][c]\\
+\foo[[a][b]] [c] [d]\\
+\foo[[a][b]][c] [[d][ f]]\\
+\baz[1][2][3][4][5]\\
+\baz[[a][]][x[a][e][[y][y]]][[e][j]][$a$][$\gs$]
 \end{document}
