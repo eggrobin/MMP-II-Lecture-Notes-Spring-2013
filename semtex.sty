@@ -10,7 +10,7 @@
 \ProvidesPackage{semtex}[2013/03/12 Semantic commands for LaTeX]
 
 \newif\ifPhysicistNotation
-\newif\ifPedantic
+\newif\ifPedanticNotation
 \newif\ifComputerModern
 \newif\ifUtopia
 
@@ -18,7 +18,7 @@
 
 \DeclareOption{Physics}{\PhysicistNotationtrue}
 \DeclareOption{Mathematics}{\PhysicistNotationfalse}
-\DeclareOption{Pedantic}{\Pedantictrue}
+\DeclareOption{Pedantic}{\PedanticNotationtrue}
 \DeclareOption{ComputerModern}{\ComputerModerntrue \Utopiafalse}
 \DeclareOption{Utopia}{\Utopiatrue}
 \ProcessOptions\relax
@@ -101,14 +101,6 @@
 % Set PedanticNotation to true for explicit notations of function
 % brackets vs. parentheses, absolute value vs. multi-index total,
 % commutators vs. closed intervals, etc.
-% Run pdflatex "\def\targetPedantic{}\input{MMPII.tex}"
-% to automatically set PedanticNotation to true.
-\newif\ifPedanticNotation
-\ifdefined\targetPedantic
-  \PedanticNotationtrue
-\else
-  \PedanticNotationfalse
-\fi
 
 %%% Constants.
 % Mathematical are typeset in roman as per ISO 80000-2:2009
@@ -124,8 +116,8 @@
 
 %%% Operators, standard functions.
 %% Prefix operators and functions.
-% \DiracDelta[x] is the dirac delta distribution, with \Dirac[x]\of y = 0 
-% for all x \neq 0. \Dirac is a shorter notation for \Dirac[0].
+% \DiracDelta[x] is the dirac delta distribution, with \DiracDelta[x]\of y = 0 
+% for all x \neq 0. \DiracDelta is a shorter notation for \DiracDelta[0].
 \newcommand{\DiracDelta}[1][]{\mathrm{\delta}_{#1}}
 % \RiemannZeta is Riemann's zeta function.
 \newcommand{\RiemannZeta}{\mathrm{\zeta}}
@@ -145,9 +137,9 @@
 % \FT is the prefix notation for the fourier transform.
 \DeclareMathOperator{\FT}{\mathcal{F}}
 % \End X is the endomorphism monoid of X.
-\newcommand{\Endomorphisms}[1]{\operatorname{End}\of{#1}}
+\DeclareMathOperator{\Endomorphisms}{End}
 % \Aut X is the endomorphism group of X.
-\newcommand{\Automorphisms}[1]{\operatorname{Aut}\of{#1}}
+\DeclareMathOperator{\Automorphisms}{Aut}
 % \GL\of{n,F} is the general linear group of degree n over F.
 % \GL\of{V} is the general linear group of the vector space V.
 % Use \GL\of{n} when the field is implicit.
@@ -485,7 +477,6 @@
 \newcommand\Q\Rationals
 \newcommand\R\Reals
 \newcommand\C\Complexes
-
 
 \newcommand{\FreeGroup}[1]{\operatorname{F}_{#1}}
 \newcommand{\Intersection}[1]{\bigcap_{#1}}
