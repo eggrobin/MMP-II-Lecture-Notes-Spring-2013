@@ -61,12 +61,16 @@
 % Markup for the start and end of lectures.
 \newcommand{\lectureStart}[1]{
 
-\noindent \emph{Here begins the lecture of #1.}
+\begin{flushright}
+\emph{Here begins the lecture of #1.}
+\end{flushright}
 
 }
 \newcommand{\lectureEnd}[1]{
 
+\begin{flushright}
 \emph{Here ends the lecture of #1.}
+\end{flushright}
 
 }
 
@@ -175,7 +179,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   
   Distributions have the nice property that we can always differentiate them.
   \begin{definition}[Derivative of a distribution]
-    Let $U\in\Schwartz$. Then $\pdop\miga U$ is the distribution defined
+    Let $U\in\TemperedDistributions$. Then $\pdop\miga U$ is the distribution defined
     by 
     \begin{equation*}
       \pa{\pdop\miga U}\of{\gj} \coloneqq \pa{-1}^{\total{\miga}} U\of{\pdop\miga\gj}\quad
@@ -196,16 +200,17 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
     \pa{\derivop x \AbsDistrib}\of\gj &= - \AbsDistrib  \deriv x \gj\\
     &= - \int0[\infty] x \gj\der\of{x} \diffd{x} - \int{-\infty}[0]\pa{-x}\gj\der\of{x} \\
     &= - \diff 0 \infty {x \gj\of{x}} + \int0[\infty] \gj\of{x} \diffd{x} + 
-    \diff 0 \infty {x \gj\of{x}} - \int{-\infty}[0] \gj\of{x} \diffd{x} \\
-    &= \int{-\infty}[\infty] h\of{x} \gj\of{x} \diffd{x} = U_h\of\gj,\\
-    \text{where } h\of{x} &\coloneqq
+    \diff {-\infty}{0} {x \gj\of{x}} - \int{-\infty}[0] \gj\of{x} \diffd{x} \\
+    &= \int{-\infty}[\infty] \Sign\of{x} \gj\of{x} \diffd{x} = U_{\Sign}\of\gj,\\
+    \text{where } \Sign\of{x} &\coloneqq
 	\begin{cases}
-		1  & x \geq 0 \\
+		1  & x > 0 \\
+		0  & x = 0 \\
 		-1 & x < 0
 	\end{cases}
-    \text{ is the step function}.
+    \quad\text{is the sign function}.
   \end{align*}
-We define $H\of\gj \coloneqq \int{-\infty}[\infty] h\of{x} \gj\of{x} \diffd{x}$ and write $\derivop x \mathrm{Abs} = H$. This corresponds to $\derivop x \abs{x} = h\of{x}$ in physicist-speak.
+We define $\SignDistrib\of\gj \coloneqq \int{-\infty}[\infty] \Sign\of{x} \gj\of{x} \diffd{x}$ and write $\derivop x \mathrm{Abs} = \SignDistrib$. This corresponds to $\derivop x \abs{x} = \Sign\of{x}$ in physicist-speak.
 
   What about $\Laplacian\frac{1}{\norm{\vx}}$? By defining the \emph{Newtonian distribution}
   \begin{equation*}
@@ -252,7 +257,7 @@ We define $H\of\gj \coloneqq \int{-\infty}[\infty] h\of{x} \gj\of{x} \diffd{x}$ 
       \\
       \label{FTDerivative}
       \begin{split}
-      \pderiv{x_j}\gj\of\vk &= \I k_j \ft\gj\of\vk \\ 
+      \ft{\pderiv{x_j}\gj}\of\vk &= \I k_j \ft\gj\of\vk \\ 
       \ft{x_j \gj}\of\vk &= \I \pderiv{k_j}{\ft\gj} \of\vk
       \end{split}
       \\
@@ -442,9 +447,9 @@ Let us look at these operators in more detail: define $\pa{Q f}\of x \coloneqq x
     \int\R \derivop x \gj \of x \gy\of x \diffd x \\
   &= - \SchwartzInner {P\gj} \gy ,&&\parbox{7cm}{$\diff {-\infty}{\infty}{\conj\gj\gy} = 0$  as $\gj\in\SchwartzSpace\of\R$, $\gy\in\SchwartzSpace\of\R$, and therefore $\conj\gj\gy\in\SchwartzSpace\of\R$.}
 \end{align*}
-so $P$ is skew symmetric. What is better than skew symmetric? Self adjoint is better. How do we make a skew symmetric operator self adjoint? We add an $\I$. Namely, redefine $\pa{P f}\of x \coloneqq \frac{1}{\I}\derivop x f\of x$, we then have $\SchwartzInner \gj {P\gy}  = \SchwartzInner {P\gj} \gy$. $Q$ is obviously self adjoint. We now have $\commutator Q P = \I \Identity$. Multiplying by $h$, redefine $\pa{P f}\of x \coloneqq \frac{h}{\I}\derivop x f\of x$, we get $\commutator Q P = h \I \Identity$.
+so $P$ is skew symmetric. What is better than skew symmetric? Self adjoint is better. How do we make a skew symmetric operator self adjoint? We add an $\I$. Namely, redefine $\pa{P f}\of x \coloneqq \frac{1}{\I}\derivop x f\of x$, we then have $\SchwartzInner \gj {P\gy}  = \SchwartzInner {P\gj} \gy$. $Q$ is obviously self adjoint. We now have $\commutator Q P = \I \Identity$. Multiplying by some $h\in\R$, redefine $\pa{P f}\of x \coloneqq \frac{h}{\I}\derivop x f\of x$, we get $\commutator Q P = h \I \Identity$.
 
-With $h$ = $\ReducedPlanck$, the conditions verified by $P$ and $Q$ are the conditions for infinite matrices $\matP$ and $\matQ$ in the  ``catechism of matrix mechanics'' in \emph{Finite Dimensional Quantum Mechanics}.
+If we let $h \coloneqq \ReducedPlanck$, the conditions verified by $P$ and $Q$ are the conditions for infinite matrices $\matP$ and $\matQ$ in the ``catechism of matrix mechanics'' in \emph{Finite Dimensional Quantum Mechanics}.
 ``Being something a little more, and something a lot less than cockroaches, we are curious.'' What we have been doing here is not the ideal way of doing this: we have to pick a vector space, in this case $\Schwartz$, last year the space of infinite matrices. As we learned in linear algebra, we gain a deeper understanding if we do not use coordinate systems. 
 ``We are going to study the pure essence'' of this. We are going to replace that by an abstract group, which lives in Plato's cave, and when we need to calculate, we will look at a representation. ``The group is as close to God as you can get.''
 
@@ -475,4 +480,32 @@ We will find all the conjugacy classes. ``We're going to hunt them down!''
 
 ``I'll see you on Thursday, and I expect there'll be fewer people.''
 \lectureEnd{2013-03-12}
+\lectureStart{2013-03-14}
+\begin{flushright}
+\emph{There are official notes for the material covered in this lecture. This is a supplemental.}
+\end{flushright}
+
+\emph{The professor whistles ``Singin' in the Rain'' while waiting for the lecture to start.}
+
+In its soul, the finite Heisenberg group has captured the essence of calculating something in quantum mechanics. The point of abstraction is to remove all that gets in the way of communing with the thing in and of itself. 
+``We're gonna go deep into Plato's cave today.''
+
+``You write commutators to see the level of how much it doesn't commute (\emph{sic}).''
+
+ ``Conjugacy is where it's at, in the language of the 1960s.'' For instance, the Jordan normal form gives you a unique representative element of a conjugacy class. ``You can dig down here and spend years in this hole. Or you can go up. I'll go up, I'll let you dig down.''
+
+$\matX\coloneqq\Helt 1 0 0, \matY\coloneqq\Helt 0 1 0, \matZ\coloneqq\Helt 0 0 1$ generate the finite Heisenberg group. With $\matZ=\matX\matY\matX^{-1}\matY^{-1}$, $\matX$, $\matY$ generate it. ``Jacobi? --- no, no, no. No Jacobi identity.'' 
+
+The free group on one element is isomorphic to $\tuple{\Z,+}$. The normal subgroup of $\FreeGroup X$ generated by $W$ is the smallest normal subgroup which contains $W$. This is well-defined, as $\FreeGroup X$ is such a normal subgroup, and the intersection of normal subgroups is a normal subgroup, so the normal subgroup generated by $W$ is
+\begin{equation*}
+\Intersection {\begin{aligned}N&\NormalSubgroup \FreeGroup X\\ W&\subset N\end{aligned}} N.
+\end{equation*}
+
+``Out of this trivial stuff comes something deep.''
+
+``A faithful representation of a group is just changing variables.''
+$\gr$ is a faithful complex irreducible representation of the finite group $G$ if and only if $\sum{g\in G} \abs{\gc_\gr\of g}^2 = \Cardinality G$.
+
+``I will see those of you who actually do come back next Tuesday.''
+\lectureEnd{2013-03-14}
 \end{document}
