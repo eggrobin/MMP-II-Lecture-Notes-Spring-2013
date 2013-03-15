@@ -112,13 +112,15 @@
 % \E is the base of the natural logarithm.
 \newcommand\E{\mathrm{e}}
 % \EulerGamma is Euler's constant.
-\newcommand\EulerGamma{\mathrm{\gamma}}
+\ifUtopia \newcommand\EulerGamma{\mathrm{\gamma}} \fi
+\ifComputerModern \newcommand\EulerGamma{\upgamma} \fi
 
 %%% Operators, standard functions.
 %% Prefix operators and functions.
 % \DiracDelta[x] is the dirac delta distribution, with \DiracDelta[x]\of y = 0 
 % for all x \neq 0. \DiracDelta is a shorter notation for \DiracDelta[0].
-\newcommand{\DiracDelta}[1][]{\mathrm{\delta}_{#1}}
+\ifUtopia \newcommand{\DiracDelta}[1][]{\mathrm{\delta}_{#1}} \fi
+\ifComputerModern \newcommand{\DiracDelta}[1][]{\updelta_{#1}} \fi
 % \RiemannZeta is Riemann's zeta function.
 \newcommand{\RiemannZeta}{\mathrm{\zeta}}
 % \EulerGamma is the Euler's gamma function.
@@ -454,7 +456,7 @@
 
 %%% Pedantic variants.
 \ifPedanticNotation
-  \renewcommand\pa[1]{\parentheses*{#1}_\mathrm{Assoc.}}
+  \renewcommand\Associate[1]{\parentheses*{#1}_\mathrm{Assoc.}}
   \renewcommand\of[1]{\squareBrackets*{#1}}
   \renewcommand\total[1]{\singleBars*{#1}_{\mathrm{MI}}}
   \renewcommand\norm[1]{\singleBars*{#1}_{2}}
