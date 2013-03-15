@@ -485,3 +485,13 @@
 \newcommand{\NormalSubgroup}{\unlhd}
 \newcommand{\Cardinality}[1]{\singleBars*{#1}}
 \newcommand{\Helt}[3]{\squareBrackets*{#1,#2;#3}}
+
+\newcommand{\LongDomainSpec}[1]{
+\begingroup
+\everymath{\scriptstyle}
+\scriptsize
+\begin{aligned}
+#1
+\end{aligned}
+\endgroup
+}
