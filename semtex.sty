@@ -31,6 +31,10 @@
 \RequirePackage{amsthm}
 \RequirePackage{mathtools}
 
+\RequirePackage{xfrac}
+
+\RequirePackage{fouridx}
+
 \ifUtopia
   \RequirePackage[utopia]{mathdesign}
   \RequirePackage[sfdefault=fav]{isomath}
@@ -170,12 +174,12 @@
 % \rft is the compact notation for the reverse fourier transform.
 \newcommand\rft\widecheck
 %% Postfix operators.
-% V\dual is the dual space of V.
-\newcommand{\dual}{^*}
-% V\contdual is the continuous dual of V.
-\newcommand{\contdual}{'}
-% A\adj is the adjoint of A.
-\newcommand{\adj}{^\dagger}
+% \dual V is the dual space of V.
+\newcommand{\dual}[1]{#1^*}
+% \contdual V is the continuous dual of V.
+\newcommand{\contdual}[1]{#1'}
+% \adj A is the adjoint of A.
+\newcommand{\adj}[1]{#1^\dagger}
 % f\der is a compact notation for the derivative of f.
 \newcommand{\der}{'}
 %% Many-argument operators.
@@ -307,8 +311,9 @@
 \else \newcommand{\pascal}[1]{#1} \fi
 % \setst{x\in X}{P\of x} is the set of x in X such that P\of x is true.
 \newcommand{\setst}[2]{\lcurlyBarRcurly*{{\textstyle #1}}{{\textstyle #2}}}
+\newcommand{\GroupPresentation}[2]{\langleBarRangle*{#1}{#2}}
 % \SchwartzInner{\gj}{\gy} is the inner product on \Schwartz.
-\newcommand{\SchwartzInner}[2]{\langleBarRangle*{#1}{#2}}
+\newcommand{\SchwartzInner}[2]{\langleCommaRangle*{#1}{#2}}
 
 %%% Variable names.
 %% Greek letters.
@@ -486,22 +491,24 @@
 \newcommand\C\Complexes
 
 \newcommand{\FreeGroup}[1]{\operatorname{F}_{#1}}
-\newcommand{\Intersection}[1]{\bigcap_{#1}}
+\newcommand{\Intersection}[1]{\bigcap\limits_{#1}}
 \newcommand{\NormalSubgroup}{\unlhd}
 \newcommand{\Cardinality}[1]{\singleBars*{#1}}
 \newcommand{\Helt}[3]{\squareBrackets*{#1,#2;#3}}
 
 \newcommand{\LongDomainSpec}[1]{
-\begingroup
-\everymath{\scriptstyle}
-\scriptsize
-\begin{aligned}
-#1
-\end{aligned}
-\endgroup
+\substack{#1}
 }
 
+\newcommand{\LeftConjugationAction}[2]{\fourIdx{#1}{}{}{}#2}
+
+\newcommand{\LeftCosets}{\sfrac}
+\newcommand{\QuotientGroup}{\LeftCosets}
 \newcommand{\EmptySet}\varnothing
 \newcommand{\union}{\cup}
 \newcommand{\intersection}{\cap}
+% \Character[\gr] is the character of the 
+% representation \gr. Use \Character when
+% \gr is implicit.
+\newcommand\Character[1][]{\chi_{#1}}
 \DeclareMathOperator{\OpenSets}{Open}
