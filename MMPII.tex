@@ -109,7 +109,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   \begin{definition} First, a few definitions used throughout this course:
 %TODO(eggrobin): the big partial derivative is nonsemantic.
   \begin{equation*}
-    \Continf\of\Rn \DefineAs \setst{\funcspec\gj\Rn\C}
+    \Continf\of\Rn \DefineAs \setst{\gj\in\Functions\Rn\C}
     {\forall \miga \in \N^n, \pdop\miga\gj \in \Cont\of\Rn}
     \text{ is the space of \emph{smooth functions} from }\Rn \text{ to } \C \text{, where}
   \end{equation*}
@@ -147,7 +147,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   \end{lemma}
 
   \begin{definition}[Convergence in $\Schwartz$]
-    The sequence $\tuplespec{\gj_k}{k \in \N} \in \pa\Schwartz^\N$ \emph{converges to} $\gj \in \Schwartz$ if and only if 
+    The sequence $\tuplespec{\gj_k}{k \in \N} \in \Functions\N{\pa\Schwartz}$ \emph{converges to} $\gj \in \Schwartz$ if and only if 
     \begin{equation*}
     \forall \miga, \migb \in \N^n \quad \lim_{k \rightarrow \infty}\SchwartzNorm{\miga}{\migb}{\gj_k - \gj}=0.
     \end{equation*}
@@ -537,7 +537,6 @@ We started with the finite Fourier transform. This is a special case of what we 
 
 \lectureEnd{2013-03-19}
 
-
 \paragraph*{Examples from Raisa Galimova's exercise class}
 \begingroup
 \newcommand{\FunctionSpace}{\mathcal F}
@@ -548,5 +547,27 @@ Let $G$ be a group acting on a space $X$ that has a space of --- $\Lspace[2]$, s
 \item If $G=\SpecialOrthogonalGroup\of 3$ acts by rotations on $X=\UnitSphere 2$, we get spherical harmonics.
 \end{enumerate}
 \endgroup
+
+\lectureStart{2013-03-21}
+\officialNotes
+\begingroup
+\newcommand{\vsqrtninv}{\frac{1}{\sqrt{\vn}}}
+The dual of a group is a sort of nonlinear version of the dual of a vector space.
+
+We switched from an additive to a multiplicative notation. ``Algebraists... you have to be careful. They're sensitive.''
+
+``Representation theory is like a bubble on Wall Street.'' We have, obviously, $\matT  \vsqrtninv = \vsqrtninv$. ``Does nobody know about Elmo?''  Now, by taking this eigenvector and applying $\matM$ over and over again, --- in a perfectly legal manner --- we get all the other eigenvectors! All the representation theory, all the modules, all the things they talk about... it's just this. ``[Claude's] entire thesis is just a super-duper version of this.'' You don't have to do anything, you just talk. This is the French influence.
+
+``We're going to come to the point where you see the difference between [Claude] and me.'' We will need not one, but \emph{two} proofs for the Stone-Von Neumann theorem.
+
+``Why am I not happy [about Proof I] whereas he is happy? [...] I'm only going to talk about mathematical reasons.'' Man cannot live on algebra alone. What happens as $n$ goes to infinity? The proof doesn't converge. He doesn't care. 
+
+The problem is phase transitions: the symmetries change, and you cannot see that with algebra. For instance, for superconductivity, you have to have enough stuff. You cannot just have an explicit $n$. 
+
+``Suddenly, we're going to go back to the Fourier transform.'' 
+
+``That's what's good about these algebraists. They're tenacious.''
+\endgroup
+\lectureEnd{2013-03-21}
 
 \end{document}
