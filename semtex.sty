@@ -250,7 +250,7 @@
 \newcommand{\Analytic}{\Cont[\omega]}
 % \Lspace[p]\of X is the space of all functions on X that have finite \Lnorm[p].
 % Use \Lspace for the \Lnorm (L - infinity).
-\newcommand{\Lspace}[1][\infty]{L^{#1}}
+\newcommand{\Lspace}[1][\infty]{\operatorname{L}^{#1}}
 % \LspaceLoc[p]\of X is the space of all functions on X that have finite \Lnorm[p] locally.
 \newcommand{\LspaceLoc}[1][\infty]{\Lspace[{#1}]_{\mathrm{loc}}}
 % Remarks from \Lspace apply.
@@ -494,6 +494,8 @@
 \newcommand{\Intersection}[1]{\bigcap\limits_{#1}}
 \newcommand{\NormalSubgroup}{\unlhd}
 \newcommand{\Cardinality}[1]{\singleBars*{#1}}
+\newcommand{\HeisenbergGroup}{\mathrm{H}}
+\newcommand{\FiniteHeisenbergGroup}[1]{\HeisenbergGroup_{#1}}
 \newcommand{\Helt}[3]{\squareBrackets*{#1,#2;#3}}
 
 \newcommand{\LongDomainSpec}[1]{
