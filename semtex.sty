@@ -491,8 +491,8 @@
 \newcommand\C\Complexes
 
 \newcommand{\FreeGroup}[1]{\operatorname{F}_{#1}}
-\newcommand{\Intersection}[1]{\bigcap\limits_{#1}}
-\newcommand{\NormalSubgroup}{\unlhd}
+\newcommand{\IntersectionOver}[1]{\bigcap\limits_{#1}}
+\newcommand{\NormalSubgroup}{\trianglelefteq}
 \newcommand{\Cardinality}[1]{\singleBars*{#1}}
 \newcommand{\HeisenbergGroup}{\mathrm{H}}
 \newcommand{\FiniteHeisenbergGroup}[1]{\HeisenbergGroup_{#1}}
@@ -507,8 +507,14 @@
 \newcommand{\LeftCosets}{\sfrac}
 \newcommand{\QuotientGroup}{\LeftCosets}
 \newcommand{\EmptySet}\varnothing
-\newcommand{\union}{\cup}
-\newcommand{\intersection}{\cap}
+\newcommand{\Union}{\cup}
+\newcommand{\Intersection}{\cap}
+\newcommand{\DefineAs}{\coloneqq}
+% When using ComputerModern, Subset will be undefined, 
+% but it will be defined when using Utopia, so we use
+% a \def.
+\def\Subset{\subseteq}
+\newcommand{\StrictSubset}{\subsetneq}
 % \Character[\gr] is the character of the 
 % representation \gr. Use \Character when
 % \gr is implicit.

@@ -67,10 +67,10 @@
 
 }
 \newcommand{\lectureEnd}[1]{
-
-\begin{flushright}
-\emph{Here ends the lecture of #1.}
-\end{flushright}
+% Redundant.
+%\begin{flushright}
+%\emph{Here ends the lecture of #1.}
+%\end{flushright}
 
 }
 
@@ -90,8 +90,8 @@
 
 \begin{document}
   \maketitle
-  \section{\emph{True Lies}: An introduction to distribution theory}
   \lectureStart{2013-02-28}
+  \section{\emph{True Lies}: An introduction to distribution theory}
   In many areas of physics, the Dirac delta ``function'' is an important tool, e.g., for describing localized phenomena. While it is usually described in vague terms as ``only making sense under an integral'', physicists tend to still write identities such as
   \begin{equation*}
     \Laplacian\frac{1}{\norm{\vx}} = -4 \Pi \DiracDelta\of\vx,
@@ -109,25 +109,25 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   \begin{definition} First, a few definitions used throughout this course:
 %TODO(eggrobin): the big partial derivative is nonsemantic.
   \begin{equation*}
-    \Continf\of\Rn \coloneqq \setst{\funcspec\gj\Rn\C}
+    \Continf\of\Rn \DefineAs \setst{\funcspec\gj\Rn\C}
     {\forall \miga \in \N^n, \pdop\miga\gj \in \Cont\of\Rn}
     \text{ is the space of \emph{smooth functions} from }\Rn \text{ to } \C \text{, where}
   \end{equation*}
   \begin{align*}
-    \N &\coloneqq \set{0, 1, 2, \dotsc},
+    \N &\DefineAs \set{0, 1, 2, \dotsc},
     &\miga &= \tuple{\ga_1, \dotsc, \ga_n} \in \N^n \text{ is a \emph{multi-index},} \\
-    \total{\miga} &\coloneqq \ga_1 + \dotsb + \ga_n,\quad
-    &\pd\vx\miga &\coloneqq \frac{\partial^{\total{\miga}}}{\pd{x_1}{\ga_1} \dotsm \pd{x_n}{\ga_n}}
+    \total{\miga} &\DefineAs \ga_1 + \dotsb + \ga_n,\quad
+    &\pd\vx\miga &\DefineAs \frac{\partial^{\total{\miga}}}{\pd{x_1}{\ga_1} \dotsm \pd{x_n}{\ga_n}}
     \text{(we use }\pdop\miga\text{ when the variable is implicit),} \\
-    \text{and }\vx^\migb &\coloneqq x_1^{\gb_1} \dotsm x_n^{\gb_n}
+    \text{and }\vx^\migb &\DefineAs x_1^{\gb_1} \dotsm x_n^{\gb_n}
     \text{ for }\vx \in \Rn, \migb \in \N^n.
   \end{align*}
   \end{definition}
 
   \begin{definition}[Schwartz space]  Now we define the \emph{Schwartz space}
   \begin{equation*}
-    \Schwartz \coloneqq \setst{\gj \in \Continf\of\Rn}{\forall \miga, \migb \in \N^n, \SchwartzNorm{\miga}{\migb}{\gj} < \infty}
-    \text{, where }\SchwartzNorm{\miga}{\migb}{\gj} \coloneqq \sup_{\vx\in\R^n}\abs{\vx^\miga\pd\vx\migb \gj\of\vx}.
+    \Schwartz \DefineAs \setst{\gj \in \Continf\of\Rn}{\forall \miga, \migb \in \N^n, \SchwartzNorm{\miga}{\migb}{\gj} < \infty}
+    \text{, where }\SchwartzNorm{\miga}{\migb}{\gj} \DefineAs \sup_{\vx\in\R^n}\abs{\vx^\miga\pd\vx\migb \gj\of\vx}.
   \end{equation*}
   \end{definition}
   
@@ -165,7 +165,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   Let us now consider some examples. First, define the space of locally integrable functions as follows.
   \begin{definition}[Locally integrable functions]
     \begin{equation*}
-      \LspaceLoc[1]\of\Rn \coloneqq \setst{\funcspec f \Rn \C}{\forall \vx \in \Rn, \exists \ge > 0, \int{\OpenBall \ge \vx}\abs{f\of\vy} \diffd{\vy} < \infty}
+      \LspaceLoc[1]\of\Rn \DefineAs \setst{\funcspec f \Rn \C}{\forall \vx \in \Rn, \exists \ge > 0, \int{\OpenBall \ge \vx}\abs{f\of\vy} \diffd{\vy} < \infty}
     \end{equation*}
   \end{definition}
   
@@ -174,13 +174,13 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   for some $s > 0$ (e.g. $\sum{\total\migb\leq s} c_\migb x^\migb$),
   then 
   \begin{equation*}
-    U_f\of\gj \coloneqq \int\Rn f\of{\vx} \gj\of{\vx} \diffd{x}
+    U_f\of\gj \DefineAs \int\Rn f\of{\vx} \gj\of{\vx} \diffd{x}
   \end{equation*}
   is a tempered distribution.
   \begin{definition}[Dirac delta distribution]
     Another example is the \emph{Dirac delta distribution} mentioned above, with 
     \begin{equation*}
-      \DiracDelta\of\gj \coloneqq \gj\of{0},\quad \DiracDelta[\vx]\of{\gj} \coloneqq \gj\of{\vx}.
+      \DiracDelta\of\gj \DefineAs \gj\of{0},\quad \DiracDelta[\vx]\of{\gj} \DefineAs \gj\of{\vx}.
     \end{equation*}
   \end{definition}  
   
@@ -189,7 +189,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
     Let $U\in\TemperedDistributions$. Then $\pdop\miga U$ is the distribution defined
     by 
     \begin{equation*}
-      \pa{\pdop\miga U}\of{\gj} \coloneqq \pa{-1}^{\total{\miga}} U\of{\pdop\miga\gj}\quad
+      \pa{\pdop\miga U}\of{\gj} \DefineAs \pa{-1}^{\total{\miga}} U\of{\pdop\miga\gj}\quad
       \text{for }\gj \in \Schwartz.
     \end{equation*}
   \end{definition}
@@ -203,13 +203,13 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
 
   Let's find the derivative of $\abs{\placeholder}$ in the distribution world:
   \begin{align*}
-    \AbsDistrib\of\gj &\coloneqq \int{-\infty}[\infty] \abs{x} \gj\of{x} \diffd{x}\\
+    \AbsDistrib\of\gj &\DefineAs \int{-\infty}[\infty] \abs{x} \gj\of{x} \diffd{x}\\
     \pa{\derivop x \AbsDistrib}\of\gj &= - \AbsDistrib  \deriv x \gj\\
     &= - \int0[\infty] x \gj\der\of{x} \diffd{x} - \int{-\infty}[0]\pa{-x}\gj\der\of{x} \\
     &= - \diff 0 \infty {x \gj\of{x}} + \int0[\infty] \gj\of{x} \diffd{x} + 
     \diff {-\infty}{0} {x \gj\of{x}} - \int{-\infty}[0] \gj\of{x} \diffd{x} \\
     &= \int{-\infty}[\infty] \Sign\of{x} \gj\of{x} \diffd{x} = U_{\Sign}\of\gj,\\
-    \text{where } \Sign\of{x} &\coloneqq
+    \text{where } \Sign\of{x} &\DefineAs
 	\begin{cases}
 		1  & x > 0 \\
 		0  & x = 0 \\
@@ -217,11 +217,11 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
 	\end{cases}
     \quad\text{is the sign function}.
   \end{align*}
-We define $\SignDistrib\of\gj \coloneqq \int{-\infty}[\infty] \Sign\of{x} \gj\of{x} \diffd{x}$ and write $\derivop x \mathrm{Abs} = \SignDistrib$. This corresponds to $\derivop x \abs{x} = \Sign\of{x}$ in physicist-speak.
+We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of{x} \diffd{x}$ and write $\derivop x \mathrm{Abs} = \SignDistrib$. This corresponds to $\derivop x \abs{x} = \Sign\of{x}$ in physicist-speak.
 
   What about $\Laplacian\frac{1}{\norm{\vx}}$? By defining the \emph{Newtonian distribution}
   \begin{equation*}
-    N\of\gj \coloneqq \int{\R^3} \frac{1}{\norm{\vx}} \gj\of\vx \diffd{\vx},
+    N\of\gj \DefineAs \int{\R^3} \frac{1}{\norm{\vx}} \gj\of\vx \diffd{\vx},
   \end{equation*}
   we get
   \begin{equation*}
@@ -236,12 +236,12 @@ We define $\SignDistrib\of\gj \coloneqq \int{-\infty}[\infty] \Sign\of{x} \gj\of
   \begin{definition}[Inner product on $\Schwartz$]
   Let $\gj,\gy\in\Schwartz$. We define:
   \begin{equation*}
-  \SchwartzInner \gy \gj \coloneqq \int\Rn \conj\gy\of\vx \gj\of\vx \diffd\vx .
+  \SchwartzInner \gy \gj \DefineAs \int\Rn \conj\gy\of\vx \gj\of\vx \diffd\vx .
   \end{equation*}
   \end{definition}
   \lectureEnd{2013-03-05}
-  \section{General properties of the Fourier transform}
   \lectureStart{2013-03-07}
+  \section{General properties of the Fourier transform}
   \begin{lemma}[``Your life in Fourier land depends on it.'']
     \begin{align}
       \label{FTLinearity}
@@ -252,7 +252,7 @@ We define $\SignDistrib\of\gj \coloneqq \int{-\infty}[\infty] \Sign\of{x} \gj\of
       \\
       \label{FTUpperBound}
       \abs{\ft{\gj}\of\vk} &\leq \ftnrm\Lnorm[1]{\gj}<\infty, &&
-      \Lnorm[1]{\gj} \coloneqq \int\Rn \abs{\gj\of\vx} \diffd \vx
+      \Lnorm[1]{\gj} \DefineAs \int\Rn \abs{\gj\of\vx} \diffd \vx
       \\
       \label{FTScaling}
       \ft{\gj\of{\gl\placeholder}}\of\vk &= \frac{1}{\abs{\gl}^n}\ft{\gj}\of{\frac\vk\gl}, &&
@@ -260,7 +260,7 @@ We define $\SignDistrib\of\gj \coloneqq \int{-\infty}[\infty] \Sign\of{x} \gj\of
       \\
       \label{FTTranslation}
       \ft{T_\vy\gj}\of\vx &= \E^{\I\scal\vk\vy}\ft\gj\of\vk, &&
-      \pa{T_\vy\gj}\of\vx \coloneqq \gj\of{\vx+\vy}
+      \pa{T_\vy\gj}\of\vx \DefineAs \gj\of{\vx+\vy}
       \\
       \label{FTDerivative}
       \begin{split}
@@ -334,7 +334,7 @@ We define $\SignDistrib\of\gj \coloneqq \int{-\infty}[\infty] \Sign\of{x} \gj\of
   \end{lemma}
   
   \begin{proposition}
-  The Fourier transform $\ft\placeholder$ is a continuous bijective linear map from the Schwartz space $\Schwartz$ to itself. $\rft{\ft{\gj}}=\gj$, where $\rft\gy\of\vx\coloneqq\ftnrm \int\Rn\gy\of\vk\E^{\I\scal\vk\vx}\diffd\vx$, read ``unhat'', ``bird'', ``seagull'', or whatever you like.
+  The Fourier transform $\ft\placeholder$ is a continuous bijective linear map from the Schwartz space $\Schwartz$ to itself. $\rft{\ft{\gj}}=\gj$, where $\rft\gy\of\vx\DefineAs\ftnrm \int\Rn\gy\of\vk\E^{\I\scal\vk\vx}\diffd\vx$, read ``unhat'', ``bird'', ``seagull'', or whatever you like.
   
     \begin{proof}
       \begin{align*}
@@ -438,15 +438,15 @@ We define $\SignDistrib\of\gj \coloneqq \int{-\infty}[\infty] \Sign\of{x} \gj\of
   where $\FT = \ft\placeholder$ because things are getting a bit too big for the hat.
   We smell a harmonic potential. ``Don't get your fingers too close, they sometimes bite.''
   
-  Let $H \coloneqq \frac{1}{2}\pa{-\derivop[2]{x}+x^2-1}$. Then $\commutator H {\ft\placeholder}=0$. We multiplied by $\frac{1}{2}$ so that it looks even more like a harmonic potential (it is the Hamiltonian of the quantum harmonic oscillator). Why did we add $-1$? Define
+  Let $H \DefineAs \frac{1}{2}\pa{-\derivop[2]{x}+x^2-1}$. Then $\commutator H {\ft\placeholder}=0$. We multiplied by $\frac{1}{2}$ so that it looks even more like a harmonic potential (it is the Hamiltonian of the quantum harmonic oscillator). Why did we add $-1$? Define
   \begin{align*}
-    A &\coloneqq \frac{1}{\sqrt 2}\pa{\derivop{x} + x},\\
-    \adj A &\coloneqq \frac{1}{\sqrt 2}\pa{-\derivop{x} + x}.
+    A &\DefineAs \frac{1}{\sqrt 2}\pa{\derivop{x} + x},\\
+    \adj A &\DefineAs \frac{1}{\sqrt 2}\pa{-\derivop{x} + x}.
   \end{align*}
   We then have $H = \adj A A$. If $a$ and $b$ commute, then we have $\pa{a-b}\pa{a+b}  = a^2-b^2$, but here $x$ and $\derivop{x}$ don't quite commute, hence the $-1$.
 \lectureEnd{2013-03-07}
 \lectureStart{2013-03-12}
-Let us look at these operators in more detail: define $\pa{Q f}\of x \coloneqq x f\of x \in \SchwartzSpace\of{\R}$, $\pa{P f}\of x \coloneqq \derivop x f\of x \in \SchwartzSpace\of\R$ for $f\in\SchwartzSpace\of\R$. We saw that $\commutator Q P = 1$. We also have:
+Let us look at these operators in more detail: define $\pa{Q f}\of x \DefineAs x f\of x \in \SchwartzSpace\of{\R}$, $\pa{P f}\of x \DefineAs \derivop x f\of x \in \SchwartzSpace\of\R$ for $f\in\SchwartzSpace\of\R$. We saw that $\commutator Q P = 1$. We also have:
 \begin{align*}
   \SchwartzInner \gj {P\gy} 
   &= \int\R \conj\gj\of x \derivop x \gy \of x \diffd x \\
@@ -454,9 +454,9 @@ Let us look at these operators in more detail: define $\pa{Q f}\of x \coloneqq x
     \int\R \derivop x \gj \of x \gy\of x \diffd x \\
   &= - \SchwartzInner {P\gj} \gy ,&&\parbox{7cm}{$\diff {-\infty}{\infty}{\conj\gj\gy} = 0$  as $\gj\in\SchwartzSpace\of\R$, $\gy\in\SchwartzSpace\of\R$, and therefore $\conj\gj\gy\in\SchwartzSpace\of\R$.}
 \end{align*}
-so $P$ is skew symmetric. What is better than skew symmetric? Self adjoint is better. How do we make a skew symmetric operator self adjoint? We add an $\I$. Namely, redefine $\pa{P f}\of x \coloneqq \frac{1}{\I}\derivop x f\of x$, we then have $\SchwartzInner \gj {P\gy}  = \SchwartzInner {P\gj} \gy$. $Q$ is obviously self adjoint. We now have $\commutator Q P = \I \Identity$. Multiplying by some $h\in\R$, redefine $\pa{P f}\of x \coloneqq \frac{h}{\I}\derivop x f\of x$, we get $\commutator Q P = h \I \Identity$.
+so $P$ is skew symmetric. What is better than skew symmetric? Self adjoint is better. How do we make a skew symmetric operator self adjoint? We add an $\I$. Namely, redefine $\pa{P f}\of x \DefineAs \frac{1}{\I}\derivop x f\of x$, we then have $\SchwartzInner \gj {P\gy}  = \SchwartzInner {P\gj} \gy$. $Q$ is obviously self adjoint. We now have $\commutator Q P = \I \Identity$. Multiplying by some $h\in\R$, redefine $\pa{P f}\of x \DefineAs \frac{h}{\I}\derivop x f\of x$, we get $\commutator Q P = h \I \Identity$.
 
-If we let $h \coloneqq \ReducedPlanck$, the conditions verified by $P$ and $Q$ are the conditions for infinite matrices $\matP$ and $\matQ$ in the ``catechism of matrix mechanics'' in \emph{Finite Dimensional Quantum Mechanics}.
+If we let $h \DefineAs \ReducedPlanck$, the conditions verified by $P$ and $Q$ are the conditions for infinite matrices $\matP$ and $\matQ$ in the ``catechism of matrix mechanics'' in \emph{Finite Dimensional Quantum Mechanics}.
 ``Being something a little more, and something a lot less than cockroaches, we are curious.'' What we have been doing here is not the ideal way of doing this: we have to pick a vector space, in this case $\Schwartz$, last year the space of infinite matrices. As we learned in linear algebra, we gain a deeper understanding if we do not use coordinate systems. 
 ``We are going to study the pure essence'' of this. We are going to replace that by an abstract group, which lives in Plato's cave, and when we need to calculate, we will look at a representation. ``The group is as close to God as you can get.''
 
@@ -464,7 +464,7 @@ If we let $h \coloneqq \ReducedPlanck$, the conditions verified by $P$ and $Q$ a
 We define the Heisenberg group, introduced by Hermann Weyl.
 \begin{equation*}
 \tuple{
-\HeisenbergGroup \coloneqq \setst{
+\HeisenbergGroup \DefineAs \setst{
 \begin{pmatrix}
 1 & r & t\\
 0 & 1 & s\\
@@ -480,7 +480,8 @@ You know that if you take $\E^x\E^y$ on reals numbers, you get $\E^{x+y}$, but t
 &&\text{ as }\pa{\E^{\I t \pa{\frac{1}{\I}\derivop x}}}f\of x \overset{\text{formally}}{=} \sum{l=0}[\infty]\frac{t^l}{l!}\derivop[l] x f \of x \text{, the Taylor series of $f\of{x + t}$ at $x$.}\\
 \E^{\I t P}\E^{\I s Q} &= \E^{\I s t} \E^{\I s Q} \E^{\I t P}
 \end{align*}
-Write $X \coloneqq \E^{\I Q}$ and $Y \coloneqq \E^{\I P}$, $X^r Y^s = \E^{\I r s} Y^s X^r$, $Z \coloneqq \pa{\E^\I}^t \Identity$. We will generate a group with these three elements. ``I'll think up another way of doing this; it's something worth doing twice.'' How do we preserve all the ideas, and yet get rid of all the infinite dimensional vector spaces? We study a finite dimensional analog, the finite Heisenberg group $\FiniteHeisenbergGroup n$, in which we use $\IntegersModulo n$ instead of $\R$. And we'll use that little group to do all sorts of experiments. No one will complain about what we do to it. 
+
+Write $X \DefineAs \E^{\I Q}$ and $Y \DefineAs \E^{\I P}$, $X^r Y^s = \E^{\I r s} Y^s X^r$, $Z \DefineAs \pa{\E^\I}^t \Identity$. We will generate a group with these three elements. ``I'll think up another way of doing this; it's something worth doing twice.'' How do we preserve all the ideas, and yet get rid of all the infinite dimensional vector spaces? We study a finite dimensional analog, the finite Heisenberg group $\FiniteHeisenbergGroup n$, in which we use $\IntegersModulo{n}$ instead of $\R$. And we'll use that little group to do all sorts of experiments. No one will complain about what we do to it. 
 
 Let us start again. ``Those of you who have done the exercises, and those of you who have the determination to go to Prof. Willwacher's --- `Willwacher.' I like that name. --- lecture, we are going to do that again, but on a concrete example.''
 We will find all the conjugacy classes. ``We're going to hunt them down!'' 
@@ -499,22 +500,22 @@ In its soul, the finite Heisenberg group has captured the essence of calculating
 
  ``Conjugacy is where it's at, in the language of the 1960s.'' For instance, the Jordan normal form gives you a unique representative element of a conjugacy class. ``You can dig down here and spend years in this hole. Or you can go up. I'll go up, I'll let you dig down.''
 
-$\matX\coloneqq\Helt 1 0 0, \matY\coloneqq\Helt 0 1 0, \matZ\coloneqq\Helt 0 0 1$ generate the finite Heisenberg group. With $\matZ=\matX\matY\matX^{-1}\matY^{-1}$, $\matX$, $\matY$ generate it. ``Jacobi? --- no, no, no. No Jacobi identity.'' 
+$\matX\DefineAs\Helt 1 0 0, \matY\DefineAs\Helt 0 1 0, \matZ\DefineAs\Helt 0 0 1$ generate the finite Heisenberg group. With $\matZ=\matX\matY\matX^{-1}\matY^{-1}$, $\matX$, $\matY$ generate it. ``Jacobi? --- no, no, no. No Jacobi identity.'' 
 
 The free group on one element is isomorphic to $\tuple{\Z,+}$. The normal subgroup of $\FreeGroup X$ generated by $W$ is the smallest normal subgroup which contains $W$. This is well-defined, as $\FreeGroup X$ is such a normal subgroup, and the intersection of normal subgroups is a normal subgroup, so the normal subgroup generated by $W$ is
 \begin{align*}
-  \Intersection {
+  \IntersectionOver {
     \LongDomainSpec{
       \mathllap{N\NormalSubgroup} \mathrlap{\FreeGroup X}\\
-      \mathllap{W\subset} \mathrlap{N}
+      \mathllap{W\Subset} \mathrlap{N}
     }
   } N.
-\intertext{Note that this is also equal to the orbit of $W$ by the action of $G$ on its subsets by conjugation, $\LeftConjugationAction g S \coloneqq g S g^{-1}$, so we can write}
+\intertext{Note that this is also equal to the orbit of $W$ under the action of $G$ on its subsets by conjugation, $\LeftConjugationAction g S \DefineAs g S g^{-1}$, so we can write}
 \GroupPresentation{X}{W} = \QuotientGroup{\FreeGroup X}{\LeftConjugationAction G W} = \QuotientGroup{\FreeGroup X}{
-  \Intersection {
+  \IntersectionOver {
     \LongDomainSpec{
       \mathllap{N\NormalSubgroup} \mathrlap{\FreeGroup X}\\
-      \mathllap{W\subset} \mathrlap{N}
+      \mathllap{W\Subset} \mathrlap{N}
     }
   } N.
 }
@@ -529,7 +530,7 @@ $\gr$ is a faithful complex irreducible representation of the finite group $G$ i
 \lectureEnd{2013-03-14}
 \lectureStart{2013-03-19}
 \officialNotes
-The way a bourgeois mathematician thinks of the phase space is as the cotangent bundle $\Rn\times\dual\Rn$.
+The way a bourgeois mathematician thinks of the phase space is as the cotangent bundle $\Rn\times\dual{\pa\Rn}$.
 ``If you would have the energy to learn about ancient Greek, and you talked about the real housewives of Atlanta, it would be a waste.'' It is not sufficient to have a fancy language, you actually have to say something.
 
 We started with the finite Fourier transform. This is a special case of what we discuss here, with $\IntegersModulo{n}$ as the abelian group. This is perfect pedagogy: after only eight months, we come back to the beginning. Everything I've done so far is just that for various groups. When the group is infinite, e.g., the unit circle for Fourier series, you have to do analysis. ``[Claude] doesn't go there. I do.''
