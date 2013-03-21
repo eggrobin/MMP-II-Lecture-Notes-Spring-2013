@@ -154,7 +154,7 @@
 % \GL\of{n,F} is the general linear group of degree n over F.
 % \GL\of{V} is the general linear group of the vector space V.
 % Use \GL\of{n} when the field is implicit.
-\DeclareMathOperator{\GeneralLinearGroup}{GL}
+\DeclareMathOperator{\GeneralLinearGroup}{GL\,}
 % \SL\of{n,F} is the special linear group of degree n over F.
 % Remarks from \GL apply.
 \DeclareMathOperator{\SpecialLinearGroup}{SL}
@@ -501,6 +501,7 @@
 \newcommand{\HeisenbergGroup}{\mathrm{H}}
 \newcommand{\FiniteHeisenbergGroup}[1]{\HeisenbergGroup_{#1}}
 \newcommand{\Helt}[3]{\squareBrackets*{#1,#2;#3}}
+\newcommand{\Compose}{\circ}
 
 \newcommand{\LongDomainSpec}[1]{
 \substack{#1}
@@ -529,3 +530,7 @@
 \newcommand\Functions[2]{{#2}^{#1}}
 \newcommand\DualGroup\widehat
 \newcommand\PowerSet[1]{2^{#1}}
+\newcommand{\KroneckerDelta}[2]{\mathrm{\delta}_{#1\,#2}}
+\DeclareMathOperator\LinearSpan{span}
+\newcommand{\Orthogonal}{\bot}
+\newcommand{\DirectSum}[1]{\bigoplus\limits_{#1}}
