@@ -109,7 +109,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   \begin{definition} First, a few definitions used throughout this course:
 %TODO(eggrobin): the big partial derivative is nonsemantic.
   \begin{equation*}
-    \Continf\of\Rn \DefineAs \setst{\funcspec\gj\Rn\C}
+    \Continf\of\Rn \DefineAs \setst{\gj\in\Functions\Rn\C}
     {\forall \miga \in \N^n, \pdop\miga\gj \in \Cont\of\Rn}
     \text{ is the space of \emph{smooth functions} from }\Rn \text{ to } \C \text{, where}
   \end{equation*}
@@ -147,7 +147,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   \end{lemma}
 
   \begin{definition}[Convergence in $\Schwartz$]
-    The sequence $\tuplespec{\gj_k}{k \in \N} \in \pa\Schwartz^\N$ \emph{converges to} $\gj \in \Schwartz$ if and only if 
+    The sequence $\tuplespec{\gj_k}{k \in \N} \in \Functions\N{\pa\Schwartz}$ \emph{converges to} $\gj \in \Schwartz$ if and only if 
     \begin{equation*}
     \forall \miga, \migb \in \N^n \quad \lim_{k \rightarrow \infty}\SchwartzNorm{\miga}{\migb}{\gj_k - \gj}=0.
     \end{equation*}
@@ -464,7 +464,7 @@ If we let $h \DefineAs \ReducedPlanck$, the conditions verified by $P$ and $Q$ a
 We define the Heisenberg group, introduced by Hermann Weyl.
 \begin{equation*}
 \tuple{
-H \DefineAs \setst{
+\HeisenbergGroup \DefineAs \setst{
 \begin{pmatrix}
 1 & r & t\\
 0 & 1 & s\\
@@ -480,7 +480,8 @@ You know that if you take $\E^x\E^y$ on reals numbers, you get $\E^{x+y}$, but t
 &&\text{ as }\pa{\E^{\I t \pa{\frac{1}{\I}\derivop x}}}f\of x \overset{\text{formally}}{=} \sum{l=0}[\infty]\frac{t^l}{l!}\derivop[l] x f \of x \text{, the Taylor series of $f\of{x + t}$ at $x$.}\\
 \E^{\I t P}\E^{\I s Q} &= \E^{\I s t} \E^{\I s Q} \E^{\I t P}
 \end{align*}
-Write $X \DefineAs \E^{\I Q}$ and $Y \DefineAs \E^{\I P}$, $X^r Y^s = \E^{\I r s} Y^s X^r$, $Z \DefineAs \pa{\E^\I}^t \Identity$. We will generate a group with these three elements. ``I'll think up another way of doing this; it's something worth doing twice.'' How do we preserve all the ideas, and yet get rid of all the infinite dimensional vector spaces? We study a finite dimensional analog, the finite Heisenberg group, in which we use $\IntegersModulo{n}$ instead of $\R$. And we'll use that little group to do all sorts of experiments. No one will complain about what we do to it. 
+
+Write $X \DefineAs \E^{\I Q}$ and $Y \DefineAs \E^{\I P}$, $X^r Y^s = \E^{\I r s} Y^s X^r$, $Z \DefineAs \pa{\E^\I}^t \Identity$. We will generate a group with these three elements. ``I'll think up another way of doing this; it's something worth doing twice.'' How do we preserve all the ideas, and yet get rid of all the infinite dimensional vector spaces? We study a finite dimensional analog, the finite Heisenberg group $\FiniteHeisenbergGroup n$, in which we use $\IntegersModulo{n}$ instead of $\R$. And we'll use that little group to do all sorts of experiments. No one will complain about what we do to it. 
 
 Let us start again. ``Those of you who have done the exercises, and those of you who have the determination to go to Prof. Willwacher's --- `Willwacher.' I like that name. --- lecture, we are going to do that again, but on a concrete example.''
 We will find all the conjugacy classes. ``We're going to hunt them down!'' 
@@ -529,10 +530,53 @@ $\gr$ is a faithful complex irreducible representation of the finite group $G$ i
 \lectureEnd{2013-03-14}
 \lectureStart{2013-03-19}
 \officialNotes
+The dual group only works for abelian groups.
+The dual space of $\Rn$ is linked to the dual group in the following way: we have $\DualGroup\Rn\DefineAs\setst{f\in\Functions{\Rn}{\UnitaryGroup\of 1}}{f\of{\vx+\vy}=f\of \vx f\of \vy}$. Those functions are the $\E^{\I\scal{\vk}{\pascal\placeholder}}$, where $\scal{\vk}{\pascal\placeholder}\in\dual{\pa\Rn}$. Moreover, $\ft\gj\of\vk = \ftnrm \int\Rn \gj\of\vx \conj{\E^{\I\scal{\vk}{\vx}}}\diffd \vx$, that is, $\SchwartzInner{\E^{\I\scal{\vk}{\pascal\placeholder}}}{\gj}$, which is the infinite analogue to $\sum{u\in A}\conj f\of u g\of u$, the inner product on $\Lspace[2]\of A$.
+
 The way a bourgeois mathematician thinks of the phase space is as the cotangent bundle $\Rn\times\dual{\pa\Rn}$.
 ``If you would have the energy to learn about ancient Greek, and you talked about the real housewives of Atlanta, it would be a waste.'' It is not sufficient to have a fancy language, you actually have to say something.
 
-We started with the finite Fourier transform. This is a special case of what we discuss here, with $\IntegersModulo{n}$ as the abelian group. This is perfect pedagogy: after only eight months, we come back to the beginning. Everything I've done so far is just that for various groups. When the group is infinite, e.g., the unit circle for Fourier series, you have to do analysis. ``[Claude] doesn't go there. I do.''
+We started this lecture with the finite Fourier transform. This is a special case of what we discuss here, with $\IntegersModulo{n}$ as the abelian group $A$. This is perfect pedagogy: after only eight months, we come back to the beginning. Everything I've done so far is just that for various groups. When the group is infinite, e.g., the unit circle for Fourier series, you have to do analysis. ``[Claude] doesn't go there. I do.''
 
 \lectureEnd{2013-03-19}
+
+\paragraph*{Examples from Raisa Galimova's exercise class}
+\begingroup
+\newcommand{\FunctionSpace}{\mathcal F}
+Let $G$ be a group acting on a space $X$ that has a space of --- $\Lspace[2]$, smooth, etc. --- functions $\FunctionSpace \of X$ associated to it.
+\begin{enumerate}
+\item If $G=\UnitSphere 1=X$ is the ``circle group,'' acting on itself by addition (here we use the definition $\UnitSphere 1 = \QuotientGroup\R {2\Pi\Z}$), $\FunctionSpace \of X$ decomposes to Fourier Series;
+\item If $G=\R=X$, which acts by addition, $\FunctionSpace \of X$ decomposes to the Fourier transform;
+\item If $G=\SpecialOrthogonalGroup\of 3$ acts by rotations on $X=\UnitSphere 2$, we get spherical harmonics.
+\end{enumerate}
+\endgroup
+
+\lectureStart{2013-03-21}
+\officialNotes
+\begingroup
+\newcommand{\vsqrtninv}{\frac{1}{\sqrt{\vn}}}
+The dual of a group is a sort of nonlinear version of the dual of a vector space.
+
+We switched from an additive to a multiplicative notation. ``Algebraists... you have to be careful. They're sensitive.''
+
+``Representation theory is like a bubble on Wall Street.'' We have, obviously, $\matT  \vsqrtninv = \vsqrtninv$. ``Does nobody know about Elmo?''  Now, by taking this eigenvector and applying $\matM$ over and over again, --- in a perfectly legal manner --- we get all the other eigenvectors! All the representation theory, all the modules, all the things they talk about... it's just this. ``[Claude's] entire thesis is just a super-duper version of this.'' You don't have to do anything, you just talk. This is the French influence.
+
+``We're going to come to the point where you see the difference between [Claude] and me.'' We will need not one, but \emph{two} proofs for the Stone-Von Neumann theorem.
+
+``Why am I not happy [about Proof I] whereas he is happy? [...] I'm only going to talk about mathematical reasons.'' Man cannot live on algebra alone. What happens as $n$ goes to infinity? The proof doesn't converge. He doesn't care. 
+
+The problem is phase transitions: the symmetries change, and you cannot see that with algebra. For instance, for superconductivity, you have to have enough stuff. You cannot just have an explicit $n$. 
+
+\noindent
+``Suddenly, we're going to go back to the Fourier transform.'' 
+
+\noindent
+``That's what's good about these algebraists. They're tenacious.''
+
+``We have a new Pope now. You cannot confuse the Father, the Son and the Holy Ghost. If you do, you are going to get in trouble. If you confuse eigenvectors and eigenvalues, you're also going to get into trouble. Not the same kind of trouble though.''
+
+``If you don't come back next week I understand.''
+\endgroup
+\lectureEnd{2013-03-21}
+
 \end{document}

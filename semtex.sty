@@ -154,16 +154,17 @@
 % \GL\of{n,F} is the general linear group of degree n over F.
 % \GL\of{V} is the general linear group of the vector space V.
 % Use \GL\of{n} when the field is implicit.
-\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\GeneralLinearGroup}{GL}
 % \SL\of{n,F} is the special linear group of degree n over F.
 % Remarks from \GL apply.
-\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SpecialLinearGroup}{SL}
 % \Orth\of{n,F} is the orthogonal group of degree n over F.
 % Remarks from \GL apply.
-\DeclareMathOperator{\Orth}{O}
+\DeclareMathOperator{\OrthogonalGroup}{O}
 % \SO\of{n,F} is the special orthogonal group of degree n over F.
 % Remarks from \GL apply.
-\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\SpecialOrthogonalGroup}{SO}
+\DeclareMathOperator{\UnitaryGroup}{U}
 %% Diacritics (one-parameter LaTeX commands).
 % \conj z is the complex conjugate of z.
 % By ISO 80000-2:2009 \overline{z} is the standard notation
@@ -250,7 +251,7 @@
 \newcommand{\Analytic}{\Cont[\omega]}
 % \Lspace[p]\of X is the space of all functions on X that have finite \Lnorm[p].
 % Use \Lspace for the \Lnorm (L - infinity).
-\newcommand{\Lspace}[1][\infty]{L^{#1}}
+\newcommand{\Lspace}[1][\infty]{\operatorname{L}^{#1}}
 % \LspaceLoc[p]\of X is the space of all functions on X that have finite \Lnorm[p] locally.
 \newcommand{\LspaceLoc}[1][\infty]{\Lspace[{#1}]_{\mathrm{loc}}}
 % Remarks from \Lspace apply.
@@ -494,6 +495,8 @@
 \newcommand{\IntersectionOver}[1]{\bigcap\limits_{#1}}
 \newcommand{\NormalSubgroup}{\trianglelefteq}
 \newcommand{\Cardinality}[1]{\singleBars*{#1}}
+\newcommand{\HeisenbergGroup}{\mathrm{H}}
+\newcommand{\FiniteHeisenbergGroup}[1]{\HeisenbergGroup_{#1}}
 \newcommand{\Helt}[3]{\squareBrackets*{#1,#2;#3}}
 
 \newcommand{\LongDomainSpec}[1]{
@@ -516,5 +519,9 @@
 % \Character[\gr] is the character of the 
 % representation \gr. Use \Character when
 % \gr is implicit.
-\newcommand\Character[1][]{\chi_{#1}}
+\newcommand\Character[1][]{\mathrm{\chi}_{#1}}
 \DeclareMathOperator{\OpenSets}{Open}
+\newcommand\UnitSphere[1]{\mathrm{S}^{#1}}
+% \Functions{X}{Y} is the set of functions from X to Y.
+\newcommand\Functions[2]{{#2}^{#1}}
+\newcommand\DualGroup\widehat
