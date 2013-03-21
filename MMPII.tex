@@ -165,7 +165,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   Let us now consider some examples. First, define the space of locally integrable functions as follows.
   \begin{definition}[Locally integrable functions]
     \begin{equation*}
-      \LspaceLoc[1]\of\Rn \DefineAs \setst{\funcspec f \Rn \C}{\forall \vx \in \Rn, \exists \ge > 0, \int{\OpenBall \ge \vx}\abs{f\of\vy} \diffd{\vy} < \infty}
+      \LspaceLoc[1]\of\Rn \DefineAs \setst{\FunctionSpec f \Rn \C}{\forall \vx \in \Rn, \exists \ge > 0, \int{\OpenBall \ge \vx}\abs{f\of\vy} \diffd{\vy} < \infty}
     \end{equation*}
   \end{definition}
   
@@ -236,7 +236,7 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
   \begin{definition}[Inner product on $\Schwartz$]
   Let $\gj,\gy\in\Schwartz$. We define:
   \begin{equation*}
-  \SchwartzInner \gy \gj \DefineAs \int\Rn \conj\gy\of\vx \gj\of\vx \diffd\vx .
+  \LTwoInner \gy \gj \DefineAs \int\Rn \conj\gy\of\vx \gj\of\vx \diffd\vx .
   \end{equation*}
   \end{definition}
   \lectureEnd{2013-03-05}
@@ -448,13 +448,13 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
 \lectureStart{2013-03-12}
 Let us look at these operators in more detail: define $\pa{Q f}\of x \DefineAs x f\of x \in \SchwartzSpace\of{\R}$, $\pa{P f}\of x \DefineAs \derivop x f\of x \in \SchwartzSpace\of\R$ for $f\in\SchwartzSpace\of\R$. We saw that $\commutator Q P = 1$. We also have:
 \begin{align*}
-  \SchwartzInner \gj {P\gy} 
+  \LTwoInner \gj {P\gy} 
   &= \int\R \conj\gj\of x \derivop x \gy \of x \diffd x \\
   &= \diff {-\infty}{\infty}{\conj\gj\gy} - 
     \int\R \derivop x \gj \of x \gy\of x \diffd x \\
-  &= - \SchwartzInner {P\gj} \gy ,&&\parbox{7cm}{$\diff {-\infty}{\infty}{\conj\gj\gy} = 0$  as $\gj\in\SchwartzSpace\of\R$, $\gy\in\SchwartzSpace\of\R$, and therefore $\conj\gj\gy\in\SchwartzSpace\of\R$.}
+  &= - \LTwoInner {P\gj} \gy ,&&\parbox{7cm}{$\diff {-\infty}{\infty}{\conj\gj\gy} = 0$  as $\gj\in\SchwartzSpace\of\R$, $\gy\in\SchwartzSpace\of\R$, and therefore $\conj\gj\gy\in\SchwartzSpace\of\R$.}
 \end{align*}
-so $P$ is skew symmetric. What is better than skew symmetric? Self adjoint is better. How do we make a skew symmetric operator self adjoint? We add an $\I$. Namely, redefine $\pa{P f}\of x \DefineAs \frac{1}{\I}\derivop x f\of x$, we then have $\SchwartzInner \gj {P\gy}  = \SchwartzInner {P\gj} \gy$. $Q$ is obviously self adjoint. We now have $\commutator Q P = \I \Identity$. Multiplying by some $h\in\R$, redefine $\pa{P f}\of x \DefineAs \frac{h}{\I}\derivop x f\of x$, we get $\commutator Q P = h \I \Identity$.
+so $P$ is skew symmetric. What is better than skew symmetric? Self adjoint is better. How do we make a skew symmetric operator self adjoint? We add an $\I$. Namely, redefine $\pa{P f}\of x \DefineAs \frac{1}{\I}\derivop x f\of x$, we then have $\LTwoInner \gj {P\gy}  = \LTwoInner {P\gj} \gy$. $Q$ is obviously self adjoint. We now have $\commutator Q P = \I \Identity$. Multiplying by some $h\in\R$, redefine $\pa{P f}\of x \DefineAs \frac{h}{\I}\derivop x f\of x$, we get $\commutator Q P = h \I \Identity$.
 
 If we let $h \DefineAs \ReducedPlanck$, the conditions verified by $P$ and $Q$ are the conditions for infinite matrices $\matP$ and $\matQ$ in the ``catechism of matrix mechanics'' in \emph{Finite Dimensional Quantum Mechanics}.
 ``Being something a little more, and something a lot less than cockroaches, we are curious.'' What we have been doing here is not the ideal way of doing this: we have to pick a vector space, in this case $\Schwartz$, last year the space of infinite matrices. As we learned in linear algebra, we gain a deeper understanding if we do not use coordinate systems. 
@@ -531,7 +531,7 @@ $\gr$ is a faithful complex irreducible representation of the finite group $G$ i
 \lectureStart{2013-03-19}
 \officialNotes
 The dual group only works for abelian groups.
-The dual space of $\Rn$ is linked to the dual group in the following way: we have $\DualGroup\Rn\DefineAs\setst{f\in\Functions{\Rn}{\UnitaryGroup\of 1}}{f\of{\vx+\vy}=f\of \vx f\of \vy}$. Those functions are the $\E^{\I\scal{\vk}{\pascal\placeholder}}$, where $\scal{\vk}{\pascal\placeholder}\in\dual{\pa\Rn}$. Moreover, $\ft\gj\of\vk = \ftnrm \int\Rn \gj\of\vx \conj{\E^{\I\scal{\vk}{\vx}}}\diffd \vx$, that is, $\SchwartzInner{\E^{\I\scal{\vk}{\pascal\placeholder}}}{\gj}$, which is the infinite analogue to $\sum{u\in A}\conj f\of u g\of u$, the inner product on $\Lspace[2]\of A$.
+The dual space of $\Rn$ is linked to the dual group in the following way: we have $\DualGroup\Rn\DefineAs\setst{f\in\Functions{\Rn}{\UnitaryGroup\of 1}}{f\of{\vx+\vy}=f\of \vx f\of \vy}$. Those functions are the $\E^{\I\scal{\vk}{\pascal\placeholder}}$, where $\scal{\vk}{\pascal\placeholder}\in\dual{\pa\Rn}$. Moreover, $\ft\gj\of\vk = \ftnrm \int\Rn \gj\of\vx \conj{\E^{\I\scal{\vk}{\vx}}}\diffd \vx$, that is, $\LTwoInner{\E^{\I\scal{\vk}{\pascal\placeholder}}}{\gj}$, which is the infinite analogue to $\sum{u\in A}\conj f\of u g\of u$, the inner product on $\Lspace[2]\of A$.
 
 The way a bourgeois mathematician thinks of the phase space is as the cotangent bundle $\Rn\times\dual{\pa\Rn}$.
 ``If you would have the energy to learn about ancient Greek, and you talked about the real housewives of Atlanta, it would be a waste.'' It is not sufficient to have a fancy language, you actually have to say something.
@@ -543,9 +543,18 @@ We started this lecture with the finite Fourier transform. This is a special cas
 \paragraph*{Examples from Raisa Galimova's exercise class}
 \begingroup
 \newcommand{\FunctionSpace}{\mathcal F}
-Let $G$ be a group acting on a space $X$ that has a space of --- $\Lspace[2]$, smooth, etc. --- functions $\FunctionSpace \of X$ associated to it.
+\newcommand{\LeftAction}[2]{#1 #2}
+Let $G$ be a group acting on the left on a measure space $\tuple{X, \gS, \gm}$ --- where $X$ is a set, $\gm$ is a measure, $\gS\Subset\PowerSet X$ the $\gs$-algebra of $\gm$-measurable subsets --- by $\FunctionSpec f G {\Functions X X}, \FunctionBody g {f_g}$ and define the space of square-integrable functions 
+\begin{align*}
+  \Lspace[2]\of X &\DefineAs \setst{\gj\in\Functions \C X}{\int X \abs{\gj\of x}^2 \diffd \gm < \infty}
+\intertext{associated with $X$. Note that if $X$ is finite, and $\gm$ is the counting measure,}
+  \int X \abs{\gj\of x}^2 \diffd \gm &= \sum {g\in X} \abs{\gj\of x}^2 &= \LTwoInner\gj\gj
+\intertext{so we recover the definition from the lecture for a finite group $X$. If $X=\Rn$, and $\gm$ is the Lebesgue measure,}
+  \int X \abs{\gj\of x}^2 \diffd \gm &= \int \Rn \abs{\gj\of \vx}^2 \diffd\vx &= \LTwoInner\gj\gj = \Lnorm[2]\gj
+\end{align*}
+so again we recover the definition we gave for the inner product on $\Schwartz\Subset\Lspace[2]\of\Rn$.
 \begin{enumerate}
-\item If $G=\UnitSphere 1=X$ is the ``circle group,'' acting on itself by addition (here we use the definition $\UnitSphere 1 = \QuotientGroup\R {2\Pi\Z}$), $\FunctionSpace \of X$ decomposes to Fourier Series;
+\item If $G=\UnitSphere 1=X$ is the ``circle group,'' acting on itself by addition (here we use the definition $\UnitSphere 1 = \QuotientGroup\R {2\Pi\Z}$), $\FunctionSpace \of X = \Lspace[2]\of{\UnitSphere 1}$ decomposes in a way which is dictated by Fourier series, i.e., ;
 \item If $G=\R=X$, which acts by addition, $\FunctionSpace \of X$ decomposes to the Fourier transform;
 \item If $G=\SpecialOrthogonalGroup\of 3$ acts by rotations on $X=\UnitSphere 2$, we get spherical harmonics.
 \end{enumerate}

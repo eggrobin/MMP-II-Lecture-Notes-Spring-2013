@@ -313,8 +313,8 @@
 % \setst{x\in X}{P\of x} is the set of x in X such that P\of x is true.
 \newcommand{\setst}[2]{\lcurlyBarRcurly*{{\textstyle #1}}{{\textstyle #2}}}
 \newcommand{\GroupPresentation}[2]{\langleBarRangle*{#1}{#2}}
-% \SchwartzInner{\gj}{\gy} is the inner product on \Schwartz.
-\newcommand{\SchwartzInner}[2]{\langleCommaRangle*{#1}{#2}}
+% \LTwoInner{\gj}{\gy} is the standard inner product on \Lspace[2].
+\newcommand{\LTwoInner}[2]{\langleCommaRangle*{#1}{#2}}
 
 %%% Variable names.
 %% Greek letters.
@@ -348,6 +348,8 @@
 \newcommand\gc\chi
 \newcommand\gy\psi
 \newcommand\gw\omega
+
+\newcommand\gS\Sigma
 
 %% Vectors, matrices, higher-order tensors.
 % Vectors are typeset in bold italic (isomath \vectorsym) as per ISO 80000-2:2009.
@@ -451,7 +453,8 @@
 % as in 'if f is linear, f\of{\gl\placeholder}=\gl f.'
 \newcommand\placeholder{\,\:\cdot\:\,}
 % \funcspec{f}{X}{Y} specifies that f is a function from X to Y.
-\newcommand{\funcspec}[3]{{#1}:{#2}\rightarrow{#3}}
+\newcommand{\FunctionSpec}[3]{{#1}:{#2}\rightarrow{#3}}
+\newcommand{\FunctionBody}[2]{{#1}\mapsto{#2}}
 % \conv[<type>]{a_k}a indicates that the sequence of a_k s converges to a.
 % the type of convergence, e.g., uniform, uniform for all derivatives, etc.
 % is indicated by <type>. Use \conv{a_k}{a} when <type> is implicit.
@@ -525,3 +528,4 @@
 % \Functions{X}{Y} is the set of functions from X to Y.
 \newcommand\Functions[2]{{#2}^{#1}}
 \newcommand\DualGroup\widehat
+\newcommand\PowerSet[1]{2^{#1}}
