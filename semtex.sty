@@ -154,16 +154,16 @@
 % \GL\of{n,F} is the general linear group of degree n over F.
 % \GL\of{V} is the general linear group of the vector space V.
 % Use \GL\of{n} when the field is implicit.
-\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\GeneralLinearGroup}{GL}
 % \SL\of{n,F} is the special linear group of degree n over F.
 % Remarks from \GL apply.
-\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SpecialLinearGroup}{SL}
 % \Orth\of{n,F} is the orthogonal group of degree n over F.
 % Remarks from \GL apply.
-\DeclareMathOperator{\Orth}{O}
+\DeclareMathOperator{\OrthogonalGroup}{O}
 % \SO\of{n,F} is the special orthogonal group of degree n over F.
 % Remarks from \GL apply.
-\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\SpecialOrthogonalGroup}{SO}
 %% Diacritics (one-parameter LaTeX commands).
 % \conj z is the complex conjugate of z.
 % By ISO 80000-2:2009 \overline{z} is the standard notation
@@ -518,5 +518,6 @@
 % \Character[\gr] is the character of the 
 % representation \gr. Use \Character when
 % \gr is implicit.
-\newcommand\Character[1][]{\chi_{#1}}
+\newcommand\Character[1][]{\mathrm{\chi}_{#1}}
 \DeclareMathOperator{\OpenSets}{Open}
+\newcommand\UnitSphere[1]{\mathrm{S}^{#1}}
