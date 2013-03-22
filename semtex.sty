@@ -454,6 +454,7 @@
 \newcommand\placeholder{\,\:\cdot\:\,}
 % \funcspec{f}{X}{Y} specifies that f is a function from X to Y.
 \newcommand{\FunctionSpec}[3]{{#1}:{#2}\rightarrow{#3}}
+\newcommand{\FunctionNamedBody}[3]{{#1}:{#2}\mapsto{#3}}
 \newcommand{\FunctionBody}[2]{{#1}\mapsto{#2}}
 % \conv[<type>]{a_k}a indicates that the sequence of a_k s converges to a.
 % the type of convergence, e.g., uniform, uniform for all derivatives, etc.
@@ -539,6 +540,12 @@
 {\bigoplus_{#1}^{#2}}
 {\bigoplus_{#1}^{#2}}
 }
+\DeclareDocumentCommand\UnionOver{m O{}}{\mathchoice
+{\bigcup\limits_{#1}^{#2}}
+{\bigcup_{#1}^{#2}}
+{\bigcup_{#1}^{#2}}
+{\bigcup_{#1}^{#2}}
+}
 \DeclareDocumentCommand\IntersectionOver{m O{}}{\mathchoice
 {\bigcap\limits_{#1}^{#2}}
 {\bigcap_{#1}^{#2}}
@@ -555,3 +562,10 @@
 {\summationSign'_{#1}}
 {\summationSign'_{#1}}
 }
+
+\newcommand{\TangentSpace}[2]{\operatorname{T}_{#1}{#2}}
+\newcommand{\TangentBundle}[1]{\operatorname{T}{#1}}
+\newcommand{\CotangentBundle}[1]{\Dual{\operatorname{T}}{#1}}
+\newcommand\TimeDerivative[1]{\dot{#1}}
+
+\newcommand{\LieAlgebra}[1]{\mathfrak{#1}}

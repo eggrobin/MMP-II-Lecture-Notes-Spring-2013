@@ -532,7 +532,15 @@ $\gr$ is a faithful complex irreducible representation of the finite group $G$ i
 \lectureEnd{2013-03-14}
 \lectureStart{2013-03-19}
 \officialNotes
-The dual group only works for abelian groups.
+\begingroup
+\newcommand{\VelocityAlgebra}{\LieAlgebra{g}}
+The dual group, also know as Pontryagin dual, only works for abelian groups.
+Indeed, if the space of generalised coordinates of a physical system $\vq$ is a Lie group $G$, i.e., a group which is also a differentiable manifold, then the generalised velocity $\TimeDerivative\vq$ at $\vq$ lies in the tangent space $\TangentSpace{\vq}G\Isomorphic\TangentSpace{\Identity}G$, where the isomorphism $\gj$ is given by the diffeomorphism by composition $\vq^{-1}$ in $G$ $\FunctionBody\vx {\vq^{-1}\vx}$, namely $\gj\TangentSpace{\vq^{-1}}G\Isomorphic\TangentSpace{\Identity}G$ is canonic. ordered pair $\tuple{\vq,\TimeDerivative\vq}$ lies in the tangent bundle, that is,
+\begin{equation*}
+\tuple{\vq,\TimeDerivative\vq} \in \TangentBundle G \DefineAs \UnionOver{\vq \in G} \TangentSpace{\vq}G
+\end{equation*}
+\endgroup
+
 The dual space of $\Rn$ is linked to the dual group in the following way: we have $\PontryaginDual\Rn\DefineAs\setst{\FunctionSpec f{\Rn}{\UnitaryGroup\of 1}}{f\of{\vx+\vy}=f\of \vx f\of \vy}$. Those functions are the $\E^{\I\scal{\vk}{}}$, where $\scal{\vk}{}\in\Dual{\pa\Rn}, \scal{\vk}{} \DefineAs \FunctionBody \vx {\scal \vk\vx}$. Moreover, $\ft\gj\of\vk = \ftnrm \int\Rn \gj\of\vx \conj{\E^{\I\scal{\vk}{\vx}}}\diffd \vx$, that is, $\LTwoInner{\E^{\I\scal{\vk}{}}}{\gj}$, which is the continuous analogue to $\LTwoInner f g =\sum{u\in A}\conj f\of u g\of u$, the inner product on $\Lspace[2]\of A$.
 
 The way a bourgeois mathematician thinks of the classical phase space $\Rn\times\PontryaginDual\Rn$ is as the cotangent bundle $\Rn\times\Dual{\pa\Rn}$.
