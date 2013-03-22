@@ -154,7 +154,7 @@
 % \GL\of{n,F} is the general linear group of degree n over F.
 % \GL\of{V} is the general linear group of the vector space V.
 % Use \GL\of{n} when the field is implicit.
-\DeclareMathOperator{\GeneralLinearGroup}{GL}
+\DeclareMathOperator{\GeneralLinearGroup}{GL\,}
 % \SL\of{n,F} is the special linear group of degree n over F.
 % Remarks from \GL apply.
 \DeclareMathOperator{\SpecialLinearGroup}{SL}
@@ -175,8 +175,8 @@
 % \rft is the compact notation for the reverse fourier transform.
 \newcommand\rft\widecheck
 %% Postfix operators.
-% \dual V is the dual space of V.
-\newcommand{\dual}[1]{#1^*}
+% \Dual V is the dual space of V.
+\newcommand{\Dual}[1]{#1^*}
 % \contdual V is the continuous dual of V.
 \newcommand{\contdual}[1]{#1'}
 % \adj A is the adjoint of A.
@@ -313,8 +313,8 @@
 % \setst{x\in X}{P\of x} is the set of x in X such that P\of x is true.
 \newcommand{\setst}[2]{\lcurlyBarRcurly*{{\textstyle #1}}{{\textstyle #2}}}
 \newcommand{\GroupPresentation}[2]{\langleBarRangle*{#1}{#2}}
-% \SchwartzInner{\gj}{\gy} is the inner product on \Schwartz.
-\newcommand{\SchwartzInner}[2]{\langleCommaRangle*{#1}{#2}}
+% \LTwoInner{\gj}{\gy} is the standard inner product on \Lspace[2].
+\newcommand{\LTwoInner}[2]{\langleCommaRangle*{#1}{#2}}
 
 %%% Variable names.
 %% Greek letters.
@@ -348,6 +348,8 @@
 \newcommand\gc\chi
 \newcommand\gy\psi
 \newcommand\gw\omega
+
+\newcommand\gS\Sigma
 
 %% Vectors, matrices, higher-order tensors.
 % Vectors are typeset in bold italic (isomath \vectorsym) as per ISO 80000-2:2009.
@@ -451,7 +453,8 @@
 % as in 'if f is linear, f\of{\gl\placeholder}=\gl f.'
 \newcommand\placeholder{\,\:\cdot\:\,}
 % \funcspec{f}{X}{Y} specifies that f is a function from X to Y.
-\newcommand{\funcspec}[3]{{#1}:{#2}\rightarrow{#3}}
+\newcommand{\FunctionSpec}[3]{{#1}:{#2}\rightarrow{#3}}
+\newcommand{\FunctionBody}[2]{{#1}\mapsto{#2}}
 % \conv[<type>]{a_k}a indicates that the sequence of a_k s converges to a.
 % the type of convergence, e.g., uniform, uniform for all derivatives, etc.
 % is indicated by <type>. Use \conv{a_k}{a} when <type> is implicit.
@@ -492,12 +495,12 @@
 \newcommand\C\Complexes
 
 \newcommand{\FreeGroup}[1]{\operatorname{F}_{#1}}
-\newcommand{\IntersectionOver}[1]{\bigcap\limits_{#1}}
 \newcommand{\NormalSubgroup}{\trianglelefteq}
 \newcommand{\Cardinality}[1]{\singleBars*{#1}}
 \newcommand{\HeisenbergGroup}{\mathrm{H}}
 \newcommand{\FiniteHeisenbergGroup}[1]{\HeisenbergGroup_{#1}}
 \newcommand{\Helt}[3]{\squareBrackets*{#1,#2;#3}}
+\newcommand{\Compose}{\circ}
 
 \newcommand{\LongDomainSpec}[1]{
 \substack{#1}
@@ -524,4 +527,31 @@
 \newcommand\UnitSphere[1]{\mathrm{S}^{#1}}
 % \Functions{X}{Y} is the set of functions from X to Y.
 \newcommand\Functions[2]{{#2}^{#1}}
-\newcommand\DualGroup\widehat
+\newcommand\PontryaginDual\widehat
+\newcommand\PowerSet[1]{2^{#1}}
+\newcommand{\KroneckerDelta}[2]{\mathrm{\delta}_{#1\,#2}}
+\DeclareMathOperator\LinearSpan{span}
+\newcommand{\Orthogonal}{\perp}
+\newcommand\LebesgueMeasure[1]{\operatorname{\mathcal{L}}^{#1}}
+\DeclareDocumentCommand\DirectSum{m O{}}{\mathchoice
+{\bigoplus\limits_{#1}^{#2}}
+{\bigoplus_{#1}^{#2}}
+{\bigoplus_{#1}^{#2}}
+{\bigoplus_{#1}^{#2}}
+}
+\DeclareDocumentCommand\IntersectionOver{m O{}}{\mathchoice
+{\bigcap\limits_{#1}^{#2}}
+{\bigcap_{#1}^{#2}}
+{\bigcap_{#1}^{#2}}
+{\bigcap_{#1}^{#2}}
+}
+\newcommand{\Isomorphic}{\cong}
+\renewcommand\And\wedge
+\newcommand\Transpose[1]{{#1}^\top}
+
+\DeclareDocumentCommand\FiniteSum{m}{\mathchoice
+{{\summationSign\limits_{#1}}'}
+{\summationSign'_{#1}}
+{\summationSign'_{#1}}
+{\summationSign'_{#1}}
+}
