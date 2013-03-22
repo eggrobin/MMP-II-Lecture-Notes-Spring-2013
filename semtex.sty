@@ -175,8 +175,8 @@
 % \rft is the compact notation for the reverse fourier transform.
 \newcommand\rft\widecheck
 %% Postfix operators.
-% \dual V is the dual space of V.
-\newcommand{\dual}[1]{#1^*}
+% \Dual V is the dual space of V.
+\newcommand{\Dual}[1]{#1^*}
 % \contdual V is the continuous dual of V.
 \newcommand{\contdual}[1]{#1'}
 % \adj A is the adjoint of A.
@@ -527,11 +527,11 @@
 \newcommand\UnitSphere[1]{\mathrm{S}^{#1}}
 % \Functions{X}{Y} is the set of functions from X to Y.
 \newcommand\Functions[2]{{#2}^{#1}}
-\newcommand\DualGroup\widehat
+\newcommand\PontryaginDual\widehat
 \newcommand\PowerSet[1]{2^{#1}}
 \newcommand{\KroneckerDelta}[2]{\mathrm{\delta}_{#1\,#2}}
 \DeclareMathOperator\LinearSpan{span}
-\newcommand{\Orthogonal}{\bot}
+\newcommand{\Orthogonal}{\perp}
 \newcommand\LebesgueMeasure[1]{\operatorname{\mathcal{L}}^{#1}}
 \DeclareDocumentCommand\DirectSum{m O{}}{\mathchoice
 {\bigoplus\limits_{#1}^{#2}}
@@ -546,3 +546,12 @@
 {\bigcap_{#1}^{#2}}
 }
 \newcommand{\Isomorphic}{\cong}
+\renewcommand\And\wedge
+\newcommand\Transpose[1]{{#1}^\top}
+
+\DeclareDocumentCommand\FiniteSum{m}{\mathchoice
+{{\summationSign\limits_{#1}}'}
+{\summationSign'_{#1}}
+{\summationSign'_{#1}}
+{\summationSign'_{#1}}
+}
