@@ -533,7 +533,7 @@ $\gr$ is a faithful complex irreducible representation of the finite group $G$ i
 \lectureStart{2013-03-19}
 \officialNotes
 The dual group only works for abelian groups.
-The dual space of $\Rn$ is linked to the dual group in the following way: we have $\DualGroup\Rn\DefineAs\setst{f\in\Functions{\Rn}{\UnitaryGroup\of 1}}{f\of{\vx+\vy}=f\of \vx f\of \vy}$. Those functions are the $\E^{\I\scal{\vk}{\pascal\placeholder}}$, where $\scal{\vk}{\pascal\placeholder}\in\dual{\pa\Rn}$. Moreover, $\ft\gj\of\vk = \ftnrm \int\Rn \gj\of\vx \conj{\E^{\I\scal{\vk}{\vx}}}\diffd \vx$, that is, $\LTwoInner{\E^{\I\scal{\vk}{\pascal\placeholder}}}{\gj}$, which is the continuous analogue to $\sum{u\in A}\conj f\of u g\of u$, the inner product on $\Lspace[2]\of A$.
+The dual space of $\Rn$ is linked to the dual group in the following way: we have $\DualGroup\Rn\DefineAs\setst{\FunctionSpec f{\Rn}{\UnitaryGroup\of 1}}{f\of{\vx+\vy}=f\of \vx f\of \vy}$. Those functions are the $\E^{\I\scal{\vk}{}}$, where $\scal{\vk}{}\in\dual{\pa\Rn}, \scal{\vk}{} \DefineAs \FunctionBody \vx {\scal \vk\vx}$. Moreover, $\ft\gj\of\vk = \ftnrm \int\Rn \gj\of\vx \conj{\E^{\I\scal{\vk}{\vx}}}\diffd \vx$, that is, $\LTwoInner{\E^{\I\scal{\vk}{}}}{\gj}$, which is the continuous analogue to $\LTwoInner f g =\sum{u\in A}\conj f\of u g\of u$, the inner product on $\Lspace[2]\of A$.
 
 The way a bourgeois mathematician thinks of the classical phase space $\Rn\times\DualGroup\Rn$ is as the cotangent bundle $\Rn\times\dual{\pa\Rn}$.
 ``If you would have the energy to learn about ancient Greek, and you talked about the real housewives of Atlanta, it would be a waste.'' It is not sufficient to have a fancy language, you actually have to say something.
@@ -561,21 +561,47 @@ Let $G$ be a group acting on a measure space\footnote{Here $X$ is a set, $\Funct
 and again we recover the definition we gave for the inner product on $\Schwartz\StrictSubset\Lspace[2]\of\Rn$.
 Now consider the representation $\FunctionSpec \gr G \GeneralLinearGroup\of{\Lspace[2]\of X}, \FunctionBody g {\gr_g}$ of $G$ on $\Lspace[2]\of X$ defined by $\pa{\gr_g\of\gj}\of x =  \gj\of{\LeftAction g x}$.
 \paragraph{Fourier Series and $\UnitSphere 1$.}
-If $G=\UnitSphere 1=X$ is the ``circle group,'' acting on itself by addition (here we use the definition $\UnitSphere 1 = \QuotientGroup\R {2\Pi\Z}$), $\Lspace[2]\of{\UnitSphere 1}$ decomposes under $\gr$ in a way which is dictated by Fourier series. Indeed, we have for $\gj\in \Lspace[2]\of{\UnitSphere 1}$ --- see \emph{The Discrete Fourier Transform}, page~8, though note that the inner product was antilinear in the second argument, whereas it is antilinear in the first one this semester:
+If $G=\UnitSphere 1=X$ is the ``circle group,'' acting on itself by addition (here we use the definition $\UnitSphere 1 = \QuotientGroup\R {2\Pi\Z}$), $\Lspace[2]\of X = \Lspace[2]\of{\UnitSphere 1}$ decomposes under $\gr$ in a way which is dictated by Fourier series. Indeed, we have for $\gj\in \Lspace[2]\of{\UnitSphere 1}, j\in\Z$ --- see \emph{The Discrete Fourier Transform}, page~8, though note that the inner product was antilinear in the second argument back then, whereas it is antilinear in the first one this semester:
 \begin{equation*}
-  \ft\gj\of j = \frac{1}{2\Pi}\int 0[2\Pi] \gj\of \gq \E^{-\I j \gq}\diffd \gq = \int {\UnitSphere 1} \gj \E^{-\I j \placeholder}\diffd \gm = \LTwoInner {\E^{\I j \placeholder}} \gj
+  \ft\gj\of j = \frac{1}{2\Pi}\int 0[2\Pi] \gj\of \gq \E^{-\I j \gq}\diffd \gq = \int {\UnitSphere 1} \gj \E^{-\I j \placeholder}\diffd \gm = \LTwoInner {\E^{\I j \placeholder}} \gj \quad \text{where } \E^{\I j \placeholder}\DefineAs \FunctionBody \gq {\E^{\I j \gq}},\quad \E^{\I j \placeholder} \in \DualGroup{\UnitSphere 1} \Isomorphic \Z
 \end{equation*}
-by taking $\gm$ normed, i.e., $\gm\of{\UnitSphere 1} = 1$. In other words, $\ft\placeholder\of j =  \LTwoInner {\E^{\I j \placeholder}} \placeholder$ is the projection of $\gj$ onto the subspace $V_j\DefineAs\LinearSpan\set{\E^{\I j \placeholder}}$ of $\Lspace[2]\of{\UnitSphere 1}$.
+by taking $\gm$ normed, i.e., $\gm\of{\UnitSphere 1} = 1$. In other words, $\ft\placeholder\of j =  \LTwoInner {\E^{\I j \placeholder}} \placeholder$ is the projection of $\gj$ onto the subspace $V_j\DefineAs\LinearSpan\set{\E^{\I j \placeholder}}$ of $\Lspace[2]\of{\UnitSphere 1}$. Note that the $\E^{\I j \placeholder}$ are exactly the elements of $\DualGroup{\UnitSphere 1}$.
 Moreover, $V_j$ is $\gr$-invariant, as $\gr$ acts by translation on $\gj\in \Lspace[2]\of{\UnitSphere 1}$, namely $\pa{\gr_\ga\of\gj}\of \gq = \gj\of{\ga+\gq}$, and hence
 \begin{equation*} 
 \forall \gl\E^{\I j \placeholder} \in V_j \quad
 \pa{\gr_\ga\of{\gl\E^{\I j \placeholder}}} =\gl\E^{\I j \pa{\ga+\placeholder}}=\gl\E^{\I j \ga} \E^{\I j \placeholder} \in V_j.
 \end{equation*}
 As it is one-dimensional, $V_j$ is irreducible. We also have, with $\LTwoInner {\E^{\I j \placeholder}}{\E^{\I k \placeholder}}= \ft{\E^{\I k \placeholder}}\of j  = \KroneckerDelta j k$, $V_j \Orthogonal V_k$ for $k\neq j$.
-By Parseval's identity, $\sum {j\in\Z}\ft\gj\of j \E^{\I j \placeholder}$ converges absolutely to $\gj$ for all $\gj\in\Lspace[2]\of{\UnitSphere 1}$, so $\Lspace[2]\of{\UnitSphere 1}=\DirectSum{j\in\Z} V_j$. To summarise, the translation action $\gr$ is a unitary representation of $\UnitSphere 1$ on $\Lspace[2]\of{\UnitSphere 1}$ with respect to the inner product $\LTwoInner \placeholder\placeholder$, it decomposes in the irreducible representations $V_j$ and $\ft\placeholder\of{j}$ is the projector onto $V_j$.
+By Parseval's identity, $\sum {j\in\Z}\ft\gj\of j \E^{\I j \placeholder}$ converges absolutely to $\gj$ for all $\gj\in\Lspace[2]\of{\UnitSphere 1}$, so
+\begin{equation*} \Lspace[2]\of{\UnitSphere 1}=\DirectSum{j\in\Z}
+V_j=\DirectSum{\gc\in\DualGroup{\UnitSphere 1}} \LinearSpan \gc .
+\end{equation*}
+To summarise, the translation action $\gr$ is a unitary representation of $\UnitSphere 1$ on $\Lspace[2]\of{\UnitSphere 1}$ with respect to the inner product $\LTwoInner \placeholder\placeholder$, it decomposes in the irreducible representations $V_j$ which are the spans of individual elements $\E^{\I j \placeholder}$ of $\DualGroup{\UnitSphere 1}$ and $\ft\placeholder\of{j}$ is the projector onto $V_j$. Since $\DualGroup {\UnitSphere 1} \Isomorphic \Z$, and the elements of $\DualGroup {\UnitSphere 1}$ are the basis onto which functions are projected by the Fourier transform, it makes sense to think of the projector as $\ft\placeholder\of{\E^{\I j \placeholder}}$ instead, with $\ft\gj\of{\gc}\DefineAs\LTwoInner\gc\gj$ for $\gc\in\DualGroup {\UnitSphere 1}$. This notation has the advantage of not relying on the identification of $\Z$ with $\DualGroup{\UnitSphere 1}$, which is not unique.
  
 \paragraph{The Fourier transform and $\R$.}
-If $G=\R=X$, acts by addition on itself, decomposes to the Fourier transform;
+If $G=\Rn=X$ acts by addition on itself, the decomposition of $\Lspace[2]\of X = \Lspace[2]\of{\Rn}$ under $\gr$ is described by the Fourier transform. As above, we have for $\gj\in\Lspace[2]\of\Rn, \vk\in\Rn,$
+\begin{equation*}
+  \ft\gj\of {\scal{\vk}{}} \DefineAs \ft\gj\of \vk = \ftnrm\int \Rn \gj\of x \E^{-\I \scal\vk \vx}\diffd \vx = \int \Rn \gj \E^{-\I \scal\vk{}}\diffd \gm = \LTwoInner {\E^{\I \scal\vk{}}} \gj
+\end{equation*}
+by taking $\gm = \ftnrm\LebesgueMeasure n$, where $\LebesgueMeasure n$ is the Lebesgue measure on $\Rn$. Again, we see that the $\E^{\I \scal\vk{}}\DefineAs \FunctionBody \vx \E^{\I \scal\vk{\vx}}$ are exactly the elements of $\DualGroup\Rn\Isomorphic\Rn$, and that the $V_\vk\DefineAs\LinearSpan\set{\E^{\I \scal\vk{}}}$ are $\gr$-invariant, where $\gr$ acts by translation and are orthogonal. The projector onto $V_\vk$ is  $\ft\placeholder\of {\scal{\vk}{}}$. As for $\gj\in\Lspace[2]\of\Rn$,
+\begin{equation*} 
+\rft{\ft\gj}\of\vx = \ftnrm\int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}\diffd\vk \gj\of\vx=
+\int\Rn\ft\gj\E^{\I\scal\vx{}}\diffd \DualGroup\gm = \gj\of\vx \quad
+\text{where $\DualGroup\gm$ is the dual measure.\footnotemark}
+\end{equation*}
+\footnotetext{Here the dual measure $\DualGroup\gm$ is the measure we need to get the
+  expressions to look the same when written in terms of measures. We chose $\gm$ in such
+  a way that $\gm = \DualGroup\gm$, but if we had defined a non-unitary version, e.g.
+  $\ft\gj\of \vk \DefineAs \int \Rn \gj\of x \E^{-\I \scal\vk \vx}\diffd \vx$, we would  
+  need to define the inverse Fourier transform accordingly as
+  $\rft\gy\of\vx\DefineAs\sqftnrm \int\Rn\gy\of\vk\E^{\I\scal\vk\vx}\diffd\vx$, i.e., for
+  $\gm=\LebesgueMeasure n$, $\DualGroup \gm = \sqftnrm \LebesgueMeasure n$.}
+for almost all $x$, the representation $\gr$ of $\R$ on $\Lspace[2]\of\R$ by translation decomposes in irreducible representations as
+\begin{equation*}
+  \Lspace[2]\of{\UnitSphere 1}=\DirectSum{\vk\in\Rn}
+  V_\vk=\DirectSum{\gc\in\DualGroup{\Rn}} \LinearSpan \gc .
+\end{equation*}
+Once again, it makes sense to think of the projectors as  $\ft\placeholder\of{\E^{\I \scal\vk{}}}$, with $\ft\gj\of\gc \DefineAs \LTwoInner \gc \gj$ for $\gc\in\DualGroup\Rn$, as the isomorphism $\DualGroup\Rn\Isomorphic\Rn$ is not unique. Actually, the isomorphism $\FunctionBody \vk {\E^{2 \Pi \I \vk }}$ is sometimes used, as it allows for $\gm = \DualGroup\gm = \LebesgueMeasure n$ --- there are no constant factors before the integrals. Using this isomorphism, the Gaussian $\E^{-\frac{1}{2}\norm\vx^2}$ is no longer self-dual, i.e., the same as its Fourier transform, but $\E^{-\Pi\norm\vx^2}$ is instead.
 
 
 \paragraph{Spherical harmonics and $\SpecialOrthogonalGroup\of 3$.} If $G=\SpecialOrthogonalGroup\of 3$ acts by rotations on $X=\UnitSphere 2$, we get spherical harmonics.

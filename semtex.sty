@@ -495,7 +495,6 @@
 \newcommand\C\Complexes
 
 \newcommand{\FreeGroup}[1]{\operatorname{F}_{#1}}
-\newcommand{\IntersectionOver}[1]{\bigcap\limits_{#1}}
 \newcommand{\NormalSubgroup}{\trianglelefteq}
 \newcommand{\Cardinality}[1]{\singleBars*{#1}}
 \newcommand{\HeisenbergGroup}{\mathrm{H}}
@@ -533,4 +532,17 @@
 \newcommand{\KroneckerDelta}[2]{\mathrm{\delta}_{#1\,#2}}
 \DeclareMathOperator\LinearSpan{span}
 \newcommand{\Orthogonal}{\bot}
-\newcommand{\DirectSum}[1]{\bigoplus\limits_{#1}}
+\newcommand\LebesgueMeasure[1]{\operatorname{\mathcal{L}}^{#1}}
+\DeclareDocumentCommand\DirectSum{m O{}}{\mathchoice
+{\bigoplus\limits_{#1}^{#2}}
+{\bigoplus_{#1}^{#2}}
+{\bigoplus_{#1}^{#2}}
+{\bigoplus_{#1}^{#2}}
+}
+\DeclareDocumentCommand\IntersectionOver{m O{}}{\mathchoice
+{\bigcap\limits_{#1}^{#2}}
+{\bigcap_{#1}^{#2}}
+{\bigcap_{#1}^{#2}}
+{\bigcap_{#1}^{#2}}
+}
+\newcommand{\Isomorphic}{\cong}
