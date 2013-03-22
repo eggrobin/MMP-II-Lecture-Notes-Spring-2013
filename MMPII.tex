@@ -109,7 +109,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   \begin{definition} First, a few definitions used throughout this course:
 %TODO(eggrobin): the big partial derivative is nonsemantic.
   \begin{equation*}
-    \Continf\of\Rn \DefineAs \setst{\gj\in\Functions\Rn\C}
+    \Continf\of\Rn \DefineAs \setst{\FunctionSpec\gj\Rn\C}
     {\forall \miga \in \N^n, \pdop\miga\gj \in \Cont\of\Rn}
     \text{ is the space of \emph{smooth functions} from }\Rn \text{ to } \C \text{, where}
   \end{equation*}
@@ -156,7 +156,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   \begin{definition}[Tempered distributions]
     Note that $\Schwartz$ is a complex vector space. We define that $U$ is an element of its continuous dual $\TemperedDistributions$, the space of \emph{tempered distributions}, if and only if:
     \begin{enumerate}
-      \item $U$ is a linear map from $\Schwartz$ to $\C$, i.e., $U\in\dual\SchwartzSpace\of\Rn$
+      \item $U$ is a linear map from $\Schwartz$ to $\C$, i.e., $U\in\Dual\SchwartzSpace\of\Rn$
       \item $U$ is continuous on $\Schwartz$, i.e. if $\conv[\Schwartz]{\gj_k}\gj$ then $\lim_{\conv k \infty}U\of{\gj_k} = U\of\gj$.
     \end{enumerate}
   \end{definition}
@@ -165,7 +165,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   Let us now consider some examples. First, define the space of locally integrable functions as follows.
   \begin{definition}[Locally integrable functions]
     \begin{equation*}
-      \LspaceLoc[1]\of\Rn \DefineAs \setst{\funcspec f \Rn \C}{\forall \vx \in \Rn, \exists \ge > 0, \int{\OpenBall \ge \vx}\abs{f\of\vy} \diffd{\vy} < \infty}
+      \LspaceLoc[1]\of\Rn \DefineAs \setst{\FunctionSpec f \Rn \C}{\forall \vx \in \Rn, \exists \ge > 0, \int{\OpenBall \ge \vx}\abs{f\of\vy} \diffd{\vy} < \infty}
     \end{equation*}
   \end{definition}
   
@@ -236,7 +236,7 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
   \begin{definition}[Inner product on $\Schwartz$]
   Let $\gj,\gy\in\Schwartz$. We define:
   \begin{equation*}
-  \SchwartzInner \gy \gj \DefineAs \int\Rn \conj\gy\of\vx \gj\of\vx \diffd\vx .
+  \LTwoInner \gy \gj \DefineAs \int\Rn \conj\gy\of\vx \gj\of\vx \diffd\vx .
   \end{equation*}
   \end{definition}
   \lectureEnd{2013-03-05}
@@ -448,13 +448,13 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
 \lectureStart{2013-03-12}
 Let us look at these operators in more detail: define $\pa{Q f}\of x \DefineAs x f\of x \in \SchwartzSpace\of{\R}$, $\pa{P f}\of x \DefineAs \derivop x f\of x \in \SchwartzSpace\of\R$ for $f\in\SchwartzSpace\of\R$. We saw that $\commutator Q P = 1$. We also have:
 \begin{align*}
-  \SchwartzInner \gj {P\gy} 
+  \LTwoInner \gj {P\gy} 
   &= \int\R \conj\gj\of x \derivop x \gy \of x \diffd x \\
   &= \diff {-\infty}{\infty}{\conj\gj\gy} - 
     \int\R \derivop x \gj \of x \gy\of x \diffd x \\
-  &= - \SchwartzInner {P\gj} \gy ,&&\parbox{7cm}{$\diff {-\infty}{\infty}{\conj\gj\gy} = 0$  as $\gj\in\SchwartzSpace\of\R$, $\gy\in\SchwartzSpace\of\R$, and therefore $\conj\gj\gy\in\SchwartzSpace\of\R$.}
+  &= - \LTwoInner {P\gj} \gy ,&&\parbox{7cm}{$\diff {-\infty}{\infty}{\conj\gj\gy} = 0$  as $\gj\in\SchwartzSpace\of\R$, $\gy\in\SchwartzSpace\of\R$, and therefore $\conj\gj\gy\in\SchwartzSpace\of\R$.}
 \end{align*}
-so $P$ is skew symmetric. What is better than skew symmetric? Self adjoint is better. How do we make a skew symmetric operator self adjoint? We add an $\I$. Namely, redefine $\pa{P f}\of x \DefineAs \frac{1}{\I}\derivop x f\of x$, we then have $\SchwartzInner \gj {P\gy}  = \SchwartzInner {P\gj} \gy$. $Q$ is obviously self adjoint. We now have $\commutator Q P = \I \Identity$. Multiplying by some $h\in\R$, redefine $\pa{P f}\of x \DefineAs \frac{h}{\I}\derivop x f\of x$, we get $\commutator Q P = h \I \Identity$.
+so $P$ is skew symmetric. What is better than skew symmetric? Self adjoint is better. How do we make a skew symmetric operator self adjoint? We add an $\I$. Namely, redefine $\pa{P f}\of x \DefineAs \frac{1}{\I}\derivop x f\of x$, we then have $\LTwoInner \gj {P\gy}  = \LTwoInner {P\gj} \gy$. $Q$ is obviously self adjoint. We now have $\commutator Q P = \I \Identity$. Multiplying by some $h\in\R$, redefine $\pa{P f}\of x \DefineAs \frac{h}{\I}\derivop x f\of x$, we get $\commutator Q P = h \I \Identity$.
 
 If we let $h \DefineAs \ReducedPlanck$, the conditions verified by $P$ and $Q$ are the conditions for infinite matrices $\matP$ and $\matQ$ in the ``catechism of matrix mechanics'' in \emph{Finite Dimensional Quantum Mechanics}.
 ``Being something a little more, and something a lot less than cockroaches, we are curious.'' What we have been doing here is not the ideal way of doing this: we have to pick a vector space, in this case $\Schwartz$, last year the space of infinite matrices. As we learned in linear algebra, we gain a deeper understanding if we do not use coordinate systems. 
@@ -490,6 +490,8 @@ We will find all the conjugacy classes. ``We're going to hunt them down!''
 \lectureEnd{2013-03-12}
 \lectureStart{2013-03-14}
 \officialNotes
+
+\section{The finite Heisenberg group}
 
 \emph{The professor whistles ``Singin' in the Rain'' while waiting for the lecture to start.}
 
@@ -531,24 +533,89 @@ $\gr$ is a faithful complex irreducible representation of the finite group $G$ i
 \lectureStart{2013-03-19}
 \officialNotes
 The dual group only works for abelian groups.
-The dual space of $\Rn$ is linked to the dual group in the following way: we have $\DualGroup\Rn\DefineAs\setst{f\in\Functions{\Rn}{\UnitaryGroup\of 1}}{f\of{\vx+\vy}=f\of \vx f\of \vy}$. Those functions are the $\E^{\I\scal{\vk}{\pascal\placeholder}}$, where $\scal{\vk}{\pascal\placeholder}\in\dual{\pa\Rn}$. Moreover, $\ft\gj\of\vk = \ftnrm \int\Rn \gj\of\vx \conj{\E^{\I\scal{\vk}{\vx}}}\diffd \vx$, that is, $\SchwartzInner{\E^{\I\scal{\vk}{\pascal\placeholder}}}{\gj}$, which is the infinite analogue to $\sum{u\in A}\conj f\of u g\of u$, the inner product on $\Lspace[2]\of A$.
+The dual space of $\Rn$ is linked to the dual group in the following way: we have $\PontryaginDual\Rn\DefineAs\setst{\FunctionSpec f{\Rn}{\UnitaryGroup\of 1}}{f\of{\vx+\vy}=f\of \vx f\of \vy}$. Those functions are the $\E^{\I\scal{\vk}{}}$, where $\scal{\vk}{}\in\Dual{\pa\Rn}, \scal{\vk}{} \DefineAs \FunctionBody \vx {\scal \vk\vx}$. Moreover, $\ft\gj\of\vk = \ftnrm \int\Rn \gj\of\vx \conj{\E^{\I\scal{\vk}{\vx}}}\diffd \vx$, that is, $\LTwoInner{\E^{\I\scal{\vk}{}}}{\gj}$, which is the continuous analogue to $\LTwoInner f g =\sum{u\in A}\conj f\of u g\of u$, the inner product on $\Lspace[2]\of A$.
 
-The way a bourgeois mathematician thinks of the phase space is as the cotangent bundle $\Rn\times\dual{\pa\Rn}$.
+The way a bourgeois mathematician thinks of the classical phase space $\Rn\times\PontryaginDual\Rn$ is as the cotangent bundle $\Rn\times\Dual{\pa\Rn}$.
 ``If you would have the energy to learn about ancient Greek, and you talked about the real housewives of Atlanta, it would be a waste.'' It is not sufficient to have a fancy language, you actually have to say something.
 
 We started this lecture with the finite Fourier transform. This is a special case of what we discuss here, with $\IntegersModulo{n}$ as the abelian group $A$. This is perfect pedagogy: after only eight months, we come back to the beginning. Everything I've done so far is just that for various groups. When the group is infinite, e.g., the unit circle for Fourier series, you have to do analysis. ``[Claude] doesn't go there. I do.''
 
 \lectureEnd{2013-03-19}
 
-\paragraph*{Examples from Raisa Galimova's exercise class}
+\subsection{Examples from Raisa Galimova's exercise class}
 \begingroup
-\newcommand{\FunctionSpace}{\mathcal F}
-Let $G$ be a group acting on a space $X$ that has a space of --- $\Lspace[2]$, smooth, etc. --- functions $\FunctionSpace \of X$ associated to it.
-\begin{enumerate}
-\item If $G=\UnitSphere 1=X$ is the ``circle group,'' acting on itself by addition (here we use the definition $\UnitSphere 1 = \QuotientGroup\R {2\Pi\Z}$), $\FunctionSpace \of X$ decomposes to Fourier Series;
-\item If $G=\R=X$, which acts by addition, $\FunctionSpace \of X$ decomposes to the Fourier transform;
-\item If $G=\SpecialOrthogonalGroup\of 3$ acts by rotations on $X=\UnitSphere 2$, we get spherical harmonics.
-\end{enumerate}
+\newcommand{\LeftAction}[2]{f_{#1} \of{#2}}
+Let $G$ be a group acting on a measure space\footnote{Here $X$ is a set, $\FunctionSpec \gm X {\intclos 0 \infty}$ is a measure on $X$ and $\gS\Subset\PowerSet X$ is the $\gs$-algebra of $\gm$-measurable subsets.} $\tuple{X, \gS, \gm}$ by the left action $\FunctionSpec f G {\Functions X X}, \FunctionBody g {f_g}$, that is, we denote by $\LeftAction g x$ the action of $g\in G$ on $x\in X$, and $f_g \Compose f_h = f_{gh}$. Define the space of square-integrable functions on $X$
+\begin{align*} 
+  \Lspace[2]\of X &\DefineAs \setst{\gj\in\Functions \C X}{\Lnorm[2] \gj < \infty}  \\
+\intertext{where}
+  \Lnorm[2] \gj &\DefineAs \LTwoInner \gj \gj \\
+  \LTwoInner \gy \gj &\DefineAs \int X \conj\gy \gj \diffd \gm. \\
+\intertext{Note that if $X$ is finite, and $\gm$ is the counting measure,}
+  \LTwoInner\gy\gj &= \int X \conj\gy\gj \diffd \gm = \sum {x\in X} \conj\gy\of x \gj\of x \\
+  \forall\gj\in\Functions X \C \quad  \Lnorm[2]\gj &= \int X \abs{\gj}^2 \diffd \gm = \sum {x\in X} \abs{\gj}^2  < \infty\\
+\intertext{so this is consistent with the definitions from the lecture for a finite group $A$, namely $\Lspace[2]\of A = \Functions A \C$, and $\LTwoInner\gy\gj = \sum {g\in A} \conj\gy\of g \gj\of g$. If $X=\Rn$, and $\gm$ is the Lebesgue measure,}
+   \LTwoInner\gy\gj &= \int X \conj\gy\gj \diffd \gm = \int \Rn \conj\gy\of \vx \gj\of\vx\diffd\vx\\
+   \Lnorm[2]\gj&=\int X \abs{\gj}^2 \diffd \gm = \int \Rn \abs{\gj\of \vx}^2 \diffd\vx \\
+\end{align*}
+and again we recover the definition we gave for the inner product on $\Schwartz\StrictSubset\Lspace[2]\of\Rn$.
+Now consider the representation $\FunctionSpec \gr G \GeneralLinearGroup\of{\Lspace[2]\of X}, \FunctionBody g {\gr_g}$ of $G$ on $\Lspace[2]\of X$ defined by $\pa{\gr_g\of\gj}\of x =  \gj\of{\LeftAction g x}$.
+\paragraph{Fourier Series and $\UnitSphere 1$.}
+If $G=\UnitSphere 1=X$ is the circle group, acting on itself by addition (here we use the definition $\UnitSphere 1 = \QuotientGroup\R {2\Pi\Z}$), $\Lspace[2]\of X = \Lspace[2]\of{\UnitSphere 1}$ decomposes under $\gr$ in a way which is dictated by Fourier series. Indeed, we have for $\gj\in \Lspace[2]\of{\UnitSphere 1}, j\in\Z$ --- see \emph{The Discrete Fourier Transform}, page~8, though note that the inner product was antilinear in the second argument back then, whereas it is antilinear in the first one this semester:
+\begin{equation*}
+  \ft\gj\of j = \frac{1}{2\Pi}\int 0[2\Pi] \gj\of \gq \E^{-\I j \gq}\diffd \gq = \int {\UnitSphere 1} \gj \E^{-\I j \placeholder}\diffd \gm = \LTwoInner {\E^{\I j \placeholder}} \gj \quad \text{where } \E^{\I j \placeholder}\DefineAs \FunctionBody \gq {\E^{\I j \gq}},\quad \E^{\I j \placeholder} \in \PontryaginDual{\UnitSphere 1} \Isomorphic \Z
+\end{equation*}
+by taking $\gm$ normed, i.e., $\gm\of{\UnitSphere 1} = 1$. In other words, $\ft\placeholder\of j =  \LTwoInner {\E^{\I j \placeholder}} \placeholder$ is the projection of $\gj$ onto the subspace $V_j\DefineAs\LinearSpan\set{\E^{\I j \placeholder}}$ of $\Lspace[2]\of{\UnitSphere 1}$. Note that the $\E^{\I j \placeholder}$ are exactly the elements of $\PontryaginDual{\UnitSphere 1}$.
+Moreover, $V_j$ is $\gr$-invariant, as $\gr$ acts by translation on $\gj\in \Lspace[2]\of{\UnitSphere 1}$, namely $\pa{\gr_\ga\of\gj}\of \gq = \gj\of{\ga+\gq}$, and hence
+\begin{equation*} 
+\forall \gl\E^{\I j \placeholder} \in V_j \quad
+\pa{\gr_\ga\of{\gl\E^{\I j \placeholder}}} =\gl\E^{\I j \pa{\ga+\placeholder}}=\gl\E^{\I j \ga} \E^{\I j \placeholder} \in V_j.
+\end{equation*}
+As it is one-dimensional, $V_j$ is irreducible. We also have, with $\LTwoInner {\E^{\I j \placeholder}}{\E^{\I k \placeholder}}= \ft{\E^{\I k \placeholder}}\of j  = \KroneckerDelta j k$, $V_j \Orthogonal V_k$ for $k\neq j$.
+By Parseval's identity, $\sum {j\in\Z}\ft\gj\of j \E^{\I j \placeholder}$ converges absolutely to $\gj$ for all $\gj\in\Lspace[2]\of{\UnitSphere 1}$, so
+\begin{equation*} \Lspace[2]\of{\UnitSphere 1}=\DirectSum{j\in\Z}
+V_j=\DirectSum{\gc\in\PontryaginDual{\UnitSphere 1}} \LinearSpan \gc .
+\end{equation*}
+To summarise, the translation action $\gr$ is a unitary representation of $\UnitSphere 1$ on $\Lspace[2]\of{\UnitSphere 1}$ with respect to the inner product $\LTwoInner \placeholder\placeholder$, it decomposes in the irreducible representations $V_j$ which are the spans of individual elements $\E^{\I j \placeholder}$ of $\PontryaginDual{\UnitSphere 1}$ and $\ft\placeholder\of{j}$ is the projector onto $V_j$. Since $\PontryaginDual {\UnitSphere 1} \Isomorphic \Z$, and the elements of $\PontryaginDual {\UnitSphere 1}$ are the basis onto which functions are projected by the Fourier transform, it makes sense to think of the projector as $\ft\placeholder\of{\E^{\I j \placeholder}}$ instead, with $\ft\gj\of{\gc}\DefineAs\LTwoInner\gc\gj$ for $\gc\in\PontryaginDual {\UnitSphere 1}$. This notation has the advantage of not relying on the identification of $\Z$ with $\PontryaginDual{\UnitSphere 1}$, which is not unique.
+ 
+\paragraph{The Fourier transform and $\R$.}
+If $G=\Rn=X$ acts by addition on itself, the decomposition of $\Lspace[2]\of X = \Lspace[2]\of{\Rn}$ under $\gr$ is described by the Fourier transform. As above, we have for $\gj\in\Lspace[2]\of\Rn, \vk\in\Rn,$
+\begin{equation*}
+ \ft\gj\of \vk = \ftnrm\int \Rn \gj\of \vx \E^{-\I \scal\vk \vx}\diffd \vx = \int \Rn \gj \E^{-\I \scal\vk{}}\diffd \gm = \LTwoInner {\E^{\I \scal\vk{}}} \gj
+\end{equation*}
+by taking $\gm = \ftnrm\LebesgueMeasure n$, where $\LebesgueMeasure n$ is the Lebesgue measure on $\Rn$. Again, we see that the $\E^{\I \scal\vk{}}\DefineAs \FunctionBody \vx \E^{\I \scal\vk{\vx}}$ are exactly the elements of $\PontryaginDual\Rn\Isomorphic\Rn$, and that the $V_\vk\DefineAs\LinearSpan\set{\E^{\I \scal\vk{}}}$ are $\gr$-invariant, where $\gr$ acts by translation and are orthogonal. The projector onto $V_\vk$ is  $\ft\placeholder\of {\scal{\vk}{}}$. As for $\gj\in\Lspace[2]\of\Rn$,
+\begin{equation*} 
+\rft{\ft\gj}\of\vx = \ftnrm\int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}\diffd\vk \gj\of\vx=
+\int\Rn\ft\gj\E^{\I\scal\vx{}}\diffd \PontryaginDual\gm = \gj\of\vx, \quad
+\text{where $\PontryaginDual\gm$ is the dual measure,\footnotemark}
+\end{equation*}
+\footnotetext{Here the dual measure $\PontryaginDual\gm$ is the measure we need to get the
+  expressions to look the same when written in terms of measures. We chose $\gm$ in such
+  a way that $\gm = \PontryaginDual\gm$, but if we had defined a non-unitary version, e.g.
+  $\ft\gj\of \vk \DefineAs \int \Rn \gj\of x \E^{-\I \scal\vk \vx}\diffd \vx$, we would  
+  need to define the inverse Fourier transform accordingly as
+  $\rft\gy\of\vx\DefineAs\sqftnrm \int\Rn\gy\of\vk\E^{\I\scal\vk\vx}\diffd\vx$, i.e., for
+  $\gm=\LebesgueMeasure n$, $\PontryaginDual \gm = \sqftnrm \LebesgueMeasure n$.}
+for almost all $x$, the representation $\gr$ of $\R$ on $\Lspace[2]\of\R$ by translation decomposes in irreducible representations as
+\begin{equation*}
+  \Lspace[2]\of{\UnitSphere 1}=\DirectSum{\vk\in\Rn}
+  V_\vk=\DirectSum{\gc\in\PontryaginDual{\Rn}} \LinearSpan \gc .
+\end{equation*}
+Once again, it makes sense to think of the projectors as  $\ft\placeholder\of{\E^{\I \scal\vk{}}}$, with $\ft\gj\of\gc \DefineAs \LTwoInner \gc \gj$ for $\gc\in\PontryaginDual\Rn$, as the isomorphism $\PontryaginDual\Rn\Isomorphic\Rn$ is not unique. Actually, the isomorphism $\FunctionBody \vk {\E^{2 \Pi \I \scal{\vk}{} }}$ is sometimes used, as it allows for $\gm = \PontryaginDual\gm = \LebesgueMeasure n$ --- there are no constant factors before the integrals. Using this isomorphism, the Gaussian $\E^{-\frac{1}{2}\norm\vx^2}$ is no longer self-dual, i.e., the same as its Fourier transform, but $\E^{-\Pi\norm\vx^2}$ is instead.
+
+
+\paragraph{Spherical harmonics and $\SpecialOrthogonalGroup\of 3$.} 
+\newcommand{\degL}{\ell}
+\newcommand{\Harmonic}[1]{\mathbf{H}_{#1}}
+If $G=\SpecialOrthogonalGroup\of 3$ acts by rotations on $X=\UnitSphere 2$, the representation $\gr$ decomposes as 
+\begin{equation*}
+\Lspace[2]\of{\UnitSphere 2} = \DirectSum{\degL=1}[\infty] \Harmonic\degL
+\end{equation*}
+where the irreducible $\Harmonic\degL$ are defined as follows: $\Harmonic\degL$ is the set of all homogeneous harmonic polynomials of degree $\degL$ on $\UnitSphere 2$, i.e.,
+\begin{equation*}
+\Harmonic\degL = \setst{\FunctionSpec f {\UnitSphere 2} \C, \FunctionBody {\Transpose{\tuple{x,y,z}}} {f\of{x,y,z}}}{f\of{x,y,z} = \sum {\ga+\gb+\gg = \degL} c_{\ga\,\gb\,\gg} x^{\ga}y^{\gb}z^{\gg} \And \Laplacian f = 0  }.
+\end{equation*}
+
 \endgroup
 
 \lectureStart{2013-03-21}
@@ -566,8 +633,6 @@ We switched from an additive to a multiplicative notation. ``Algebraists... you 
 ``Why am I not happy [about Proof I] whereas he is happy? [...] I'm only going to talk about mathematical reasons.'' Man cannot live on algebra alone. What happens as $n$ goes to infinity? The proof doesn't converge. He doesn't care. 
 
 The problem is phase transitions: the symmetries change, and you cannot see that with algebra. For instance, for superconductivity, you have to have enough stuff. You cannot just have an explicit $n$. 
-
-\noindent
 ``Suddenly, we're going to go back to the Fourier transform.'' 
 
 \noindent
