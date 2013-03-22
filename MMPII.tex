@@ -535,7 +535,7 @@ $\gr$ is a faithful complex irreducible representation of the finite group $G$ i
 \begingroup
 \newcommand{\VelocityAlgebra}{\LieAlgebra{g}}
 The dual group, also know as Pontryagin dual, only works for abelian groups.
-Indeed, if the space of generalised coordinates of a physical system $\vq$ is a Lie group $G$, i.e., a group which is also a differentiable manifold, then the generalised velocity $\TimeDerivative\vq$ at $\vq$ lies in the tangent space $\TangentSpace{\vq}G\Isomorphic\TangentSpace{\Identity}G$, where the isomorphism $\gj$ is given by the diffeomorphism by composition $\vq^{-1}$ in $G$ $\FunctionBody\vx {\vq^{-1}\vx}$, namely $\gj\TangentSpace{\vq^{-1}}G\Isomorphic\TangentSpace{\Identity}G$ is canonic. ordered pair $\tuple{\vq,\TimeDerivative\vq}$ lies in the tangent bundle, that is,
+Indeed, if the space of generalised coordinates of a physical system $\vq$ is a Lie group $G$, i.e., a group which is also a differentiable manifold, then the generalised velocity $\TimeDerivative\vq$ at $\vq$ lies in the tangent space $\TangentSpace{\vq}G\stackrel{\diffd\gj\of\vq}\Isomorphic\TangentSpace{\Identity}G$, where the linear isomorphism $\diffd\gj\of\vq$ is canonical, and is given by the diffeomorphism $\gj$ of composition with $\vq^{-1}$, $\FunctionSpec\gj G G, \FunctionBody\vx {\vq^{-1}\vx}$. The ordered pair $\tuple{\vq,\TimeDerivative\vq}$ lies in the tangent bundle, that is,
 \begin{equation*}
 \tuple{\vq,\TimeDerivative\vq} \in \TangentBundle G \DefineAs \UnionOver{\vq \in G} \TangentSpace{\vq}G
 \end{equation*}
