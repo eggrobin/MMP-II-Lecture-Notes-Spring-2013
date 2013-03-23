@@ -21,6 +21,7 @@
 \usepackage[stable]{footmisc}
 \usepackage[polutonikogreek, english]{babel}
 \usepackage[utf8x]{inputenx}
+%\usepackage{fontspec}
 \usepackage{gfsbodoni}
 \newcommand\greek[1]{{\selectlanguage{polutonikogreek} \textbodoni{#1}}}
 
@@ -599,9 +600,10 @@ As the tangent spaces of $G$ are canonically isomorphic to each other, so are th
 \end{equation*}
 The dual of the Lie algebra, $\MomentumSpace$, is the momentum space. The Hamiltonian is a function from the cotangent bundle (and time) to the reals, $\FunctionSpec\Hamiltonian {\CotangentBundle G \Cartesian \R = G \Cartesian \MomentumSpace} \R$.
 
-If $G$ is a connected abelian Lie Group, it can be shown that it is the direct product of a finite dimensional $\R$-vector space and a torus, i.e., $G\Isomorphic \Rn \DirectProduct \Torus m$ for some $m,n \in \N$.
-We will show in the examples below that for $G=\Rn$ and $G=\UnitSphere 1 = \Torus 1$, the Pontryagin dual\footnote{The Pontryagin dual is named after %\russian{Лев Семёнович Понтря́гин} 
-Lev Semenovich Pontryagin (1908--1988).} $\PontryaginDual G$ is isomorphic to $\MomentumSpace$.
+If $G$ is a connected abelian Lie Group, it can be shown that it is the direct product of a finite dimensional $\R$-vector space and a torus, i.e., $G\Isomorphic \Rn \DirectProduct \Torus m$ for some $m,n \in \N$, where $\CircleGroup$ is the circle group.
+We will show in the examples below that for $G=\Rn$, the Pontryagin dual\footnote{The Pontryagin dual is named after %
+%russian{Лев Семёнович Понтря́гин }
+Lev Semenovich Pontryagin (1908--1988).} $\PontryaginDual G$ is isomorphic to $\MomentumSpace$. This is not the case for $G=\CircleGroup=\UnitaryGroup\of1$, where $\MomentumSpace=\Dual{\pa{\I\R}}$ and $\PontryaginDual \CircleGroup \Isomorphic \Z$.
 \endgroup
 \end{supplemental}
 
@@ -650,7 +652,7 @@ If $G=\Rn=X$ acts by addition on itself, the decomposition of $\Lspace[2]\of X =
 \begin{equation*}
  \ft\gj\of \vk = \ftnrm\int \Rn \gj\of \vx \E^{-\I \scal\vk \vx}\diffd \vx = \int \Rn \gj \E^{-\I \scal\vk{}}\diffd \gm = \LTwoInner {\E^{\I \scal\vk{}}} \gj
 \end{equation*}
-by taking $\gm = \ftnrm\LebesgueMeasure n$, where $\LebesgueMeasure n$ is the Lebesgue measure on $\Rn$. Again, we see that the $\E^{\I \scal\vk{}}\DefineAs \FunctionBody \vx \E^{\I \scal\vk{\vx}}$ are exactly the elements of $\PontryaginDual\Rn\Isomorphic\Rn$, and that the $V_\vk\DefineAs\LinearSpan\set{\E^{\I \scal\vk{}}}$ are $\gr$-invariant, where $\gr$ acts by translation and are orthogonal. The projector onto $V_\vk$ is  $\ft\placeholder\of {\scal{\vk}{}}$. As for $\gj\in\Lspace[2]\of\Rn$,
+by taking $\gm = \ftnrm\LebesgueMeasure n$, where $\LebesgueMeasure n$ is the Lebesgue measure on $\Rn$. Again, we see that the $\E^{\I \scal\vk{}}\DefineAs \FunctionBody \vx \E^{\I \scal\vk{\vx}}$ are exactly the elements of $\PontryaginDual\Rn\Isomorphic\Rn$, and that the $V_\vk\DefineAs\LinearSpan\set{\E^{\I \scal\vk{}}}$ are $\gr$-invariant, where $\gr$ acts by translation and are orthogonal. The projector onto $V_\vk$ is  $\ft\placeholder\of \vk$. As for $\gj\in\Lspace[2]\of\Rn$,
 \begin{equation*} 
 \rft{\ft\gj}\of\vx = \ftnrm\int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}\diffd\vk \gj\of\vx=
 \int\Rn\ft\gj\E^{\I\scal\vx{}}\diffd \PontryaginDual\gm = \gj\of\vx
@@ -670,6 +672,8 @@ for almost all $x$ --- $\PontryaginDual\gm$ is the dual measure
   V_\vk=\DirectSum{\gc\in\PontryaginDual{\Rn}} \LinearSpan \gc .
 \end{equation*}
 Once again, it makes sense to think of the projectors as  $\ft\placeholder\of{\E^{\I \scal\vk{}}}$, with $\ft\gj\of\gc \DefineAs \LTwoInner \gc \gj$ for $\gc\in\PontryaginDual\Rn$, as the isomorphism $\PontryaginDual\Rn\Isomorphic\Rn$ is not unique. Actually, the isomorphism $\FunctionBody \vk {\E^{2 \Pi \I \scal{\vk}{} }}$ is sometimes used, as it allows for $\gm = \PontryaginDual\gm = \LebesgueMeasure n$ --- there are no constant factors before the integrals. Using this isomorphism, the Gaussian $\E^{-\frac{1}{2}\norm\vx^2}$ is no longer self-dual, i.e., the same as its Fourier transform, but $\E^{-\Pi\norm\vx^2}$ is instead.
+
+An isomorphism between the momentum space $\CotangentSpace 0 \Rn = \Dual{\pa\Rn}$ and the Pontryagin dual $\PontryaginDual \Rn$, is given by $\FunctionBody \vgl {\E^{2 \Pi \I \vgl }}$, with $\PontryaginDual \Rn\owns\FunctionNamedBody{\E^{2 \Pi \I \vgl}} \vk {\E^{2 \Pi \I \vgl\vk}}$, so it makes sense for bourgeois mathematicians to think of the classical phase space $\Rn\Cartesian\PontryaginDual\Rn$ as the cotangent bundle $\CotangentBundle \Rn$.
 
 
 \paragraph{Spherical harmonics and $\SpecialOrthogonalGroup\of 3$.} 
