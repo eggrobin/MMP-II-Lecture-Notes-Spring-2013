@@ -34,6 +34,7 @@
 \RequirePackage{xfrac}
 
 \RequirePackage{fouridx}
+\RequirePackage{amsbsy}
 
 \ifUtopia
   \RequirePackage[utopia]{mathdesign}
@@ -348,6 +349,7 @@
 \newcommand\gc\chi
 \newcommand\gy\psi
 \newcommand\gw\omega
+\newcommand\gdig\digamma
 
 \newcommand\gS\Sigma
 
@@ -384,6 +386,10 @@
 \newcommand{\vz}{{\vectorsym z}}
 \newcommand{\miga}{{\vectorsym \alpha}}
 \newcommand{\migb}{{\vectorsym \beta}}
+
+
+\newcommand{\vgg}{{\vectorsym \gamma}}
+\newcommand{\vgdig}{\boldsymbol{\digamma}}
 
 \newcommand{\nullmi}{{\vectorsym 0}}
 \newcommand{\nullvec}{{\vectorsym 0}}
@@ -564,8 +570,23 @@
 }
 
 \newcommand{\TangentSpace}[2]{\operatorname{T}_{#1}{#2}}
+\newcommand{\CotangentSpace}[2]{\Dual{\operatorname{T}}_{#1}{#2}}
 \newcommand{\TangentBundle}[1]{\operatorname{T}{#1}}
 \newcommand{\CotangentBundle}[1]{\Dual{\operatorname{T}}{#1}}
 \newcommand\TimeDerivative[1]{\dot{#1}}
 
-\newcommand{\LieAlgebra}[1]{\mathfrak{#1}}
+\newcommand{\LieAlgebraSymbol}[1]{\mathfrak{#1}}
+\DeclareMathOperator{\LieAlgebra}{Lie}
+\newcommand{\Cartesian}{\times}
+\newcommand{\DirectProduct}{\Cartesian}
+\newcommand\DefinitionOf\eqqcolon
+\newcommand{\Equivalent}{\Leftrightarrow}
+
+\newcommand{\Torus}[1]{\mathbb{T}^{#1}}
+
+\newcommand{\FunctionDefinition}[5]{
+\begin{aligned}
+{#1}:{#2}&\rightarrow{#3}\\
+{#4}&\mapsto{#5}
+\end{aligned}
+}
