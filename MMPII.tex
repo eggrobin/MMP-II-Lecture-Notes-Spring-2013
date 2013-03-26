@@ -19,10 +19,11 @@
 \documentclass[10pt]{article}
 
 \usepackage[stable]{footmisc}
-\usepackage[polutonikogreek, english]{babel}
+\usepackage[polutonikogreek, german, english]{babel}
 \usepackage[utf8x]{inputenx}
 %\usepackage{fontspec}
 \usepackage{gfsbodoni}
+\newcommand{\textgerman}[1]{{\selectlanguage{german} #1}}
 \newcommand\greek[1]{{\selectlanguage{polutonikogreek} \textbodoni{#1}}}
 
 % Set ComputerModern to true to use fonts from the Computer Modern family,
@@ -600,10 +601,9 @@ As the tangent spaces of $G$ are canonically isomorphic to each other, so are th
 \end{equation*}
 The dual of the Lie algebra, $\MomentumSpace$, is the momentum space. The Hamiltonian is a function from the cotangent bundle (and time) to the reals, $\FunctionSpec\Hamiltonian {\CotangentBundle G \Cartesian \R = G \Cartesian \MomentumSpace} \R$.
 
-If $G$ is a connected abelian Lie Group, it can be shown that it is the direct product of a finite dimensional $\R$-vector space and a torus, i.e., $G\Isomorphic \Rn \DirectProduct \Torus m$ for some $m,n \in \N$, where $\CircleGroup$ is the circle group.
-We will show in the examples below that for $G=\Rn$, the Pontryagin dual\footnote{The Pontryagin dual is named after %
+The Pontryagin dual\footnote{The Pontryagin dual is named after %
 %russian{Лев Семёнович Понтря́гин }
-Lev Semenovich Pontryagin (1908--1988).} $\PontryaginDual G$ is isomorphic to $\MomentumSpace$. This is not the case for $G=\CircleGroup=\UnitaryGroup\of1$, where $\MomentumSpace=\Dual{\pa{\I\R}}$ and $\PontryaginDual \CircleGroup \Isomorphic \Z$.
+Lev Semenovich Pontryagin (1908--1988).} $\PontryaginDual G$ is the set of homomorphisms from $G$ to $\UnitaryGroup\of 1$. Compare this with the vector space dual $\Dual V$, which is the set of linear maps from $V$ to the underlying field. One can see $\PontryaginDual G$ as a sort of non-linear analogue to $\Dual V$. We will see that for $G=\Rn$, we have a meaningful isomorphism between $\PontryaginDual G$ and $\MomentumSpace$. This will also give a motivation for defining the Hamiltonian on the \emph{cotangent} bundle and not on the tangent bundle, answering the question: \emph{why should the generalised momenta not lie in the same space as the velocities?}
 \endgroup
 \end{supplemental}
 
@@ -673,8 +673,7 @@ for almost all $x$ --- $\PontryaginDual\gm$ is the dual measure
 \end{equation*}
 Once again, it makes sense to think of the projectors as  $\ft\placeholder\of{\E^{\I \scal\vk{}}}$, with $\ft\gj\of\gc \DefineAs \LTwoInner \gc \gj$ for $\gc\in\PontryaginDual\Rn$, as the isomorphism $\PontryaginDual\Rn\Isomorphic\Rn$ is not unique. Actually, the isomorphism $\FunctionBody \vk {\E^{2 \Pi \I \scal{\vk}{} }}$ is sometimes used, as it allows for $\gm = \PontryaginDual\gm = \LebesgueMeasure n$ --- there are no constant factors before the integrals. Using this isomorphism, the Gaussian $\E^{-\frac{1}{2}\norm\vx^2}$ is no longer self-dual, i.e., the same as its Fourier transform, but $\E^{-\Pi\norm\vx^2}$ is instead.
 
-An isomorphism between the momentum space $\CotangentSpace 0 \Rn = \Dual{\pa\Rn}$ and the Pontryagin dual $\PontryaginDual \Rn$, is given by $\FunctionBody \vgl {\E^{2 \Pi \I \vgl }}$, with $\PontryaginDual \Rn\owns\FunctionNamedBody{\E^{2 \Pi \I \vgl}} \vk {\E^{2 \Pi \I \vgl\vk}}$, so it makes sense for bourgeois mathematicians to think of the classical phase space $\Rn\Cartesian\PontryaginDual\Rn$ as the cotangent bundle $\CotangentBundle \Rn$.
-
+This also gives us an isomorphism between the momentum space $\CotangentSpace 0 \Rn = \Dual{\pa\Rn}$ and the Pontryagin dual $\PontryaginDual \Rn$, namely $\FunctionBody \vgl {\E^{2 \Pi \I \vgl }}$, with $\PontryaginDual \Rn\owns\FunctionNamedBody{\E^{2 \Pi \I \vgl}} \vk {\E^{2 \Pi \I \vgl\vk}}$, which, in contrast to the isomorphism from $\Rn$ to $\PontryaginDual\Rn$, does not depend on the choice of an inner product. It therefore makes sense to think of momenta as lying in the dual of the tangent space, and not the tangent space. Thus the phase space should indeed be $\CotangentBundle \Rn$, and not $\TangentBundle \Rn$.
 
 \paragraph{Spherical harmonics and $\SpecialOrthogonalGroup\of 3$.} 
 \newcommand{\degL}{\ell}
@@ -726,7 +725,7 @@ Recall:
 \FT\RFT &=\RFT\FT=\Identity\\
 \FT{\pa{\derivop[2]x + x^2}}\of{k}&=\pa{\derivop[2]x + x^2}\FT\of\gj\of{k}
 \end{align*}
-So we have this very nice guy here: $\derivop[2]x + x^2$, and having gone to {GERMAN} Elementärschule, you'd think $\derivop[2]x + x^2 \stackrel{?}= \pa{x-\derivop x}\pa{x+\derivop x}$. But the \emph{real} identity they should teach you at school --- life is short, the sooner you get going, the better --- is $\pa{a-b}\pa{a+b}=a^2-b^2+\commutator a b$. That's the difference between childhood and adulthood: $ab$ is no longer equal to $ba$, and it causes a lot of problems.
+So we have this very nice guy here: $\derivop[2]x + x^2$, and having gone to \textgerman{Elementärschule}, you'd think $\derivop[2]x + x^2 \stackrel{?}= \pa{x-\derivop x}\pa{x+\derivop x}$. But the \emph{real} identity they should teach you at school --- life is short, the sooner you get going, the better --- is $\pa{a-b}\pa{a+b}=a^2-b^2+\commutator a b$. That's the difference between childhood and adulthood: $ab$ is no longer equal to $ba$, and it causes a lot of problems.
 
 Here $\commutator {\derivop x} x = \Identity$. We now know  $ \pa{x-\derivop x}\pa{x+\derivop x} = -\derivop[2]x + x^2 -1$.
 This will be around long after strings is seen as a strange cult of the 21st century.
