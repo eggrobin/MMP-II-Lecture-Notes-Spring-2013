@@ -18,37 +18,39 @@
 
 \documentclass[10pt]{article}
 
+\usepackage{xltxtra}
 \usepackage[stable]{footmisc}
-\usepackage[polutonikogreek, english]{babel}
-\usepackage[utf8x]{inputenx}
-%\usepackage{fontspec}
-\usepackage{gfsbodoni}
-\newcommand\greek[1]{{\selectlanguage{polutonikogreek} \textbodoni{#1}}}
 
-% Set ComputerModern to true to use fonts from the Computer Modern family,
-% Utopia to true to use the Utopia family. Set none to true for compilation 
-% errors, or both for havoc.
-% Run pdflatex "\def\targetComputerModern{}\input{MMPII.tex}"
-% to automatically set ComputerModern to true.
-\ifdefined\targetComputerModern
-  \ifdefined\targetPedantic
-    \usepackage[ComputerModern, Pedantic]{semtex}
-  \else
-    \usepackage[ComputerModern]{semtex}
-  \fi
-\else
-  \ifdefined\targetPedantic
-    \usepackage[Utopia, Pedantic]{semtex}
-  \else
-    \usepackage[Utopia]{semtex}
-  \fi
-\fi
-  
-\usepackage[top=1.5cm, bottom=1.5cm, left=2.5cm, right=1.5cm]{geometry}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\setotherlanguages{greek,russian}
+
+\usepackage{fontspec}
+\setmainfont[
+    UprightFeatures={SmallCapsFont={Linux Libertine O C}},
+    SmallCapsFeatures={Letters=SmallCaps},
+    Mapping=tex-text, 
+    Numbers={OldStyle, Proportional}, 
+    Ligatures={TeX, Common, Historical}, 
+    Contextuals=WordFinal,
+            ]{Linux Libertine O}
+\setmonofont{Linux Libertine Mono O}
+\newfontface\libertineInitialGlyph[]{Linux Libertine Initials O}
+
+\setsansfont[Ligatures={TeX, Common}, Numbers={OldStyle, Proportional}]{Linux Biolinum O}
+
+
+\usepackage[top=1.5cm, bottom=1.5cm, left=2.5cm, right=2.5cm]{geometry}
 
 \usepackage{datetime} 
 \renewcommand{\dateseparator}{-}
 \yyyymmdddate 
+
+\usepackage{mdframed}
+\usepackage{xcolor}
+
+\usepackage[Mathematics]{semtex}
 
 %%%% Shorthands.
 
@@ -56,14 +58,13 @@
 \newcommand{\Rn}{{\R^n}}
 \newcommand{\Schwartz}{{\SchwartzSpace\of{\Rn}}}
 \newcommand{\TemperedDistributions}{{\contdual\SchwartzSpace\of{\Rn}}}
+\def\int{Platypus}
 
 %% Freqently-used expressions.
 \newcommand{\sqftnrm}{\frac{1}{\pa{2\Pi}^n} }
 \newcommand{\ftnrm}{\frac{1}{\pa{2\Pi}^\frac{n}{2}} }
 
-%%%% Miscellaneous.
-\usepackage{mdframed}
-\usepackage{xcolor}
+%%%%%
 
 \newenvironment{supplemental}{
 \begin{mdframed}%
@@ -101,7 +102,6 @@
 
 \title{Notes from the Methods of Mathematical Physics II lectures of 2013-02-19{\slash}05-30 by Prof.~Dr.~Eugene~Trubowitz}
 \author{Robin~Leroy and David~Nadlinger}
-
 
 \begin{document}
   \maketitle
