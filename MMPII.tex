@@ -41,9 +41,7 @@
 
 \usepackage[top=1.5cm, bottom=1.5cm, left=2.5cm, right=2.5cm]{geometry}
 
-\usepackage{datetime} 
-\renewcommand{\dateseparator}{-}
-\yyyymmdddate 
+\usepackage[iso, english]{isodate} 
 
 \usepackage{mdframed}
 \usepackage{xcolor}
@@ -62,38 +60,33 @@
 \newcommand{\ftnrm}{\frac{1}{\pa{2\Pi}^\frac{n}{2}} }
 
 %%%%%
+\makeatletter
+\define@key{lecture}{date}{\def\lectureDate{#1}}
+\define@boolkey{lecture}{official}[false]{
+\ifKV@lecture@official
+\def\lectureOfficial{\\* There are official notes for the material covered in this lecture.}
+\else
+\def\lectureOfficial{}
+\fi}
+\makeatother
+\newcounter{Lecture}
+\newenvironment{lecture}[1][]{
+\refstepcounter{Lecture}
+\setkeys{lecture}{official, #1}
 
+\begin{flushright}
+\emph{Lecture \theLecture, \printdate{\lectureDate}.\lectureOfficial}
+\end{flushright}
+
+}{}
 \newenvironment{supplemental}{
-\begin{mdframed}%
-[hidealllines=true,                 %
-  backgroundcolor=red!15!yellow!10  %
-]}{\end{mdframed}}
+\begin{flushright}
+\textsc{Supplemental}
+\end{flushright}}{}
 
 % For comments in align environments
 \newcommand\commentbox[1]{\parbox{7.5cm}{#1}}
-% Markup for the start and end of lectures.
-\newcommand{\lectureStart}[1]{
 
-\begin{flushright}
-\emph{Here begins the lecture of #1.}
-\end{flushright}
-
-}
-\newcommand{\lectureEnd}[1]{
-% Redundant.
-%\begin{flushright}
-%\emph{Here ends the lecture of #1.}
-%\end{flushright}
-
-}
-
-\newcommand{\officialNotes}{
-
-\begin{flushleft}
-\emph{There are official notes for the material covered in this lecture.}
-\end{flushleft}
-
-}
 
 %%%% Title.
 
@@ -102,7 +95,11 @@
 
 \begin{document}
   \maketitle
-  \lectureStart{2013-02-28}
+  
+  % The first three lectures are not covered by this document.
+  \setcounter{Lecture}{3}  
+  
+  \begin{lecture}[date={2013-02-28}]
   \section{\emph{True Lies}: An introduction to distribution theory}
   In many areas of physics, the Dirac delta ``function'' is an important tool, e.g., for describing localized phenomena. While it is usually described in vague terms as ``only making sense under an integral'', physicists tend to still write identities such as
   \begin{equation*}
@@ -243,16 +240,16 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
   \begin{equation*}
     \Laplacian N = -4 \pi \DiracDelta.
   \end{equation*}
-  \lectureEnd{2013-02-28}
-  \lectureStart{2013-03-05}
+  \end{lecture}
+  \begin{lecture}[date=2013-03-05]
   \begin{definition}[Inner product on $\Schwartz$]
   Let $\gj,\gy\in\Schwartz$. We define:
   \begin{equation*}
   \LTwoInner \gy \gj \DefineAs \int\Rn \conj\gy\of\vx \gj\of\vx \diffd\vx .
   \end{equation*}
   \end{definition}
-  \lectureEnd{2013-03-05}
-  \lectureStart{2013-03-07}
+  \end{lecture}
+  \begin{lecture}[date=2013-03-07]
   \section{General properties of the Fourier transform}
   \begin{lemma}[``Your life in Fourier land depends on it.'']
     \begin{align}
@@ -456,8 +453,8 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
     \adj A &\DefineAs \frac{1}{\sqrt 2}\pa{-\derivop{x} + x}.
   \end{align*}
   We then have $H = \adj A A$. If $a$ and $b$ commute, then we have $\pa{a-b}\pa{a+b}  = a^2-b^2$, but here $x$ and $\derivop{x}$ don't quite commute, hence the $-1$.
-\lectureEnd{2013-03-07}
-\lectureStart{2013-03-12}
+\end{lecture}
+\begin{lecture}[date=2013-03-12]
 Let us look at these operators in more detail: define $\pa{Q f}\of x \DefineAs x f\of x \in \SchwartzSpace\of{\R}$, $\pa{P f}\of x \DefineAs \derivop x f\of x \in \SchwartzSpace\of\R$ for $f\in\SchwartzSpace\of\R$. We saw that $\commutator Q P = 1$. We also have:
 \begin{align*}
   \LTwoInner \gj {P\gy} 
@@ -499,9 +496,8 @@ Let us start again. ``Those of you who have done the exercises, and those of you
 We will find all the conjugacy classes. ``We're going to hunt them down!'' 
 
 ``I'll see you on Thursday, and I expect there'll be fewer people.''
-\lectureEnd{2013-03-12}
-\lectureStart{2013-03-14}
-\officialNotes
+\end{lecture}
+\begin{lecture}[date=2013-03-14, official=true]
 
 \section{The finite Heisenberg group}
 
@@ -525,7 +521,7 @@ The free group on one element is isomorphic to $\tuple{\Z,+}$. The normal subgro
     }
   } N.
 \end{equation*}
-\begin{supplemental}
+%\begin{supplemental}
 Note that this is also equal to the orbit of $W$ under the action of $G$ on its subsets by conjugation, $\LeftConjugationAction g S \DefineAs g S g^{-1}$, so we can write
 \begin{equation*}
 \GroupPresentation{X}{W} = \QuotientGroup{\FreeGroup X}{\LeftConjugationAction G W} = \QuotientGroup{\FreeGroup X}{
@@ -537,7 +533,7 @@ Note that this is also equal to the orbit of $W$ under the action of $G$ on its 
   } N.
 }
 \end{equation*}
-\end{supplemental}
+%\end{supplemental}
 
 ``Out of this trivial stuff comes something deep.''
 
@@ -545,9 +541,8 @@ Note that this is also equal to the orbit of $W$ under the action of $G$ on its 
 $\gr$ is a faithful complex irreducible representation of the finite group $G$ if and only if $\sum{g\in G} \abs{\Character[\gr]\of g}^2 = \Cardinality G$.
 
 ``I will see those of you who actually do come back next Tuesday.''
-\lectureEnd{2013-03-14}
-\lectureStart{2013-03-19}
-\officialNotes
+\end{lecture}
+\begin{lecture}[date=2013-03-19, official=true]
 The dual group only works for abelian groups. 
 The way a bourgeois mathematician thinks of the classical phase space $\Rn\Cartesian\PontryaginDual\Rn$ is as the cotangent bundle $\Rn\Cartesian\Dual{\pa\Rn}$.
 ``If you would have the energy to learn ancient Greek, and you talked about the real housewives of Atlanta, it would be a waste.'' It is not sufficient to have a fancy language, you actually have to say something.
@@ -598,14 +593,13 @@ As the tangent spaces of $G$ are canonically isomorphic to each other, so are th
 The dual of the Lie algebra, $\MomentumSpace$, is the momentum space. The Hamiltonian is a function from the cotangent bundle (and time) to the reals, $\FunctionSpec\Hamiltonian {\CotangentBundle G \Cartesian \R = G \Cartesian \MomentumSpace} \R$.
 
 The Pontryagin dual\footnote{The Pontryagin dual is named after %
-%russian{Лев Семёнович Понтря́гин }
-Lev Semenovich Pontryagin (1908--1988).} $\PontryaginDual G$ is the set of homomorphisms from $G$ to $\UnitaryGroup\of 1$. Compare this with the vector space dual $\Dual V$, which is the set of linear maps from $V$ to the underlying field. One can see $\PontryaginDual G$ as a sort of non-linear analogue to $\Dual V$. We will see that for $G=\Rn$, we have a meaningful isomorphism between $\PontryaginDual G$ and $\MomentumSpace$. This will also give a motivation for defining the Hamiltonian on the \emph{cotangent} bundle and not on the tangent bundle, answering the question: \emph{why should the generalised momenta not lie in the same space as the velocities?}
+\textrussian{Лев Семёнович Понтря́гин} (1908--1988).} $\PontryaginDual G$ is the set of homomorphisms from $G$ to $\UnitaryGroup\of 1$. Compare this with the vector space dual $\Dual V$, which is the set of linear maps from $V$ to the underlying field. One can see $\PontryaginDual G$ as a sort of non-linear analogue to $\Dual V$. We will see that for $G=\Rn$, we have a meaningful isomorphism between $\PontryaginDual G$ and $\MomentumSpace$. This will also give a motivation for defining the Hamiltonian on the \emph{cotangent} bundle and not on the tangent bundle, answering the question: \emph{why should the generalised momenta not lie in the same space as the velocities?}
 \endgroup
 \end{supplemental}
 
 We started this lecture with the finite Fourier transform. This is a special case of what we discuss here, with $\IntegersModulo{n}$ as the abelian group $A$. This is perfect pedagogy: after only eight months, we come back to the beginning. Everything I've done so far is just that for various groups. When the group is infinite, e.g., the unit circle for Fourier series, you have to do analysis. ``[Claude] doesn't go there. I do.''
 
-\lectureEnd{2013-03-19}
+\end{lecture}
 \begin{supplemental}
 \subsection{Examples from Raisa Galimova's exercise class}
 \begingroup
@@ -687,8 +681,7 @@ where the irreducible $\Harmonic\degL$ are defined as follows: $\Harmonic\degL$ 
 \end{supplemental}
 
 
-\lectureStart{2013-03-21}
-\officialNotes
+\begin{lecture}[date=2013-03-21, official=true]
 \begingroup
 \newcommand{\vsqrtninv}{\frac{1}{\sqrt{\vn}}}
 The dual of a group is a sort of nonlinear version of the dual of a vector space.
@@ -711,9 +704,9 @@ The problem is phase transitions: the symmetries change, and you cannot see that
 
 ``If you don't come back next week I understand.''
 \endgroup
-\lectureEnd{2013-03-21}
+\end{lecture}
 
-\lectureStart{2013-03-26}
+\begin{lecture}[date=2013-03-26]
 Recall: 
 \begin{align*}
 \FT\of\gj\of\vk\DefineAs\ft\gj\of\vk&\DefineAs\ftnrm\gj\of\vx\E^{-\I\scal{\vk}{\vx}}\diffd\vx, &&\gj\in\Schwartz\\
@@ -773,7 +766,7 @@ Ah_0&=0 \\
 \end{align*}
 The only real idea in group representations: you find some commutation relations, and you generate all the eigenvectors and eigenvalues.
 
-
+\end{lecture}
 
 
 
