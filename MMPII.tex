@@ -718,4 +718,68 @@ The problem is phase transitions: the symmetries change, and you cannot see that
 \endgroup
 \lectureEnd{2013-03-21}
 
+\lectureStart{2013-03-26}
+Recall: 
+\begin{align*}
+\FT\of\gj\of\vk\DefineAs\ft\gj\of\vk&\DefineAs\ftnrm\gj\of\vx\E^{-\I\scal{\vk}{\vx}}\diffd\vx, &&\gj\in\Schwartz\\
+\RFT\of\gy\of\vx\DefineAs\rft\gy\of\vx&\DefineAs\ftnrm\gy\of\vx\E^{\I\scal{\vk}{\vx}}\diffd\vk, &&\gy\in\Schwartz\\
+\FT\RFT &=\RFT\FT=\Identity\\
+\FT{\pa{\derivop[2]x + x^2}}\of{k}&=\pa{\derivop[2]x + x^2}\FT\of\gj\of{k}
+\end{align*}
+So we have this very nice guy here: $\derivop[2]x + x^2$, and having gone to {GERMAN} Elementärschule, you'd think $\derivop[2]x + x^2 \stackrel{?}= \pa{x-\derivop x}\pa{x+\derivop x}$. But the \emph{real} identity they should teach you at school --- life is short, the sooner you get going, the better --- is $\pa{a-b}\pa{a+b}=a^2-b^2+\commutator a b$. That's the difference between childhood and adulthood: $ab$ is no longer equal to $ba$, and it causes a lot of problems.
+
+Here $\commutator {\derivop x} x = \Identity$. We now know  $ \pa{x-\derivop x}\pa{x+\derivop x} = -\derivop[2]x + x^2 -1$.
+This will be around long after strings is seen as a strange cult of the 21st century.
+
+We defined:
+\begin{align*}
+A&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\\
+\adj{A}&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}
+\end{align*}
+We wrote ``dagger''. This makes sense, as;
+\begin{align*}
+\LTwoInner \gy{A\gj} &= \frac{1}{\sqrt{2}}\int\R\conj{\gy}\of x \pa{\derivop x+x}\gj\of x \diffd x
+&= \frac{1}{\sqrt{2}}\int\R\conj{\gy}\of x \derivop x\gj\of x \diffd x +
+\frac{1}{\sqrt{2}}\int\R\conj{\pa{x\gy\of x}} \gj\of x \diffd x
+&=\int\R\conj{\pa{\frac{1}{\sqrt{2}}\pa{-\derivop x x}\gy\of x}} \gj\of x 
+\LTwoInner {\adj A \gy}\gj
+\end{align*}
+
+
+Write 
+\begin{align*}
+A_x&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\\
+\adj{A_x}&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text{,}
+\end{align*}
+and similarly for $k$ instead of $x$.
+
+Observe:
+\begin{align*}
+\FT\of {A_x \gj}\of k &= \I A_k \ft\gj\of k\\
+\FT\of {\adj{A_x} \gj}\of k &= \I \adj{A_k} \ft\gj\of k\\
+A_x\E^{-\frac{1}{2}x^2}&=\pa{\derivop x+x}\E^{-\frac{1}{2}x^2}= 0\text{.}\\
+\intertext{define}
+h_0\of x &\DefineAs \frac{\E^{-\frac{1}{2}x^2}}{\sqrt[4]{\Pi}}\\
+\intertext{so that}
+\LTwoInner {h_0}{h_0} &= 1
+\end{align*}
+We now can perform the following induction:
+\begin{align*}
+Ah_0&=0 \\
+\ft{h_0}&= h_0\\
+\ft{\adj {A_x} h_0}\of k &=\pa{-\I}\adj{A_k} h_0\of k\\
+\FT\of{\pa{\adj{A_x}}^n h_0}\of k &= \pa{-\I} \adj{A_k}\FT\of{\pa{\adj A}^{n-1}h_0}\of k
+= \pa{-\I}^n \pa{\adj{A_k}}^n h_0\of k
+\end{align*}
+``I'll do some coherent states. I like coherent states.'' Next week we shall prove:
+\begin{align*}
+\commutator A {\adj A} &= \Identity \\
+\commutator A {\pa{\adj A}^n} &= n \pa{\adj A}^{n-1}
+\end{align*}
+The only real idea in group representations: you find some commutation relations, and you generate all the eigenvectors and eigenvalues.
+
+
+
+
+
 \end{document}
