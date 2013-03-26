@@ -1,0 +1,345 @@
+\documentclass[10pt]{article}
+
+%\usepackage[utf8x]{inputenx}
+\usepackage{xltxtra}
+\usepackage{amsmath}
+%\usepackage[greek,french]{babel}
+%\usepackage{pxfonts}
+%\usepackage{amssymb}
+\usepackage{verse}
+
+\usepackage[]{geometry}
+
+\usepackage{fontspec}
+%\usepackage[osf]{libertine}
+\setmainfont[
+    UprightFeatures={SmallCapsFont={Linux Libertine O C}},
+    SmallCapsFeatures={Letters=SmallCaps},
+    Mapping=tex-text, Numbers={OldStyle, Proportional}, Ligatures={TeX, Common}, Contextuals=WordFinal,
+            ]{Linux Libertine O}
+\setmonofont{Linux Libertine Mono O}
+\newfontface\libertineInitialGlyph[]{Linux Libertine Initials O}
+
+\setsansfont[Ligatures={TeX, Common}, Numbers={OldStyle, Proportional}]{Linux Biolinum O}
+
+\usepackage{unicode-math}
+\setmathfont[math-style=ISO]{Cambria Math}
+\setmathfont[range={\mathcal,\mathbfcal}]{texgyrepagella-math.otf}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{french}
+\setotherlanguages{english,greek,russian}
+
+%,\mathbfcal
+%\setmathfont[math-style=ISO]{texgyrepagella-math.otf}
+%\setmathfont[math-style=ISO]{Asana-Math.otf}
+\usepackage{lettrine}
+\newcommand{\up}[1]{{\addfontfeature{VerticalPosition=Superior}#1}}
+\newcommand{\textdn}[1]{{\addfontfeature{VerticalPosition=ScientificInferior}#1}}
+%\AtBeginDocument{\RenewDocumentCommand{\int}{}{Platypus}}
+\begin{document}
+\newgeometry{top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm}
+\begin{sloppypar}
+\begin{figure}[ht]
+\begin{minipage}[b]{0.45\linewidth}
+\noindent
+0123456789\\
+\textit{0123456789}\\
+\textbf{0123456789}\\
+\textbf{\textit{0123456789}}\\
+
+\noindent
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\\
+abcdefghijklmnopqrstuvwxyz\\
+\textsc{abcdefghijklmnopqrstuvwxyz}\\
+\textit{ABCDEFGHIJKLMNOPQRSTUVWXYZ\\
+abcdefghijklmnopqrstuvwxyz\\
+\textsc{abcdefghijklmnopqrstuvwxyz}}\\
+\textbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ\\
+abcdefghijklmnopqrstuvwxyz\\
+\textsc{abcdefghijklmnopqrstuvwxyz}}\\
+\textbf{\textit{ABCDEFGHIJKLMNOPQRSTUVWXYZ\\
+abcdefghijklmnopqrstuvwxyz\\
+\textsc{abcdefghijklmnopqrstuvwxyz}}}\\
+
+\noindent
+АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ \\
+абвгдеёжзийклмнопрстуфхцчшщъыьэюя \\
+\textsc{абвгдеёжзийклмнопрстуфхцчшщъыьэюя}\\
+\textit{АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ\\
+абвгдеёжзийклмнопрстуфхцчшщъыьэюя }\\
+\textbf{АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ \\
+абвгдеёжзийклмнопрстуфхцчшщъыьэюя }\\
+\textbf{\textit{АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ \\
+абвгдеёжзийклмнопрстуфхцчшщъыьэюя }}\\
+
+
+\noindent
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
+αβγδεζηθικλμνξοπρστυφχψω\\
+\textsc{αβγδεζηθικλμνξοπρστυφχψω}\\
+\textit{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
+αβγδεζηθικλμνξοπρστυφχψω \\}
+\textbf{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
+αβγδεζηθικλμνξοπρστυφχψω}\\
+\textbf{\textit{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
+αβγδεζηθικλμνξοπρστυφχψω}}\\
+
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.45\linewidth}
+
+\noindent
+\texttt{0123456789}\\
+
+
+\noindent\texttt{ABCDEFGHIJKLMNOPQRSTUVWXYZ\\
+abcdefghijklmnopqrstuvwxyz\\
+}
+
+\noindent
+\textsf{
+0123456789\\
+\textit{0123456789}\\
+\textbf{0123456789}\\
+}
+
+\noindent
+\textsf{
+ABCDEFGHIJKLMNOPQRSTUVWXYZ  \\
+abcdefghijklmnopqrstuvwxyz  \\
+\textit{ABCDEFGHIJKLMNOPQRSTUVWXYZ\\
+abcdefghijklmnopqrstuvwxyz}\\
+\textbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ\\
+abcdefghijklmnopqrstuvwxyz}\\
+}
+
+\noindent
+\textsf{
+АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ \\
+абвгдеёжзийклмнопрстуфхцчшщъыьэюя \\
+\textit{АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ\\
+абвгдеёжзийклмнопрстуфхцчшщъыьэюя }\\
+\textbf{АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ \\
+абвгдеёжзийклмнопрстуфхцчшщъыьэюя }\\
+}
+
+\noindent
+\textsf{
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
+αβγδεζηθικλμνξοπρστυφχψω\\
+\textit{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
+αβγδεζηθικλμνξοπρστυφχψω}\\
+\textbf{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
+αβγδεζηθικλμνξοπρστυφχψω}\\
+}
+\end{minipage}
+\end{figure}
+
+
+\begin{align*}
+\mathrm{0123456789} &&\mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}&&\mathrm{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ}\\
+&&\mathrm{abcdefghijklmnopqrstuvwxyz}&&\mathrm{αβγδεζηθικλμνξοπρστυφχψω}\\
+&&ABCDEFGHIJKLMNOPQRSTUVWXYZ&&ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
+&&abcdefghijklmnopqrstuvwxyz&&αβγδεζηθικλμνξοπρστυφχψω	\\
+\mathbfup{0123456789}&&\mathbfup{ABCDEFGHIJKLMNOPQRSTUVWXYZ}&&\mathbfup{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ}\\
+&&\mathbfup{abcdefghijklmnopqrstuvwxyz}&&\mathbfup{αβγδεζηθικλμνξοπρστυφχψω}\\
+&&\mathbfit{ABCDEFGHIJKLMNOPQRSTUVWXYZ}&&\mathbfit{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ}	\\
+&&\mathbfit{abcdefghijklmnopqrstuvwxyz}&&\mathbfit{αβγδεζηθικλμνξοπρστυφχψω}\\
+%
+\mathsfup{0123456789} &&\mathsfup{ABCDEFGHIJKLMNOPQRSTUVWXYZ}&&\mathrm{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ}\\
+&&\mathsfup{abcdefghijklmnopqrstuvwxyz}&&\mathsfup{αβγδεζηθικλμνξοπρστυφχψω}\\
+&&\mathsfit{ABCDEFGHIJKLMNOPQRSTUVWXYZ}&&\mathsfit{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ}\\
+&&\mathsfit{abcdefghijklmnopqrstuvwxyz}&&\mathsfit{αβγδεζηθικλμνξοπρστυφχψω}	\\
+\mathbfsfup{0123456789}&&\mathbfsfup{ABCDEFGHIJKLMNOPQRSTUVWXYZ}&&\mathbfsfup{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ}\\
+&&\mathbfsfup{abcdefghijklmnopqrstuvwxyz}&&\mathbfsfup{αβγδεζηθικλμνξοπρστυφχψω}\\
+&&\mathbfsfit{ABCDEFGHIJKLMNOPQRSTUVWXYZ}&&\mathbfsfit{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ}	\\
+&&\mathbfsfit{abcdefghijklmnopqrstuvwxyz}&&\mathbfsfit{αβγδεζηθικλμνξοπρστυφχψω}\\
+%
+\mathtt{0123456789} &&\mathtt{ABCDEFGHIJKLMNOPQRSTUVWXYZ}&&\mathtt{abcdefghijklmnopqrstuvwxyz}\\\
+&&\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}&&\mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&&\mathfrak{abcdefghijklmnopqrstuvwxyz}&&\mathscr{abcdefghijklmnopqrstuvwxyz}\\
+&&\mathbffrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}&&\mathbfscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&&\mathbffrak{abcdefghijklmnopqrstuvwxyz}&&\mathbfscr{abcdefghijklmnopqrstuvwxyz}\\
+\mathbb{0123456789}&&\mathbb{ ABCDEFGHIJKLMNOPQRSTUVWXYZ}&&\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+&&\mathbb{abcdefghijklmnopqrstuvwxyz}&&\mathbfcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}
+\end{align*}
+\end{sloppypar}
+\restoregeometry
+\pagebreak
+
+\addfontfeature{Ligatures=Historical}
+\section*{Typographie mathématique.}
+Les glyphes suivants sont des ligatures: ff fi fl ffi ffl ft Qu Th st ct \emph{ff fi fl ffi ffl ft Qu Th st ct}. Un des textes ci-dessous est la déclaration des droits de l'Homme et du citoyen de 1793. Elle diffère de la version de 1789.
+Rappelons que $1789+4=1793$. $\mathrm{T}^*M$ est le fibré cotangent de la variété différentiable $M$.
+\begin{equation}
+\mathrm{\Gamma}(z+1)=\mathrm{\Pi}(z)=\int\limits_0^\infty \mathrm{e}^{-t}t^z \mathrm{d} t
+\end{equation}
+Racines d'un polynome du second degré:
+\begin{equation}
+\forall a, b, c \in\mathbb{C}\quad a x^2 + b x + c = 0 \Leftrightarrow x \in \left\lbrace\frac{-b \pm \sqrt{b^2 - 4 a c}}{2a}\right\rbrace
+\end{equation}
+La fonction $\mathrm{\zeta}$ est définie pour $\operatorname{Re} s > 1$ par
+\begin{equation}
+\mathrm{\zeta}(s)=\sum\limits_{n=1}^\infty \frac{1}{n^s}\textbf{.}
+\end{equation}
+Son prolongement holomorphe sur $\mathbb{C}\smallsetminus\{0\}$ satisfait l'équation fonctionnelle suivante:
+\begin{equation}
+\mathrm{\pi}^{-\frac{s}{2}}\mathrm{\Gamma}\left(\frac{s}{2}\right)\mathrm{\zeta}(s)
+=\mathrm{\pi}^{-\frac{1-s}{2}}\mathrm{\Gamma}\left(\frac{1-s}{2}\right)\mathrm{\zeta}(1-s)\text{.}
+\end{equation}
+Soit $\alpha\mapsto f_\alpha$ une action de $\Omega$ sur $E$.
+\pagebreak
+
+\section*{\textit{Déclaration des Droits de l'Homme et du Citoyen.}}
+\lettrine[lines=3]{\libertineInitialGlyph{L}}{e} peuple François, convaincu que l'oubli et le mépris des droits naturels de l'hom\-me, ſont les ſeules cauſes des malheurs du monde, a réſolu d'expoſer dans une déclaration ſolennelle ces droits ſacrés et inaliénables, afin que tous les citoyens pouvant comparer ſans ceſſe les actes du gouvernement avec le but de toute inſtitution ſociale, ne ſe laiſſent jamais opprimer et avilir par la tyrannie, afin que le peuple ait toujours devant les yeux les baſes de ſa liberté et de ſon bonheur, le magiſtrat la règle de ſes devoirs, le législateur l'objet de ſa miſſion.
+
+En conſéquence, il proclame, en préſence de l'Être ſuprême, la déclaration ſuivante des droits de l'homme et du citoyen.
+\paragraph*{\textsc{Article Premier.\\}}
+Le but de la ſociété eſt le bonheur commun.
+Le gouvernement eſt inſtitué pour garantir à l'homme la jouiſſance de ſes droits naturels et impreſcriptibles.
+\paragraph*{II.} Ces droits ſont, l'égalité, la liberté, la sûreté, la propriété.
+\paragraph*{III.}Tous les hommes ſont égaux par la nature et devant la loi.
+\paragraph*{IV.}La loi eſt l'expreſſion libre et ſolennelle de la volonté générale; elle eſt la même pour tous, ſoit qu'elle protège, ſoit qu'elle puniſſe; elle ne peut ordonner que ce qui eſt juſte et utile à la ſociété, elle ne peut défendre que ce qui lui eſt nuiſible.
+\paragraph*{V.}Tous les citoyens ſont également admiſſimles aux emplois publics. Les peuples libres ne connoiſſent d'autres motifs de préférence dans leurs élections, que les vertus et les talens.
+\paragraph*{VI.}La liberté eſt le pouvoir qui appartient à l'homme de faire tout ce qui ne nuit pas aux droits d'autrui: elle a pour pricipe, la nature; pour règle, la juſtice; pour ſauve-garde, la loi; ſa limite morale eſt dans cette maxime: \emph{Ne fais pas à un autre ce que tu ne veux pas qu'il te ſoit fait}.
+\paragraph*{VII.}Le droit de manifester ſa penſée et ſes opinions, ſoit par la voie de la preſſe, ſoit de toute autre manière, le droit de s'aſſembler paiſiblement, le libre exercice des  cultes, ne peuvent être interdits.
+
+La néceſſité d'énoncer ces droits ſuppoſe ou la préſence, ou le ſouvenir récent du deſpotiſme.
+\paragraph*{VIII.}La sûreté consiſte dans la protection accordée par la ſociété à chacun de ſes membres, pour la conſervation de ſa perſonne, de ſes droits et de ſes propriétés.
+\paragraph*{IX.}La loi doit protéger la liberté publique et individuelle contre l'oppreſſion de ceux qui gouvernent.
+\paragraph*{X.}Nul ne doit être accuſé, arrêté ni détenu, que dans les cas déterminés par la loi et ſelon les formes qu'elle a preſcrites; tout citoyen appelé ou ſaiſi par l'autorité de la loi doit obéir à l'inſtant; il ſe rend coupable par la réſiſtance.
+\paragraph*{XI.}Tout acte exercé contre  un homme hors des cas et ſans les formes que la loi détermine, eſt arbitraire et tyrannique; celui contre lequel on voudroit l'exécuter par la violence a le droit de le repouſſer par la force.
+
+\paragraph*{XII.}Ceux qui ſolliciteroient, expédieroient, ſigneroient, exécuteroient ou feroient exécuter des actes arbitraires, ſeroient coupables, et doivent être punis.
+\paragraph*{XIII.}Tout homme étant préſumé innocent juſqu'à ce qu'il ait été déclaré coupable, s'il eſt jugé indiſpenſable de l'arrêter, toute rigueur qui ne ſeroit pas néceſſaire pour s'aſſurer de ſa perſonne doit être ſévèrement réprimée par la loi.
+\paragraph*{XIV.}Nul ne doit être jugé et puni qu'après avoir été entendu ou légalement appelé, et qu'en vertu d'une loi promulguée antérieurement au délit. La loi qui puniroit les délits commis avant qu'elle exiſtât ſeroit une tyrannie; l'effet rétroactif donné à la loi ſeroit un crime.
+\paragraph*{XV.}La loi ne doit décerner que des peines ſtrictement et évidemment néceſſaires: les peines doivent être proportionnées au délit et utiles à la ſociété.
+\paragraph*{XVI.}Le droit de propriété eſt celui qui appartient à tout citoyen de jouir et de diſpoſer à ſon gré de ſes biens, de ſes revenus, du fruit de ſon travail et de ſon induſtrie.
+\paragraph*{XVII.}Nul genre de travail, de culture, de commerce, ne peut être interdit à l'induſtrie des citoyens.
+\paragraph*{XVIII.}Tout homme peut engager ſes ſervices, ſon temps; mais il ne peut ſe vendre, ni être vendu; ſa perſonne n'eſt pas une propriété aliénable. La loi ne reconnaît point de domeſticité; il ne peut exiſter qu'un engagement de ſoins et de reconnoiſſance, entre l'homme qui travaille et celui qui l'emploie.
+\paragraph*{XIX.}Nul ne peut être privé de la moindre portion de ſa propriété ſans ſon conſentement, ſi ce n'eſt lorſque la néceſſité publique légalement conſtatée l'exige, et ſous la condition d'une juſte et préalable indemnité.
+\paragraph*{XX.}Nulle contribution ne peut être établie que pour l'utilité générale. Tous les citoyens ont le droit de concourir à l'établiſſement des contributions, d'en ſurveiller l'emploi, et de s'en faire rendre compte.
+\paragraph*{XXI.}Les ſecours publics ſont une dette ſacrée. La ſociété doit la ſubſistance aux citoyens malheureux, ſoit en leur procurant du travail, ſoit en aſſurant les moyens d'exiſter à ceux qui ſont hors d'état de travailler.
+\paragraph*{XXII.}L'inſtruction eſt le beſoin de tous. La ſociété doit favoriſer de tout ſon pouvoir les progrès de la raiſon publique, et mettre l'inſtruction à la portée de tous les citoyens.
+\paragraph*{XXIII.}La garantie ſociale conſiſte dans l'action de tous, pour aſſurer à chacun la jouiſſance et la conſervation de ſes droits; cette garantie repoſe ſur la ſouveraineté nationale.
+\paragraph*{XXIV.}Elle ne peut exiſter, ſi les limites des fonctions publiques ne ſont pas clairement déterminées par la loi, et ſi la reſponſabilité de tous les fonctionnaires n'eſt pas aſſurée.
+\paragraph*{XXV.}La ſouveraineté réſide dans le peuple; elle eſt une et indiviſible, impreſcriptible et inaliénable.
+\paragraph*{XXVI.}Aucune portion du peuple ne peut exercer la puiſſance du peuple entier; mais chaque ſection du ſouverain aſſemblée doit jouir du droit d'exprimer ſa volonté avec une entière liberté.
+\paragraph*{XXVII.}Que tout individu qui uſurperoit la ſouveraineté ſoit à l'instant mis à mort par les hommes libres.
+\paragraph*{XXVIII.}Un peuple a toujours le droit de revoir, de réformer et de changer ſa constitution. Une génération ne peut aſſujettir à ſes lois les générations futures.
+\paragraph*{XXIX.}Chaque citoyen a un droit égal de concourir à la formation de la loi et à la nomination de ſes mandataires ou de ſes agens.
+\paragraph*{XXX.}Les fonctions publiques sont eſſentiellement temporaires; elles ne peuvent être conſidérées comme des diſtinctions ni comme des récompenſes, mais comme des devoirs.
+\paragraph*{XXXI.}Les délits des mandataires du peuple et de ſes agens ne doivent jamais être impunis. Nul n'a le droit de ſe prétendre plus inviolable que les autres citoyens.
+\paragraph*{XXXII.}Le droit de préſenter des pétitions aux dépoſitaires de l'autorité publique ne peut, en aucun cas, être interdit, ſuſpendu ni limité.
+\paragraph*{XXXIII.}La réſistance à l'oppreſſion eſt la conſéquence des autres Droits de l'homme.
+\paragraph*{XXXIV.}Il y a oppreſſion contre le corps ſocial lorſqu'un ſeul de ſes membres eſt opprimé. Il y a oppreſſion contre chaque membre lorſque le corps ſocial eſt opprimé.
+\paragraph*{XXXV.}Quand le gouvernement viole les droits du peuple, l'inſurrection eſt, pour le peuple et pour chaque portion du peuple, le plus ſacré des droits et le plus indiſpenſable des devoirs.
+
+\pagebreak
+
+\begin{greek}[variant=ancient]
+\renewcommand{\poemtoc}{section}
+\poemtitle{Ὀδύσσεια}
+\settowidth{\versewidth}{Ἄνδρα μοι ἔννεπε, Μοῦσα, πολύτροπον, ὃς μάλα πολλὰ}
+\begin{verse}[\versewidth]
+\poemlines{5}
+
+Ἄνδρα μοι ἔννεπε, Μοῦσα, πολύτροπον, ὃς μάλα πολλὰ\\
+πλάγχθη, ἐπεὶ Τροίης ἱερὸν πτολίεθρον ἔπερσε·\\
+πολλῶν δ' ἀνθρώπων ἴδεν ἄστεα καὶ νόον ἔγνω,\\
+πολλὰ δ' ὅ γ' ἐν πόντῳ πάθεν ἄλγεα ὃν κατὰ θυμόν,\\
+ἀρνύμενος ἥν τε ψυχὴν καὶ νόστον ἑταίρων.\\
+Ἀλλ' οὐδ' ὧς ἑτάρους ἐρρύσατο, ἱέμενός περ·\\
+αὐτῶν γὰρ σφετέρῃσιν ἀτασθαλίῃσιν ὄλοντο,\\
+νήπιοι, οἳ κατὰ βοῦς Ὑπερίονος Ἠελίοιο\\
+ἤσθιον· αὐτὰρ ὁ τοῖσιν ἀφείλετο νόστιμον ἦμαρ.\\
+Τῶν ἁμόθεν γε, θεά, θύγατερ Διός, εἰπὲ καὶ ἡμῖν.
+
+Ἔνθ' ἄλλοι μὲν πάντες, ὅσοι φύγον αἰπὺν ὄλεθρον,\\
+οἴκοι ἔσαν, πόλεμόν τε πεφευγότες ἠδὲ θάλασσαν·\\
+τὸν δ' οἶον, νόστου κεχρημένον ἠδὲ γυναικός,\\
+νύμφη πότνι' ἔρυκε Καλυψώ, δῖα θεάων,\\
+ἐν σπέεσι γλαφυροῖσι, λιλαιομένη πόσιν εἶναι.\\
+Ἀλλ' ὅτε δὴ ἔτος ἦλθε περιπλομένων ἐνιαυτῶν,\\
+τῷ οἱ ἐπεκλώσαντο θεοὶ οἶκόνδε νέεσθαι\\
+εἰς Ἰθάκην, οὐδ' ἔνθα πεφυγμένος ἦεν ἀέθλων\\
+καὶ μετὰ οἷσι φίλοισι· θεοὶ δ' ἐλέαιρον ἅπαντες\\
+νόσφι Ποσειδάωνος· ὁ δ' ἀσπερχὲς μενέαινεν\\
+ἀντιθέῳ Ὀδυσῆϊ πάρος ἣν γαῖαν ἱκέσθαι.
+
+Ἀλλ' ὁ μὲν Αἰθίοπας μετεκίαθε τηλόθ' ἐόντας,\\
+Αἰθίοπας, τοὶ διχθὰ δεδαίαται, ἔσχατοι ἀνδρῶν,\\
+οἱ μὲν δυσομένου Ὑπερίονος, οἱ δ' ἀνιόντος,\\
+ἀντιόων ταύρων τε καὶ ἀρνειῶν ἑκατόμβης. \\
+Ἐνθ' ὅ γε τέρπετο δαιτὶ παρήμενος· οἱ δὲ δὴ ἄλλοι\\
+Ζηνὸς ἐνὶ μεγάροισιν Ὀλυμπίου ἁθρόοι ἦσαν.\\
+Τοῖσι δὲ μύθων ἦρχε πατὴρ ἀνδρῶν τε θεῶν τε·\\
+μνήσατο γὰρ κατὰ θυμὸν ἀμύμονος Αἰγίσθοιο,\\
+τόν ῥ' Ἀγαμεμνονίδης τηλεκλυτὸς ἔκταν' Ὀρέστης· \\
+τοῦ ὅ γ' ἐπιμνησθεὶς ἔπε' ἀθανάτοισι μετηύδα
+
+<< Ὣ πόποι, οἷον δή νυ θεοὺς βροτοὶ αἰτιόωνται.\\
+Ἐξ ἡμέων γάρ φασι κάκ' ἔμμεναι· οἱ δὲ καὶ αὐτοὶ\\
+σφῇσιν ἀτασθαλίῃσιν ὑπὲρ μόρον ἄλγε' ἔχουσιν,\\
+ὡς καὶ νῦν Αἴγισθος ὑπὲρ μόρον Ἀτρεΐδαο \\
+γῆμ' ἄλοχον μνηστήν, τὸν δ' ἔκτανε νοστήσαντα,\\
+εἰδὼς αἰπὺν ὄλεθρον, ἐπεὶ πρό οἱ εἴπομεν ἡμεῖς,\\
+Ἑρμείαν πέμψαντες, ἐΰσκοπον Ἀργεϊφόντην,\\
+μήτ' αὐτὸν κτείνειν μήτε μνάασθαι ἄκοιτιν·\\
+ἐκ γὰρ Ὀρέσταο τίσις ἔσσεται Ἀτρεΐδαο, \\
+ὁππότ' ἂν ἡβήσῃ τε καὶ ἧς ἱμείρεται αἴης.\\
+Ὣς ἔφαθ' Ἑρμείας, ἀλλ' οὐ φρένας Αἰγίσθοιο\\
+πεῖθ' ἀγαθὰ φρονέων· νῦν δ' ἁθρόα πάντ' ἀπέτεισε. >>
+
+Τὸν δ' ἠμείβετ' ἔπειτα θεὰ γλαυκῶπις Ἀθήνη·       \\
+<< Ὦ πάτερ ἡμέτερε Κρονίδη, ὕπατε κρειόντων, \\
+καὶ λίην κεῖνός γε ἐοικότι κεῖται ὀλέθρῳ,\\
+ὡς ἀπόλοιτο καὶ ἄλλος ὅτις τοιαῦτά γε ῥέζοι.\\
+Ἀλλά μοι ἀμφ' Ὀδυσῆϊ δαΐφρονι δαίεται ἦτορ,\\
+δυσμόρῳ, ὃς δὴ δηθὰ φίλων ἄπο πήματα πάσχει\\
+νήσῳ ἐν ἀμφιρύτῃ, ὅθι τ' ὀμφαλός ἐστι θαλάσσης,\\ 
+νῆσος δενδρήεσσα, θεὰ δ' ἐν δώματα ναίει,\\
+Ἄτλαντος θυγάτηρ ὀλοόφρονος, ὅς τε θαλάσσης\\
+πάσης βένθεα οἶδεν, ἔχει δέ τε κίονας αὐτὸς\\
+μακράς, αἳ γαῖάν τε καὶ οὐρανὸν ἀμφὶς ἔχουσι.\\
+Τοῦ θυγάτηρ δύστηνον ὀδυρόμενον κατερύκει, \\
+αἰεὶ δὲ μαλακοῖσι καὶ αἱμυλίοισι λόγοισι\\
+θέλγει, ὅπως Ἰθάκης ἐπιλήσεται· αὐτὰρ Ὀδυσσεύς,\\
+ἱέμενος καὶ καπνὸν ἀποθρῴσκοντα νοῆσαι\\
+ἧς γαίης, θανέειν ἱμείρεται. Οὐδέ νυ σοί περ\\
+ἐντρέπεται φίλον ἦτορ, Ὀλύμπιε; Οὔ νύ τ' Ὀδυσσεὺς \\
+Ἀργείων παρὰ νηυσὶ χαρίζετο ἱερὰ ῥέζων\\
+Τροίῃ ἐν εὐρείῃ; Τί νύ οἱ τόσον ὠδύσαο, Ζεῦ; >>
+\end{verse}
+\end{greek}
+\pagebreak
+
+\begin{russian}
+\section*{Война и мир}
+--- \textfrench{Eh bien, mon prince. Gênes et Lucques ne sont plus que des apanages, des поместья, de la famille Buonaparte. Non, je vous préviens que si vous ne me dites pas que nous avons la guerre, si vous vous permettez encore de pallier toutes les infamies, toutes les atrocités de cet Antichrist (ma parole, j’y crois) --- je ne vous connais plus, vous n’êtes plus mon ami, vous n’êtes plus \textrussian{мой верный раб}, comme vous dites}. Ну, здравствуйте, здравствуйте. \textfrench{Je vois que je vous fais peur}, садитесь и рассказывайте.
+
+Так говорила в июле 1805 года известная Анна Павловна Шерер, фрейлина и приближенная императрицы Марии Феодоровны, встречая важного и чиновного князя Василия, первого приехавшего на ее вечер. Анна Павловна кашляла несколько дней, у нее был грипп, как она говорила (\emph{грипп} был тогда новое слово, употреблявшееся только редкими). В записочках, разосланных утром с красным лакеем, было написано без различия во всех:
+
+\textfrench{<<~Si vous n’avez rien de mieux à faire, Monsieur le comte (\textrussian{или} mon prince), et si la perspective de passer la soirée chez une pauvre malade ne vous effraye pas trop, je serai charmée de vous voir chez moi entre 7 et 10 heures. \emph{Annette Scherer}~>>.}
+
+--- \textfrench{Dieu, quelle virulente sortie!} --- отвечал, нисколько не смутясь такою встречей, вошедший князь, в придворном, шитом мундире, в чулках, башмаках и звездах, с светлым выражением плоского лица.
+
+Он говорил на том изысканном французском языке, на котором не только говорили, но и думали наши деды, и с теми, тихими, покровительственными интонациями, которые свойственны состаревшемуся в свете и при дворе значительному человеку. Он подошел к Анне Павловне, поцеловал ее руку, подставив ей свою надушенную и сияющую лысину, и покойно уселся на диване.
+
+--- \textfrench{Avant tout dites-moi, comment vous allez, chère amie?} Успокойте меня, --- сказал он, не изменяя голоса и тоном, в котором из-за приличия и участия просвечивало равнодушие и даже насмешка.
+
+--- Как можно быть здоровой... когда нравственно страдаешь? Разве можно, имея чувство, оставаться спокойною в наше время? --- сказала Анна Павловна. --- Вы весь вечер у меня, надеюсь?
+
+--- А праздник английского посланника? Нынче середа. Мне надо показаться там, --- сказал князь. --- Дочь заедет за мной и повезет меня.
+
+--- Я думала, что нынешний праздник отменен, \textfrench{Je vous avoue que toutes ces fêtes et tous ces feux d'artifice commencent à devenir insipides.}
+
+--- Ежели бы знали, что вы этого хотите, праздник бы отменили, --- сказал князь по привычке, как заведенные часы, говоря вещи, которым он и не хотел, чтобы верили.
+
+--- \textfrench{Ne me tourmentez pas. Eh bien, qu'a-t-on décidé par rapport à la dépêche de Novosilzoff? Vous savez tout.}
+
+--- Как вам сказать? --- сказал князь холодным, скучающим тоном. --- \textfrench{Qu'a-t-on décidé? On a décidé que Buonaparte a brûlé ses vaisseaux, et je crois que nous sommes en train de brûler les nôtres.}
+\end{russian}
+
+\end{document}
