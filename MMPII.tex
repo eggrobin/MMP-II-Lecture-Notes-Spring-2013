@@ -103,7 +103,7 @@
   \section{\emph{True Lies}: An introduction to distribution theory}
   In many areas of physics, the Dirac delta ``function'' is an important tool, e.g., for describing localized phenomena. While it is usually described in vague terms as ``only making sense under an integral'', physicists tend to still write identities such as
   \begin{equation*}
-    \Laplacian\frac{1}{\norm{\vx}} = -4 \Pi \DiracDelta\of\vx,
+    \Laplacian\frac{1}{\norm{\vx}} = -4 \Pi \DiracDelta\of\vx\text{,}
   \end{equation*}
   and rely on their intuition and previous mistakes to distinguish situations in which they can safely apply this calculus from the ones where that would lead to incorrect results.
 
@@ -123,20 +123,20 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
     \text{ is the space of \emph{smooth functions} from }\Rn \text{ to } \C \text{, where}
   \end{equation*}
   \begin{align*}
-    \N &\DefineAs \set{0, 1, 2, \dotsc},
+    \N &\DefineAs \set{0, 1, 2, \dotsc}\text{,}
     &\miga &= \tuple{\ga_1, \dotsc, \ga_n} \in \N^n \text{ is a \emph{multi-index},} \\
-    \total{\miga} &\DefineAs \ga_1 + \dotsb + \ga_n,\quad
+    \total{\miga} &\DefineAs \ga_1 + \dotsb + \ga_n\text{,}\quad
     &\pd\vx\miga &\DefineAs \frac{\partial^{\total{\miga}}}{\pd{x_1}{\ga_1} \dotsm \pd{x_n}{\ga_n}}
     \text{(we use }\pdop\miga\text{ when the variable is implicit),} \\
     \text{and }\vx^\migb &\DefineAs x_1^{\gb_1} \dotsm x_n^{\gb_n}
-    \text{ for }\vx \in \Rn, \migb \in \N^n.
+    \text{ for }\vx \in \Rn, \migb \in \N^n\text{.}
   \end{align*}
   \end{definition}
 
   \begin{definition}[Schwartz space]  Now we define the \emph{Schwartz space}
   \begin{equation*}
     \Schwartz \DefineAs \setst{\gj \in \Continf\of\Rn}{\forall \miga, \migb \in \N^n, \SchwartzNorm{\miga}{\migb}{\gj} < \infty}
-    \text{, where }\SchwartzNorm{\miga}{\migb}{\gj} \DefineAs \sup_{\vx\in\R^n}\abs{\vx^\miga\pd\vx\migb \gj\of\vx}.
+    \text{, where }\SchwartzNorm{\miga}{\migb}{\gj} \DefineAs \sup_{\vx\in\R^n}\abs{\vx^\miga\pd\vx\migb \gj\of\vx}\text{.}
   \end{equation*}
   \end{definition}
   
@@ -151,14 +151,14 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   \begin{lemma}
     If $\gj \in \Schwartz$, then
     \begin{equation*}
-      \forall k \geq 0\quad \forall \miga \in \N^n\quad \exists C_\miga \in \R \quad \abs{\pd\vx\miga\gj\of{x}} < \frac{C_\alpha}{\pa{1 + \norm{\vx}^2}^k}.
+      \forall k \geq 0\quad \forall \miga \in \N^n\quad \exists C_\miga \in \R \quad \abs{\pd\vx\miga\gj\of{x}} < \frac{C_\alpha}{\pa{1 + \norm{\vx}^2}^k}\text{.}
     \end{equation*}
   \end{lemma}
 
   \begin{definition}[Convergence in $\Schwartz$]
     The sequence $\tuplespec{\gj_k}{k \in \N} \in \Functions\N{\pa\Schwartz}$ \emph{converges to} $\gj \in \Schwartz$ if and only if 
     \begin{equation*}
-    \forall \miga, \migb \in \N^n \quad \lim_{k \rightarrow \infty}\SchwartzNorm{\miga}{\migb}{\gj_k - \gj}=0.
+    \forall \miga, \migb \in \N^n \quad \lim_{k \rightarrow \infty}\SchwartzNorm{\miga}{\migb}{\gj_k - \gj}=0\text{.}
     \end{equation*}
     We use the notation $\conv[\Schwartz]{\gj_k}\gj$.
   \end{definition}
@@ -179,8 +179,8 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   \end{definition}
   
   Now let $f \in {\LspaceLoc[1]}\of\Rn$.
-  If additionally $\sup_{\vx \in \Rn}\pa{1 + \norm{\vx}^2}^{-s}\abs{f\of{x}} < \infty$
-  for some $s > 0$ (e.g. $\sum{\total\migb\leq s} c_\migb x^\migb$),
+  If additionally $\sup_{\vx \in \Rn}\pa{1 + \norm{\vx}^2}^{-s}\abs{f\of{\vx}} < \infty$
+  for some $s > 0$ (e.g. $f\of\vx \sum{\total\migb\leq s} c_\migb \vx^\migb$),
   then 
   \begin{equation*}
     U_f\of\gj \DefineAs \int\Rn f\of{\vx} \gj\of{\vx} \diffd{x}
@@ -189,7 +189,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   \begin{definition}[Dirac delta distribution]
     Another example is the \emph{Dirac delta distribution} mentioned above, with 
     \begin{equation*}
-      \DiracDelta\of\gj \DefineAs \gj\of{0},\quad \DiracDelta[\vx]\of{\gj} \DefineAs \gj\of{\vx}.
+      \DiracDelta\of\gj \DefineAs \gj\of{0}\text{,}\quad \DiracDelta[\vx]\of{\gj} \DefineAs \gj\of{\vx}\text{.}
     \end{equation*}
   \end{definition}  
   
@@ -199,7 +199,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
     by 
     \begin{equation*}
       \pa{\pdop\miga U}\of{\gj} \DefineAs \pa{-1}^{\total{\miga}} U\of{\pdop\miga\gj}\quad
-      \text{for }\gj \in \Schwartz.
+      \text{for }\gj \in \Schwartz\text{.}
     \end{equation*}
   \end{definition}
       This is natural, as
