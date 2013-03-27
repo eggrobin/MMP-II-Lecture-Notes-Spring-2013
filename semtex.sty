@@ -34,6 +34,8 @@
 
 \RequirePackage{fouridx}
 
+\RequirePackage{relsize}
+
 %\ifUtopia
 %  \RequirePackage[utopia]{mathdesign}
 %  \RequirePackage[sfdefault=fav]{isomath}
@@ -48,6 +50,8 @@
 \setmathfont[math-style=ISO]{Cambria Math}
 \setmathfont[range={\mathcal,\mathbfcal}]{texgyrepagella-math.otf}
 %\setmathfont[math-style=ISO]{texgyrepagella-math.otf}
+%\setmathfont[range={\mathscr,\mathbfscr}]{Cambria Math}
+%\setmathfont[math-style=ISO]{latinmodern-math.otf}
 %\setmathfont[range={\mathscr,\mathbfscr}]{Cambria Math}
 
 \newcommand{\VectorSymbol}\mathbfit
@@ -85,9 +89,14 @@
   \ooalign{$\vrule height \ht\rh@box width\z@ #1$\cr
            \raise\rh@htb\hbox{\scalebox{1}[-1]{\box\rh@box}}\cr}}
 \makeatother
+
+%%% end Voodoo 
  
 \AtBeginDocument{   
-%%% end Voodoo
+
+% Use the proper unicode line extender for long arrows in x*arrow, instead of 
+% the minus sign which leads to holes in the arrows.
+\renewcommand{\relbar}{\mathrel{\harrowextender}}
 
 \let\integralSign\int
 \let\summationSign\sum
@@ -213,7 +222,7 @@
 % \int, \prod and \sum are respectively integration, product and summation over a space
 % indicated below. An optional second argument (upper bound) can follow, within square brackets.
 \DeclareDocumentCommand\int{m O{}}{\mathchoice
-{\integralSign\limits_{#1}^{#2}}
+{\mathlarger{\mathlarger{\integralSign\limits}}_{#1}^{#2}}
 {\integralSign_{#1}^{#2}}
 {\integralSign_{#1}^{#2}}
 {\integralSign_{#1}^{#2}}
