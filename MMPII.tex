@@ -207,9 +207,8 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
     U_{\pdop\miga f}\of\gj 
     = \int\Rn\pa{\pdop\miga f\of\vx} \gj\of\vx \diffd{\vx} 
     = \pa{-1}^{\total{\miga}} \int\Rn f\of\vx \partial^\miga \gj\of\vx \diffd{\vx} 
-    && \text{by integrating by parts.}
   \end{align*}
-
+  by integrating by parts.
   Let's find the derivative of $\abs{\placeholder}$ in the distribution world:
   \begin{align*}
     \AbsDistrib\of\gj &\DefineAs \int{-\infty}[\infty] \abs{x} \gj\of{x} \diffd{x}\\
@@ -217,35 +216,31 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
     &= - \int0[\infty] x \gj\der\of{x} \diffd{x} - \int{-\infty}[0]\pa{-x}\gj\der\of{x} \\
     &= - \diff 0 \infty {x \gj\of{x}} + \int0[\infty] \gj\of{x} \diffd{x} + 
     \diff {-\infty}{0} {x \gj\of{x}} - \int{-\infty}[0] \gj\of{x} \diffd{x} \\
-    &= \int{-\infty}[\infty] \Sign\of{x} \gj\of{x} \diffd{x} = U_{\Sign}\of\gj,\\
+    &= \int{-\infty}[\infty] \Sign\of{x} \gj\of{x} \diffd{x} = U_{\Sign}\of\gj\text{,}\\
     \text{where } \Sign\of{x} &\DefineAs
 	\begin{cases}
 		1  & x > 0 \\
 		0  & x = 0 \\
 		-1 & x < 0
 	\end{cases}
-    \quad\text{is the sign function}.
+    \quad\text{is the sign function.}
   \end{align*}
 We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of{x} \diffd{x}$ and write $\derivop x \mathrm{Abs} = \SignDistrib$. This corresponds to $\derivop x \abs{x} = \Sign\of{x}$ in physicist-speak.
 
   What about $\Laplacian\frac{1}{\norm{\vx}}$? By defining the \emph{Newtonian distribution}
-  \begin{equation*}
-    N\of\gj \DefineAs \int{\R^3} \frac{1}{\norm{\vx}} \gj\of\vx \diffd{\vx},
-  \end{equation*}
-  we get
-  \begin{equation*}
-    \Laplacian{N}\of\gj = \sum{j = 1}[3] \pderivop[2]{x_j}N\of\gj = \sum{j = 1}[3]  N\of{\pderiv[2]{x_j}\gj} = \dotsb = -4 \pi \gj\of{0},
-  \end{equation*}
-  in other words,
-  \begin{equation*}
-    \Laplacian N = -4 \pi \DiracDelta.
-  \end{equation*}
+  \begin{align*}
+    N\of\gj &\DefineAs \int{\R^3} \frac{1}{\norm{\vx}} \gj\of\vx \diffd{\vx}\text{,}
+  \intertext{we get}
+    \Laplacian{N}\of\gj = \sum{j = 1}[3] \pderivop[2]{x_j}N\of\gj &= \sum{j = 1}[3]  N\of{\pderiv[2]{x_j}\gj} = \dotsb = -4 \pi \gj\of{0}\text{,}
+  \intertext{in other words,}
+    \Laplacian N &= -4 \pi \DiracDelta\text{.}
+  \end{align*}
   \end{lecture}
   \begin{lecture}[date=2013-03-05]
   \begin{definition}[Inner product on $\Schwartz$]
   Let $\gj,\gy\in\Schwartz$. We define:
   \begin{equation*}
-  \LTwoInner \gy \gj \DefineAs \int\Rn \conj\gy\of\vx \gj\of\vx \diffd\vx .
+  \LTwoInner \gy \gj \DefineAs \int\Rn \conj\gy\of\vx \gj\of\vx \diffd\vx \text{.}
   \end{equation*}
   \end{definition}
   \end{lecture}
@@ -255,25 +250,25 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
     \begin{align}
       \label{FTLinearity}
       \begin{split}      
-      \ft{\gj + \gy} &= \ft{\gj} + \ft{\gy},\\
+      \ft{\gj + \gy} &= \ft{\gj} + \ft{\gy}\text{,}\\
       \ft{\gl \gj} &= \gl \ft{\gj} 
       \end{split}
       \\
       \label{FTUpperBound}
-      \abs{\ft{\gj}\of\vk} &\leq \ftnrm\Lnorm[1]{\gj}<\infty, &&
+      \abs{\ft{\gj}\of\vk} &\leq \ftnrm\Lnorm[1]{\gj}<\infty\text{,} &&
       \Lnorm[1]{\gj} \DefineAs \int\Rn \abs{\gj\of\vx} \diffd \vx
       \\
       \label{FTScaling}
-      \ft{\gj\of{\gl\placeholder}}\of\vk &= \frac{1}{\abs{\gl}^n}\ft{\gj}\of{\frac\vk\gl}, &&
+      \ft{\gj\of{\gl\placeholder}}\of\vk &= \frac{1}{\abs{\gl}^n}\ft{\gj}\of{\frac\vk\gl}\text{,} &&
       \gl\neq 0
       \\
       \label{FTTranslation}
-      \ft{T_\vy\gj}\of\vx &= \E^{\I\scal\vk\vy}\ft\gj\of\vk, &&
+      \ft{T_\vy\gj}\of\vx &= \E^{\I\scal\vk\vy}\ft\gj\of\vk\text{,} &&
       \pa{T_\vy\gj}\of\vx \DefineAs \gj\of{\vx+\vy}
       \\
       \label{FTDerivative}
       \begin{split}
-      \ft{\pderiv{x_j}\gj}\of\vk &= \I k_j \ft\gj\of\vk \\ 
+      \ft{\pderiv{x_j}\gj}\of\vk &= \I k_j \ft\gj\of\vk \text{,} \\ 
       \ft{x_j \gj}\of\vk &= \I \pderiv{k_j}{\ft\gj} \of\vk
       \end{split}
       \\
@@ -411,7 +406,7 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
         &=\ftnrm\int\Rn\gj\of{\vx+\vy\sqrt\ge}\E^{-\frac{1}{2}\norm\vy^2}\diffd\vy
         && \text{``Now we can paint.''}\\
         &\overset{\ge\downarrow 0}{\rightarrow}
-        \ftnrm\gj\of\vx\int\Rn\E^{-\frac{1}{2}\norm\vy^2}\diffd\vy =\gj\of\vx.
+        \ftnrm\gj\of\vx\int\Rn\E^{-\frac{1}{2}\norm\vy^2}\diffd\vy =\gj\of\vx\text{.}
       \end{align*}
     \end{proof}
   \end{proposition}
@@ -420,11 +415,11 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
   ``The main ideas of many things are right here.''
   We seek to find the solutions $\tuple{\gj,\gl}$ of
   \begin{equation*}
-    \ft\gj=\gl\gj .
+    \ft\gj=\gl\gj \text{.}
   \end{equation*}
   We shall find all of them. ``Not one is going to get away.'' Actually, we have already got one:
   \begin{equation*}
-    \ft{\E^{-\frac{1}{2}\norm\vx^2}}=\E^{-\frac{1}{2}\norm\vx^2},
+    \ft{\E^{-\frac{1}{2}\norm\vx^2}}=\E^{-\frac{1}{2}\norm\vx^2} \text{,}
   \end{equation*}
   so we know that 1 is an eigenvalue. How do we find the others? ``Here you actually have to have an idea.''
   
@@ -442,15 +437,15 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
   \end{equation*}
   Subtracting the second equality from the first one above:
   \begin{equation*}
-    \FT\of{\pa{-\derivop[2]{x}+x^2}\gj}\of k = \pa{-\derivop[2]{k}+k^2}\FT\gj\of k,
+    \FT\of{\pa{-\derivop[2]{x}+x^2}\gj}\of k = \pa{-\derivop[2]{k}+k^2}\FT\gj\of k\text{,}
   \end{equation*}
   where $\FT = \ft{\placeholder}$ because things are getting a bit too big for the hat.
   We smell a harmonic potential. ``Don't get your fingers too close, they sometimes bite.''
   
   Let $H \DefineAs \frac{1}{2}\pa{-\derivop[2]{x}+x^2-1}$. Then $\commutator H {\ft{\placeholder}}=0$. We multiplied by $\frac{1}{2}$ so that it looks even more like a harmonic potential (it is the Hamiltonian of the quantum harmonic oscillator). Why did we add $-1$? Define
   \begin{align*}
-    A &\DefineAs \frac{1}{\sqrt 2}\pa{\derivop{x} + x},\\
-    \adj A &\DefineAs \frac{1}{\sqrt 2}\pa{-\derivop{x} + x}.
+    A &\DefineAs \frac{1}{\sqrt 2}\pa{\derivop{x} + x}\text{,}\\
+    \adj A &\DefineAs \frac{1}{\sqrt 2}\pa{-\derivop{x} + x}\text{.}
   \end{align*}
   We then have $H = \adj A A$. If $a$ and $b$ commute, then we have $\pa{a-b}\pa{a+b}  = a^2-b^2$, but here $x$ and $\derivop{x}$ don't quite commute, hence the $-1$.
 \end{lecture}
@@ -461,7 +456,7 @@ Let us look at these operators in more detail: define $\pa{Q f}\of x \DefineAs x
   &= \int\R \conj\gj\of x \derivop x \gy \of x \diffd x \\
   &= \diff {-\infty}{\infty}{\conj\gj\gy} - 
     \int\R \derivop x \gj \of x \gy\of x \diffd x \\
-  &= - \LTwoInner {P\gj} \gy ,&&\parbox{7cm}{$\diff {-\infty}{\infty}{\conj\gj\gy} = 0$  as $\gj\in\SchwartzSpace\of\R$, $\gy\in\SchwartzSpace\of\R$, and therefore $\conj\gj\gy\in\SchwartzSpace\of\R$.}
+  &= - \LTwoInner {P\gj} \gy \text{,}&&\parbox{7cm}{$\diff {-\infty}{\infty}{\conj\gj\gy} = 0$  as $\gj\in\SchwartzSpace\of\R$, $\gy\in\SchwartzSpace\of\R$, and therefore $\conj\gj\gy\in\SchwartzSpace\of\R$.}
 \end{align*}
 so $P$ is skew symmetric. What is better than skew symmetric? Self adjoint is better. How do we make a skew symmetric operator self adjoint? We add an $\I$. Namely, redefine $\pa{P f}\of x \DefineAs \frac{1}{\I}\derivop x f\of x$, we then have $\LTwoInner \gj {P\gy}  = \LTwoInner {P\gj} \gy$. $Q$ is obviously self adjoint. We now have $\commutator Q P = \I \Identity$. Multiplying by some $h\in\R$, redefine $\pa{P f}\of x \DefineAs \frac{h}{\I}\derivop x f\of x$, we get $\commutator Q P = h \I \Identity$.
 
@@ -510,7 +505,7 @@ In its soul, the finite Heisenberg group has captured the essence of calculating
 
  ``Conjugacy is where it's at, in the language of the 1960s.'' This is what the entire linear algebra lecture is about. For instance, the Jordan normal form gives you a unique representative of a conjugacy class. ``You can dig down here and spend years in this hole. Or you can go up. I'll go up, I'll let you dig down.''
 
-$\matX\DefineAs\Helt 1 0 0, \matY\DefineAs\Helt 0 1 0, \matZ\DefineAs\Helt 0 0 1$ generate the finite Heisenberg group. With $\matZ=\matX\matY\matX^{-1}\matY^{-1}$, $\matX$, $\matY$ generate it. ``Jacobi? --- no, no, no. No Jacobi identity.'' 
+$\matX\DefineAs\Helt 1 0 0$, $\matY\DefineAs\Helt 0 1 0$, $\matZ\DefineAs\Helt 0 0 1$ generate the finite Heisenberg group. With $\matZ=\matX\matY\matX^{-1}\matY^{-1}$, $\matX$, $\matY$ generate it. ``Jacobi? --- no, no, no. No Jacobi identity.'' 
 
 The free group on one element is isomorphic to $\tuple{\Z,+}$. The normal subgroup of $\FreeGroup X$ generated by $W$ is the smallest normal subgroup which contains $W$. This is well-defined, as $\FreeGroup X$ is such a normal subgroup, and the intersection of normal subgroups is a normal subgroup, so the normal subgroup generated by $W$ is
 \begin{equation*}
@@ -519,7 +514,7 @@ The free group on one element is isomorphic to $\tuple{\Z,+}$. The normal subgro
       \mathllap{N\NormalSubgroup} \mathrlap{\FreeGroup X}\\
       \mathllap{W\Subset} \mathrlap{N}
     }
-  } N.
+  } N\text{.}
 \end{equation*}
 %\begin{supplemental}
 Note that this is also equal to the orbit of $W$ under the action of $G$ on its subsets by conjugation, $\LeftConjugationAction g S \DefineAs g S g^{-1}$, so we can write
@@ -530,7 +525,7 @@ Note that this is also equal to the orbit of $W$ under the action of $G$ on its 
       \mathllap{N\NormalSubgroup} \mathrlap{\FreeGroup X}\\
       \mathllap{W\Subset} \mathrlap{N}
     }
-  } N.
+  } N\text{.}
 }
 \end{equation*}
 %\end{supplemental}
@@ -563,37 +558,35 @@ Assume the space $G$ of generalised coordinates of a physical system is a Lie gr
 
 The ordered pair $\tuple{\vq\of t,\TimeDerivative\vq\of t}$ lies in the \emph{tangent bundle} $\TangentBundle G$, that is,
 \begin{equation*}
-\tuple{\vq\of t,\TimeDerivative\vq\of t} \in \TangentBundle G \DefineAs \UnionOver{\vx \in G} \set{\vx} \Cartesian \TangentSpace{\vx}G.
+\tuple{\vq\of t,\TimeDerivative\vq\of t} \in \TangentBundle G \DefineAs \UnionOver{\vx \in G} \set{\vx} \Cartesian \TangentSpace{\vx}G\text{.}
 \end{equation*}
 Informally, $\TangentBundle G$ is the disjoint union of all the tangent spaces of the manifold $G$. An element $\tuple{\vx,\vv}\in \TangentBundle G$  represents a tangent vector $\vv$ to $G$ at $\vx$. Physically, this is a state of the system, namely the one with coordinates $\vx$ and velocity $\vv$. 
 
 As $G$ is a Lie group, composition on the left --- or right --- by any element is a diffeomorphism. In particular, for $q\in G$,
 $\FunctionSpec {\gj_\vq} G G, \FunctionBody \vx {\vq^{-1} \vx}$ is a diffeomorphism, and so it induces a canonical linear isomorphism $\diffd \gj_\vq \of\vq$ between the tangent spaces $\TangentSpace{\vq}G$ and $\TangentSpace{\gj_\vq\vq}=\TangentSpace{\Identity}G$, by
 \begin{equation*}
-\diffd \gj_\vq \of\vq\TimeDerivative\vgg\of 0 = \diffd \gj_\vq \of{\vgg\of 0}\TimeDerivative\vgg\of 0 = \pa{\gj_\vq\Compose\vgg}\der\of 0 = \TimeDerivative\vgg_0\of 0,
+\diffd \gj_\vq \of\vq\TimeDerivative\vgg\of 0 = \diffd \gj_\vq \of{\vgg\of 0}\TimeDerivative\vgg\of 0 = \pa{\gj_\vq\Compose\vgg}\der\of 0 = \TimeDerivative\vgg_0\of 0\text{,}
 \end{equation*}
 where $\TimeDerivative\vgg\of{0}$ is an element of $\TangentSpace{\vq}G$, so $\vgg\of 0 = \vq$ and $\vgg_0 \DefineAs \gj_\vq\Compose\vgg$ verifies $\vgg_0\of 0 = \Identity$, therefore $\TimeDerivative\vgg_0\of0\in\TangentSpace\Identity G \DefinitionOf \VelocitySpace$. By definition, $\VelocitySpace$ is the Lie algebra $\LieAlgebra\of G$ associated with $G$.
 It follows from this isomorphism that the tangent bundle of $G$ is \emph{parallelisable}, i.e.,
 \begin{equation*}
-\TangentBundle G = \UnionOver{\vx \in G} \set{\vx} \Cartesian \TangentSpace{\vx}G \Isomorphic \UnionOver{\vx \in G} \set{\vx} \Cartesian \TangentSpace\Identity G = G \Cartesian \TangentSpace\Identity G = G \Cartesian \VelocitySpace,
+\TangentBundle G = \UnionOver{\vx \in G} \set{\vx} \Cartesian \TangentSpace{\vx}G \Isomorphic \UnionOver{\vx \in G} \set{\vx} \Cartesian \TangentSpace\Identity G = G \Cartesian \TangentSpace\Identity G = G \Cartesian \VelocitySpace\text{,}
 \end{equation*}
 where the isomorphism is canonical.
 
 Recall from Hamiltonian mechanics that for a Lagrangian
-$
-\FunctionSpec \Lagrangian {\TangentBundle G \Cartesian \R}{\R}, \FunctionBody {\tuple{\vq,\vv,t}} {\Lagrangian\of{\vq,\vv,t}},
-$
+$\FunctionSpec \Lagrangian {\TangentBundle G \Cartesian \R}{\R}, \FunctionBody {\tuple{\vq,\vv,t}} {\Lagrangian\of{\vq,\vv,t}}$,
 the Hamiltonian is defined as the Legendre transform of $\Lagrangian$,
 \begin{equation*}
-\Hamiltonian \DefineAs \sum i v_i \pderiv{v_i}\Lagrangian - \Lagrangian = \sum i v_i p_i - \Lagrangian,
+\Hamiltonian \DefineAs \sum i v_i \pderiv{v_i}\Lagrangian - \Lagrangian = \sum i v_i p_i - \Lagrangian\text{,}
 \end{equation*}
 where $p_i \DefineAs \pderiv{v_i}\Lagrangian$. The \emph{generalised momentum} $\FunctionNamedBody\vp \vv {\sum i v_i p_i}$ is therefore a linear form on the space $\VelocitySpace\owns\vv$. Using $\vq\of t$ as the evolution of the system as above, $\TimeDerivative\vq\of t \in \TangentSpace{\vq\of t}G$, and so $\vp\of t\in \Dual{\pa{\TangentSpace{\vq\of t}G}} \DefinitionOf \CotangentSpace{\vq\of t}G$, the \emph{cotangent space} of $G$ at $\vq$, and the tuples $\tuple{\vq,\vp}$ lie in the \emph{cotangent bundle} $\CotangentBundle G$,
 \begin{equation*}
-\CotangentBundle G \DefineAs \UnionOver{\vq\in G}\set\vq \Cartesian \CotangentSpace\vq G.
+\CotangentBundle G \DefineAs \UnionOver{\vq\in G}\set\vq \Cartesian \CotangentSpace\vq G\text{.}
 \end{equation*}
 As the tangent spaces of $G$ are canonically isomorphic to each other, so are their duals, so we can write
 \begin{equation*}
-\CotangentBundle G = G \Cartesian \MomentumSpace.
+\CotangentBundle G = G \Cartesian \MomentumSpace\text{.}
 \end{equation*}
 The dual of the Lie algebra, $\MomentumSpace$, is the momentum space. The Hamiltonian is a function from the cotangent bundle (and time) to the reals, $\FunctionSpec\Hamiltonian {\CotangentBundle G \Cartesian \R = G \Cartesian \MomentumSpace \Cartesian \Reals} \R$.
 
@@ -608,34 +601,35 @@ The Pontryagin dual\footnote{The Pontryagin dual is named after %
 \newcommand{\LeftAction}[2]{f_{#1} \of{#2}}
 Let $G$ be a group acting on a measure space\footnote{Here $X$ is a set, $\FunctionSpec \gm X {\intclos 0 \infty}$ is a measure on $X$ and $\gS\Subset\PowerSet X$ is the $\mathrm{\sigma}$-algebra of $\gm$-measurable subsets.} $\tuple{X, \gS, \gm}$ by the left action $\FunctionSpec f G {\Functions X X}, \FunctionBody g {f_g}$, that is, we denote by $\LeftAction g x$ the action of $g\in G$ on $x\in X$, and $f_g \Compose f_h = f_{gh}$. Define the space of square-integrable functions on $X$
 \begin{align*} 
-  \Lspace[2]\of X &\DefineAs \setst{\gj\in\Functions \C X}{\Lnorm[2] \gj < \infty}  \\
+  \Lspace[2]\of X &\DefineAs \setst{\gj\in\Functions \C X}{\Lnorm[2] \gj < \infty} \text{,} \\
 \intertext{where}
-  \Lnorm[2] \gj &\DefineAs \LTwoInner \gj \gj \\
-  \LTwoInner \gy \gj &\DefineAs \int X \conj\gy \gj \diffd \gm. \\
+  \Lnorm[2] \gj &\DefineAs \LTwoInner \gj \gj \text{,} \\
+  \LTwoInner \gy \gj &\DefineAs \int X \conj\gy \gj \diffd \gm\text{.} \\
 \intertext{Note that if $X$ is finite, and $\gm$ is the counting measure,}
-  \LTwoInner\gy\gj &= \int X \conj\gy\gj \diffd \gm = \sum {x\in X} \conj\gy\of x \gj\of x \\
-  \forall\gj\in\Functions X \C \quad  \Lnorm[2]\gj &= \int X \abs{\gj}^2 \diffd \gm = \sum {x\in X} \abs{\gj}^2  < \infty\\
+  \LTwoInner\gy\gj &= \int X \conj\gy\gj \diffd \gm = \sum {x\in X} \conj\gy\of x \gj\of x \text{,}\\
+  \forall\gj\in\Functions X \C \quad  \Lnorm[2]\gj &= \int X \abs{\gj}^2 \diffd \gm = \sum {x\in X} \abs{\gj}^2  < \infty \text{,}\\
 \intertext{so this is consistent with the definitions from the lecture for a finite group $A$, namely $\Lspace[2]\of A = \Functions A \C$, and $\LTwoInner\gy\gj = \sum {g\in A} \conj\gy\of g \gj\of g$. If $X=\Rn$, and $\gm$ is the Lebesgue measure,}
-   \LTwoInner\gy\gj &= \int X \conj\gy\gj \diffd \gm = \int \Rn \conj\gy\of \vx \gj\of\vx\diffd\vx\\
-   \Lnorm[2]\gj&=\int X \abs{\gj}^2 \diffd \gm = \int \Rn \abs{\gj\of \vx}^2 \diffd\vx \\
+   \LTwoInner\gy\gj &= \int X \conj\gy\gj \diffd \gm = \int \Rn \conj\gy\of \vx \gj\of\vx\diffd\vx\text{,}\\
+   \Lnorm[2]\gj&=\int X \abs{\gj}^2 \diffd \gm = \int \Rn \abs{\gj\of \vx}^2 \diffd\vx \text{,}\\
 \end{align*}
 and again we recover the definition we gave for the inner product on $\Schwartz\StrictSubset\Lspace[2]\of\Rn$.
+
 Now consider the representation $\FunctionSpec \gr G \GeneralLinearGroup\of{\Lspace[2]\of X}, \FunctionBody g {\gr_g}$ of $G$ on $\Lspace[2]\of X$ defined by $\pa{\gr_g\of\gj}\of x =  \gj\of{\LeftAction g x}$.
 \paragraph{Fourier Series and $\UnitSphere 1$.}
-If $G=\UnitSphere 1=X$ is the circle group, acting on itself by addition (here we use the definition $\UnitSphere 1 = \QuotientGroup\R {2\Pi\Z}$), $\Lspace[2]\of X = \Lspace[2]\of{\UnitSphere 1}$ decomposes under $\gr$ in a way which is dictated by Fourier series. Indeed, we have for $\gj\in \Lspace[2]\of{\UnitSphere 1}, j\in\Z$ --- see \emph{The Discrete Fourier Transform}, page~8, though note that the inner product was antilinear in the second argument back then, whereas it is antilinear in the first one this semester:
+If $G=\UnitSphere 1=X$ is the circle group, acting on itself by addition (here we use the definition $\UnitSphere 1 = \QuotientGroup\R {2\Pi\Z}$), $\Lspace[2]\of X = \Lspace[2]\of{\UnitSphere 1}$ decomposes under $\gr$ in a way which is dictated by Fourier series. Indeed, we have for $\gj\in \Lspace[2]\of{\UnitSphere 1}$, $j\in\Z$ --- see \emph{The Discrete Fourier Transform}, page~8, though note that the inner product was antilinear in the second argument back then, whereas it is antilinear in the first one this semester:
 \begin{equation*}
-  \ft\gj\of j = \frac{1}{2\Pi}\int 0[2\Pi] \gj\of \gq \E^{-\I j \gq}\diffd \gq = \int {\UnitSphere 1} \gj \E^{-\I j \placeholder}\diffd \gm = \LTwoInner {\E^{\I j \placeholder}} \gj \quad \text{where } \E^{\I j \placeholder}\DefineAs \FunctionBody \gq {\E^{\I j \gq}},\quad \E^{\I j \placeholder} \in \PontryaginDual{\UnitSphere 1} \Isomorphic \Z
+  \ft\gj\of j = \frac{1}{2\Pi}\int 0[2\Pi] \gj\of \gq \E^{-\I j \gq}\diffd \gq = \int {\UnitSphere 1} \gj \E^{-\I j \placeholder}\diffd \gm = \LTwoInner {\E^{\I j \placeholder}} \gj \quad \text{where $\E^{\I j \placeholder}\DefineAs \FunctionBody \gq {\E^{\I j \gq}}$, $\E^{\I j \placeholder} \in \PontryaginDual{\UnitSphere 1} \Isomorphic \Z$.}
 \end{equation*}
 by taking $\gm$ normed, i.e., $\gm\of{\UnitSphere 1} = 1$. In other words, $\ft{\placeholder}\of j =  \LTwoInner {\E^{\I j \placeholder}} \placeholder$ is the projection of $\gj$ onto the subspace $V_j\DefineAs\LinearSpan\set{\E^{\I j \placeholder}}$ of $\Lspace[2]\of{\UnitSphere 1}$. Note that the $\E^{\I j \placeholder}$ are exactly the elements of $\PontryaginDual{\UnitSphere 1}$.
 Moreover, $V_j$ is $\gr$-invariant, as $\gr$ acts by translation on $\gj\in \Lspace[2]\of{\UnitSphere 1}$, namely $\pa{\gr_\ga\of\gj}\of \gq = \gj\of{\ga+\gq}$, and hence
 \begin{equation*} 
 \forall \gl\E^{\I j \placeholder} \in V_j \quad
-\pa{\gr_\ga\of{\gl\E^{\I j \placeholder}}} =\gl\E^{\I j \pa{\ga+\placeholder}}=\gl\E^{\I j \ga} \E^{\I j \placeholder} \in V_j.
+\pa{\gr_\ga\of{\gl\E^{\I j \placeholder}}} =\gl\E^{\I j \pa{\ga+\placeholder}}=\gl\E^{\I j \ga} \E^{\I j \placeholder} \in V_j\text{.}
 \end{equation*}
 As it is one-dimensional, $V_j$ is irreducible. We also have, with $\LTwoInner {\E^{\I j \placeholder}}{\E^{\I k \placeholder}}= \ft{\E^{\I k \placeholder}}\of j  = \KroneckerDelta j k$, $V_j \Orthogonal V_k$ for $k\neq j$.
 By Parseval's identity, $\sum {j\in\Z}\ft\gj\of j \E^{\I j \placeholder}$ converges absolutely to $\gj$ for all $\gj\in\Lspace[2]\of{\UnitSphere 1}$, so
 \begin{equation*} \Lspace[2]\of{\UnitSphere 1}=\DirectSum{j\in\Z}
-V_j=\DirectSum{\gc\in\PontryaginDual{\UnitSphere 1}} \LinearSpan \gc .
+V_j=\DirectSum{\gc\in\PontryaginDual{\UnitSphere 1}} \LinearSpan \gc \text{.}
 \end{equation*}
 To summarise, the translation action $\gr$ is a unitary representation of $\UnitSphere 1$ on $\Lspace[2]\of{\UnitSphere 1}$ with respect to the inner product $\LTwoInner \placeholder\placeholder$, it decomposes in the irreducible representations $V_j$ which are the spans of individual elements $\E^{\I j \placeholder}$ of $\PontryaginDual{\UnitSphere 1}$ and $\ft{\placeholder}\of{j}$ is the projector onto $V_j$. Since $\PontryaginDual {\UnitSphere 1} \Isomorphic \Z$, and the elements of $\PontryaginDual {\UnitSphere 1}$ are the basis onto which functions are projected by the Fourier transform, it makes sense to think of the projector as $\ft{\placeholder}\of{\E^{\I j \placeholder}}$ instead, with $\ft\gj\of{\gc}\DefineAs\LTwoInner\gc\gj$ for $\gc\in\PontryaginDual {\UnitSphere 1}$.
  
@@ -649,9 +643,7 @@ by taking $\gm = \ftnrm\LebesgueMeasure n$, where $\LebesgueMeasure n$ is the Le
 \rft{\ft\gj}\of\vx = \ftnrm\int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}\diffd\vk \gj\of\vx=
 \int\Rn\ft\gj\E^{\I\scal\vx{}}\diffd \PontryaginDual\gm = \gj\of\vx
 \end{equation*}
-
-for almost all $x$ --- $\PontryaginDual\gm$ is the dual measure
-\footnote{The dual measure $\PontryaginDual\gm$ is the measure we need to get the
+for almost all $x$ --- $\PontryaginDual\gm$ is the dual measure\footnote{The dual measure $\PontryaginDual\gm$ is the measure we need to get the
   expressions to look the same when written in terms of measures. We chose $\gm$ in such
   a way that $\gm = \PontryaginDual\gm$, but if we had defined a non-unitary version, e.g.
   $\ft\gj\of \vk \DefineAs \int \Rn \gj\of x \E^{-\I \scal\vk \vx}\diffd \vx$, we would  
@@ -661,22 +653,22 @@ for almost all $x$ --- $\PontryaginDual\gm$ is the dual measure
 ---, the representation $\gr$ of $\R$ on $\Lspace[2]\of\R$ by translation decomposes in irreducible representations as
 \begin{equation*}
   \Lspace[2]\of{\UnitSphere 1}=\DirectSum{\vk\in\Rn}
-  V_\vk=\DirectSum{\gc\in\PontryaginDual{\Rn}} \LinearSpan \gc .
+  V_\vk=\DirectSum{\gc\in\PontryaginDual{\Rn}} \LinearSpan \gc \text{.}
 \end{equation*}
 Once again, it makes sense to think of the projectors as  $\ft{\placeholder}\of{\E^{\I \scal\vk{}}}$, with $\ft\gj\of\gc \DefineAs \LTwoInner \gc \gj$ for $\gc\in\PontryaginDual\Rn$, as the isomorphism $\PontryaginDual\Rn\Isomorphic\Rn$ is not unique. Actually, the isomorphism $\FunctionBody \vk {\E^{2 \Pi \I \scal{\vk}{} }}$ is sometimes used, as it allows for $\gm = \PontryaginDual\gm = \LebesgueMeasure n$ --- there are no constant factors before the integrals. Using this isomorphism, the Gaussian $\E^{-\frac{1}{2}\norm\vx^2}$ is no longer self-dual, i.e., the same as its Fourier transform, but $\E^{-\Pi\norm\vx^2}$ is instead.
 
-This also gives us an isomorphism between the momentum space $\CotangentSpace 0 \Rn = \Dual{\pa\Rn}$ and the Pontryagin dual $\PontryaginDual \Rn$, namely $\FunctionBody \vgl {\E^{2 \Pi \I \vgl }}$, with $\PontryaginDual \Rn\owns\FunctionNamedBody{\E^{2 \Pi \I \vgl}} \vk {\E^{2 \Pi \I \vgl\vk}}$, which, in contrast to the isomorphism from $\Rn$ to $\PontryaginDual\Rn$, does not depend on the choice of an inner product. It therefore makes sense to think of momenta as lying in the dual of the tangent space, and not the tangent space. Thus the phase space should indeed be $\CotangentBundle \Rn$, and not $\TangentBundle \Rn$.
+This also gives us an isomorphism between the momentum space $\CotangentSpace 0 \Rn = \Dual{\pa\Rn}$ and the Pontryagin dual $\PontryaginDual \Rn$, namely $\FunctionBody \vgl {\E^{2 \Pi \I \vgl }}$, with $\PontryaginDual \Rn\owns\FunctionNamedBody{\E^{2 \Pi \I \vgl}} \vk {\E^{2 \Pi \I \vgl\vk}}$, which, in contrast to the isomorphism from $\Rn$ to $\PontryaginDual\Rn$, does not depend on the choice of an inner product. It therefore makes sense to think of momenta as lying in the dual of the tangent space, and not in the tangent space. Thus the phase space should indeed be $\CotangentBundle \Rn$, and not $\TangentBundle \Rn$.
 
 \paragraph{Spherical harmonics and $\SpecialOrthogonalGroup\of 3$.} 
 \newcommand{\degL}{\ell}
 \newcommand{\Harmonic}[1]{\mathbf{H}_{#1}}
 If $G=\SpecialOrthogonalGroup\of 3$ acts by rotations on $X=\UnitSphere 2$, the representation $\gr$ decomposes as 
 \begin{equation*}
-\Lspace[2]\of{\UnitSphere 2} = \DirectSum{\degL=1}[\infty] \Harmonic\degL
+\Lspace[2]\of{\UnitSphere 2} = \DirectSum{\degL=1}[\infty] \Harmonic\degL\text{,}
 \end{equation*}
 where the irreducible $\Harmonic\degL$ are defined as follows: $\Harmonic\degL$ is the set of all homogeneous harmonic polynomials of degree $\degL$ on $\UnitSphere 2$, i.e.,
 \begin{equation*}
-\Harmonic\degL = \setst{\FunctionSpec f {\UnitSphere 2} \C, \FunctionBody {\Transpose{\tuple{x,y,z}}} {f\of{x,y,z}}}{f\of{x,y,z} = \sum {\ga+\gb+\gg = \degL} c_{\ga\,\gb\,\gg} x^{\ga}y^{\gb}z^{\gg} \And \Laplacian f = 0  }.
+\Harmonic\degL = \setst{\FunctionSpec f {\UnitSphere 2} \C, \FunctionBody {\Transpose{\tuple{x,y,z}}} {f\of{x,y,z}}}{f\of{x,y,z} = \sum {\ga+\gb+\gg = \degL} c_{\ga\,\gb\,\gg} x^{\ga}y^{\gb}z^{\gg} \And \Laplacian f = 0  }\text{.}
 \end{equation*}
 
 \endgroup
@@ -711,20 +703,20 @@ The problem is phase transitions: the symmetries change, and you cannot see that
 \begin{lecture}[date=2013-03-26]
 Recall: 
 \begin{align*}
-\FT\of\gj\of\vk\DefineAs\ft\gj\of\vk&\DefineAs\ftnrm\gj\of\vx\E^{-\I\scal{\vk}{\vx}}\diffd\vx &&\gj\in\Schwartz\\
-\RFT\of\gy\of\vx\DefineAs\rft\gy\of\vx&\DefineAs\ftnrm\gy\of\vx\E^{\I\scal{\vk}{\vx}}\diffd\vk &&\gy\in\Schwartz\\
-\FT\RFT &=\RFT\FT=\Identity\\
-\FT{\pa{\derivop[2]x + x^2}}\of{k}&=\pa{\derivop[2]x + x^2}\FT\of\gj\of{k}
+\FT\of\gj\of\vk\DefineAs\ft\gj\of\vk&\DefineAs\ftnrm\int\Rn\gj\of\vx\E^{-\I\scal{\vk}{\vx}}\diffd\vx\text{,} &&\gj\in\Schwartz\text,\\
+\RFT\of\gy\of\vx\DefineAs\rft\gy\of\vx&\DefineAs\ftnrm\int\Rn\gy\of\vx\E^{\I\scal{\vk}{\vx}}\diffd\vk\text{,} &&\gy\in\Schwartz\text,\\
+\FT\RFT &=\RFT\FT=\Identity\text,\\
+\FT{\pa{\derivop[2]x + x^2}}\of{k}&=\pa{\derivop[2]x + x^2}\FT\of\gj\of{k}\text.
 \end{align*}
-So we have this very nice guy here: $\derivop[2]x + x^2$, and having gone to \textgerman{Elementärschule}, you'd think \[\derivop[2]x + x^2 \stackrel{?}= \pa{x-\derivop x}\pa{x+\derivop x}\text{.}\] But the \emph{real} identity they should teach you at school --- life is short, the sooner you get going, the better --- is \[\pa{a-b}\pa{a+b}=a^2-b^2+\commutator a b\text{.}\] That's the difference between childhood and adulthood: $ab$ is no longer equal to $ba$, and it causes a lot of problems.
+So we have this very nice guy here: $\derivop[2]x + x^2$, and having gone to \textgerman{Elementarschule}, you'd think \[\derivop[2]x + x^2 \stackrel{?}= \pa{x-\derivop x}\pa{x+\derivop x}\text{.}\] But the \emph{real} identity they should teach you at school --- life is short, the sooner you get going, the better --- is \[\pa{a-b}\pa{a+b}=a^2-b^2+\commutator a b\text{.}\] That's the difference between childhood and adulthood: $ab$ is no longer equal to $ba$, and it causes a lot of problems.
 
 Here $\commutator {\derivop x} x = \Identity$. We now know  $ \pa{x-\derivop x}\pa{x+\derivop x} = -\derivop[2]x + x^2 -1$.
 This will be around long after strings is seen as a strange cult of the 21st century.
 
 We defined:
 \begin{align*}
-A&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\\
-\adj{A}&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}
+A&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text,\\
+\adj{A}&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text.
 \end{align*}
 We wrote ``dagger''. This makes sense, as;
 \begin{align*}
@@ -732,21 +724,19 @@ We wrote ``dagger''. This makes sense, as;
 &= \frac{1}{\sqrt{2}}\int\R\conj{\gy}\of x \derivop x\gj\of x \diffd x +
 \frac{1}{\sqrt{2}}\int\R\conj{\pa{x\gy\of x}} \gj\of x \diffd x\\
 &=\int\R\conj{\pa{\frac{1}{\sqrt{2}}\pa{-\derivop x + x}\gy\of x}} \gj\of x \diffd x \\
-&=\LTwoInner {\adj A \gy}\gj
+&=\LTwoInner {\adj A \gy}\gj\text.
 \end{align*}
-
 
 Write 
 \begin{align*}
-A_x&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\\
+A_x&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text,\\
 \adj{A_x}&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text{,}
 \end{align*}
 and similarly for $k$ instead of $x$.
-
 Observe:
 \begin{align*}
-\FT\of {A_x \gj}\of k &= \I A_k \ft\gj\of k\\
-\FT\of {\adj{A_x} \gj}\of k &= \I \adj{A_k} \ft\gj\of k\\
+\FT\of {A_x \gj}\of k &= \I A_k \ft\gj\of k\text,\\
+\FT\of {\adj{A_x} \gj}\of k &= \I \adj{A_k} \ft\gj\of k\text,\\
 A_x\E^{-\frac{1}{2}x^2}&=\pa{\derivop x+x}\E^{-\frac{1}{2}x^2}= 0\text{.}\\
 \intertext{define}
 h_0\of x &\DefineAs \frac{\E^{-\frac{1}{2}x^2}}{\sqrt[4]{\Pi}}\\
@@ -755,18 +745,19 @@ so that $\LTwoInner {h_0}{h_0} = 1$.
 
 We now can perform the following induction:
 \begin{align*}
-Ah_0&=0 \\
-\ft{h_0}&= h_0\\
-\ft{\adj {A_x} h_0}\of k &=\pa{-\I}\adj{A_k} h_0\of k\\
-\FT\of{\pa{\adj{A_x}}^n h_0}\of k &= \pa{-\I} \adj{A_k}\FT\of{\pa{\adj A}^{n-1}h_0}\of k
-= \pa{-\I}^n \pa{\adj{A_k}}^n h_0\of k
+Ah_0&=0\text, \\
+\ft{h_0}&= h_0\text,\\
+\ft{\adj {A_x} h_0}\of k &=\pa{-\I}\adj{A_k} h_0\of k\text{ using the vital lemma,}\\
+\FT\of{\pa{\adj{A_x}}^n h_0}\of k &= \pa{-\I} \adj{A_k}\FT\of{\pa{\adj A_x}^{n-1}h_0}\of k
+= \pa{-\I}^n \pa{\adj{A_k}}^n h_0\of k\text.
 \end{align*}
+In other words, the $\pa{\adj A}^n h_0$ --- with an $\adj A$, not an $A$; a dagger can be the difference between life and death! --- are eigenfunctions of the the Fourier transform. We will need to prove that these form a complete set, and we will have an orthogonal basis of $\SchwartzSpace\of\R$.
 ``I'll do some coherent states. I like coherent states.'' Next week we shall prove:
 \begin{align*}
-\commutator A {\adj A} &= \Identity \\
-\commutator A {\pa{\adj A}^n} &= n \pa{\adj A}^{n-1}
+\commutator A {\adj A} &= \Identity \text,\\
+\commutator A {\pa{\adj A}^n} &= n \pa{\adj A}^{n-1} \text.
 \end{align*}
-The only real idea in group representations: you find some commutation relations, and you generate all the eigenvectors and eigenvalues.
+This is the only real idea in group representations: you find some commutation relations, and you generate all the eigenvectors and eigenvalues.
 
 \end{lecture}
 
