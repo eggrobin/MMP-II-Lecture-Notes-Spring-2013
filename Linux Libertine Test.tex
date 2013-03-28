@@ -1,41 +1,14 @@
-\documentclass[10pt]{article}
+\documentclass[10pt]{lecturenotes}
 
-%\usepackage[utf8x]{inputenx}
-\usepackage{xltxtra}
-\usepackage{amsmath}
-%\usepackage[greek,french]{babel}
-%\usepackage{pxfonts}
-%\usepackage{amssymb}
-\usepackage{verse}
-
-\usepackage[]{geometry}
-
-\usepackage{fontspec}
-%\usepackage[osf]{libertine}
-\setmainfont[
-    UprightFeatures={SmallCapsFont={Linux Libertine O C}},
-    SmallCapsFeatures={Letters=SmallCaps},
-    Mapping=tex-text, Numbers={OldStyle, Proportional}, Ligatures={TeX, Common}, Contextuals=WordFinal,
-            ]{Linux Libertine O}
-\setmonofont{Linux Libertine Mono O}
-\newfontface\libertineInitialGlyph[]{Linux Libertine Initials O}
-
-\setsansfont[Ligatures={TeX, Common}, Numbers={OldStyle, Proportional}]{Linux Biolinum O}
-
-\usepackage{unicode-math}
-\setmathfont[math-style=ISO]{Cambria Math}
-\setmathfont[range={\mathcal,\mathbfcal}]{texgyrepagella-math.otf}
+\usepackage[Mathematics]{semtex}
 
 \usepackage{polyglossia}
 \setdefaultlanguage{french}
-\setotherlanguages{english,greek,russian}
 
 %,\mathbfcal
 %\setmathfont[math-style=ISO]{texgyrepagella-math.otf}
 %\setmathfont[math-style=ISO]{Asana-Math.otf}
-\usepackage{lettrine}
-\newcommand{\up}[1]{{\addfontfeature{VerticalPosition=Superior}#1}}
-\newcommand{\textdn}[1]{{\addfontfeature{VerticalPosition=ScientificInferior}#1}}
+
 %\AtBeginDocument{\RenewDocumentCommand{\int}{}{Platypus}}
 \begin{document}
 \newgeometry{top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm}
@@ -171,28 +144,28 @@ abcdefghijklmnopqrstuvwxyz}\\
 \addfontfeature{Ligatures=Historical}
 \section*{Typographie mathématique.}
 Les glyphes suivants sont des ligatures: ff fi fl ffi ffl ft Qu Th st ct \emph{ff fi fl ffi ffl ft Qu Th st ct}. Un des textes ci-dessous est la déclaration des droits de l'Homme et du citoyen de 1793. Elle diffère de la version de 1789.
-Rappelons que $1789+4=1793$. $\mathrm{T}^*M$ est le fibré cotangent de la variété différentiable $M$.
+Rappelons que $1789+4=1793$. $\CotangentBundle M$ est le fibré cotangent de la variété différentiable $M$.
 \begin{equation}
-\mathrm{\Gamma}(z+1)=\mathrm{\Pi}(z)=\int\limits_0^\infty \mathrm{e}^{-t}t^z \mathrm{d} t
+\Gamma\of{z+1}=\GaussPi\of z=\int0[\infty] \E^{-t}t^z \diffd t
 \end{equation}
 Racines d'un polynome du second degré:
 \begin{equation}
-\forall a, b, c \in\mathbb{C}\quad a x^2 + b x + c = 0 \Leftrightarrow x \in \left\lbrace\frac{-b \pm \sqrt{b^2 - 4 a c}}{2a}\right\rbrace
+\forall a, b, c \in\mathbb{C}\quad a x^2 + b x + c = 0 \Equivalent x \in \set{\frac{-b \pm \sqrt{b^2 - 4 a c}}{2a}}
 \end{equation}
-La fonction $\mathrm{\zeta}$ est définie pour $\operatorname{Re} s > 1$ par
+La fonction $\RiemannZeta$ est définie pour $\operatorname{Re} s > 1$ par
 \begin{equation}
-\mathrm{\zeta}(s)=\sum\limits_{n=1}^\infty \frac{1}{n^s}\textbf{.}
+\RiemannZeta\of s=\sum{n=1}[\infty] \frac{1}{n^s}\text{.}
 \end{equation}
-Son prolongement holomorphe sur $\mathbb{C}\smallsetminus\{0\}$ satisfait l'équation fonctionnelle suivante:
+Son prolongement holomorphe sur $\NonZero\C$ satisfait l'équation fonctionnelle suivante:
 \begin{equation}
-\mathrm{\pi}^{-\frac{s}{2}}\mathrm{\Gamma}\left(\frac{s}{2}\right)\mathrm{\zeta}(s)
-=\mathrm{\pi}^{-\frac{1-s}{2}}\mathrm{\Gamma}\left(\frac{1-s}{2}\right)\mathrm{\zeta}(1-s)\text{.}
+\Pi^{-\frac{s}{2}}\Gamma\of{\frac{s}{2}}\RiemannZeta\of s
+=\Pi^{-\frac{1-s}{2}}\Gamma\of{\frac{1-s}{2}}\RiemannZeta\of{1-s}\text{.}
 \end{equation}
-Soit $\alpha\mapsto f_\alpha$ une action de $\Omega$ sur $E$.
+Soit $\FunctionBody\ga {f_\ga}$ une action de $\Omega$ sur $E$.
 \pagebreak
 
 \section*{\textit{Déclaration des Droits de l'Homme et du Citoyen.}}
-\lettrine[lines=3]{\libertineInitialGlyph{L}}{e} peuple François, convaincu que l'oubli et le mépris des droits naturels de l'hom\-me, ſont les ſeules cauſes des malheurs du monde, a réſolu d'expoſer dans une déclaration ſolennelle ces droits ſacrés et inaliénables, afin que tous les citoyens pouvant comparer ſans ceſſe les actes du gouvernement avec le but de toute inſtitution ſociale, ne ſe laiſſent jamais opprimer et avilir par la tyrannie, afin que le peuple ait toujours devant les yeux les baſes de ſa liberté et de ſon bonheur, le magiſtrat la règle de ſes devoirs, le législateur l'objet de ſa miſſion.
+\lettrine[lines=3]{\textinitial{L}}{e} peuple François, convaincu que l'oubli et le mépris des droits naturels de l'hom\-me, ſont les ſeules cauſes des malheurs du monde, a réſolu d'expoſer dans une déclaration ſolennelle ces droits ſacrés et inaliénables, afin que tous les citoyens pouvant comparer ſans ceſſe les actes du gouvernement avec le but de toute inſtitution ſociale, ne ſe laiſſent jamais opprimer et avilir par la tyrannie, afin que le peuple ait toujours devant les yeux les baſes de ſa liberté et de ſon bonheur, le magiſtrat la règle de ſes devoirs, le législateur l'objet de ſa miſſion.
 
 En conſéquence, il proclame, en préſence de l'Être ſuprême, la déclaration ſuivante des droits de l'homme et du citoyen.
 \paragraph*{\textsc{Article Premier.\\}}
@@ -202,8 +175,8 @@ Le gouvernement eſt inſtitué pour garantir à l'homme la jouiſſance de ſes
 \paragraph*{III.}Tous les hommes ſont égaux par la nature et devant la loi.
 \paragraph*{IV.}La loi eſt l'expreſſion libre et ſolennelle de la volonté générale; elle eſt la même pour tous, ſoit qu'elle protège, ſoit qu'elle puniſſe; elle ne peut ordonner que ce qui eſt juſte et utile à la ſociété, elle ne peut défendre que ce qui lui eſt nuiſible.
 \paragraph*{V.}Tous les citoyens ſont également admiſſimles aux emplois publics. Les peuples libres ne connoiſſent d'autres motifs de préférence dans leurs élections, que les vertus et les talens.
-\paragraph*{VI.}La liberté eſt le pouvoir qui appartient à l'homme de faire tout ce qui ne nuit pas aux droits d'autrui: elle a pour pricipe, la nature; pour règle, la juſtice; pour ſauve-garde, la loi; ſa limite morale eſt dans cette maxime: \emph{Ne fais pas à un autre ce que tu ne veux pas qu'il te ſoit fait}.
-\paragraph*{VII.}Le droit de manifester ſa penſée et ſes opinions, ſoit par la voie de la preſſe, ſoit de toute autre manière, le droit de s'aſſembler paiſiblement, le libre exercice des  cultes, ne peuvent être interdits.
+\paragraph*{VI.}La liberté eſt le pouvoir qui appartient à l'homme de faire tout ce qui ne nuit pas aux droits d'autrui: elle a pour principe, la nature; pour règle, la juſtice; pour ſauve-garde, la loi; ſa limite morale eſt dans cette maxime: \emph{Ne fais pas à un autre ce que tu ne veux pas qu'il te ſoit fait}.
+\paragraph*{VII.}Le droit de manifeſter ſa penſée et ſes opinions, ſoit par la voie de la preſſe, ſoit de toute autre manière, le droit de s'aſſembler paiſiblement, le libre exercice des  cultes, ne peuvent être interdits.
 
 La néceſſité d'énoncer ces droits ſuppoſe ou la préſence, ou le ſouvenir récent du deſpotiſme.
 \paragraph*{VIII.}La sûreté consiſte dans la protection accordée par la ſociété à chacun de ſes membres, pour la conſervation de ſa perſonne, de ſes droits et de ſes propriétés.
@@ -220,19 +193,19 @@ La néceſſité d'énoncer ces droits ſuppoſe ou la préſence, ou le ſouven
 \paragraph*{XVIII.}Tout homme peut engager ſes ſervices, ſon temps; mais il ne peut ſe vendre, ni être vendu; ſa perſonne n'eſt pas une propriété aliénable. La loi ne reconnaît point de domeſticité; il ne peut exiſter qu'un engagement de ſoins et de reconnoiſſance, entre l'homme qui travaille et celui qui l'emploie.
 \paragraph*{XIX.}Nul ne peut être privé de la moindre portion de ſa propriété ſans ſon conſentement, ſi ce n'eſt lorſque la néceſſité publique légalement conſtatée l'exige, et ſous la condition d'une juſte et préalable indemnité.
 \paragraph*{XX.}Nulle contribution ne peut être établie que pour l'utilité générale. Tous les citoyens ont le droit de concourir à l'établiſſement des contributions, d'en ſurveiller l'emploi, et de s'en faire rendre compte.
-\paragraph*{XXI.}Les ſecours publics ſont une dette ſacrée. La ſociété doit la ſubſistance aux citoyens malheureux, ſoit en leur procurant du travail, ſoit en aſſurant les moyens d'exiſter à ceux qui ſont hors d'état de travailler.
+\paragraph*{XXI.}Les ſecours publics ſont une dette ſacrée. La ſociété doit la ſubſiſtance aux citoyens malheureux, ſoit en leur procurant du travail, ſoit en aſſurant les moyens d'exiſter à ceux qui ſont hors d'état de travailler.
 \paragraph*{XXII.}L'inſtruction eſt le beſoin de tous. La ſociété doit favoriſer de tout ſon pouvoir les progrès de la raiſon publique, et mettre l'inſtruction à la portée de tous les citoyens.
 \paragraph*{XXIII.}La garantie ſociale conſiſte dans l'action de tous, pour aſſurer à chacun la jouiſſance et la conſervation de ſes droits; cette garantie repoſe ſur la ſouveraineté nationale.
 \paragraph*{XXIV.}Elle ne peut exiſter, ſi les limites des fonctions publiques ne ſont pas clairement déterminées par la loi, et ſi la reſponſabilité de tous les fonctionnaires n'eſt pas aſſurée.
 \paragraph*{XXV.}La ſouveraineté réſide dans le peuple; elle eſt une et indiviſible, impreſcriptible et inaliénable.
 \paragraph*{XXVI.}Aucune portion du peuple ne peut exercer la puiſſance du peuple entier; mais chaque ſection du ſouverain aſſemblée doit jouir du droit d'exprimer ſa volonté avec une entière liberté.
-\paragraph*{XXVII.}Que tout individu qui uſurperoit la ſouveraineté ſoit à l'instant mis à mort par les hommes libres.
-\paragraph*{XXVIII.}Un peuple a toujours le droit de revoir, de réformer et de changer ſa constitution. Une génération ne peut aſſujettir à ſes lois les générations futures.
+\paragraph*{XXVII.}Que tout individu qui uſurperoit la ſouveraineté ſoit à l'inſtant mis à mort par les hommes libres.
+\paragraph*{XXVIII.}Un peuple a toujours le droit de revoir, de réformer et de changer ſa conſtitution. Une génération ne peut aſſujettir à ſes lois les générations futures.
 \paragraph*{XXIX.}Chaque citoyen a un droit égal de concourir à la formation de la loi et à la nomination de ſes mandataires ou de ſes agens.
 \paragraph*{XXX.}Les fonctions publiques sont eſſentiellement temporaires; elles ne peuvent être conſidérées comme des diſtinctions ni comme des récompenſes, mais comme des devoirs.
 \paragraph*{XXXI.}Les délits des mandataires du peuple et de ſes agens ne doivent jamais être impunis. Nul n'a le droit de ſe prétendre plus inviolable que les autres citoyens.
 \paragraph*{XXXII.}Le droit de préſenter des pétitions aux dépoſitaires de l'autorité publique ne peut, en aucun cas, être interdit, ſuſpendu ni limité.
-\paragraph*{XXXIII.}La réſistance à l'oppreſſion eſt la conſéquence des autres Droits de l'homme.
+\paragraph*{XXXIII.}La réſiſtance à l'oppreſſion eſt la conſéquence des autres Droits de l'homme.
 \paragraph*{XXXIV.}Il y a oppreſſion contre le corps ſocial lorſqu'un ſeul de ſes membres eſt opprimé. Il y a oppreſſion contre chaque membre lorſque le corps ſocial eſt opprimé.
 \paragraph*{XXXV.}Quand le gouvernement viole les droits du peuple, l'inſurrection eſt, pour le peuple et pour chaque portion du peuple, le plus ſacré des droits et le plus indiſpenſable des devoirs.
 
