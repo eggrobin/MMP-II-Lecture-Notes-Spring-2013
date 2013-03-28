@@ -1,41 +1,14 @@
-\documentclass[10pt]{article}
+\documentclass[10pt]{lecturenotes}
 
-%\usepackage[utf8x]{inputenx}
-\usepackage{xltxtra}
-\usepackage{amsmath}
-%\usepackage[greek,french]{babel}
-%\usepackage{pxfonts}
-%\usepackage{amssymb}
-\usepackage{verse}
-
-\usepackage[]{geometry}
-
-\usepackage{fontspec}
-%\usepackage[osf]{libertine}
-\setmainfont[
-    UprightFeatures={SmallCapsFont={Linux Libertine O C}},
-    SmallCapsFeatures={Letters=SmallCaps},
-    Mapping=tex-text, Numbers={OldStyle, Proportional}, Ligatures={TeX, Common}, Contextuals=WordFinal,
-            ]{Linux Libertine O}
-\setmonofont{Linux Libertine Mono O}
-\newfontface\libertineInitialGlyph[]{Linux Libertine Initials O}
-
-\setsansfont[Ligatures={TeX, Common}, Numbers={OldStyle, Proportional}]{Linux Biolinum O}
-
-\usepackage{unicode-math}
-\setmathfont[math-style=ISO]{Cambria Math}
-\setmathfont[range={\mathcal,\mathbfcal}]{texgyrepagella-math.otf}
+\usepackage[Mathematics]{semtex}
 
 \usepackage{polyglossia}
 \setdefaultlanguage{french}
-\setotherlanguages{english,greek,russian}
 
 %,\mathbfcal
 %\setmathfont[math-style=ISO]{texgyrepagella-math.otf}
 %\setmathfont[math-style=ISO]{Asana-Math.otf}
-\usepackage{lettrine}
-\newcommand{\up}[1]{{\addfontfeature{VerticalPosition=Superior}#1}}
-\newcommand{\textdn}[1]{{\addfontfeature{VerticalPosition=ScientificInferior}#1}}
+
 %\AtBeginDocument{\RenewDocumentCommand{\int}{}{Platypus}}
 \begin{document}
 \newgeometry{top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm}
@@ -171,28 +144,28 @@ abcdefghijklmnopqrstuvwxyz}\\
 \addfontfeature{Ligatures=Historical}
 \section*{Typographie mathématique.}
 Les glyphes suivants sont des ligatures: ff fi fl ffi ffl ft Qu Th st ct \emph{ff fi fl ffi ffl ft Qu Th st ct}. Un des textes ci-dessous est la déclaration des droits de l'Homme et du citoyen de 1793. Elle diffère de la version de 1789.
-Rappelons que $1789+4=1793$. $\mathrm{T}^*M$ est le fibré cotangent de la variété différentiable $M$.
+Rappelons que $1789+4=1793$. $\CotangentBundle M$ est le fibré cotangent de la variété différentiable $M$.
 \begin{equation}
-\mathrm{\Gamma}(z+1)=\mathrm{\Pi}(z)=\int\limits_0^\infty \mathrm{e}^{-t}t^z \mathrm{d} t
+\Gamma\of{z+1}=\GaussPi\of z=\int0[\infty] \E^{-t}t^z \diffd t
 \end{equation}
 Racines d'un polynome du second degré:
 \begin{equation}
-\forall a, b, c \in\mathbb{C}\quad a x^2 + b x + c = 0 \Leftrightarrow x \in \left\lbrace\frac{-b \pm \sqrt{b^2 - 4 a c}}{2a}\right\rbrace
+\forall a, b, c \in\mathbb{C}\quad a x^2 + b x + c = 0 \Equivalent x \in \set{\frac{-b \pm \sqrt{b^2 - 4 a c}}{2a}}
 \end{equation}
-La fonction $\mathrm{\zeta}$ est définie pour $\operatorname{Re} s > 1$ par
+La fonction $\RiemannZeta$ est définie pour $\operatorname{Re} s > 1$ par
 \begin{equation}
-\mathrm{\zeta}(s)=\sum\limits_{n=1}^\infty \frac{1}{n^s}\textbf{.}
+\RiemannZeta\of s=\sum{n=1}[\infty] \frac{1}{n^s}\text{.}
 \end{equation}
-Son prolongement holomorphe sur $\mathbb{C}\smallsetminus\{0\}$ satisfait l'équation fonctionnelle suivante:
+Son prolongement holomorphe sur $\NonZero\C$ satisfait l'équation fonctionnelle suivante:
 \begin{equation}
-\mathrm{\pi}^{-\frac{s}{2}}\mathrm{\Gamma}\left(\frac{s}{2}\right)\mathrm{\zeta}(s)
-=\mathrm{\pi}^{-\frac{1-s}{2}}\mathrm{\Gamma}\left(\frac{1-s}{2}\right)\mathrm{\zeta}(1-s)\text{.}
+\Pi^{-\frac{s}{2}}\Gamma\of{\frac{s}{2}}\RiemannZeta\of s
+=\Pi^{-\frac{1-s}{2}}\Gamma\of{\frac{1-s}{2}}\RiemannZeta\of{1-s}\text{.}
 \end{equation}
-Soit $\alpha\mapsto f_\alpha$ une action de $\Omega$ sur $E$.
+Soit $\FunctionBody\ga {f_\ga}$ une action de $\Omega$ sur $E$.
 \pagebreak
 
 \section*{\textit{Déclaration des Droits de l'Homme et du Citoyen.}}
-\lettrine[lines=3]{\libertineInitialGlyph{L}}{e} peuple François, convaincu que l'oubli et le mépris des droits naturels de l'hom\-me, ſont les ſeules cauſes des malheurs du monde, a réſolu d'expoſer dans une déclaration ſolennelle ces droits ſacrés et inaliénables, afin que tous les citoyens pouvant comparer ſans ceſſe les actes du gouvernement avec le but de toute inſtitution ſociale, ne ſe laiſſent jamais opprimer et avilir par la tyrannie, afin que le peuple ait toujours devant les yeux les baſes de ſa liberté et de ſon bonheur, le magiſtrat la règle de ſes devoirs, le législateur l'objet de ſa miſſion.
+\lettrine[lines=3]{\textinitial{L}}{e} peuple François, convaincu que l'oubli et le mépris des droits naturels de l'hom\-me, ſont les ſeules cauſes des malheurs du monde, a réſolu d'expoſer dans une déclaration ſolennelle ces droits ſacrés et inaliénables, afin que tous les citoyens pouvant comparer ſans ceſſe les actes du gouvernement avec le but de toute inſtitution ſociale, ne ſe laiſſent jamais opprimer et avilir par la tyrannie, afin que le peuple ait toujours devant les yeux les baſes de ſa liberté et de ſon bonheur, le magiſtrat la règle de ſes devoirs, le législateur l'objet de ſa miſſion.
 
 En conſéquence, il proclame, en préſence de l'Être ſuprême, la déclaration ſuivante des droits de l'homme et du citoyen.
 \paragraph*{\textsc{Article Premier.\\}}
