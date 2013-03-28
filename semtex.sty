@@ -125,8 +125,20 @@
 \DeclarePairedDelimiterX\rsquareCommaLsquare[2]{]}{[}{#1, #2}
 \DeclarePairedDelimiterX\langleBarRangle[2]{\langle}{\rangle}{#1\delimsize\vert #2} 
 \DeclarePairedDelimiterX\langleCommaRangle[2]{\langle}{\rangle}{#1, #2}
-\DeclarePairedDelimiterX\emptyDotEmpty[2]{.}{.}{#1\cdot #2}
+\DeclarePairedDelimiterX\unkernedEmptyDotEmpty[2]{.}{.}{#1\cdot #2}
 \DeclarePairedDelimiterX\lcurlyBarRcurly[2]{\lbrace}{\rbrace}{#1\:\delimsize\vert\: #2}
+
+\DeclareDocumentCommand\emptyDotEmpty{smm}{
+\IfBooleanTF#1{
+    \unkernedEmptyDotEmpty*
+    {\kern-\nulldelimiterspace #2 }
+    {#3}\kern-\nulldelimiterspace
+  }{
+    \unkernedEmptyDotEmpty
+    {\kern-\nulldelimiterspace #2 }
+    {#3}\kern-\nulldelimiterspace
+  }
+}
 
 %%%% Semantic commands. These are the ones that should be used in the document.
 
@@ -151,11 +163,11 @@
 %% Prefix operators and functions.
 % \DiracDelta[x] is the dirac delta distribution, with \DiracDelta[x]\of y = 0 
 % for all x \neq 0. \DiracDelta is a shorter notation for \DiracDelta[0].
-\newcommand{\DiracDelta}[1][]{\StandardSymbol{\delta}_{#1}}
+\newcommand{\DiracDelta}[1][]{\operatorname{\delta}_{#1}}
 % \RiemannZeta is Riemann's zeta function.
-\newcommand{\RiemannZeta}{\StandardSymbol{\zeta}}
+\newcommand{\RiemannZeta}{\operatorname{\zeta}}
 % \Gamma is the Euler's gamma function.
-\renewcommand{\Gamma}{\StandardSymbol{\capitalGamma}}
+\renewcommand{\Gamma}{\operatorname{\capitalGamma}}
 % \Sign is the sign function.
 \DeclareMathOperator{\Sign}{sgn}
 % \Laplacian is the Laplacian.
