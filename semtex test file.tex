@@ -1,5 +1,6 @@
 \documentclass{minimal}
 \usepackage{semtex}
+
 \DeclareDocumentCommand\foo{r[] r[] r[]}{Saw #1, #2 and #3.}
 \DeclareDocumentCommand\baz{r[] r[] r[] r[] r[]}{Saw #1, #2, #3, #4 and #5.}
 \DeclareDocumentCommand\goo{r[; m r;]}{Saw #1, #2, #3.}
@@ -12,6 +13,58 @@ Test higher-order tensors: $\tensA, \tensB, \dotsc, \tensZ$.                    
 Test mathematical constants: $\I, \Pi, \E, \EulerGamma$.                           \\
 Test standard functions: $\RiemannZeta\of z, \Gamma\of z, 
   \DiracDelta\of x=\DiracDelta[0]\of x, \DiracDelta=\DiracDelta[0], \Sign\of x$.  \\
+\def\delint{\Udelimiter 4 \symoperators "222B }
+\def\extint#1{\left\delint #1\right.}
+\[
+\left\delint x\diffd x\right.
+\]
+\[
+\left\delint_x^y
+\begin{matrix}
+a&b\\
+c&d\\
+e&f\\
+g&h\\
+i&j\\
+k&l
+\end{matrix}\right)
+\]
+\[
+\left(
+\begin{matrix}
+a&b\\
+c&d\\
+e&f\\
+g&h\\
+i&j\\
+k&l
+\end{matrix}\right\delint_x^y
+\]
+\DeclarePairedDelimiterX\testdelim[2]{.}{.}{#1#2}
+\[xyxy\testdelim*{x}{y}xyxy\]
+\newcommand\scalingIntegral[3]{
+\raisebox{0.75pt}
+{$\displaystyle\operatorname*{
+\left.{\kern-\nulldelimiterspace}
+\vphantom{#3}\vphantom{\mathlarger{{\integralSign}}}\middle\delint
+\right.{\kern-\nulldelimiterspace}}
+_{#1\;\;\,}^{\;\, #2}$}{#3}
+}
+\[
+\scalingIntegral{2}{3}{x\diffd x}\neq
+\int2[3]{x\diffd x}
+\]\[
+\scalingIntegral{0}{1}{
+\begin{pmatrix}
+a&b\\
+c&d\\
+e&f\\
+g&h\\
+i&j\\
+k&l
+\end{pmatrix}
+}
+\]
 \begin{align*}
 \gl\operatorname{A}h\\
 \gl\mathrm{A}h\\
