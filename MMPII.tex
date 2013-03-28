@@ -274,7 +274,7 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
       
       \emph{The professor starts whistling some elevator music while waiting for a student to write down the proof before he can wipe the board. When the student is done, the professor notices that there still is some room left on the blackboard and starts writing the rest there, without erasing anything.}
       
-      Proof of \ref{FTUnitary}:
+      Proof of (\ref{FTUnitary}):
       \begin{align*}
         \int\Rn\ft\gj\of\vy \gy\of\vy \diffd\vy
         &= \int\Rn\ftnrm\int\Rn\gj\of\vx
@@ -297,7 +297,7 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
     \begin{proof}
       \begin{align*}
         \gj\in\Schwartz&\Rightarrow\vx^\miga\pd\vx\migb\in\Schwartz \\
-        \ft{\pa{\vx^\miga\pd\vx\migb\gj}}\of\vk
+        \FT\of{\vx^\miga\pd\vx\migb\gj}\of\vk
         &=\I^{\total\miga}\pd\vk\miga\ft{\pa{\pd\vx\migb\gj}}\of\vk 
           && \text{from the second equality in (\ref{FTDerivative}), applied }\total\miga\text{ times.} \\
         &=\I^{\total\miga}\pd\vk\miga\of{\I^{\total\migb}\vk^\migb\ft\gj}\of\vk \\
@@ -310,7 +310,7 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
       \end{equation*}
       As that implies $\ft\gj\in\Schwartz$.
       \begin{align*}
-        \ft{\pa{\pd\vx\miga\of{\vk^\migb\gj}}}\of\vk
+        \FT\of{\pd\vx\miga\of{\vk^\migb\gj}}\of\vk
         &=\I^{\total\miga+\total\migb}\vk^\miga\pd\vk\migb\ft\gj\of\vk
         && \commentbox{by applying the first part of (\ref{FTDerivative}) $\total\miga
         $ times and the second part $\total\migb$ times.}\\
@@ -391,9 +391,8 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
   \end{equation*}
   Subtracting the second equality from the first one above:
   \begin{equation*}
-    \FT\of{\pa{-\derivop[2]{x}+x^2}\gj}\of k = \pa{-\derivop[2]{k}+k^2}\FT\gj\of k\text{,}
+    \FT\of{\pa{-\derivop[2]{x}+x^2}\gj}\of k = \pa{-\derivop[2]{k}+k^2}\FT\gj\of k\text{.}
   \end{equation*}
-  where $\FT = \ft{\placeholder}$ because things are getting a bit too big for the hat.
   We smell a harmonic potential. ``Don't get your fingers too close, they sometimes bite.''
   
   Let $\opH \DefineAs \frac{1}{2}\pa{-\derivop[2]{x}+x^2-1}$. Then $\commutator \opH {\ft{\placeholder}}=0$. We multiplied by $\frac{1}{2}$ so that it looks even more like a harmonic potential (it is the Hamiltonian of the quantum harmonic oscillator). Why did we add $-1$? Define
