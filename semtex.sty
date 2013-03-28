@@ -47,8 +47,8 @@
 %\fi
 
 \RequirePackage{unicode-math}
-\setmathfont[math-style=ISO]{Cambria Math}
-\setmathfont[range={\mathcal,\mathbfcal}]{texgyrepagella-math.otf}
+\setmathfont[Scale=MatchLowercase, math-style=ISO]{Cambria Math}
+\setmathfont[Scale=MatchLowercase, range={\mathcal,\mathbfcal}]{texgyrepagella-math.otf}
 %\setmathfont[math-style=ISO]{texgyrepagella-math.otf}
 %\setmathfont[range={\mathscr,\mathbfscr}]{Cambria Math}
 %\setmathfont[math-style=ISO]{latinmodern-math.otf}
@@ -57,7 +57,8 @@
 \newcommand{\VectorSymbol}\mathbfit
 \newcommand{\MultiIndexSymbol}\VectorSymbol
 \newcommand{\MatrixSymbol}\mathbfit
-\newcommand{\TensorSymbol}\mathsfbfit
+\newcommand{\TensorSymbol}\mathbfsfit
+\newcommand{\OperatorSymbol}[1]{\operatorname{\mathit{#1}}}
 \newcommand{\StandardSymbol}\mathrm
 
 % Theorem styles.
@@ -174,7 +175,7 @@
 % \GL\of{n,F} is the general linear group of degree n over F.
 % \GL\of{V} is the general linear group of the vector space V.
 % Use \GL\of{n} when the field is implicit.
-\DeclareMathOperator{\GeneralLinearGroup}{GL\,}
+\DeclareMathOperator{\GeneralLinearGroup}{GL}
 % \SL\of{n,F} is the special linear group of degree n over F.
 % Remarks from \GL apply.
 \DeclareMathOperator{\SpecialLinearGroup}{SL}
@@ -377,32 +378,32 @@
 % We use the same convention for multi-indices.
 % \v[symbol] is a vector, \mi[symbol] is a multi-index. \nullmi is the multi index (0,\ldots 0),
 % \nullvec is the null vector.
-\newcommand{\va}{{\VectorSymbol a}}
-\newcommand{\vb}{{\VectorSymbol b}}
-\newcommand{\vc}{{\VectorSymbol c}}
-\newcommand{\vd}{{\VectorSymbol d}}
-\newcommand{\ve}{{\VectorSymbol e}}
-\newcommand{\vf}{{\VectorSymbol f}}
-\newcommand{\vg}{{\VectorSymbol g}}
-\newcommand{\vh}{{\VectorSymbol h}}
-\newcommand{\vi}{{\VectorSymbol i}}
-\newcommand{\vj}{{\VectorSymbol j}}
-\newcommand{\vk}{{\VectorSymbol k}}
-\newcommand{\vl}{{\VectorSymbol l}}
-\newcommand{\vm}{{\VectorSymbol m}}
-\newcommand{\vn}{{\VectorSymbol n}}
-\newcommand{\vo}{{\VectorSymbol o}}
-\newcommand{\vp}{{\VectorSymbol p}}
-\newcommand{\vq}{{\VectorSymbol q}}
-\newcommand{\vr}{{\VectorSymbol r}}
-\newcommand{\vs}{{\VectorSymbol s}}
-\newcommand{\vt}{{\VectorSymbol t}}
-\newcommand{\vu}{{\VectorSymbol u}}
-\newcommand{\vv}{{\VectorSymbol v}}
-\newcommand{\vw}{{\VectorSymbol w}}
-\newcommand{\vx}{{\VectorSymbol x}}
-\newcommand{\vy}{{\VectorSymbol y}}
-\newcommand{\vz}{{\VectorSymbol z}}
+\newcommand{\va}{\VectorSymbol a}
+\newcommand{\vb}{\VectorSymbol b}
+\newcommand{\vc}{\VectorSymbol c}
+\newcommand{\vd}{\VectorSymbol d}
+\newcommand{\ve}{\VectorSymbol e}
+\newcommand{\vf}{\VectorSymbol f}
+\newcommand{\vg}{\VectorSymbol g}
+\newcommand{\vh}{\VectorSymbol h}
+\newcommand{\vi}{\VectorSymbol i}
+\newcommand{\vj}{\VectorSymbol j}
+\newcommand{\vk}{\VectorSymbol k}
+\newcommand{\vl}{\VectorSymbol l}
+\newcommand{\vm}{\VectorSymbol m}
+\newcommand{\vn}{\VectorSymbol n}
+\newcommand{\vo}{\VectorSymbol o}
+\newcommand{\vp}{\VectorSymbol p}
+\newcommand{\vq}{\VectorSymbol q}
+\newcommand{\vr}{\VectorSymbol r}
+\newcommand{\vs}{\VectorSymbol s}
+\newcommand{\vt}{\VectorSymbol t}
+\newcommand{\vu}{\VectorSymbol u}
+\newcommand{\vv}{\VectorSymbol v}
+\newcommand{\vw}{\VectorSymbol w}
+\newcommand{\vx}{\VectorSymbol x}
+\newcommand{\vy}{\VectorSymbol y}
+\newcommand{\vz}{\VectorSymbol z}
 
 \newcommand{\miga}{{\MultiIndexSymbol \alpha}}
 \newcommand{\migb}{{\MultiIndexSymbol \beta}}
@@ -414,60 +415,86 @@
 \newcommand{\nullmi}{{\VectorSymbol 0}}
 \newcommand{\nullvec}{{\VectorSymbol 0}}
 
+\newcommand{\opA}{\OperatorSymbol A}
+\newcommand{\opB}{\OperatorSymbol B}
+\newcommand{\opC}{\OperatorSymbol C}
+\newcommand{\opD}{\OperatorSymbol D}
+\newcommand{\opE}{\OperatorSymbol E}
+\newcommand{\opF}{\OperatorSymbol F}
+\newcommand{\opG}{\OperatorSymbol G}
+\newcommand{\opH}{\OperatorSymbol H}
+\newcommand{\opI}{\OperatorSymbol I}
+\newcommand{\opJ}{\OperatorSymbol J}
+\newcommand{\opK}{\OperatorSymbol K}
+\newcommand{\opL}{\OperatorSymbol L}
+\newcommand{\opM}{\OperatorSymbol M}
+\newcommand{\opN}{\OperatorSymbol N}
+\newcommand{\opO}{\OperatorSymbol O}
+\newcommand{\opP}{\OperatorSymbol P}
+\newcommand{\opQ}{\OperatorSymbol Q}
+\newcommand{\opR}{\OperatorSymbol R}
+\newcommand{\opS}{\OperatorSymbol S}
+\newcommand{\opT}{\OperatorSymbol T}
+\newcommand{\opU}{\OperatorSymbol U}
+\newcommand{\opV}{\OperatorSymbol V}
+\newcommand{\opW}{\OperatorSymbol W}
+\newcommand{\opX}{\OperatorSymbol X}
+\newcommand{\opY}{\OperatorSymbol Y}
+\newcommand{\opZ}{\OperatorSymbol Z}
 
-\newcommand{\tensA}{{\TensorSymbol A}}
-\newcommand{\tensB}{{\TensorSymbol B}}
-\newcommand{\tensC}{{\tensorspm C}}
-\newcommand{\tensD}{{\TensorSymbol D}}
-\newcommand{\tensE}{{\TensorSymbol E}}
-\newcommand{\tensF}{{\TensorSymbol F}}
-\newcommand{\tensG}{{\TensorSymbol G}}
-\newcommand{\tensH}{{\TensorSymbol H}}
-\newcommand{\tensI}{{\TensorSymbol I}}
-\newcommand{\tensJ}{{\TensorSymbol J}}
-\newcommand{\tensK}{{\TensorSymbol K}}
-\newcommand{\tensL}{{\TensorSymbol L}}
-\newcommand{\tensM}{{\TensorSymbol M}}
-\newcommand{\tensN}{{\TensorSymbol N}}
-\newcommand{\tensO}{{\TensorSymbol O}}
-\newcommand{\tensP}{{\TensorSymbol P}}
-\newcommand{\tensQ}{{\TensorSymbol Q}}
-\newcommand{\tensR}{{\TensorSymbol R}}
-\newcommand{\tensS}{{\TensorSymbol S}}
-\newcommand{\tensT}{{\TensorSymbol T}}
-\newcommand{\tensU}{{\TensorSymbol U}}
-\newcommand{\tensV}{{\TensorSymbol V}}
-\newcommand{\tensW}{{\TensorSymbol W}}
-\newcommand{\tensX}{{\TensorSymbol X}}
-\newcommand{\tensY}{{\TensorSymbol Y}}
-\newcommand{\tensZ}{{\TensorSymbol Z}}
+\newcommand{\tensA}{\TensorSymbol A}
+\newcommand{\tensB}{\TensorSymbol B}
+\newcommand{\tensC}{\TensorSymbol C}
+\newcommand{\tensD}{\TensorSymbol D}
+\newcommand{\tensE}{\TensorSymbol E}
+\newcommand{\tensF}{\TensorSymbol F}
+\newcommand{\tensG}{\TensorSymbol G}
+\newcommand{\tensH}{\TensorSymbol H}
+\newcommand{\tensI}{\TensorSymbol I}
+\newcommand{\tensJ}{\TensorSymbol J}
+\newcommand{\tensK}{\TensorSymbol K}
+\newcommand{\tensL}{\TensorSymbol L}
+\newcommand{\tensM}{\TensorSymbol M}
+\newcommand{\tensN}{\TensorSymbol N}
+\newcommand{\tensO}{\TensorSymbol O}
+\newcommand{\tensP}{\TensorSymbol P}
+\newcommand{\tensQ}{\TensorSymbol Q}
+\newcommand{\tensR}{\TensorSymbol R}
+\newcommand{\tensS}{\TensorSymbol S}
+\newcommand{\tensT}{\TensorSymbol T}
+\newcommand{\tensU}{\TensorSymbol U}
+\newcommand{\tensV}{\TensorSymbol V}
+\newcommand{\tensW}{\TensorSymbol W}
+\newcommand{\tensX}{\TensorSymbol X}
+\newcommand{\tensY}{\TensorSymbol Y}
+\newcommand{\tensZ}{\TensorSymbol Z}
 
-\newcommand{\matA}{{\MatrixSymbol A}}
-\newcommand{\matB}{{\MatrixSymbol B}}
-\newcommand{\matC}{{\MatrixSymbol C}}
-\newcommand{\matD}{{\MatrixSymbol D}}
-\newcommand{\matE}{{\MatrixSymbol E}}
-\newcommand{\matF}{{\MatrixSymbol F}}
-\newcommand{\matG}{{\MatrixSymbol G}}
-\newcommand{\matH}{{\MatrixSymbol H}}
-\newcommand{\matI}{{\MatrixSymbol I}}
-\newcommand{\matJ}{{\MatrixSymbol J}}
-\newcommand{\matK}{{\MatrixSymbol K}}
-\newcommand{\matL}{{\MatrixSymbol L}}
-\newcommand{\matM}{{\MatrixSymbol M}}
-\newcommand{\matN}{{\MatrixSymbol N}}
-\newcommand{\matO}{{\MatrixSymbol O}}
-\newcommand{\matP}{{\MatrixSymbol P}}
-\newcommand{\matQ}{{\MatrixSymbol Q}}
-\newcommand{\matR}{{\MatrixSymbol R}}
-\newcommand{\matS}{{\MatrixSymbol S}}
-\newcommand{\matT}{{\MatrixSymbol T}}
-\newcommand{\matU}{{\MatrixSymbol U}}
-\newcommand{\matV}{{\MatrixSymbol V}}
-\newcommand{\matW}{{\MatrixSymbol W}}
-\newcommand{\matX}{{\MatrixSymbol X}}
-\newcommand{\matY}{{\MatrixSymbol Y}}
-\newcommand{\matZ}{{\MatrixSymbol Z}}
+\newcommand{\matA}{\MatrixSymbol A}
+\newcommand{\matB}{\MatrixSymbol B}
+\newcommand{\matC}{\MatrixSymbol C}
+\newcommand{\matD}{\MatrixSymbol D}
+\newcommand{\matE}{\MatrixSymbol E}
+\newcommand{\matF}{\MatrixSymbol F}
+\newcommand{\matG}{\MatrixSymbol G}
+\newcommand{\matH}{\MatrixSymbol H}
+\newcommand{\matI}{\MatrixSymbol I}
+\newcommand{\matJ}{\MatrixSymbol J}
+\newcommand{\matK}{\MatrixSymbol K}
+\newcommand{\matL}{\MatrixSymbol L}
+\newcommand{\matM}{\MatrixSymbol M}
+\newcommand{\matN}{\MatrixSymbol N}
+\newcommand{\matO}{\MatrixSymbol O}
+\newcommand{\matP}{\MatrixSymbol P}
+\newcommand{\matQ}{\MatrixSymbol Q}
+\newcommand{\matR}{\MatrixSymbol R}
+\newcommand{\matS}{\MatrixSymbol S}
+\newcommand{\matT}{\MatrixSymbol T}
+\newcommand{\matU}{\MatrixSymbol U}
+\newcommand{\matV}{\MatrixSymbol V}
+\newcommand{\matW}{\MatrixSymbol W}
+\newcommand{\matX}{\MatrixSymbol X}
+\newcommand{\matY}{\MatrixSymbol Y}
+\newcommand{\matZ}{\MatrixSymbol Z}
 
 \newcommand{\Identity}{\mathbb{1}}
 
@@ -477,7 +504,7 @@
 %%% Miscellaneous.
 % \placeholder is a placeholder for a parameter,
 % as in 'if f is linear, f\of{\gl\placeholder}=\gl f.'
-\newcommand\placeholder{\,\:\cdot\:\,}
+\newcommand\placeholder{\:\cdot\:}
 % \funcspec{f}{X}{Y} specifies that f is a function from X to Y.
 \newcommand{\FunctionSpec}[3]{{#1}:{#2}\rightarrow{#3}}
 \newcommand{\FunctionNamedBody}[3]{{#1}:{#2}\mapsto{#3}}
