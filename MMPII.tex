@@ -83,7 +83,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
     &\pd\vx\miga &\DefineAs \frac{\partial^{\total{\miga}}}{\pd{x_1}{\ga_1} \dotsm \pd{x_n}{\ga_n}}
     \text{(we use }\pdop\miga\text{ when the variable is implicit),} \\
     \text{and }\vx^\migb &\DefineAs x_1^{\gb_1} \dotsm x_n^{\gb_n}
-    \text{ for }\vx \in \Rn, \migb \in \N^n\text{.}
+    \text{ for }\vx \in \Rn\text{, } \migb \in \N^n\text{.}
   \end{align*}
   \end{definition}
 
@@ -197,9 +197,16 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
   \LTwoInner \gy \gj \DefineAs \int\Rn \conj\gy\of\vx \gj\of\vx \diffd\vx \text{.}
   \end{equation*}
   \end{definition}
+\section{General properties of the Fourier transform}
+  \begin{definition}[Fourier Transform]
+  For $\gj\in\Schwartz$, we define the \emph{Fourier transform} $\ft\gj$ of $\gj$, also written $\FT\of\gj$, as:
+  \[
+    \FT\of\gj\of\vk\DefineAs\ft\gj\of\vk\DefineAs
+    \ftnrm\int\Rn\gj\of\vx\E^{-\I\scal{\vk}{\vx}}\diffd\vx\text.
+  \]
+  \end{definition}
   \end{lecture}
   \begin{lecture}[date=2013-03-07]
-  \section{General properties of the Fourier transform}
   \begin{lemma}[``Your life in Fourier land depends on it.'']
     \begin{align}
       \label{FTLinearity}
@@ -274,7 +281,7 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
       
       \emph{The professor starts whistling some elevator music while waiting for a student to write down the proof before he can wipe the board. When the student is done, the professor notices that there still is some room left on the blackboard and starts writing the rest there, without erasing anything.}
       
-      Proof of \ref{FTUnitary}:
+      Proof of (\ref{FTUnitary}):
       \begin{align*}
         \int\Rn\ft\gj\of\vy \gy\of\vy \diffd\vy
         &= \int\Rn\ftnrm\int\Rn\gj\of\vx
@@ -297,7 +304,7 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
     \begin{proof}
       \begin{align*}
         \gj\in\Schwartz&\Rightarrow\vx^\miga\pd\vx\migb\in\Schwartz \\
-        \ft{\pa{\vx^\miga\pd\vx\migb\gj}}\of\vk
+        \FT\of{\vx^\miga\pd\vx\migb\gj}\of\vk
         &=\I^{\total\miga}\pd\vk\miga\ft{\pa{\pd\vx\migb\gj}}\of\vk 
           && \text{from the second equality in (\ref{FTDerivative}), applied }\total\miga\text{ times.} \\
         &=\I^{\total\miga}\pd\vk\miga\of{\I^{\total\migb}\vk^\migb\ft\gj}\of\vk \\
@@ -310,7 +317,7 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
       \end{equation*}
       As that implies $\ft\gj\in\Schwartz$.
       \begin{align*}
-        \ft{\pa{\pd\vx\miga\of{\vk^\migb\gj}}}\of\vk
+        \FT\of{\pd\vx\miga\of{\vk^\migb\gj}}\of\vk
         &=\I^{\total\miga+\total\migb}\vk^\miga\pd\vk\migb\ft\gj\of\vk
         && \commentbox{by applying the first part of (\ref{FTDerivative}) $\total\miga
         $ times and the second part $\total\migb$ times.}\\
@@ -391,9 +398,8 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
   \end{equation*}
   Subtracting the second equality from the first one above:
   \begin{equation*}
-    \FT\of{\pa{-\derivop[2]{x}+x^2}\gj}\of k = \pa{-\derivop[2]{k}+k^2}\FT\gj\of k\text{,}
+    \FT\of{\pa{-\derivop[2]{x}+x^2}\gj}\of k = \pa{-\derivop[2]{k}+k^2}\FT\gj\of k\text{.}
   \end{equation*}
-  where $\FT = \ft{\placeholder}$ because things are getting a bit too big for the hat.
   We smell a harmonic potential. ``Don't get your fingers too close, they sometimes bite.''
   
   Let $\opH \DefineAs \frac{1}{2}\pa{-\derivop[2]{x}+x^2-1}$. Then $\commutator \opH {\ft{\placeholder}}=0$. We multiplied by $\frac{1}{2}$ so that it looks even more like a harmonic potential (it is the Hamiltonian of the quantum harmonic oscillator). Why did we add $-1$? Define
@@ -545,7 +551,7 @@ As the tangent spaces of $G$ are canonically isomorphic to each other, so are th
 The dual of the Lie algebra, $\MomentumSpace$, is the momentum space. The Hamiltonian is a function from the cotangent bundle (and time) to the reals, $\FunctionSpec\Hamiltonian {\CotangentBundle G \Cartesian \R = G \Cartesian \MomentumSpace \Cartesian \Reals} \R$.
 
 The Pontryagin dual\footnote{The Pontryagin dual is named after %
-\textrussian{Лев Семёнович Понтря́гин} (1908--1988).} $\PontryaginDual G$ is the set of homomorphisms from $G$ to $\UnitaryGroup\of 1$. Compare this with the vector space dual $\Dual V$, which is the set of linear maps from $V$ to the underlying field. One can see $\PontryaginDual G$ as a sort of non-linear analogue to $\Dual V$. We will see that for $G=\Rn$, we have a meaningful isomorphism between $\PontryaginDual G$ and $\MomentumSpace$. This will also give a motivation for defining the Hamiltonian on the \emph{cotangent} bundle and not on the tangent bundle, answering the question: \emph{why should the generalised momenta not lie in the same space as the velocities?}
+\textrussian{Лев Семёнович Понтря́гин} (1908{\slash}1988).} $\PontryaginDual G$ is the set of homomorphisms from $G$ to $\UnitaryGroup\of 1$. Compare this with the vector space dual $\Dual V$, which is the set of linear maps from $V$ to the underlying field. One can see $\PontryaginDual G$ as a sort of non-linear analogue to $\Dual V$. We will see that for $G=\Rn$, we have a meaningful isomorphism between $\PontryaginDual G$ and $\MomentumSpace$. This will also give a motivation for defining the Hamiltonian on the \emph{cotangent} bundle and not on the tangent bundle, answering the question: \emph{why should the generalised momenta not lie in the same space as the velocities?}
 \endgroup
 \end{supplemental}
 
