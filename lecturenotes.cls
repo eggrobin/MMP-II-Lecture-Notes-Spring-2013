@@ -15,21 +15,48 @@
 \RequirePackage{polyglossia}
 \setdefaultlanguage{english}
 \setotherlanguages{greek,german,russian}
+\newcommand{\foreign}{\emph}
 
 % Font definitions.
 
 \RequirePackage{fontspec}
 \setmainfont[
-    SmallCapsFont={Linux Libertine Capitals O},
-    Mapping=tex-text, 
-    Numbers={OldStyle, Proportional}, 
-    Ligatures={TeX, Common, Historical}, 
-    Contextuals=WordFinal,
+  SlantedFont={Linux Libertine Slanted O},
+  SmallCapsFont={Linux Libertine Capitals O},
+  Mapping=tex-text, 
+  Numbers={OldStyle, Proportional}, 
+  Ligatures={TeX, Common, Historical}, 
+  Contextuals=WordFinal,
             ]{Linux Libertine O}
 \setmonofont{Linux Libertine Mono O}
-\newfontface\libertineInitialGlyph[]{Linux Libertine Initials O}
+\newfontface\textinitial[]{Linux Libertine Initials O}
+\newfontface\textdisplay[
+  Mapping=tex-text, 
+  Numbers={OldStyle, Proportional}, 
+  Ligatures={TeX, Common, Historical}, 
+  Contextuals=WordFinal
+                        ]{Linux Libertine Display O}
+\newfontface\textsfshadow[
+  Mapping=tex-text, 
+  Ligatures={TeX, Common},
+  Numbers={OldStyle, Proportional},
+  Contextuals=WordFinal
+            ]{Linux Biolinum Shadow O}
+\newfontface\textsfoutline[
+  Mapping=tex-text, 
+  Ligatures={TeX, Common},
+  Numbers={OldStyle, Proportional},
+  Contextuals=WordFinal
+            ]{Linux Biolinum Outline O}
 
-\setsansfont[Ligatures={TeX, Common}, Numbers={OldStyle, Proportional}]{Linux Biolinum O}
+\setsansfont[
+  Mapping=tex-text, 
+  Ligatures={TeX, Common},
+  Numbers={OldStyle, Proportional},
+  SlantedFont={Linux Biolinum Slanted O},
+  SmallCapsFont={Linux Biolinum Capitals O}, 
+  Contextuals=WordFinal
+            ]{Linux Biolinum O}
 
 % Layout.
 
@@ -50,7 +77,7 @@
 \ifKV@lecture@official
 \def\lectureOfficial{\\* There are official notes for the material covered in this lecture.}
 \else
-\def\lectureOfficial{}
+\def\lectureOfficial{\\* The material covered in this lecture is not part of the official notes.}
 \fi}
 \makeatother
 \newcounter{Lecture}
@@ -59,7 +86,7 @@
 \setkeys{lecture}{official, #1}
 
 \begin{flushright}
-\emph{Lecture \theLecture, \printdate{\lectureDate}.\lectureOfficial}
+\textsc{Lecture} \theLecture, \printdate{\lectureDate}.\emph{\lectureOfficial}
 \end{flushright}
 
 }{}
