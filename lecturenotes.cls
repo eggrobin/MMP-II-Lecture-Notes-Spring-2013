@@ -21,11 +21,11 @@
 
 \RequirePackage{fontspec}
 \setmainfont[
-  SlantedFont={Linux Libertine Slanted O},
-  SmallCapsFont={Linux Libertine Capitals O},
   Mapping=tex-text, 
   Numbers={OldStyle, Proportional}, 
   Ligatures={TeX, Common, Historical}, 
+%  SmallCapsFont={Linux Libertine Capitals O},
+  SmallCapsFeatures={Letters=SmallCaps},
   Contextuals=WordFinal,
             ]{Linux Libertine O}
 \setmonofont{Linux Libertine Mono O}
@@ -53,8 +53,8 @@
   Mapping=tex-text, 
   Ligatures={TeX, Common},
   Numbers={OldStyle, Proportional},
-  SlantedFont={Linux Biolinum Slanted O},
-  SmallCapsFont={Linux Biolinum Capitals O}, 
+%  SmallCapsFont={Linux Biolinum Capitals O}, 
+  SmallCapsFeatures={Letters=SmallCaps},
   Contextuals=WordFinal
             ]{Linux Biolinum O}
 
