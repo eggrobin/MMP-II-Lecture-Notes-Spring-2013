@@ -91,6 +91,28 @@
            \raise\rh@htb\hbox{\scalebox{1}[-1]{\box\rh@box}}\cr}}
 \makeatother
 
+% This makes a scaling integral sign that seems to (kind of) work.
+
+\makeatletter
+\def\@delint{\Udelimiter 4 \symoperators "222B }
+\newcommand{\@mathraisebox}[3][\scriptstyle]{%
+\raisebox{#2}{$#1 #3$}%
+}
+\newcommand\scalingIntegralSign[3]{
+\@mathraisebox[\displaystyle]{.75pt}{
+  \operatorname*{
+    \left.{\kern-\nulldelimiterspace}
+    \vphantom{#3}\vphantom{\mathlarger{{\integralSign}}} 
+    \middle
+    \@delint
+    \right.{\kern-\nulldelimiterspace}
+  }
+  _{\mathclap{\@mathraisebox{-3pt}{#1\hspace{6.75pt}}}}
+  ^{\mathclap{\@mathraisebox{1pt}{\hspace{3.6pt} #2}}}
+}{\hspace{-1.25pt}#3}
+}
+\makeatother
+
 %%% end Voodoo 
  
 \AtBeginDocument{   
@@ -231,8 +253,9 @@
 \newcommand{\pdop}[1]{\partial^{#1}}
 % \int, \prod and \sum are respectively integration, product and summation over a space
 % indicated below. An optional second argument (upper bound) can follow, within square brackets.
+
 \DeclareDocumentCommand\int{m O{}}{\mathchoice
-{\mathlarger{\mathlarger{\integralSign\limits}}_{#1}^{#2}}
+{\scalingIntegralSign{#1}{#2}{}}
 {\integralSign_{#1}^{#2}}
 {\integralSign_{#1}^{#2}}
 {\integralSign_{#1}^{#2}}
