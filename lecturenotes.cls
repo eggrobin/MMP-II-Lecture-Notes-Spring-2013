@@ -33,6 +33,8 @@
 \newfontface\textdisplay[
   Mapping=tex-text, 
   Numbers={OldStyle, Proportional}, 
+  SmallCapsFont={Linux Libertine O},
+  SmallCapsFeatures={Letters=SmallCaps},
   Ligatures={TeX, Common, Historical}, 
   Contextuals=WordFinal
                         ]{Linux Libertine Display O}
