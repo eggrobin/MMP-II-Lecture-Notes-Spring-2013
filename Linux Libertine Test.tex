@@ -14,6 +14,15 @@
 \newgeometry{top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm}
 \begin{sloppypar}
 \begin{figure}[ht]
+{\Huge\textdisplay{%
+ABCDEFGHIJKLMNOPQRSTUVWXYZЖΩ\\*abcdefghijklmnopqrstuvwxyz0123456789\\*
+}}
+{\Huge\textinitial{%
+ABCDEFGHIJKLM\\*
+NOPQRSTUVWXYZ\\*
+0123456789\\*
+}}
+
 \begin{minipage}[b]{0.45\linewidth}
 \noindent
 0123456789\\
@@ -58,6 +67,15 @@ abcdefghijklmnopqrstuvwxyz\\
 \textbf{\textit{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
 αβγδεζηθικλμνξοπρστυφχψω}}\\
 
+\textsfshadow{%
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\\
+abcdefghijklmnopqrstuvwxyz\\
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
+αβγδεζηθικλμνξοπρστυφχψω\
+АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ \\
+абвгдеёжзийклмнопрстуфхцчшщъыьэюя \\
+}
+
 \end{minipage}
 \hspace{0.5cm}
 \begin{minipage}[b]{0.45\linewidth}
@@ -71,16 +89,21 @@ abcdefghijklmnopqrstuvwxyz\\
 }
 
 \noindent
-\textsf{
+\textsfshadow{0123456789}\\
+\textsfoutline{0123456789}\\
+
+\noindent
+\textsf{%
 0123456789\\
 \textit{0123456789}\\
 \textbf{0123456789}\\
 }
 
 \noindent
-\textsf{
-ABCDEFGHIJKLMNOPQRSTUVWXYZ  \\
-abcdefghijklmnopqrstuvwxyz  \\
+\textsf{%
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\\
+abcdefghijklmnopqrstuvwxyz\\
+\textsc{abcdefghijklmnopqrstuvwxyz}\\
 \textit{ABCDEFGHIJKLMNOPQRSTUVWXYZ\\
 abcdefghijklmnopqrstuvwxyz}\\
 \textbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ\\
@@ -88,7 +111,7 @@ abcdefghijklmnopqrstuvwxyz}\\
 }
 
 \noindent
-\textsf{
+\textsf{%
 АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ \\
 абвгдеёжзийклмнопрстуфхцчшщъыьэюя \\
 \textit{АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ\\
@@ -98,7 +121,7 @@ abcdefghijklmnopqrstuvwxyz}\\
 }
 
 \noindent
-\textsf{
+\textsf{%
 ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
 αβγδεζηθικλμνξοπρστυφχψω\\
 \textit{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
@@ -106,9 +129,20 @@ abcdefghijklmnopqrstuvwxyz}\\
 \textbf{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
 αβγδεζηθικλμνξοπρστυφχψω}\\
 }
+
+\textsfoutline{%
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\\
+abcdefghijklmnopqrstuvwxyz\\
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ\\
+αβγδεζηθικλμνξοπρστυφχψω\
+АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ \\
+абвгдеёжзийклмнопрстуфхцчшщъыьэюя \\
+}
+
 \end{minipage}
 \end{figure}
 
+\pagebreak
 
 \begin{align*}
 \mathrm{0123456789} &&\mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}&&\mathrm{ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ}\\
@@ -315,4 +349,49 @@ La néceſſité d'énoncer ces droits ſuppoſe ou la préſence, ou le ſouven
 --- Как вам сказать? --- сказал князь холодным, скучающим тоном. --- \textfrench{Qu'a-t-on décidé? On a décidé que Buonaparte a brûlé ses vaisseaux, et je crois que nous sommes en train de brûler les nôtres.}
 \end{russian}
 
+\pagebreak
+
+\begin{german}
+\section*{Faust.}
+\renewcommand{\poemtoc}{section}
+\poemtitle{Zueignung.}
+\settowidth{\versewidth}{Ihr naht euch wieder, schwankende Gestalten!}
+\begin{verse}[\versewidth]
+\poemlines{5}
+Ihr naht euch wieder, schwankende Gestalten!\\
+Die früh sich einst dem trüben Blick gezeigt.\\
+Versuch’ ich wohl euch diesmal fest zu halten?\\
+Fühl’ ich mein Herz noch jenem Wahn geneigt?\\
+Ihr drängt euch zu! nun gut, so mögt ihr walten,\\
+Wie ihr aus Dunst und Nebel um mich steigt;\\
+Mein Busen fühlt sich jugendlich erschüttert\\
+Vom Zauberhauch der euren Zug umwittert.
+
+Ihr bringt mit euch die Bilder froher Tage,\\
+Und manche liebe Schatten steigen auf;\\
+Gleich einer alten, halbverklungnen Sage,\\
+Kommt erste Lieb’ und Freundschaft mit herauf;\\
+Der Schmerz wird neu, es wiederholt die Klage\\
+Des Lebens labyrinthisch irren Lauf,\\
+Und nennt die Guten, die, um schöne Stunden\\
+Vom Glück getäuscht, vor mir hinweggeschwunden.\\
+Sie hören nicht die folgenden Gesänge,\\
+Die Seelen, denen ich die ersten sang,\\
+Zerstoben ist das freundliche Gedränge,\\
+Verklungen ach! der erste Wiederklang.\\
+Mein Lied[1] ertönt der unbekannten Menge,\\
+Ihr Beyfall selbst macht meinem Herzen bang,\\
+Und was sich sonst an meinem Lied erfreuet,\\
+Wenn es noch lebt, irrt in der Welt zerstreuet.
+
+Und mich ergreift ein längst entwöhntes Sehnen\\
+Nach jenem stillen, ernsten Geisterreich,\\
+Es schwebet nun, in unbestimmten Tönen,\\
+Mein lispelnd Lied, der Aeolsharfe gleich,\\
+Ein Schauer faßt mich, Thräne folgt den Thränen,\\
+Das strenge Herz es fühlt sich mild und weich;\\
+Was ich besitze seh’ ich wie im weiten,\\
+Und was verschwand wird mir zu Wirklichkeiten.
+\end{verse}
+\end{german}
 \end{document}

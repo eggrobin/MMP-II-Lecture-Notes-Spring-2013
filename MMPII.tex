@@ -83,7 +83,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
     &\pd\vx\miga &\DefineAs \frac{\partial^{\total{\miga}}}{\pd{x_1}{\ga_1} \dotsm \pd{x_n}{\ga_n}}
     \text{(we use }\pdop\miga\text{ when the variable is implicit),} \\
     \text{and }\vx^\migb &\DefineAs x_1^{\gb_1} \dotsm x_n^{\gb_n}
-    \text{ for }\vx \in \Rn, \migb \in \N^n\text{.}
+    \text{ for }\vx \in \Rn\text{, } \migb \in \N^n\text{.}
   \end{align*}
   \end{definition}
 
@@ -660,8 +660,8 @@ The problem is phase transitions: the symmetries change, and you cannot see that
 \endgroup
 \end{lecture}
 
-\section{All the eigenfunctions of the Fourier transform}
 \begin{lecture}[date=2013-03-26]
+\section{All the eigenfunctions of the Fourier transform}
 Recall: 
 \begin{align*}
 \FT\of\gj\of\vk\DefineAs\ft\gj\of\vk&\DefineAs\ftnrm\int\Rn\gj\of\vx\E^{-\I\scal{\vk}{\vx}}\diffd\vx\text{,} &&\gj\in\Schwartz\text,\\
@@ -670,7 +670,6 @@ Recall:
 \FT{\pa{\derivop[2]x + x^2}}\of{k}&=\pa{\derivop[2]x + x^2}\FT\of\gj\of{k}\text.
 \end{align*}
 So we have this very nice guy here: $\derivop[2]x + x^2$, and having gone to \foreign{\textgerman{Elementarschule}}, you'd think \[\derivop[2]x + x^2 \stackrel{?}= \pa{x-\derivop x}\pa{x+\derivop x}\text{.}\] But the \emph{real} identity they should teach you at school --- life is short, the sooner you get going, the better --- is \[\pa{a-b}\pa{a+b}=a^2-b^2+\commutator a b\text{.}\] That's the difference between childhood and adulthood: $ab$ is no longer equal to $ba$, and it causes a lot of problems.
-
 Here $\commutator {\derivop x} x = \Identity$. We now know  $ \pa{x-\derivop x}\pa{x+\derivop x} = -\derivop[2]x + x^2 -1$.
 This will be around long after strings are seen as a strange cult of the 21st century.
 
@@ -687,7 +686,6 @@ We wrote ``dagger''. This makes sense, as;
 &=\int\R\conj{\pa{\frac{1}{\sqrt{2}}\pa{-\derivop x + x}\gy\of x}} \gj\of x \diffd x \\
 &=\LTwoInner {\opAdag \gy}\gj\text.
 \end{align*}
-
 Write 
 \begin{align*}
 \opA_x&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text,\\
@@ -703,8 +701,7 @@ Observe:
 h_0\of x &\DefineAs \frac{\E^{-\frac{1}{2}x^2}}{\sqrt[4]{\Pi}}\\
 \end{align*}
 so that $\LTwoInner {h_0}{h_0} = 1$.
-
-We now can perform the following induction:
+We can now perform the following induction:
 \begin{align*}
 \opA h_0&=0\text, \\
 \ft{h_0}&= h_0\text,\\
@@ -712,8 +709,8 @@ We now can perform the following induction:
 \FT\of{\pa{\adj{\opA_x}}^n h_0}\of k &= \pa{-\I} \adj{\opA_k}\FT\of{\pa{\adj \opA_x}^{n-1}h_0}\of k
 = \pa{-\I}^n \pa{\adj{\opA_k}}^n h_0\of k\text.
 \end{align*}
-In other words, the $\pa{\opAdag}^n h_0$ --- with an $\opAdag$, not an $\opA$; ``a dagger can be the difference between life and death!'' --- are eigenfunctions of the the Fourier transform. We will need to prove that these form a complete set, and we will have an orthogonal basis of $\SchwartzSpace\of\R$.
-``I'll do some coherent states. I like coherent states.'' Next week we shall prove:
+In other words, the $\pa{\opAdag}^n h_0$ --- with an $\opAdag$, not an $\opA$; ``a dagger can be the difference between life and death!'' --- are eigenfunctions of the the Fourier transform. We will need to prove that these are orthogonal and form a complete set, and we will have an orthogonal basis of $\SchwartzSpace\of\R$.
+``I'll do some coherent states. I like coherent states.'' Next time we shall prove:
 \begin{align*}
 \commutator A {\adj A} &= \Identity \text,\\
 \commutator A {\pa{\adj A}^n} &= n \pa{\adj A}^{n-1} \text.
@@ -807,7 +804,7 @@ We have:
 \begin{align*}
 \LTwoInner \gj {x h_0} 
 &= \frac{1}{\sqrt{2}}\LTwoInner \gj {\opA h_0} + \frac{1}{\sqrt 2} \LTwoInner \gj {\opAdag h_0}\\
-&=\frac{1}{\sqrt{2}}\LTwoInner \gj {\h_1} = 0 \text.
+&=\frac{1}{\sqrt{2}}\LTwoInner \gj {h_1} = 0 \text.
 \end{align*}
 What do we do? we repeat:
 \begin{align*}
@@ -821,7 +818,7 @@ What do we do? we repeat:
 And now ? we repeat:
 \begin{align*}
 \LTwoInner \gj {x^3 h_0} 
-&= \pa{\frac{1}{sqrt 2}}^3 \LTwoInner \gj {\pa{\opA+\opAdag}^3 h_0} \\
+&= \pa{\frac{1}{\sqrt 2}}^3 \LTwoInner \gj {\pa{\opA+\opAdag}^3 h_0} \\
 &= \dotsb = 0\text.
 \end{align*}
 By induction, we can show $\LTwoInner \gj {x^n h_0} = 0 $ for $n\geq0$. It follows 
@@ -835,27 +832,26 @@ TEXTHERE
   &= \sqrt{2\Pi}\frac{1}{\sqrt{2\Pi}} \int\R \conj \gj \of x h_0\of x \E^{-\I k x}\diffd x\text, && \forall k\in\R\text.
 \end{align*}
 Where $\conj \gj \of x h_0\of x\in \SchwartzSpace\of\R$. It follows:
-\begin{align*}
-\ft{\conj \gj  h_0}\of k &= 0 && \forall k\in \R\\
-\Implies \conj \gj\of x  h_0\of x &= 0 && \forall x\in \R\\
-\Implies \gj\of x h_0\of x &= 0 && \forall x\in \R\\
-\Implies \gj \of x &=0 && \forall x \in \R\text. 
-\end{align*}
+\begin{alignat*}{2}
+         & \forall k\in \R \quad & \ft{\conj \gj  h_0}\of k &= 0\\
+\Implies & \forall x\in \R \quad &\conj \gj\of x  h_0\of x &= 0 \\
+\Implies & \forall x\in \R \quad & \gj\of x h_0\of x &= 0 \\
+\Implies & \forall x\in \R \quad & \gj \of x &=0 \text. 
+\end{alignat*}
 So $\gj\Identically 0$.
 \end{proof}
 
 We now know that the $h_n$ form a basis of $\SchwartzSpace\of\R$. But we are greedy. We want more. Namely, we want:
 \[
-\gy\in\SchwartzSpace\of\R \stackrel{?}{=} \sum{n=0}[\infty] \LTwoInner\gy {h_n} h_n\of x \DefineAs \lim_{\conv N \inf} \sum{n=0}[N] \LTwoInner\gy {h_n} h_n\of x\text.
+\gy\in\SchwartzSpace\of\R \stackrel{?}{=} \sum{n=0}[\infty] \LTwoInner\gy {h_n} h_n\of x \DefineAs \lim_{\conv N \infty} \sum{n=0}[N] \LTwoInner\gy {h_n} h_n\of x\text.
 \]
 TEXT HERE
 \begin{align*}
-\abs{\LTwoInner\gy} 
+\abs{\LTwoInner\gy{h_n}} 
 &= \abs{\int\R \conj\gy\of x h_n\of x \diffd x}\\
 &\leq \int\R\abs{\conj\gj\of x} \abs{h_n\of x}\diffd x\\
-&=
+&=\text{stuff}
 %TODO TODO TODO TODO TODO TODO 
-
 \end{align*}
 \end{proposition}
 
