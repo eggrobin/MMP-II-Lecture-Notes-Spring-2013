@@ -660,8 +660,8 @@ The problem is phase transitions: the symmetries change, and you cannot see that
 \endgroup
 \end{lecture}
 
-\section{All the eigenfunction of the Fourier transform}
 \begin{lecture}[date=2013-03-26]
+\section{All the eigenfunctions of the Fourier transform}
 Recall: 
 \begin{align*}
 \FT\of\gj\of\vk\DefineAs\ft\gj\of\vk&\DefineAs\ftnrm\int\Rn\gj\of\vx\E^{-\I\scal{\vk}{\vx}}\diffd\vx\text{,} &&\gj\in\Schwartz\text,\\
@@ -670,7 +670,6 @@ Recall:
 \FT{\pa{\derivop[2]x + x^2}}\of{k}&=\pa{\derivop[2]x + x^2}\FT\of\gj\of{k}\text.
 \end{align*}
 So we have this very nice guy here: $\derivop[2]x + x^2$, and having gone to \foreign{\textgerman{Elementarschule}}, you'd think \[\derivop[2]x + x^2 \stackrel{?}= \pa{x-\derivop x}\pa{x+\derivop x}\text{.}\] But the \emph{real} identity they should teach you at school --- life is short, the sooner you get going, the better --- is \[\pa{a-b}\pa{a+b}=a^2-b^2+\commutator a b\text{.}\] That's the difference between childhood and adulthood: $ab$ is no longer equal to $ba$, and it causes a lot of problems.
-
 Here $\commutator {\derivop x} x = \Identity$. We now know  $ \pa{x-\derivop x}\pa{x+\derivop x} = -\derivop[2]x + x^2 -1$.
 This will be around long after strings are seen as a strange cult of the 21st century.
 
@@ -687,7 +686,6 @@ We wrote ``dagger''. This makes sense, as;
 &=\int\R\conj{\pa{\frac{1}{\sqrt{2}}\pa{-\derivop x + x}\gy\of x}} \gj\of x \diffd x \\
 &=\LTwoInner {\opAdag \gy}\gj\text.
 \end{align*}
-
 Write 
 \begin{align*}
 \opA_x&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text,\\
@@ -703,8 +701,7 @@ Observe:
 h_0\of x &\DefineAs \frac{\E^{-\frac{1}{2}x^2}}{\sqrt[4]{\Pi}}\\
 \end{align*}
 so that $\LTwoInner {h_0}{h_0} = 1$.
-
-We now can perform the following induction:
+We can now perform the following induction:
 \begin{align*}
 \opA h_0&=0\text, \\
 \ft{h_0}&= h_0\text,\\
@@ -712,8 +709,8 @@ We now can perform the following induction:
 \FT\of{\pa{\adj{\opA_x}}^n h_0}\of k &= \pa{-\I} \adj{\opA_k}\FT\of{\pa{\adj \opA_x}^{n-1}h_0}\of k
 = \pa{-\I}^n \pa{\adj{\opA_k}}^n h_0\of k\text.
 \end{align*}
-In other words, the $\pa{\opAdag}^n h_0$ --- with an $\opAdag$, not an $\opA$; ``a dagger can be the difference between life and death!'' --- are eigenfunctions of the the Fourier transform. We will need to prove that these form a complete set, and we will have an orthogonal basis of $\SchwartzSpace\of\R$.
-``I'll do some coherent states. I like coherent states.'' Next week we shall prove:
+In other words, the $\pa{\opAdag}^n h_0$ --- with an $\opAdag$, not an $\opA$; ``a dagger can be the difference between life and death!'' --- are eigenfunctions of the the Fourier transform. We will need to prove that these are orthogonal and form a complete set, and we will have an orthogonal basis of $\SchwartzSpace\of\R$.
+``I'll do some coherent states. I like coherent states.'' Next time we shall prove:
 \begin{align*}
 \commutator A {\adj A} &= \Identity \text,\\
 \commutator A {\pa{\adj A}^n} &= n \pa{\adj A}^{n-1} \text.
