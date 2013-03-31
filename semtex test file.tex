@@ -93,4 +93,27 @@ c&d
 \foo[[a][b]][c] [[d][ f]]\\
 \baz[1][2][3][4][5]\\
 \baz[[a][]][x[a][e][[y][y]]][[e][j]][$a$][$\gs$]
+% Stuff done in-flight.
+
+\makeatletter
+\renewcommand{\@mathraisebox}[3][\scriptstyle]{%
+\raisebox{#2}{$#1 #3$}%
+}
+\newcommand\smartIntegral[3]{
+\@mathraisebox[\displaystyle]{.75pt}{
+  \operatorname*{
+    \left.{\kern-\nulldelimiterspace}
+    \vphantom{#3}\vphantom{\mathlarger{{\integralSign}}} 
+    \middle
+    \delint
+    \right.{\kern-\nulldelimiterspace}
+  }
+  _{\@mathraisebox{-3pt}{\mathclap{#1\hspace{6.75pt}}}}
+  ^{\@mathraisebox{1pt}{\mathclap{\hspace{3.6pt} #2}}}
+}{\hspace{-1.25pt}#3}
+}
+\makeatother
+\[
+  \smartIntegral{\R^n}{}{\smartIntegral{\R^n}{}{f\of{x, y} \diffd x}\diffd y} \neq \smartIntegral{0}{1}{x\diffd x}
+\]
 \end{document}

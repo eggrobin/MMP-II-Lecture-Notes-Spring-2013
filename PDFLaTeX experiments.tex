@@ -1,0 +1,33 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\makeatletter
+\newif\if@delimsize
+\@delimsizefalse
+
+\catcode`_=\active
+\newcommand_[1]{\if@delimsize{}\else\sb{#1}\fi}
+
+\newcommand{\smartSum}[3]{\if@delimsize\sum #3\else \sum_{#1}^{#2} #3\fi}
+\newcommand{\smartInt}[3]{\if@delimsize\int #3\else \int\limits_{#1}^{#2} #3\fi}
+\newcommand{\pa}[1]{
+\if@delimsize
+#1
+\else
+\mathopen{\left(\@delimsizetrue\vphantom{#1}{\kern-\nulldelimiterspace}\right.}\@delimsizefalse #1 \mathclose{\left.{\kern-\nulldelimiterspace}\@delimsizetrue \vphantom{#1} \right)} \@delimsizefalse
+\fi}
+\makeatother
+
+\begin{document}
+\begin{gather}
+\sum_{\text{loooongtext}}=\sum_{\mathclap{\text{loooongtext}}}\\
+\left(\sum_{i}i\right)=\pa{\smartSum{i=1}{\infty}{i}}=\pa{\smartSum{i=1}{\infty}{\frac 1i}}\\
+\pa{\smartInt{0}{1}{x \operatorname{d} x}}\\
+\pa{\pa{\pa{\pa{x}}}}\\
+((((x))))\\
+\left(\left(\left(\left(x\right)\right)\right)\right)\\
+(((x)_i)_k)\left(\left(\left(x\right)_i\right)_k\right)\pa{\pa{\pa{x}_i}_k}\\
+(x_{i_{j_k}})\left(x_{i_{j_k}}\right)\pa{x_{i_{j_k}}}
+\end{gather}
+\end{document}
