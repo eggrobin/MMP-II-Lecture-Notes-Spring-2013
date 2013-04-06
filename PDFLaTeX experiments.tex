@@ -6,9 +6,6 @@
 \newif\if@delimsize
 \@delimsizefalse
 
-\catcode`_=\active
-\newcommand_[1]{\if@delimsize{}\else\sb{#1}\fi}
-
 \newcommand{\smartSum}[3]{\if@delimsize\sum #3\else \sum_{#1}^{#2} #3\fi}
 \newcommand{\smartInt}[3]{\if@delimsize\int #3\else \int\limits_{#1}^{#2} #3\fi}
 \newcommand{\pa}[1]{
@@ -17,9 +14,95 @@
 \else
 \mathopen{\left(\@delimsizetrue\vphantom{#1}{\kern-\nulldelimiterspace}\right.}\@delimsizefalse #1 \mathclose{\left.{\kern-\nulldelimiterspace}\@delimsizetrue \vphantom{#1} \right)} \@delimsizefalse
 \fi}
+
+
+\catcode`_=\active
+\newcommand_[1]{\if@delimsize{}\else\sb{#1}\fi}
+
 \makeatother
 
+
+\usepackage{expl3}
+\usepackage{xparse}
+\ExplSyntaxOn
+
+\NewDocumentCommand{\RangedOperator}{ m } {
+  \clist_set:Nn\args {#1}
+  \operatorname*{R}
+  \clist_pop:NN \args \operand
+  \int_case:nnn { \clist_count:N\args }
+    {
+      {0} {}
+      {1} {
+        \clist_pop:NN \args \range
+        \bigOperatorRange{\range}
+      }
+    }
+    {\text{ERROR~\clist_count:N\args}}
+  \tl_use:N\operand
+}
+
+\NewDocumentCommand{\bigOperatorRange}{ m } {
+  \clist_pop:NN #1 \low
+  _{\low}
+  \int_case:nnn { \clist_count:N#1 }
+    {
+      {0} {}
+      {1} { 
+        \clist_pop:NN #1 \high
+        ^{\high}
+          }
+    }
+    {\text{ERROR~\clist_count:N#1}}
+  }
+\seq_put_left:Nn\l_char_active_seq{^}
+\seq_put_left:Nn\l_char_active_seq{_}
+
+\char_set_catcode_active:N ^
+
+\makeatletter
+\newcommand^[1]{\if@delimsize{}\else\sp{#1}\fi}
+\makeatother
+\ExplSyntaxOff
+
 \begin{document}
+\catcode`^=\active
+\catcode`[=1
+\catcode`]=2
+\catcode`.=0
+
+\begin{gather}
+\RangedOperator{x}\\
+\RangedOperator{x,X}\\
+\RangedOperator{x,{0,1}}\\
+\RangedOperator{xy,{X\times Y}}\\
+\pa{\RangedOperator{x^2,{0,1}}}\\
+\pa{
+  \RangedOperator{
+    \pa{
+      y\RangedOperator{x^2,{0,1}}
+    }, {
+      \pa{\RangedOperator{z^3,{0,4}}},
+      \RangedOperator{t^2,{0,5}}
+    }
+  }
+}\\
+.pa[
+  .RangedOperator[
+    .pa[
+      y.RangedOperator[x^2,[0,1]]
+    ], [
+      .pa[.RangedOperator[z^3,[0,4]]],
+      .RangedOperator[t^2,[0,5]]
+    ]
+  ]
+]
+\end{gather}
+
+.[
+.pa[x\sp 2].pa[x].pa[x^2](x)
+.]
+
 \begin{gather}
 \sum_{\text{loooongtext}}=\sum_{\mathclap{\text{loooongtext}}}\\
 \left(\sum_{i}i\right)=\pa{\smartSum{i=1}{\infty}{i}}=\pa{\smartSum{i=1}{\infty}{\frac 1i}}\\
