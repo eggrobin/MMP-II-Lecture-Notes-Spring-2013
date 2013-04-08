@@ -723,4 +723,184 @@ This is the only real idea in group representations: you find some commutation r
 
 \end{lecture}
 
+\begin{lecture}[date=2013-03-28]
+We also define $\opH \DefineAs \opAdag \opA$, $h_n\of  x \DefineAs \pa{\opAdag}^n h_0$ for $n\geq 1$. We have $h_n\in \SchwartzSpace\of\R$ for $n\geq 0$. $\opA$, $\opAdag$ and $\opH$ all map $\SchwartzSpace\of\R$ to itself.
+Now we compute:
+\begin{align*}
+2\commutator \opA \opAdag \gj &= 2 \opA\opAdag\gj- 2 \opAdag\opA\gj\\
+&=\pa{\derivop x + x}\pa{-\derivop x + x}\gj - \pa{-\derivop x + x}\pa{\derivop x + x}\gj\\
+&=\pa{\derivop x + x}\pa{\gj\der + x\gj} - \pa{-\derivop x + x}\pa{\gj\der + x\gj}\\
+&= \pa{\gj\dder + \pa{x\gj}\der + \pa{-x\gj\der}+x^2\gj}
+ - \pa{\gj\dder - \pa{x\gj}\der + x\gj\der+x^2\gj}\\
+ &= 2\pa{x\gj}\der - 2 x\gj\der = 2\gj
+\end{align*}
+This yields the following proposition.
+\begin{proposition}
+\begin{align}
+\commutator \opA \opAdag &= \Identity \\
+\label{comm2}
+\commutator \opA {\pa{\opAdag}^n} &= n\pa{\opAdag}^{n-1}\text, &&n\geq 1\text,\\
+\ft{h_n}&=\pa{-\I}^n h_n\text,&&n\geq 0\text,\\
+\label{orth4}
+\LTwoInner {h_m}{h_n} &= \KroneckerDelta m n\text,\\
+\label{creation5}
+\opA h_n &= \sqrt n h_{n-1}\text,\\
+\opAdag h_n &= \sqrt{n+1} h_{n+1} \text, \\
+\label{Hh07}
+\opH h_n &= n h_n\text, && n\geq 0\text,\\
+h_n&\in\SchwartzSpace\of\R\text, && n\geq 0\text,\\
+\ft{\opA_x \gj}&= \I \opA_k \ft\gj\text,\\
+\ft{\adj{\opA_x} \gj}&= \pa{-\I} \adj{\opA_k} \ft\gj\text.
+\end{align}
+\begin{proof}
+Proof of (\ref{comm2}) by induction:
+\begin{align*}
+  \commutator \opA \opAdag &= \Identity\text, && (n=1)\text,\\
+  \commutator \opA {\pa{\opAdag}^{n+1}} &= \opA \pa{\opAdag}^{n+1} - \pa{\opAdag}^{n+1} \opA\\
+  &= \opA \pa{\opAdag}^{n+1} - \opAdag \pa{\opA \pa{\opAdag}^n - n \pa{\opAdag}^{n-1}} \\
+  &= \opA \pa{\opAdag}^{n+1} - \opAdag \opA \pa{\opAdag}^n + n \pa{\opAdag}^n
+\end{align*}
+  ``Ah, there must be an easier way to show this, it can't be that hard. Let's just reboot this argument:''
+\begin{align*}
+\opA\pa{\opAdag}^n - \pa{\opAdag}^n\opA &= n \pa{\opAdag}^{n-1}\\
+\Implies \opA\pa{\opAdag}^{n+1} - \pa{\opAdag}^n \opA \opAdag &= n \pa{\opAdag}^n \\
+\Implies \opA \pa{\opAdag}^{n+1} - \pa{\opAdag}^n \pa{\Identity + \opAdag\opA}&= n \pa{\opAdag}^n \\
+\Implies \opA \pa{\opAdag}^{n+1} - \pa{\opAdag}^{n+1} \opA - \pa{\opAdag}^{n} &= n \pa{\opAdag}^n \text.
+\end{align*}
+
+Now we are going to do something quickly, where algebra really shines: you do nothign but apply the same basic identities over and over, yet get something useful out:
+
+Proof of (\ref{orth4}). Let us assume $m>n\geq 0$, because we already did the case where both are $0$.
+\begin{align*}
+\LTwoInner{h_m}{h_n} &= \frac{1}{\sqrt{\Factorial m}} \frac{1}{\sqrt{\Factorial n}} \LTwoInner{\pa{\opAdag}^{m} h_0}{\pa{\opAdag}^{n} h_0} \\
+&= \frac{1}{\sqrt{\Factorial m}} \frac{1}{\sqrt{\Factorial n}}\LTwoInner{\pa{\opAdag}^{m-1} h_0}{\opA\pa{\opAdag}^{n} h_0}\\
+&= \frac{1}{\sqrt{\Factorial m}} \frac{1}{\sqrt{\Factorial n}}\LTwoInner{\pa{\opAdag}^{m-1} h_0}{\pa{\pa{\opAdag}^{n}\opA + n\pa{\opAdag}^{n-1}} h_0 }\\
+&= \frac{1}{\sqrt{\Factorial m}} \frac{n}{\sqrt{\Factorial n}} 
+  \LTwoInner{\pa{\opAdag}^{m-1} h_0}{\pa{\opAdag}^{n-1} h_0}\\
+&= \frac{1}{\sqrt{\Factorial m}} 
+  \frac{n\pa{n-1}}{\sqrt{\Factorial n}} 
+  \LTwoInner{\pa{\opAdag}^{m-2} h_0}{\pa{\opAdag}^{n-2} h_0}\\
+  &= \dotsb = \frac{1}{\sqrt{\Factorial m}} 
+  \frac{n\pa{n-1}\dotsm 1}{\sqrt{\Factorial n}} 
+  \LTwoInner{\pa{\opAdag}^{m-n} h_0}{h_0}\text.
+\end{align*}
+As $\opAdag$ kills $h_0$ --- it is called the \emph{annihilation} operator, in German the \foreign{\textgerman{Vernichtungsoperator}} ---, we get $
+  \LTwoInner{h_m}{h_n} =
+  \frac{1}{\sqrt{\Factorial m}} 
+  \frac{n\pa{n-1}\dotsm 1}{\sqrt{\Factorial n}} 
+  \LTwoInner{0}{h_0}=0$ if $m>n$. If $m=n$, we have $
+  \LTwoInner{h_n}{h_n} =
+  \frac{1}{\sqrt{\Factorial n}} 
+  \frac{n\pa{n-1}\dotsm 1}{\sqrt{\Factorial n}} 
+  \LTwoInner{h_0}{h_0}=1$.  
+  In other words, $\set{h_n}$ is an orthogonal family.
+
+  Proof (\ref{creation5}):
+  \begin{align*}
+  \opA h_n &= \frac{1}{\sqrt{\Factorial n}} \opA\pa{\opAdag}^n h_0 \\
+  &= \frac{1}{\sqrt{\Factorial n}}\pa{\pa{\opAdag}^n\opA + n \pa{\opAdag}^{n-1}}h_0\\
+  &= \frac{n}{\sqrt{\Factorial n}} \pa{\opAdag}^{n-1} h_0 = \sqrt{n} h_{n-1}\text.
+  \end{align*}
+  The other one are even easier; I'm not doing them, you are getting bored.
+
+  Now for something fun, the proof of (\ref{Hh07}). First, note that
+  \begin{align*}
+    \opH h_0 &= \opAdag \opA h_0 = 0\text.
+  \end{align*}
+
+  With what we already have, we can complete the proof elegantly (— but then, I have always maintained that elegance is for tailors):
+ \begin{align*}
+   \opH h_n &= \opAdag \pa{\opA h_n} = \opAdag \sqrt{n} h_{n-1} = \sqrt{n} \sqrt{n} h_n = n h_n\text.
+ \end{align*}
+\end{proof}
+\end{proposition}
+Now, ladies and gentlemen, your jaws should be dropping. We have these beautiful identities:
+\begin{align*}
+  \ft h_n &= \pa{-\I}^n h_n \text, && n \geq 0 \text,\\
+  \opH h_n &= n\, h_n\text, && n \geq 0 \text.
+\end{align*}
+So, ``out of nowhere'' we now have eigenvectors with eigenvalues 0, 1, 2, etc.!
+
+``Whenever I think of Algebra, I think about Lawrence of Arabia. It's clean.'' \emph{The professor asks if anyone in the audience has actually heard about T. E. Lawrence, and goes on to discuss how the David Lean film features an scene widely known as an example for the jump cut technique in the film world.} ``If you are really interested, I can just tell you about film and skip this [points to the blackboard] boring crap. I know something about it.'' \emph{At this point the lecture has extended five minutes into the break, and people are beginning to leave.}
+``You should leave the moment you feel lied to. That's a basic thing in all human relationships.''
+
+Now, what would make this even better? Let us show that we are done, that we have all the eigenvectors – in other words, that our orthogonal family is a basis. ``That, is, you can't get away from it. You can run, but you can't get away.''
+
+\begin{proposition}
+If $\gj\in\SchwartzSpace\of\R$ and $\LTwoInner \gj {h_n} = 0$, $n\geq 0$, then $\gj\Identically 0$.
+\begin{proof}
+We have $x=\frac{\opA + \opAdag}{\sqrt{2}}$.
+We have:
+\begin{align*}
+\LTwoInner \gj {x h_0} 
+&= \frac{1}{\sqrt{2}}\LTwoInner \gj {\opA h_0} + \frac{1}{\sqrt 2} \LTwoInner \gj {\opAdag h_0}\\
+&=\frac{1}{\sqrt{2}}\LTwoInner \gj {h_1} = 0 \text.
+\end{align*}
+What do we do? We only need one word: Repeat.
+\begin{align*}
+\LTwoInner \gj {x^2 h_0} 
+&= \frac{1}{2}\LTwoInner \gj {\pa{\opA+\opAdag}^2 h_0} \\
+&= \frac{1}{2}\LTwoInner \gj {\pa{\opA \opA + \opAdag \opA + \opA  \opAdag + \opAdag \opAdag}h_0}\\
+&= \frac{1}{2}\LTwoInner \gj {\opA \opAdag h_0 + \opAdag \opAdag h_0 }\\
+&= \frac{1}{2}\LTwoInner \gj {\pa{\opAdag \opA +\Identity} h_0 + \opAdag h_1}\\
+&= \frac{1}{2} \LTwoInner \gj {h_0 + \sqrt{2} h_2} = 0\text.
+\end{align*}
+And now? Again: Repeat.
+\begin{align*}
+\LTwoInner \gj {x^3 h_0} 
+&= \pa{\frac{1}{\sqrt 2}}^3 \LTwoInner \gj {\pa{\opA+\opAdag}^3 h_0} \\
+&= \dotsb = 0\text.
+\end{align*}
+By induction, we can show $\LTwoInner \gj {x^n h_0} = 0 $ for $n\geq0$. It follows 
+\begin{align*}
+\sum{n=0}[\infty] \frac{\pa{-\I k}^n}{\Factorial n} \LTwoInner\gj {x^n h_0} &=0\\
+\Implies \LTwoInner \gj {\pa{\sum{n=0}[\infty]\frac{\pa{-\I k}^n}{\Factorial n}}h_0} &=0\text,&& \forall k\in\R\text.
+\end{align*}
+which, if we look carefully, we can recognize as a Fourier transform:
+\begin{align*}
+0 &= \LTwoInner\gj {\E^{-\I k x}h_0}\\
+  &= \sqrt{2\Pi}\frac{1}{\sqrt{2\Pi}} \int\R \conj \gj \of x h_0\of x \E^{-\I k x}\diffd x\text, && \forall k\in\R\text.
+\end{align*}
+Note that $\conj \gj \of x h_0\of x\in \SchwartzSpace\of\R$. It follows:
+\begin{alignat*}{3}
+         & \forall k\in \R \quad & \ft{\conj \gj  h_0}\of k &= 0\\
+\Implies & \forall x\in \R \quad &\conj \gj\of x  h_0\of x &= 0 && \quad \text{(as shown previously)}\\
+\Implies & \forall x\in \R \quad & \gj \of x &=0 \text. && \quad \text{($h_0(x) \neq 0\text, \forall x\in\R$)}
+\end{alignat*}
+So $\gj\Identically 0$.
+\end{proof}
+\end{proposition}
+
+We now know that the $h_n$ form a basis of $\SchwartzSpace\of\R$. But we are greedy. We really want to write
+\[
+\gy\in\SchwartzSpace\of\R \stackrel{?}{=} \sum{n=0}[\infty] \LTwoInner\gy {h_n} h_n\of x \DefineAs \lim_{\conv N \infty} \sum{n=0}[N] \LTwoInner\gy {h_n} h_n\of x\text.
+\]
+It is exceedingly boring to prove this, I'm sure you don't have the patience. But there is something I \emph{can} do:
+\begin{align*}
+\abs{\LTwoInner \gy {h_n}}
+&= \abs{\int\R \conj\gy\of x h_n\of x \diffd x}\\
+&\leq \int\R\abs{\conj\gy\of x} \abs{h_n\of x}\diffd x\\
+&= \int\R\abs{\conj\gy\of x} h_n\of x \diffd x\\
+&\leq \Lnorm[2]{\gy} \underbrace{\Lnorm[2]{h_n}}_{= 1}\text.
+\end{align*}
+But in fact, we can do better:
+\begin{align*}
+\LTwoInner\gy{h_n}
+&= \frac{1}{n^p}\LTwoInner \gy {\opH^p h_n}\\
+&= \frac{1}{n^p}\LTwoInner {\opH^p \gy} {h_n}\text.\\
+\end{align*}
+So,
+\begin{align*}
+\abs{\LTwoInner \gy {h_n}}
+&\leq \frac{1}{n^p} \abs{\LTwoInner \gy {\opH^p h_n}}\\
+&\leq \frac{1}{n^p} \Lnorm[2]{\opH^p \gy}\text.
+\end{align*}
+
+Concluding, we have the following
+\begin{lemma}
+  If $\gy \in \SchwartzSpace\of\R$, then $\abs{\LTwoInner \gy {h_n}} \leq \frac{\Lnorm[2]{\opH^p \gy}}{n^p}$, $n \geq 1$, $p \geq 0$.
+\end{lemma}
+
+\end{lecture}
+
 \end{document}
