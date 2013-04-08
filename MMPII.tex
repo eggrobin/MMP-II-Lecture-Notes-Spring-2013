@@ -821,12 +821,13 @@ Now, ladies and gentlemen, your jaws should be dropping. We have these beautiful
 \end{align*}
 So, ``out of nowhere'' we now have eigenvectors with eigenvalues 0, 1, 2, etc.!
 
-``Whenever I think of Algebra, I think about Lawrence of Arabia. It's clean.'' \emph{The professor asks if anyone in the audience has actually heard about T. E. Lawrence, and goes on to discuss how the David Lean film features an example for the jump cut technique in the film seminal in the film world.} ``If you are really interested, I can just tell you about film and skip this \emph{(points to the blackboard)} boring crap. I know something about it.'' \emph{At this point the lecture has extended five minutes into the break, and people are beginning to leave.}
+``Whenever I think of Algebra, I think about Lawrence of Arabia. It's clean.'' \emph{The professor asks if anyone in the audience has actually heard about T. E. Lawrence, and goes on to discuss how the David Lean film features an scene widely known as an example for the jump cut technique in the film world.} ``If you are really interested, I can just tell you about film and skip this [points to the blackboard] boring crap. I know something about it.'' \emph{At this point the lecture has extended five minutes into the break, and people are beginning to leave.}
 ``You should leave the moment you feel lied to. That's a basic thing in all human relationships.''
-We now want to prove that our orthogonal family is a basis, that, is, you can't get away from it. You can run, but you can't get away.
+
+Now, what would make this even better? Let us show that we are done, that we have all the eigenvectors – in other words, that our orthogonal family is a basis. ``That, is, you can't get away from it. You can run, but you can't get away.''
 
 \begin{proposition}
-If $\gj\in\SchwartzSpace\of\R$ and $\LTwoInner \gj {h_n} = 0$, $n\geq 0$, then $gj\Identically 0$.
+If $\gj\in\SchwartzSpace\of\R$ and $\LTwoInner \gj {h_n} = 0$, $n\geq 0$, then $\gj\Identically 0$.
 \begin{proof}
 We have $x=\frac{\opA + \opAdag}{\sqrt{2}}$.
 We have:
@@ -835,7 +836,7 @@ We have:
 &= \frac{1}{\sqrt{2}}\LTwoInner \gj {\opA h_0} + \frac{1}{\sqrt 2} \LTwoInner \gj {\opAdag h_0}\\
 &=\frac{1}{\sqrt{2}}\LTwoInner \gj {h_1} = 0 \text.
 \end{align*}
-What do we do? we repeat:
+What do we do? We only need one word: Repeat.
 \begin{align*}
 \LTwoInner \gj {x^2 h_0} 
 &= \frac{1}{2}\LTwoInner \gj {\pa{\opA+\opAdag}^2 h_0} \\
@@ -844,7 +845,7 @@ What do we do? we repeat:
 &= \frac{1}{2}\LTwoInner \gj {\pa{\opAdag \opA +\Identity} h_0 + \opAdag h_1}\\
 &= \frac{1}{2} \LTwoInner \gj {h_0 + \sqrt{2} h_2} = 0\text.
 \end{align*}
-And now ? we repeat:
+And now? Again: Repeat.
 \begin{align*}
 \LTwoInner \gj {x^3 h_0} 
 &= \pa{\frac{1}{\sqrt 2}}^3 \LTwoInner \gj {\pa{\opA+\opAdag}^3 h_0} \\
@@ -855,34 +856,50 @@ By induction, we can show $\LTwoInner \gj {x^n h_0} = 0 $ for $n\geq0$. It follo
 \sum{n=0}[\infty] \frac{\pa{-\I k}^n}{\Factorial n} \LTwoInner\gj {x^n h_0} &=0\\
 \Implies \LTwoInner \gj {\pa{\sum{n=0}[\infty]\frac{\pa{-\I k}^n}{\Factorial n}}h_0} &=0\text,&& \forall k\in\R\text.
 \end{align*}
-TEXTHERE
+which, if we look carefully, we can recognize as a Fourier transform:
 \begin{align*}
 0 &= \LTwoInner\gj {\E^{-\I k x}h_0}\\
   &= \sqrt{2\Pi}\frac{1}{\sqrt{2\Pi}} \int\R \conj \gj \of x h_0\of x \E^{-\I k x}\diffd x\text, && \forall k\in\R\text.
 \end{align*}
-Where $\conj \gj \of x h_0\of x\in \SchwartzSpace\of\R$. It follows:
-\begin{alignat*}{2}
+Note that $\conj \gj \of x h_0\of x\in \SchwartzSpace\of\R$. It follows:
+\begin{alignat*}{3}
          & \forall k\in \R \quad & \ft{\conj \gj  h_0}\of k &= 0\\
-\Implies & \forall x\in \R \quad &\conj \gj\of x  h_0\of x &= 0 \\
-\Implies & \forall x\in \R \quad & \gj\of x h_0\of x &= 0 \\
-\Implies & \forall x\in \R \quad & \gj \of x &=0 \text. 
+\Implies & \forall x\in \R \quad &\conj \gj\of x  h_0\of x &= 0 && \quad \text{(as shown previously)}\\
+\Implies & \forall x\in \R \quad & \gj \of x &=0 \text. && \quad \text{($h_0(x) \neq 0\text, \forall x\in\R$)}
 \end{alignat*}
 So $\gj\Identically 0$.
 \end{proof}
+\end{proposition}
 
-We now know that the $h_n$ form a basis of $\SchwartzSpace\of\R$. But we are greedy. We want more. Namely, we want:
+We now know that the $h_n$ form a basis of $\SchwartzSpace\of\R$. But we are greedy. We really want to write
 \[
 \gy\in\SchwartzSpace\of\R \stackrel{?}{=} \sum{n=0}[\infty] \LTwoInner\gy {h_n} h_n\of x \DefineAs \lim_{\conv N \infty} \sum{n=0}[N] \LTwoInner\gy {h_n} h_n\of x\text.
 \]
-TEXT HERE
+It is exceedingly boring to prove this, I'm sure you don't have the patience. But there is something I \emph{can} do:
 \begin{align*}
-\abs{\LTwoInner\gy{h_n}} 
+\abs{\LTwoInner \gy {h_n}}
 &= \abs{\int\R \conj\gy\of x h_n\of x \diffd x}\\
-&\leq \int\R\abs{\conj\gj\of x} \abs{h_n\of x}\diffd x\\
-&=\text{stuff}
-%TODO TODO TODO TODO TODO TODO 
+&\leq \int\R\abs{\conj\gy\of x} \abs{h_n\of x}\diffd x\\
+&= \int\R\abs{\conj\gy\of x} h_n\of x \diffd x\\
+&\leq \Lnorm[2]{\gy} \underbrace{\Lnorm[2]{h_n}}_{= 1}\text.
 \end{align*}
-\end{proposition}
+But in fact, we can do better:
+\begin{align*}
+\LTwoInner\gy{h_n}
+&= \frac{1}{n^p}\LTwoInner \gy {\opH^p h_n}\\
+&= \frac{1}{n^p}\LTwoInner {\opH^p \gy} {h_n}\text.\\
+\end{align*}
+So,
+\begin{align*}
+\abs{\LTwoInner \gy {h_n}}
+&\leq \frac{1}{n^p} \abs{\LTwoInner \gy {\opH^p h_n}}\\
+&\leq \frac{1}{n^p} \Lnorm[2]{\opH \gy}\text.
+\end{align*}
+
+Concluding, we have the following
+\begin{lemma}
+  If $\gy \in \SchwartzSpace\of\R$, then $\abs{\LTwoInner \gy {h_n}} \leq \frac{\Lnorm[2]{\opH \gy}}{n^p}$, $n \geq 1$, $p \geq 0$.
+\end{lemma}
 
 \end{lecture}
 
