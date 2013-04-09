@@ -17,6 +17,38 @@
 \mathopen{\left(\@delimsizetrue\vphantom{#1}{\kern-\nulldelimiterspace}\right.}\@delimsizefalse #1 \mathclose{\left.{\kern-\nulldelimiterspace}\@delimsizetrue \vphantom{#1} \right)} \@delimsizefalse
 \fi}
 
+\newcommand\delimsize[1]{
+\if@delimsize
+\else
+  \mathopen{
+    \left.{\kern-\nulldelimiterspace}
+    \@delimsizetrue\vphantom{\@delimcontent}\@delimsizefalse
+    \middle#1
+    {\kern-\nulldelimiterspace}\right.
+  }
+\fi
+}
+
+\def\DeclareDelimiter#1[#2]#3#4#5 {
+  \newcommand{#1}[#2]{
+    \begingroup
+      \@delimsizetrue
+      \def\@delimcontent{#5}
+      \@delimsizefalse
+      \mathopen{
+        \left#3\@delimsizetrue\vphantom{#5}
+        {\kern-\nulldelimiterspace}\right.
+      }
+      {#5}
+      \mathclose{
+        \left.{\kern-\nulldelimiterspace}
+        \@delimsizetrue \vphantom{#5} \right#4
+      }
+    \endgroup
+  }
+}
+
+\DeclareDelimiter\Delim[2]{\langle}{]}{#1 \delimsize| #2}
 
 \catcode`_=\active
 \newcommand_[1]{\if@delimsize{}\else\sb{#1}\fi}
@@ -145,6 +177,14 @@
 .pa[.mathbb R^n]^*\\
 .pa[.mathbb R \sp n]\sp *\\
 \end{gather}
+
+\begin{align}
+.Delim[a][b]\\
+.Delim[.RangedOperator[x, [x=1, .infty]]][42]\\
+.Delim[\frac[1][.RangedOperator[x, [x=1, .infty]]]][42]\\
+.Delim[\frac[1][.RangedOperator[x, [x=1, .infty]]]][.Delim[.RangedOperator[x, [x=1, .infty]]][42]] \\
+.Delim[0][.Delim[\frac[1][.RangedOperator[x, [x=1, .infty]]]][42]]
+\end{align}
 
 \end{syntax}
 \end{document}
