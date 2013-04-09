@@ -81,9 +81,48 @@
 % This is declares a scaling delimiter which does not scale
 % with indices, exponents, limits etc.
 
+\makeatletter
 
+\newcommand\delimsize[1]{
+\if@delimsize
+\else
+  \mathopen{
+    \left.{\kern-\nulldelimiterspace}
+    \@delimsizetrue\vphantom{\@delimcontent}\@delimsizefalse
+    \middle#1
+    {\kern-\nulldelimiterspace}\right.
+  }
+\fi
+}
 
+\def\DeclareDelimiterX#1[#2]#3#4#5 {
+  \DeclareRobustCommand{#1}[#2]{
+    \if@delimsize
+      #5
+    \else
+      \begingroup
+        \@delimsizetrue
+        \mathopen{}\mathclose\bgroup\left#3
+        \vphantom{#5}
+        {\kern-\nulldelimiterspace}
+        \aftergroup\egroup\right.
+        \def\@delimcontent{#5}
+        \@delimsizefalse
+        {#5}
+        \@delimsizetrue
+        \mathopen{}\mathclose\bgroup\left.
+        {\kern-\nulldelimiterspace}
+        \vphantom{#5} 
+        \aftergroup\egroup\right#4
+        \@delimsizefalse
+      \endgroup
+    \fi
+  }
+}
 
+\newcommand\DeclareDelimiter[3]{\DeclareDelimiterX{#1}[1]{#2}{#3}{##1}}
+
+\makeatother
 
 % This makes a scaling integral sign that seems to (kind of) work.
 
@@ -108,6 +147,12 @@
 \makeatother
 
 %%% end Voodoo 
+
+% We need ^ and _ to be active in order to ignore
+% them when sizing brackets. Beware that 
+% ^\frac{1}{2} will no longer work, use
+% ^{\frac{1}{2}} instead. (^, _, now work as normal 
+% commands).
 
 \ExplSyntaxOn
   \seq_put_left:Nn\l_char_active_seq{^}
@@ -144,31 +189,25 @@
 % Always use these delimiters with a '*', as in \singleBars*, \parentheses*,
 % as it makes them scale properly.
 %% Unary.
-\DeclarePairedDelimiter\doubleBars{\Vert}{\Vert}
-\DeclarePairedDelimiter\singleBars{\lvert}{\rvert}
-\DeclarePairedDelimiter\parentheses{\lparen}{\rparen}
-\DeclarePairedDelimiter\squareBrackets{[}{]}
-\DeclarePairedDelimiter\curlyBrackets{\lbrace}{\rbrace}
+\DeclareDelimiter\doubleBars{\Vert}{\Vert}
+\DeclareDelimiter\singleBars{\lvert}{\rvert}
+\DeclareDelimiter\parentheses{\lparen}{\rparen}
+\DeclareDelimiter\squareBrackets{[}{]}
+\DeclareDelimiter\curlyBrackets{\lbrace}{\rbrace}
 %% Binary.
-\DeclarePairedDelimiterX\lsquareCommaRsquare[2]{[}{]}{#1, #2}
-\DeclarePairedDelimiterX\lsquareCommaLsquare[2]{[}{[}{#1, #2}
-\DeclarePairedDelimiterX\rsquareCommaRsquare[2]{]}{]}{#1, #2}
-\DeclarePairedDelimiterX\rsquareCommaLsquare[2]{]}{[}{#1, #2}
-\DeclarePairedDelimiterX\langleBarRangle[2]{\langle}{\rangle}{#1\delimsize\vert #2} 
-\DeclarePairedDelimiterX\langleCommaRangle[2]{\langle}{\rangle}{#1, #2}
-\DeclarePairedDelimiterX\unkernedEmptyDotEmpty[2]{.}{.}{#1\cdot #2}
-\DeclarePairedDelimiterX\lcurlyBarRcurly[2]{\lbrace}{\rbrace}{#1\:\delimsize\vert\: #2}
+\DeclareDelimiterX\lsquareCommaRsquare[2]{[}{]}{#1, #2}
+\DeclareDelimiterX\lsquareCommaLsquare[2]{[}{[}{#1, #2}
+\DeclareDelimiterX\rsquareCommaRsquare[2]{]}{]}{#1, #2}
+\DeclareDelimiterX\rsquareCommaLsquare[2]{]}{[}{#1, #2}
+\DeclareDelimiterX\langleBarRangle[2]{\langle}{\rangle}{#1\delimsize\vert #2} 
+\DeclareDelimiterX\langleCommaRangle[2]{\langle}{\rangle}{#1, #2}
+\DeclareDelimiterX\unkernedEmptyDotEmpty[2]{.}{.}{#1\cdot #2}
+\DeclareDelimiterX\lcurlyBarRcurly[2]{\lbrace}{\rbrace}{#1\:\delimsize\vert\: #2}
 
-\DeclareDocumentCommand\emptyDotEmpty{smm}{
-\IfBooleanTF#1{
-    \unkernedEmptyDotEmpty*
-    {\kern-\nulldelimiterspace #2 }
-    {#3}\kern-\nulldelimiterspace
-  }{
-    \unkernedEmptyDotEmpty
-    {\kern-\nulldelimiterspace #2 }
-    {#3}\kern-\nulldelimiterspace
-  }
+\DeclareDocumentCommand\emptyDotEmpty{mm}{
+  \unkernedEmptyDotEmpty
+  {\kern-\nulldelimiterspace #1 }
+  {#2}\kern-\nulldelimiterspace
 }
 
 %%%% Semantic commands. These are the ones that should be used in the document.
@@ -323,30 +362,30 @@
 %%% Delimiters.
 % \of is the bracketing for function arguments, as in
 % f\of\vx, \diffd{x^2+1}. It is distinct from the normal parenthesising.
-\newcommand\of[1]{\parentheses*{#1}}
+\newcommand\of[1]{\parentheses{#1}}
 % \Associate is the parenthesising for associativity, as in \pa{x+y}^2.
-\newcommand\Associate[1]{\parentheses*{#1}}
+\newcommand\Associate[1]{\parentheses{#1}}
 % \tuple{a,b,c} is the tuple containing a, b and c in that order.
-\newcommand\tuple[1]{\parentheses*{#1}}
+\newcommand\tuple[1]{\parentheses{#1}}
 % \set{a,b,c} is the set containing a, b and c.
-\newcommand\set[1]{\curlyBrackets*{#1}}
+\newcommand\set[1]{\curlyBrackets{#1}}
 %% Normlike delimiters.
 % \abs is the absolute value on C or R, \abs z = \sqrt{z\conj{z}}.
-\newcommand\abs[1]{\singleBars*{#1}}
+\newcommand\abs[1]{\singleBars{#1}}
 % \norm is the Euclidean norm on R^n, \norm \vx = \sum_i \abs{x_i}^2.
-\newcommand\norm[1]{\singleBars*{#1}}
+\newcommand\norm[1]{\singleBars{#1}}
 % \Lnorm[p] is the Lp function norm, \Lnorm[p] f = \pa{Int_\Rn \abs{f}^p \diffd x}^\frac{1}{p}
 % \Lnorm is the L\infty function norm,
 % \Lnorm f = \setst{C\geq0}{\abs{f}\leq C \text{almost everywhere}}.
-\newcommand\Lnorm[2][\infty]{\doubleBars*{#2}_{#1}}
+\newcommand\Lnorm[2][\infty]{\doubleBars{#2}_{#1}}
 % \SchwartzNorm\miga\migb{f} is defined as \sup_\{\vx\in\R^n}\abs{\vx^\miga\pd\vx\miga f\of\vx}.
 % The Schwartz space is the space of functions for which it is finite for all \miga and \migb.
-\newcommand{\SchwartzNorm}[3]{\doubleBars*{#3}_{#1,#2}}
+\newcommand{\SchwartzNorm}[3]{\doubleBars{#3}_{#1,#2}}
 % \total is the total of multi-indices, \total \miga = \sum_i \ga_i.
-\newcommand\total[1]{\singleBars*{#1}}
+\newcommand\total[1]{\singleBars{#1}}
 % \diff{0}{1}{F} is F\of 1 - F\of 0. This notation is used for definite integrals,
 % as in \Int 0[1] f\of x \diffd x = \diff 0 1 F if F\der = f
-\newcommand{\diff}[3]{\squareBrackets*{#3}_{#1}^{#2}}
+\newcommand{\diff}[3]{\squareBrackets{#3}_{#1}^{#2}}
 
 %% Binary delimiters.
 % Intervals.
@@ -361,10 +400,10 @@
 \newcommand{\intclop}[2]{\lsquareCommaLsquare{#1}{#2}}
 \newcommand{\intclos}[2]{\lsquareCommaRsquare{#1}{#2}}
 % \commutator is the commutator of operators, \commutator A B = AB - BA.
-\newcommand\commutator[2]{\lsquareCommaRsquare*{#1}{#2}}
+\newcommand\commutator[2]{\lsquareCommaRsquare{#1}{#2}}
 % \InnerProduct is the standard scalar product on R^n, \InnerProduct \vx \vy = \sum_i x_i y_i
 % we use \emptyDotEmpty as per ISO 80000-2:2009.
-\newcommand\InnerProduct[2]{\emptyDotEmpty*{#1}{#2}}
+\newcommand\InnerProduct[2]{\emptyDotEmpty{#1}{#2}}
 % \pascal is used for expressions which need to be parenthesised if the notation for the
 % scalar product \InnerProduct does not include delimiters, e.g. \emptyDotEmpty, but should not be if 
 % it does, e.g. \angleCommaAngle. 'pascal' stands for pa[rentheses] scal[ar].
@@ -373,10 +412,10 @@
 \ifNeedPascal \newcommand{\pascal}[1]{\pa{#1}}
 \else \newcommand{\pascal}[1]{#1} \fi
 % \setst{x\in X}{P\of x} is the set of x in X such that P\of x is true.
-\newcommand{\setst}[2]{\lcurlyBarRcurly*{{\textstyle #1}}{{\textstyle #2}}}
-\newcommand{\GroupPresentation}[2]{\langleBarRangle*{#1}{#2}}
+\newcommand{\setst}[2]{\lcurlyBarRcurly{{\textstyle #1}}{{\textstyle #2}}}
+\newcommand{\GroupPresentation}[2]{\langleBarRangle{#1}{#2}}
 % \LTwoInner{\gj}{\gy} is the standard inner product on \Lspace[2].
-\newcommand{\LTwoInner}[2]{\langleCommaRangle*{#1}{#2}}
+\newcommand{\LTwoInner}[2]{\langleCommaRangle{#1}{#2}}
 
 %%% Variable names.
 %% Greek letters.
@@ -561,18 +600,18 @@
 % \tupleSpec{f\of i}{i\in X} denotes the Cartesian product \prod{i\in X}f\of i.
 % as such it should be used for defining sequences, vectors, and higher-order
 % tensors (with several index specifications.
-\newcommand{\tuplespec}[2]{\parentheses*{#1}_{#2}}
+\newcommand{\tuplespec}[2]{\parentheses{#1}_{#2}}
 
 %%% Pedantic variants.
 \ifPedanticNotation
-  \renewcommand\Associate[1]{\parentheses*{#1}_\mathrm{Assoc.}}
-  \renewcommand\of[1]{\squareBrackets*{#1}}
-  \renewcommand\total[1]{\singleBars*{#1}_{\mathrm{MI}}}
-  \renewcommand\norm[1]{\singleBars*{#1}_{2}}
-  \renewcommand\abs[1]{\singleBars*{#1}_{\mathrm{abs}}}
-  \renewcommand\tuple[1]{\parentheses*{#1}_{\mathrm{tuple}}}
-  \renewcommand\commutator[2]{\lsquareCommaRsquare*{#1}{#2}_{\mathrm{commutator}}}
-  \renewcommand\Lnorm[2][\infty]{\doubleBars*{#2}_{\mathcal{L}_{#1}}}
+  \renewcommand\Associate[1]{\parentheses{#1}_\mathrm{Assoc.}}
+  \renewcommand\of[1]{\squareBrackets{#1}}
+  \renewcommand\total[1]{\singleBars{#1}_{\mathrm{MI}}}
+  \renewcommand\norm[1]{\singleBars{#1}_{2}}
+  \renewcommand\abs[1]{\singleBars{#1}_{\mathrm{abs}}}
+  \renewcommand\tuple[1]{\parentheses{#1}_{\mathrm{tuple}}}
+  \renewcommand\commutator[2]{\lsquareCommaRsquare{#1}{#2}_{\mathrm{commutator}}}
+  \renewcommand\Lnorm[2][\infty]{\doubleBars{#2}_{\mathcal{L}_{#1}}}
   \renewcommand{\intopen}[2]{\rsquareCommaLsquare{#1}{#2}_{\mathrm{interval}}}
   \renewcommand{\intopcl}[2]{\rsquareCommaRsquare{#1}{#2}_{\mathrm{interval}}}
   \renewcommand{\intclop}[2]{\lsquareCommaLsquare{#1}{#2}_{\mathrm{interval}}}
@@ -591,10 +630,10 @@
 
 \newcommand{\FreeGroup}[1]{\operatorname{F}_{#1}}
 \newcommand{\NormalSubgroup}{\trianglelefteq}
-\newcommand{\Cardinality}[1]{\singleBars*{#1}}
+\newcommand{\Cardinality}[1]{\singleBars{#1}}
 \newcommand{\HeisenbergGroup}{\mathrm{H}}
 \newcommand{\FiniteHeisenbergGroup}[1]{\HeisenbergGroup_{#1}}
-\newcommand{\Helt}[3]{\squareBrackets*{#1,#2;#3}}
+\newcommand{\Helt}[3]{\squareBrackets{#1,#2;#3}}
 \newcommand{\Compose}{\circ}
 
 \newcommand{\LongDomainSpec}[1]{

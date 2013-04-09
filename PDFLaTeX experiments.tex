@@ -29,27 +29,33 @@
 \fi
 }
 
-\def\DeclareDelimiter#1[#2]#3#4#5 {
+\def\DeclareDelimiterX#1[#2]#3#4#5 {
   \newcommand{#1}[#2]{
-    \begingroup
-      \@delimsizetrue
-      \def\@delimcontent{#5}
-      \@delimsizefalse
-      \mathopen{
-        \left#3\@delimsizetrue\vphantom{#5}
-        {\kern-\nulldelimiterspace}\right.
-      }
-      {#5}
-      \mathclose{
-        \left.{\kern-\nulldelimiterspace}
-        \@delimsizetrue \vphantom{#5} \right#4
-      }
-    \endgroup
+    \if@delimsize
+      #5
+    \else
+      \begingroup
+        \@delimsizetrue
+        \def\@delimcontent{#5}
+        \@delimsizefalse
+        \mathopen{
+          \left#3\@delimsizetrue\vphantom{#5}
+          {\kern-\nulldelimiterspace}\right.
+        }
+        {#5}
+        \mathclose{
+          \left.{\kern-\nulldelimiterspace}
+          \@delimsizetrue \vphantom{#5} \right#4
+        }
+      \endgroup
+    \fi
   }
 }
 
-\DeclareDelimiter\Delim[2]{\langle}{]}{#1 \delimsize| #2}
+\newcommand\DeclareDelimiter[3]{\DeclareDelimiterX{#1}[1]{#2}{#3}{##1}}
 
+\DeclareDelimiterX\Delim[2]{\langle}{]}{#1 \delimsize| #2}
+\DeclareDelimiter\DelimSimple{\langle}{]}
 \catcode`_=\active
 \newcommand_[1]{\if@delimsize{}\else\sb{#1}\fi}
 
@@ -183,8 +189,11 @@
 .Delim[.RangedOperator[x, [x=1, .infty]]][42]\\
 .Delim[\frac[1][.RangedOperator[x, [x=1, .infty]]]][42]\\
 .Delim[\frac[1][.RangedOperator[x, [x=1, .infty]]]][.Delim[.RangedOperator[x, [x=1, .infty]]][42]] \\
-.Delim[0][.Delim[\frac[1][.RangedOperator[x, [x=1, .infty]]]][42]]
+.Delim[0][.Delim[\frac[1][.RangedOperator[x, [x=1, .infty]]]][42]]\\
+.DelimSimple[\frac{a^b}c].DelimSimple[.RangedOperator[l,[o,f]]]
 \end{align}
-
 \end{syntax}
+\DeclareDelimiterX\Inner[2]{\langle}{\rangle}{#1,#2}
+\newcommand{\InnerWrapped}[2]{\Inner{#1}{#2}}
+\[\Inner{\hat\psi}\varphi\InnerWrapped{\hat\psi}\varphi\]
 \end{document}

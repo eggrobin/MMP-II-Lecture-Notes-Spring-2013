@@ -8,6 +8,21 @@
 
 
 \begin{document}
+\DeclareDelimiterX\Braket[2]{\langle}{\rangle}{#1,#2}
+\[
+\LTwoInner\gy\gj \Braket\gy\gj {\langleCommaRangle\gy\gj}
+\]
+\[
+\LTwoInner\gj\gy
+\]
+\[
+\LTwoInner\gy\gy \left\langle\gy,\gy\right\rangle \mathopen{}\mathclose\bgroup\left\langle\gy,\gy\aftergroup\egroup\right. \left.\gy,\gy\right\rangle
+\]
+\makeatletter
+\[
+\@delimsizetrue  \left\langle\gy,\gy\right\rangle \@delimsizefalse  \left\langle\gy,\gy\right\rangle
+\]
+\makeatother
 \noindent
 Test greek letters : $\ga, \gb, \dotsc, \gp, \gcp, \dotsc, \gf, \gj, \dotsc, \gw$. \\
 Test vectors: $\va, \vb, \dotsc, \vu, \vv, \vw, \vx, \vy, \vz, \nullvec$.          \\

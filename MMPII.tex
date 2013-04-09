@@ -29,7 +29,7 @@
 
 %% Freqently-used expressions.
 \newcommand{\sqftnrm}{\frac{1}{\pa{2\Pi}^n} }
-\newcommand{\ftnrm}{\frac{1}{\pa{2\Pi}^\frac{n}{2}} }
+\newcommand{\ftnrm}{\frac{1}{\pa{2\Pi}^{\frac{n}{2}}} }
 
 \newcommand{\opAdag}{\adj{\opA}}
 
@@ -253,10 +253,10 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
       Proof of existence of the integral $\Lnorm[1]\gj$:
       \begin{align*}
         \int\Rn\abs{\gj\of\vx}\diffd\vx 
-        &= \int\Rn\pa{1+\norm{\vx}^2}^\frac{s}{2}\abs{\gj\of\vx}
-        \frac{\diffd\vx}{\pa{1+\norm{\vx}^2}^\frac{s}{2}}  \\
-        &\leq \SchwartzNorm s\nullmi\gj \int\Rn\frac{1}{\pa{1+\norm{\vx}^2}^\frac{s}{2}}\diffd\vx\\
-        &= \SchwartzNorm s\nullmi\gj \int0[\infty]\frac{r^{n-1}}{\pa{1+r^2}^\frac{s}{2}}\diffd r
+        &= \int\Rn\pa{1+\norm{\vx}^2}^{\frac{s}{2}}\abs{\gj\of\vx}
+        \frac{\diffd\vx}{\pa{1+\norm{\vx}^2} ^ {\frac{s}{2}}}  \\
+        &\leq \SchwartzNorm s\nullmi\gj \int\Rn\frac{1}{\pa{1+\norm{\vx}^2}^{\frac{s}{2}}}\diffd\vx\\
+        &= \SchwartzNorm s\nullmi\gj \int0[\infty]\frac{r^{n-1}}{\pa{1+r^2}^{\frac{s}{2}}}\diffd r
         < \infty &&\text{for } s\geq n+1\text{.}
       \end{align*}
       ``(\ref{FTLinearity}) I will not do!''
@@ -357,7 +357,7 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
       Recall: ``every path leads to Rome and every Gaussian is in $\Schwartz$.'' Also, the last foot of a dactylic hexameter is always a spondee. 
       \begin{equation*}
         \ftnrm\int\Rn\E^{-\ge\frac{\norm\vk^2}{2}}\E^{\I\scal{\pascal{\vy-\vx}}\vk}\diffd\vk
-        =\frac{\E^{-\frac{1}{2\ge}\norm{\vx-\vy}^2}}{\ge^\frac{n}{2}}
+        =\frac{\E^{-\frac{1}{2\ge}\norm{\vx-\vy}^2}}{\ge^{\frac{n}{2}}}
       \end{equation*}
       We therefore get:
       \begin{align*}
@@ -365,9 +365,9 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
          &=\ftnrm\int\Rn\gj\of\vy\ftnrm\int\Rn\E^{\I\scal\vk{\pascal{\vx-\vy}}}
         \E^{-\ge\frac{\norm\vk^2}{2}}\diffd\vk\diffd\vy\\
         &=\ftnrm\int\Rn\gj\of\vy\frac{\E^{-\frac{1}{2\ge}\norm{\vx-\vy}^2}}
-        {\ge^\frac{n}{2}}\diffd\vy \\
+        {\ge^{\frac{n}{2}}}\diffd\vy \\
         &=\ftnrm\int\Rn\gj\of{\vy\sqrt\ge+\vx}\frac{\E^{-\frac{1}{2\ge}\norm{\vy\sqrt\ge}^2}}
-        {\ge^\frac{n}{2}}\diffd\of{\vy\sqrt\ge} && \text{``Epsilons everywhere!''}\\    
+        {\ge^{\frac{n}{2}}}\diffd\of{\vy\sqrt\ge} && \text{``Epsilons everywhere!''}\\    
         &=\ftnrm\int\Rn\gj\of{\vx+\vy\sqrt\ge}\E^{-\frac{1}{2}\norm\vy^2}\diffd\vy
         && \text{``Now we can paint.''}\\
         &\overset{\ge\downarrow 0}{\rightarrow}

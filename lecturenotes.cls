@@ -29,6 +29,10 @@
   Contextuals=WordFinal,
             ]{Linux Libertine O}
 \setmonofont{Linux Libertine Mono O}
+\newfontface\textup[
+  VerticalPosition=Superior,
+  Numbers={OldStyle, Proportional}
+]{Linux Libertine O}
 \newfontface\textinitial[]{Linux Libertine Initials O}
 \newfontface\textdisplay[
   Mapping=tex-text, 
@@ -70,8 +74,19 @@
 
 % Miscellaneous.
 \RequirePackage[iso, english]{isodate} 
-\RequirePackage[stable]{footmisc}
+%\RequirePackage[stable]{footmisc}
 \usepackage{verse}
+
+\makeatletter
+\renewcommand*{\@makefnmark}{%
+  \hbox{%
+    \textup{%
+      \selectfont% added
+      \@thefnmark%
+    }%
+  }%  
+}   
+\makeatother
 
 \makeatletter
 \define@key{lecture}{date}{\def\lectureDate{#1}}
