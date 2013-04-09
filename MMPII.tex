@@ -903,4 +903,32 @@ Concluding, we have the following
 
 \end{lecture}
 
+\begin{lecture}[date=2013-04-09]
+\begin{proposition} The $h_n\of x$, $n\geq 0$ form an orthonormal basis of $\SchwartzSpace\of\R$. More precisely, let $\SchwartzSpace\of\N \DefineAs \setst{\tuple{s_0,s_1,s_2,\dotsc}}{s_j \in \C \text{ and } \forall p \exists c_p, \abs{s_j} \leq c_p \frac{1}{\pa{1 + j}^p}}$.
+\[
+\FunctionBody {\SchwartzSpace\of \N} SOMETHING
+\]
+HAS SOME PROPERTIES.\\
+STUFF FROM THE OTHER BOARD.
+\end{proposition}
+\begin{align*}
+{h_n\of x} &= \pa{-\I}^{-n} \ft{h_n}\of x \\
+           &\leq \frac{1}{\sqrt{2\Pi}}\int{-\infty}[\infty] 1 \abs{h_n\of y}\diffd  y \\
+           &= \frac{1}{\sqrt{2\Pi}}\int{-\infty}[\infty] \frac{1}{\sqrt{1+y^2}} \sqrt{1+y^2} \abs{h_n\of y}\diffd  y \\
+           &\leq \frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}\pa{\int{-\infty}[\infty]{\pa{1+y^2}h_n^2\of y\diffd y}}^{\frac{1}{2}} \\
+           &= \frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}\pa{\LTwoInner{h_n}{\pa{1+y^2}h_n}}^{\frac{1}{2}} \\
+           &=\frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}\pa{\LTwoInner{h_n}{h_n} + \frac{1}{2} \LTwoInner{h_n}{\pa{\opA+\opAdag}^2 h_n}}^{\frac{1}{2}}\\
+           &\leq \frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}} \sqrt{2\pa{n+1}}
+\end{align*}
+
+\section*{Quantising the harmonic oscillator}
+``Now, we come into the good stuff''. Once upon a time, there was a classical Hamiltonian:
+\[
+  h\of{q,p} \DefineAs \frac{1}{2} \pa{\frac{p^2}{m}+m\gw^2 q^2}
+\]
+Do you remember anything from classical mechanics?
+``So, Thursday: from the classical to the quantum world and beyond.''
+\section*{Classical Mechanics}
+\end{lecture}
+
 \end{document}
