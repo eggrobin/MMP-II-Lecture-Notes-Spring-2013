@@ -24,6 +24,7 @@
 \ProcessOptions\relax
 
 \RequirePackage{etoolbox}
+\RequirePackage{expl3}
 \RequirePackage{xparse}
 
 \RequirePackage{amsmath}
@@ -36,23 +37,9 @@
 
 \RequirePackage{relsize}
 
-%\ifUtopia
-%  \RequirePackage[utopia]{mathdesign}
-%  \RequirePackage[sfdefault=fav]{isomath}
-%\fi
-%\ifComputerModern
-%  \RequirePackage{amsfonts}
-%  \RequirePackage{upgreek}
-%  \RequirePackage{isomath}
-%\fi
-
 \RequirePackage{unicode-math}
 \setmathfont[Scale=MatchLowercase, math-style=ISO]{Cambria Math}
 \setmathfont[Scale=MatchLowercase, range={\mathcal,\mathbfcal}]{texgyrepagella-math.otf}
-%\setmathfont[math-style=ISO]{texgyrepagella-math.otf}
-%\setmathfont[range={\mathscr,\mathbfscr}]{Cambria Math}
-%\setmathfont[math-style=ISO]{latinmodern-math.otf}
-%\setmathfont[range={\mathscr,\mathbfscr}]{Cambria Math}
 
 \newcommand{\VectorSymbol}\mathbfit
 \newcommand{\MultiIndexSymbol}\VectorSymbol
@@ -114,6 +101,21 @@
 \makeatother
 
 %%% end Voodoo 
+
+\ExplSyntaxOn
+  \seq_put_left:Nn\l_char_active_seq{^}
+  \seq_put_left:Nn\l_char_active_seq{_}
+\ExplSyntaxOff
+
+\catcode`^=\active
+\catcode`_=\active
+
+\makeatletter
+\newif\if@delimsize
+\@delimsizefalse
+\newcommand^[1]{\if@delimsize{}\else\sp{#1}\fi}
+\newcommand_[1]{\if@delimsize{}\else\sb{#1}\fi}
+\makeatother
  
 \AtBeginDocument{   
 

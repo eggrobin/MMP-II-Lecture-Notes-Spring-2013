@@ -1,6 +1,8 @@
 \documentclass[10pt]{article}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{mathtools}
+\usepackage{environ}
 
 \makeatletter
 \newif\if@delimsize
@@ -58,6 +60,7 @@
 \seq_put_left:Nn\l_char_active_seq{^}
 \seq_put_left:Nn\l_char_active_seq{_}
 
+
 \char_set_catcode_active:N ^
 
 \makeatletter
@@ -65,12 +68,39 @@
 \makeatother
 \ExplSyntaxOff
 
-\begin{document}
-\catcode`^=\active
-\catcode`[=1
-\catcode`]=2
-\catcode`.=0
+\makeatletter
 
+\newcommand{\savecatcodes}{
+  \edef\@dotcatcode{\the\catcode`.  }\relax
+  \edef\@lbracketcatcode{\the\catcode`[ }\relax
+  \edef\@rbracketcatcode{\the\catcode`] }\relax
+  \edef\@caretcatcode\the{\catcode`^ }\relax
+  \edef\@underscorecatcode{\the\catcode`_ }\relax
+}
+\newcommand{\catcodes}{
+  \catcode`\.=0
+  \catcode`\[=1
+  \catcode`\]=2
+  \catcode`^=\active
+  \catcode`_=\active
+}
+
+\newcommand{\normalcatcodes}{
+  \catcode`.=\@dotcatcode
+  \catcode`[=\@lbracketcatcode
+  \catcode`]=\@rbracketcatcode
+  \catcode`\^=12
+  \catcode`\_=12
+}
+\makeatother
+
+\newenvironment{syntax}{\catcodes}{\normalcatcodes}
+
+\begin{document}
+
+\savecatcodes
+
+\begin{syntax}
 \begin{gather}
 \RangedOperator{x}\\
 \RangedOperator{x,X}\\
@@ -111,6 +141,10 @@
 ((((x))))\\
 \left(\left(\left(\left(x\right)\right)\right)\right)\\
 (((x)_i)_k)\left(\left(\left(x\right)_i\right)_k\right)\pa{\pa{\pa{x}_i}_k}\\
-(x_{i_{j_k}})\left(x_{i_{j_k}}\right)\pa{x_{i_{j_k}}}
+(x_{i_{j_k}})\left(x_{i_{j_k}}\right)\pa{x_{i_{j_k}}}\\
+.pa[.mathbb R^n]^*\\
+.pa[.mathbb R \sp n]\sp *\\
 \end{gather}
+
+\end{syntax}
 \end{document}
