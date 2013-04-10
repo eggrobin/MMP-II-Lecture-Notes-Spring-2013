@@ -9,8 +9,52 @@
 
 \begin{document}
 \DeclareDelimiterX\Braket[2]{\langle}{\rangle}{#1,#2}
+\newcommand\BraketWrapper[2]{\langleCommaRangle{#1}{#2}}
+\newcommand\OtherBraketWrapper\Braket
+\makeatletter
+\def\nvphantom{\v@true\h@false\nph@nt}
+\def\nhphantom{\v@false\h@true\nph@nt}
+\def\nphantom{\v@true\h@true\nph@nt}
+\def\nph@nt{\ifmmode\def\next{\mathpalette\nmathph@nt}%
+  \else\let\next\nmakeph@nt\fi\next}
+\def\nmakeph@nt#1{\setbox\z@\hbox{#1}\nfinph@nt}
+\def\nmathph@nt#1#2{\setbox\z@\hbox{$\m@th#1{#2}$}\nfinph@nt}
+\def\nfinph@nt{\setbox\tw@\null
+  \ifv@ \ht\tw@\ht\z@ \dp\tw@\dp\z@\fi
+  \ifh@ \wd\tw@-\wd\z@\fi \box\tw@}
+\makeatother
+\newcommand\DelimiterWrapper[3]{\mathopen{}\mathclose\bgroup #1 #2\aftergroup\egroup #3}
+\newcommand\ExplicitBraket[2]{ 
+  \phantom{
+    \DelimiterWrapper{\left\langle}
+    {\vphantom{#1,#2}{\kern-\nulldelimiterspace}}
+    {\right.}
+  }
+  {#1,#2}
+  \nphantom{
+    {#1,#2}
+  }
+  \nphantom{
+    \DelimiterWrapper{\left\langle}
+    {\vphantom{#1,#2}{\kern-\nulldelimiterspace}}
+    {\right.}
+  }
+  \DelimiterWrapper{\left\langle}
+  {\vphantom{#1,#2}{\kern-\nulldelimiterspace}}
+  {\right.}
+  \phantom{#1,#2}
+  \DelimiterWrapper{\left.}
+  {{\kern-\nulldelimiterspace}\vphantom{#1,#2}}
+  {\right\rangle}
+}
 \[
-\LTwoInner\gy\gj \Braket\gy\gj {\langleCommaRangle\gy\gj}
+\LTwoInner\gy\gj \LTwoInner\gy\gj \Braket\gy\gj {\langleCommaRangle\gy\gj} \BraketWrapper\gy\gj \OtherBraketWrapper\gy\gj
+\]
+\[
+\Braket\gy\gj
+\]
+\[
+\ExplicitBraket\gy\gj\Braket\gy\gj
 \]
 \[
 \LTwoInner\gj\gy
