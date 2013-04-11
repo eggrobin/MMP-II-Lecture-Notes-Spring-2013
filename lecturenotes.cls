@@ -74,19 +74,19 @@
 
 % Miscellaneous.
 \RequirePackage[iso, english]{isodate} 
-%\RequirePackage[stable]{footmisc}
 \usepackage{verse}
+\renewcommand{\textsuperscript}[1]{{\textup{#1}}}
+\RequirePackage[stable]{footmisc}
 
-\makeatletter
-\renewcommand*{\@makefnmark}{%
-  \hbox{%
-    \textup{%
-      \selectfont% added
-      \@thefnmark%
-    }%
-  }%  
-}   
-\makeatother
+%\makeatletter
+%\renewcommand*{\@makefnmark}{%
+%  \hbox{%
+%    \textup{%
+%      \thempfn%
+%    }%
+%  }%  
+%}   
+%\makeatother
 
 \makeatletter
 \define@key{lecture}{date}{\def\lectureDate{#1}}

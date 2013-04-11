@@ -83,6 +83,26 @@
 
 \makeatletter
 
+% Something seems to be very buggy, so we need to do some
+% dark magic to render things in the right order.
+% In particular, this involves negative phantoms.
+
+\def\nvphantom{\v@true\h@false\nph@nt}
+\def\nhphantom{\v@false\h@true\nph@nt}
+\def\nphantom{\v@true\h@true\nph@nt}
+\def\nph@nt{\ifmmode\def\next{\mathpalette\nmathph@nt}%
+  \else\let\next\nmakeph@nt\fi\next}
+\def\nmakeph@nt#1{\setbox\z@\hbox{#1}\nfinph@nt}
+\def\nmathph@nt#1#2{\setbox\z@\hbox{$\m@th#1{#2}$}\nfinph@nt}
+\def\nfinph@nt{\setbox\tw@\null
+  \ifv@ \ht\tw@\ht\z@ \dp\tw@\dp\z@\fi
+  \ifh@ \wd\tw@-\wd\z@\fi \box\tw@}
+
+% This is a well-known hack.
+
+\newcommand\@delimiterWrapper[3]{\mathopen{}\mathclose\bgroup #1 #2\aftergroup\egroup #3}
+
+
 \newcommand\delimsize[1]{
 \if@delimsize
 \else
@@ -95,6 +115,10 @@
 \fi
 }
 
+% The dance with \(n)phantoms typesets the content first,
+% then the left bracket and finally the right one. XeLaTeX
+% does weird stuff when mathmode starts with a delimiter 
+% containing only a vphantom.
 \def\DeclareDelimiterX#1[#2]#3#4#5 {
   \DeclareRobustCommand{#1}[#2]{
     \if@delimsize
@@ -102,19 +126,34 @@
     \else
       \begingroup
         \@delimsizetrue
-        \mathopen{}\mathclose\bgroup\left#3
-        \vphantom{#5}
-        {\kern-\nulldelimiterspace}
-        \aftergroup\egroup\right.
+        \phantom{
+          \@delimiterWrapper{\left#3}{
+            \vphantom{#5}
+            {\kern-\nulldelimiterspace}
+          }{\right.}
+        }
         \def\@delimcontent{#5}
         \@delimsizefalse
         {#5}
+        \nphantom{#5}
         \@delimsizetrue
-        \mathopen{}\mathclose\bgroup\left.
-        {\kern-\nulldelimiterspace}
-        \vphantom{#5} 
-        \aftergroup\egroup\right#4
+        \nphantom{
+          \@delimiterWrapper{\left#3}{
+            \vphantom{#5}
+            {\kern-\nulldelimiterspace}
+          }{\right.}
+        }
+        \@delimiterWrapper{\left#3}{
+          \vphantom{#5}
+          {\kern-\nulldelimiterspace}
+        }{\right.}
         \@delimsizefalse
+        \phantom{#5}
+        \@delimsizetrue
+        \@delimiterWrapper{\left.}{
+          {\kern-\nulldelimiterspace}
+          \vphantom{#5}
+        }{\right#4}
       \endgroup
     \fi
   }
@@ -140,8 +179,11 @@
     \@delint
     \right.{\kern-\nulldelimiterspace}
   }
+  \if@delimsize
+  \else
   _{\mathclap{\@mathraisebox{-3pt}{#1\hspace{6.75pt}}}}
   ^{\mathclap{\@mathraisebox{1pt}{\hspace{3.6pt} #2}}}
+  \fi
 }{\hspace{-1.25pt}#3}
 }
 \makeatother

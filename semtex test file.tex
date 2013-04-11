@@ -23,6 +23,13 @@
   \ifv@ \ht\tw@\ht\z@ \dp\tw@\dp\z@\fi
   \ifh@ \wd\tw@-\wd\z@\fi \box\tw@}
 \makeatother
+\DeclarePairedDelimiter\Bra{\langle}{.}
+\DeclarePairedDelimiter\Ket{.}{\rangle}
+\newcommand\MoreBrakets[2]{
+  \Bra*{\vphantom{#1,#2}{\kern-\nulldelimiterspace}}
+  {#1,#2}
+  \Ket*{{\kern-\nulldelimiterspace}\vphantom{#1,#2}}
+}
 \newcommand\DelimiterWrapper[3]{\mathopen{}\mathclose\bgroup #1 #2\aftergroup\egroup #3}
 \newcommand\ExplicitBraket[2]{ 
   \phantom{
@@ -52,6 +59,12 @@
 \]
 \[
 \Braket\gy\gj
+\]
+\[
+\Braket A\gj
+\]
+\[
+\ExplicitBraket A\gj
 \]
 \[
 \ExplicitBraket\gy\gj\Braket\gy\gj
