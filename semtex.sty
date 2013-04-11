@@ -199,13 +199,26 @@
 % ^{\frac{1}{2}} instead. (^, _, now work as normal 
 % commands).
 
-\ExplSyntaxOn
-  \seq_put_left:Nn\l_char_active_seq{^}
-  \seq_put_left:Nn\l_char_active_seq{_}
-\ExplSyntaxOff
 
-\catcode`^=\active
-\catcode`_=\active
+\makeatletter
+\ExplSyntaxOn
+  \newcommand{\semtexsyntax}{
+    \seq_put_left:Nn\l_char_active_seq{^}
+    \seq_put_left:Nn\l_char_active_seq{_}
+    \catcode`\^=\active
+    \catcode`\_=\active
+  }
+  \newcommand{\normalsyntax}{
+    \seq_pop_left:NN\l_char_active_seq\@junk
+    \seq_pop_left:NN\l_char_active_seq\@junk
+    \catcode`\^=7
+    \catcode`\_=8
+  }
+\ExplSyntaxOff
+\makeatother
+\semtexsyntax
+
+\newenvironment{safecatcodes}{\normalsyntax}{\semtexsyntax}
 
 \makeatletter
 \newif\if@delimsize

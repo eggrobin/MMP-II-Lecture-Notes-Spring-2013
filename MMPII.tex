@@ -18,7 +18,18 @@
 
 \documentclass[10pt, a4paper, twoside]{lecturenotes}
 
+%\let\oldtextgreek\textgreek
+%\renewcommand\textgreek[1]{\begin{safecatcodes}\oldtextgreek{#1}\end{safecatcodes}}
+%
+%\let\oldtextrussian\textrussian
+%\renewcommand\textrussian[1]{\begin{safecatcodes}\oldtextrussian{#1}\end{safecatcodes}}
+%
+%\let\oldtextgerman\textgerman
+%\renewcommand\textgerman[1]{\begin{safecatcodes}\oldtextgerman{#1}\end{safecatcodes}}
+
 \usepackage[Mathematics]{semtex}
+
+\renewcommand{\foreign}[1]{\begin{safecatcodes}\emph{#1}\end{safecatcodes}}
 
 %%%% Shorthands.
 
@@ -511,11 +522,10 @@ We started this lecture with the finite Fourier transform. This is a special cas
 \end{lecture}
 
 \begin{supplemental}
-\catcode`\^=7
-\catcode`\_=8
-\subsection{\foreign{\textgreek{Ἡ φανταχτερή γλῶσσα τῶν ἀστικῶν μαθηματικῶν}}\footnote{The fancy language of bourgeois mathematicians.}}
-\catcode`\^=\active
-\catcode`\_=\active
+
+\begin{safecatcodes}
+\subsection{\emph{\textgreek{Ἡ φανταχτερή γλῶσσα τῶν ἀστικῶν μαθηματικῶν}}\footnote{The fancy language of bourgeois mathematicians.}}
+\end{safecatcodes}
 \begingroup
 \newcommand{\VelocitySpace}{\LieAlgebraSymbol{g}}
 \newcommand{\MomentumSpace}{\Dual\VelocitySpace}
@@ -559,7 +569,7 @@ As the tangent spaces of $G$ are canonically isomorphic to each other, so are th
 The dual of the Lie algebra, $\MomentumSpace$, is the momentum space. The Hamiltonian is a function from the cotangent bundle (and time) to the reals, $\FunctionSpec\Hamiltonian {\CotangentBundle G \Cartesian \R = G \Cartesian \MomentumSpace \Cartesian \Reals} \R$.
 
 The Pontryagin dual\footnote{The Pontryagin dual is named after %
-\textrussian{Лев Семёнович Понтря́гин} (1908{\slash}1988).} $\PontryaginDual G$ is the set of homomorphisms from $G$ to $\UnitaryGroup\of 1$. Compare this with the vector space dual $\Dual V$, which is the set of linear maps from $V$ to the underlying field. One can see $\PontryaginDual G$ as a sort of non-linear analogue to $\Dual V$. We will see that for $G=\Rn$, we have a meaningful isomorphism between $\PontryaginDual G$ and $\MomentumSpace$. This will also give a motivation for defining the Hamiltonian on the \emph{cotangent} bundle and not on the tangent bundle, answering the question: \emph{why should the generalised momenta not lie in the same space as the velocities?}
+\foreign{\textrussian{Лев Семёнович Понтря́гин}} (1908{\slash}1988).} $\PontryaginDual G$ is the set of homomorphisms from $G$ to $\UnitaryGroup\of 1$. Compare this with the vector space dual $\Dual V$, which is the set of linear maps from $V$ to the underlying field. One can see $\PontryaginDual G$ as a sort of non-linear analogue to $\Dual V$. We will see that for $G=\Rn$, we have a meaningful isomorphism between $\PontryaginDual G$ and $\MomentumSpace$. This will also give a motivation for defining the Hamiltonian on the \emph{cotangent} bundle and not on the tangent bundle, answering the question: \emph{why should the generalised momenta not lie in the same space as the velocities?}
 \endgroup
 \end{supplemental}
 
