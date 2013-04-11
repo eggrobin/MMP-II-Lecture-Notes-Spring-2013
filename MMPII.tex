@@ -18,7 +18,18 @@
 
 \documentclass[10pt, a4paper, twoside]{lecturenotes}
 
+%\let\oldtextgreek\textgreek
+%\renewcommand\textgreek[1]{\begin{safecatcodes}\oldtextgreek{#1}\end{safecatcodes}}
+%
+%\let\oldtextrussian\textrussian
+%\renewcommand\textrussian[1]{\begin{safecatcodes}\oldtextrussian{#1}\end{safecatcodes}}
+%
+%\let\oldtextgerman\textgerman
+%\renewcommand\textgerman[1]{\begin{safecatcodes}\oldtextgerman{#1}\end{safecatcodes}}
+
 \usepackage[Mathematics]{semtex}
+
+\renewcommand{\foreign}[1]{\begin{safecatcodes}\emph{#1}\end{safecatcodes}}
 
 %%%% Shorthands.
 
@@ -29,7 +40,7 @@
 
 %% Freqently-used expressions.
 \newcommand{\sqftnrm}{\frac{1}{\pa{2\Pi}^n} }
-\newcommand{\ftnrm}{\frac{1}{\pa{2\Pi}^\frac{n}{2}} }
+\newcommand{\ftnrm}{\frac{1}{\pa{2\Pi}^{\frac{n}{2}}} }
 
 \newcommand{\opAdag}{\adj{\opA}}
 
@@ -253,10 +264,10 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
       Proof of existence of the integral $\Lnorm[1]\gj$:
       \begin{align*}
         \int\Rn\abs{\gj\of\vx}\diffd\vx 
-        &= \int\Rn\pa{1+\norm{\vx}^2}^\frac{s}{2}\abs{\gj\of\vx}
-        \frac{\diffd\vx}{\pa{1+\norm{\vx}^2}^\frac{s}{2}}  \\
-        &\leq \SchwartzNorm s\nullmi\gj \int\Rn\frac{1}{\pa{1+\norm{\vx}^2}^\frac{s}{2}}\diffd\vx\\
-        &= \SchwartzNorm s\nullmi\gj \int0[\infty]\frac{r^{n-1}}{\pa{1+r^2}^\frac{s}{2}}\diffd r
+        &= \int\Rn\pa{1+\norm{\vx}^2}^{\frac{s}{2}}\abs{\gj\of\vx}
+        \frac{\diffd\vx}{\pa{1+\norm{\vx}^2} ^ {\frac{s}{2}}}  \\
+        &\leq \SchwartzNorm s\nullmi\gj \int\Rn\frac{1}{\pa{1+\norm{\vx}^2}^{\frac{s}{2}}}\diffd\vx\\
+        &= \SchwartzNorm s\nullmi\gj \int0[\infty]\frac{r^{n-1}}{\pa{1+r^2}^{\frac{s}{2}}}\diffd r
         < \infty &&\text{for } s\geq n+1\text{.}
       \end{align*}
       ``(\ref{FTLinearity}) I will not do!''
@@ -357,7 +368,7 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
       Recall: ``every path leads to Rome and every Gaussian is in $\Schwartz$.'' Also, the last foot of a dactylic hexameter is always a spondee. 
       \begin{equation*}
         \ftnrm\int\Rn\E^{-\ge\frac{\norm\vk^2}{2}}\E^{\I\scal{\pascal{\vy-\vx}}\vk}\diffd\vk
-        =\frac{\E^{-\frac{1}{2\ge}\norm{\vx-\vy}^2}}{\ge^\frac{n}{2}}
+        =\frac{\E^{-\frac{1}{2\ge}\norm{\vx-\vy}^2}}{\ge^{\frac{n}{2}}}
       \end{equation*}
       We therefore get:
       \begin{align*}
@@ -365,9 +376,9 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
          &=\ftnrm\int\Rn\gj\of\vy\ftnrm\int\Rn\E^{\I\scal\vk{\pascal{\vx-\vy}}}
         \E^{-\ge\frac{\norm\vk^2}{2}}\diffd\vk\diffd\vy\\
         &=\ftnrm\int\Rn\gj\of\vy\frac{\E^{-\frac{1}{2\ge}\norm{\vx-\vy}^2}}
-        {\ge^\frac{n}{2}}\diffd\vy \\
+        {\ge^{\frac{n}{2}}}\diffd\vy \\
         &=\ftnrm\int\Rn\gj\of{\vy\sqrt\ge+\vx}\frac{\E^{-\frac{1}{2\ge}\norm{\vy\sqrt\ge}^2}}
-        {\ge^\frac{n}{2}}\diffd\of{\vy\sqrt\ge} && \text{``Epsilons everywhere!''}\\    
+        {\ge^{\frac{n}{2}}}\diffd\of{\vy\sqrt\ge} && \text{``Epsilons everywhere!''}\\    
         &=\ftnrm\int\Rn\gj\of{\vx+\vy\sqrt\ge}\E^{-\frac{1}{2}\norm\vy^2}\diffd\vy
         && \text{``Now we can paint.''}\\
         &\overset{\ge\downarrow 0}{\rightarrow}
@@ -511,7 +522,10 @@ We started this lecture with the finite Fourier transform. This is a special cas
 \end{lecture}
 
 \begin{supplemental}
-\subsection{\foreign{\textgreek{Ἡ φανταχτερή γλῶσσα τῶν ἀστικῶν μαθηματικῶν}}\footnote{The fancy language of bourgeois mathematicians.}}
+
+\begin{safecatcodes}
+\subsection{\emph{\textgreek{Ἡ φανταχτερή γλῶσσα τῶν ἀστικῶν μαθηματικῶν}}\footnote{The fancy language of bourgeois mathematicians.}}
+\end{safecatcodes}
 \begingroup
 \newcommand{\VelocitySpace}{\LieAlgebraSymbol{g}}
 \newcommand{\MomentumSpace}{\Dual\VelocitySpace}
@@ -527,7 +541,7 @@ The ordered pair $\tuple{\vq\of t,\TimeDerivative\vq\of t}$ lies in the \emph{ta
 Informally, $\TangentBundle G$ is the disjoint union of all the tangent spaces of the manifold $G$. An element $\tuple{\vx,\vv}\in \TangentBundle G$  represents a tangent vector $\vv$ to $G$ at $\vx$. Physically, this is a state of the system, namely the one with coordinates $\vx$ and velocity $\vv$. 
 
 As $G$ is a Lie group, composition on the left --- or right --- by any element is a diffeomorphism. In particular, for $q\in G$,
-$\FunctionSpec {\gj_\vq} G G, \FunctionBody \vx {\vq^{-1} \vx}$ is a diffeomorphism, and so it induces a canonical linear isomorphism $\diffd \gj_\vq \of\vq$ between the tangent spaces $\TangentSpace{\vq}G$ and $\TangentSpace{\gj_\vq\vq}=\TangentSpace{\Identity}G$, by
+$\FunctionSpec {\gj_\vq} G G, \FunctionBody \vx {\vq^{-1} \vx}$ is a diffeomorphism, and so it induces a canonical linear isomorphism $\diffd \gj_\vq \of\vq$ between the tangent spaces $\TangentSpace{\vq}G$ and $\TangentSpace{\gj_\vq\of{\vq}}=\TangentSpace{\Identity}G$, by
 \begin{equation*}
 \diffd \gj_\vq \of\vq\TimeDerivative\vgg\of 0 = \diffd \gj_\vq \of{\vgg\of 0}\TimeDerivative\vgg\of 0 = \pa{\gj_\vq\Compose\vgg}\der\of 0 = \TimeDerivative\vgg_0\of 0\text{,}
 \end{equation*}
@@ -555,7 +569,7 @@ As the tangent spaces of $G$ are canonically isomorphic to each other, so are th
 The dual of the Lie algebra, $\MomentumSpace$, is the momentum space. The Hamiltonian is a function from the cotangent bundle (and time) to the reals, $\FunctionSpec\Hamiltonian {\CotangentBundle G \Cartesian \R = G \Cartesian \MomentumSpace \Cartesian \Reals} \R$.
 
 The Pontryagin dual\footnote{The Pontryagin dual is named after %
-\textrussian{Лев Семёнович Понтря́гин} (1908{\slash}1988).} $\PontryaginDual G$ is the set of homomorphisms from $G$ to $\UnitaryGroup\of 1$. Compare this with the vector space dual $\Dual V$, which is the set of linear maps from $V$ to the underlying field. One can see $\PontryaginDual G$ as a sort of non-linear analogue to $\Dual V$. We will see that for $G=\Rn$, we have a meaningful isomorphism between $\PontryaginDual G$ and $\MomentumSpace$. This will also give a motivation for defining the Hamiltonian on the \emph{cotangent} bundle and not on the tangent bundle, answering the question: \emph{why should the generalised momenta not lie in the same space as the velocities?}
+\foreign{\textrussian{Лев Семёнович Понтря́гин}} (1908{\slash}1988).} $\PontryaginDual G$ is the set of homomorphisms from $G$ to $\UnitaryGroup\of 1$. Compare this with the vector space dual $\Dual V$, which is the set of linear maps from $V$ to the underlying field. One can see $\PontryaginDual G$ as a sort of non-linear analogue to $\Dual V$. We will see that for $G=\Rn$, we have a meaningful isomorphism between $\PontryaginDual G$ and $\MomentumSpace$. This will also give a motivation for defining the Hamiltonian on the \emph{cotangent} bundle and not on the tangent bundle, answering the question: \emph{why should the generalised momenta not lie in the same space as the velocities?}
 \endgroup
 \end{supplemental}
 
