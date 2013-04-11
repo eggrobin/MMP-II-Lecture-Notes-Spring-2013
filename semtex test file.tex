@@ -4,7 +4,82 @@
 \DeclareDocumentCommand\foo{r[] r[] r[]}{Saw #1, #2 and #3.}
 \DeclareDocumentCommand\baz{r[] r[] r[] r[] r[]}{Saw #1, #2, #3, #4 and #5.}
 \DeclareDocumentCommand\goo{r[; m r;]}{Saw #1, #2, #3.}
+
+
+
 \begin{document}
+\DeclareDelimiterX\Braket[2]{\langle}{\rangle}{#1,#2}
+\newcommand\BraketWrapper[2]{\langleCommaRangle{#1}{#2}}
+\newcommand\OtherBraketWrapper\Braket
+\makeatletter
+\def\nvphantom{\v@true\h@false\nph@nt}
+\def\nhphantom{\v@false\h@true\nph@nt}
+\def\nphantom{\v@true\h@true\nph@nt}
+\def\nph@nt{\ifmmode\def\next{\mathpalette\nmathph@nt}%
+  \else\let\next\nmakeph@nt\fi\next}
+\def\nmakeph@nt#1{\setbox\z@\hbox{#1}\nfinph@nt}
+\def\nmathph@nt#1#2{\setbox\z@\hbox{$\m@th#1{#2}$}\nfinph@nt}
+\def\nfinph@nt{\setbox\tw@\null
+  \ifv@ \ht\tw@\ht\z@ \dp\tw@\dp\z@\fi
+  \ifh@ \wd\tw@-\wd\z@\fi \box\tw@}
+\makeatother
+\DeclarePairedDelimiter\Bra{\langle}{.}
+\DeclarePairedDelimiter\Ket{.}{\rangle}
+\newcommand\MoreBrakets[2]{
+  \Bra*{\vphantom{#1,#2}{\kern-\nulldelimiterspace}}
+  {#1,#2}
+  \Ket*{{\kern-\nulldelimiterspace}\vphantom{#1,#2}}
+}
+\newcommand\DelimiterWrapper[3]{\mathopen{}\mathclose\bgroup #1 #2\aftergroup\egroup #3}
+\newcommand\ExplicitBraket[2]{ 
+  \phantom{
+    \DelimiterWrapper{\left\langle}
+    {\vphantom{#1,#2}{\kern-\nulldelimiterspace}}
+    {\right.}
+  }
+  {#1,#2}
+  \nphantom{
+    {#1,#2}
+  }
+  \nphantom{
+    \DelimiterWrapper{\left\langle}
+    {\vphantom{#1,#2}{\kern-\nulldelimiterspace}}
+    {\right.}
+  }
+  \DelimiterWrapper{\left\langle}
+  {\vphantom{#1,#2}{\kern-\nulldelimiterspace}}
+  {\right.}
+  \phantom{#1,#2}
+  \DelimiterWrapper{\left.}
+  {{\kern-\nulldelimiterspace}\vphantom{#1,#2}}
+  {\right\rangle}
+}
+\[
+\LTwoInner\gy\gj \LTwoInner\gy\gj \Braket\gy\gj {\langleCommaRangle\gy\gj} \BraketWrapper\gy\gj \OtherBraketWrapper\gy\gj
+\]
+\[
+\Braket\gy\gj
+\]
+\[
+\Braket A\gj
+\]
+\[
+\ExplicitBraket A\gj
+\]
+\[
+\ExplicitBraket\gy\gj\Braket\gy\gj
+\]
+\[
+\LTwoInner\gj\gy
+\]
+\[
+\LTwoInner\gy\gy \left\langle\gy,\gy\right\rangle \mathopen{}\mathclose\bgroup\left\langle\gy,\gy\aftergroup\egroup\right. \left.\gy,\gy\right\rangle
+\]
+\makeatletter
+\[
+\@delimsizetrue  \left\langle\gy,\gy\right\rangle \@delimsizefalse  \left\langle\gy,\gy\right\rangle
+\]
+\makeatother
 \noindent
 Test greek letters : $\ga, \gb, \dotsc, \gp, \gcp, \dotsc, \gf, \gj, \dotsc, \gw$. \\
 Test vectors: $\va, \vb, \dotsc, \vu, \vv, \vw, \vx, \vy, \vz, \nullvec$.          \\
@@ -103,4 +178,27 @@ c&d
 \foo[[a][b]][c] [[d][ f]]\\
 \baz[1][2][3][4][5]\\
 \baz[[a][]][x[a][e][[y][y]]][[e][j]][$a$][$\gs$]
+% Stuff done in-flight.
+
+\makeatletter
+\renewcommand{\@mathraisebox}[3][\scriptstyle]{%
+\raisebox{#2}{$#1 #3$}%
+}
+\newcommand\smartIntegral[3]{
+\@mathraisebox[\displaystyle]{.75pt}{
+  \operatorname*{
+    \left.{\kern-\nulldelimiterspace}
+    \vphantom{#3}\vphantom{\mathlarger{{\integralSign}}} 
+    \middle
+    \delint
+    \right.{\kern-\nulldelimiterspace}
+  }
+  _{\@mathraisebox{-3pt}{\mathclap{#1\hspace{6.75pt}}}}
+  ^{\@mathraisebox{1pt}{\mathclap{\hspace{3.6pt} #2}}}
+}{\hspace{-1.25pt}#3}
+}
+\makeatother
+\[
+  \smartIntegral{\R^n}{}{\smartIntegral{\R^n}{}{f\of{x, y} \diffd x}\diffd y} \neq \smartIntegral{0}{1}{x\diffd x}
+\]
 \end{document}
