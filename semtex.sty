@@ -125,8 +125,9 @@
       #5
     \else
       \begingroup
+        \mathopen{}
         \@delimsizetrue
-        \phantom{
+        \hphantom{
           \@delimiterWrapper{\left#3}{
             \vphantom{#5}
             {\kern-\nulldelimiterspace}
@@ -135,9 +136,9 @@
         \def\@delimcontent{#5}
         \@delimsizefalse
         {#5}
-        \nphantom{#5}
+        \nhphantom{#5}
         \@delimsizetrue
-        \nphantom{
+        \nhphantom{
           \@delimiterWrapper{\left#3}{
             \vphantom{#5}
             {\kern-\nulldelimiterspace}
@@ -148,12 +149,14 @@
           {\kern-\nulldelimiterspace}
         }{\right.}
         \@delimsizefalse
-        \phantom{#5}
+        \hphantom{#5}
+        \mathclose{
         \@delimsizetrue
         \@delimiterWrapper{\left.}{
           {\kern-\nulldelimiterspace}
           \vphantom{#5}
         }{\right#4}
+        }
       \endgroup
     \fi
   }
