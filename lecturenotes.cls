@@ -8,6 +8,10 @@
 \ProcessOptions
 \LoadClass{article}
 
+\makeatletter
+\def\@seccntformat#1{\llap{\csname the#1\endcsname\quad}}
+\makeatother
+
 \RequirePackage{xltxtra}
 
 % Language.
@@ -67,9 +71,9 @@
 % Layout.
 
 \iftwoside
-\RequirePackage[top=2.0cm, bottom=2.0cm, left=3.25cm, right=2.25cm]{geometry}
+\RequirePackage[top=4cm, bottom=4cm, left=3.5cm, right=5.5cm]{geometry}
 \else
-\RequirePackage[top=2.0cm, bottom=2.0cm, left=2.75cm, right=2.75cm]{geometry}
+\RequirePackage[top=2.25cm, bottom=2.25cm, left=3.5cm, right=3.5cm]{geometry}
 \fi
 
 % Miscellaneous.
@@ -113,7 +117,7 @@
 %\end{flushright}}{}
 
 % For comments in align environments
-\newcommand\commentbox[1]{\parbox{7cm}{#1}}
+\newcommand\commentbox[1]{\parbox{.3\linewidth}{#1}}
 
 \usepackage{lettrine}
 \newcommand{\up}[1]{{\addfontfeature{VerticalPosition=Superior}#1}}
