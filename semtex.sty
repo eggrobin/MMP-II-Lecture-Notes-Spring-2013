@@ -214,30 +214,43 @@
 % ^{\frac{1}{2}} instead. (^, _, now work as normal 
 % commands).
 
+\mathcode`\^="8000
+\mathcode`\_="8000
 
 \makeatletter
-\ExplSyntaxOn
-  \newcommand{\semtexsyntax}{
-    \seq_put_left:Nn\l_char_active_seq{^}
-    \seq_put_left:Nn\l_char_active_seq{_}
-    \catcode`\^=\active
-    \catcode`\_=\active
-  }
-  \newcommand{\normalsyntax}{
-    \seq_pop_left:NN\l_char_active_seq\@junk
-    \seq_pop_left:NN\l_char_active_seq\@junk
-    \catcode`\^=7
-    \catcode`\_=8
-  }
-\ExplSyntaxOff
+\def\livechars@{
+  \catcode`\^=\active
+  \catcode`\_=\active
+}
+\def\killchars@{
+  \catcode`\^=7
+  \catcode`\_=8
+}
 \makeatother
-\semtexsyntax
-
-\newenvironment{safecatcodes}{\normalsyntax}{\semtexsyntax}
+%\makeatletter
+%\ExplSyntaxOn
+%  \newcommand{\semtexsyntax}{
+%    \seq_put_left:Nn\l_char_active_seq{^}
+%    \seq_put_left:Nn\l_char_active_seq{_}
+%    \catcode`\^=\active
+%    \catcode`\_=\active
+%  }
+%  \newcommand{\normalsyntax}{
+%    \seq_pop_left:NN\l_char_active_seq\@junk
+%    \seq_pop_left:NN\l_char_active_seq\@junk
+%    \catcode`\^=7
+%    \catcode`\_=8
+%  }
+%\ExplSyntaxOff
+%\makeatother
+%\semtexsyntax
+%
+%\newenvironment{safecatcodes}{\normalsyntax}{\semtexsyntax}
 
 \makeatletter
 \newif\if@delimsize
 \@delimsizefalse
+\livechars@
 \newcommand^[1]{\if@delimsize{}\else\sp{#1}\fi}
 \newcommand_[1]{\if@delimsize{}\else\sb{#1}\fi}
 \makeatother
@@ -818,4 +831,7 @@
 \newcommand\dder{^\dprime}
 \newcommand{\Identically}{\equiv}
 
+%\makeatletter
+%\killchars@
+%\makeatother
 }
