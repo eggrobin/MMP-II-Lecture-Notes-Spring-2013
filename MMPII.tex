@@ -744,12 +744,12 @@ Proof of (\ref{comm2}) by induction:
   &= \opA \pa{\opAdag}^{n+1} - \opAdag \opA \pa{\opAdag}^n + n \pa{\opAdag}^n
 \end{align*}
   ``Ah, there must be an easier way to show this, it can't be that hard. Let's just reboot this argument:''
-\begin{align*}
-\opA\pa{\opAdag}^n - \pa{\opAdag}^n\opA &= n \pa{\opAdag}^{n-1}\\
-\Implies \opA\pa{\opAdag}^{n+1} - \pa{\opAdag}^n \opA \opAdag &= n \pa{\opAdag}^n \\
-\Implies \opA \pa{\opAdag}^{n+1} - \pa{\opAdag}^n \pa{\Identity + \opAdag\opA}&= n \pa{\opAdag}^n \\
-\Implies \opA \pa{\opAdag}^{n+1} - \pa{\opAdag}^{n+1} \opA - \pa{\opAdag}^{n} &= n \pa{\opAdag}^n \text.
-\end{align*}
+\begin{alignat*}{2}
+&& \opA\pa{\opAdag}^n - \pa{\opAdag}^n\opA &= n \pa{\opAdag}^{n-1}\\
+\Implies&& \opA\pa{\opAdag}^{n+1} - \pa{\opAdag}^n \opA \opAdag &= n \pa{\opAdag}^n \\
+\Implies&& \opA \pa{\opAdag}^{n+1} - \pa{\opAdag}^n \pa{\Identity + \opAdag\opA}&= n \pa{\opAdag}^n \\
+\Implies&& \opA \pa{\opAdag}^{n+1} - \pa{\opAdag}^{n+1} \opA - \pa{\opAdag}^{n} &= n \pa{\opAdag}^n \text.
+\end{alignat*}
 Proof of (\ref{orth4}). Now we are going to do something quickly, where algebra really shines: you do nothing but apply the same basic identities over and over, yet get something useful out. Let us assume $m>n\geq 0$, because we already did the case where both are $0$.
 \begin{align*}
 \LTwoInner{h_m}{h_n} &= \frac{1}{\sqrt{\Factorial m}} \frac{1}{\sqrt{\Factorial n}} \LTwoInner{\pa{\opAdag}^{m} h_0}{\pa{\opAdag}^{n} h_0} \\
@@ -913,10 +913,10 @@ Do you remember anything from classical mechanics?
 \begin{lecture}[date=2013-04-11]
 What's classical mechanics? We start with a number $n\geq 1$, the number of \emph{degrees of freedom}. It does not change while you keep discussing that system. Then, we have a set $\gW \Subset \Rn$, open and connected, called the \emph{classical configuration space}.
 For instance, we can consider a pendulum, with $q\in\gW = \R$ the angle. Or we could have two joints in the pendulum, yielding $\tuple{q_1,q_2}\in\gW=\R^2$.
-\begin{definition} The \emph{classical phase space} is defined as $\gW \Cartesian \Rn \owns \tuple{\vq,\vp}$.
+\begin{definition}[Classical phase space] The \emph{classical phase space} is defined as $\gW \Cartesian \Rn \owns \tuple{\vq,\vp}$.
 \end{definition}
 ``If you don't measure anything, then you're doing string theory, and your argument is: there must be supersymmetries, because it's so beautiful.'' 
-\begin{definition} The set of \emph{classical observables} is the algebra of smooth, real valued functions on $\gW\Cartesian\Rn$, namely $\Continf\of{\gW\Cartesian\Rn, \R} \text.$
+\begin{definition}[Classical observables] The set of \emph{classical observables} is the algebra of smooth, real valued functions on $\gW\Cartesian\Rn$, namely $\Continf\of{\gW\Cartesian\Rn, \R} \text.$
 \end{definition}
 An example of a classical observable is
 \begin{align*}
@@ -925,7 +925,7 @@ q_i\in\Continf\of{\gW\Cartesian\Rn, \R}\\
 \end{align*}
 Somebody complained about complex-valued functions not being real enough, so we use real-valued functions.
 ``You could ask me: why smooth? --- Why smooth?'' You can't measure something that isn't regular. ``No human being can work with something other than a polynomial anyway.''
-\begin{definition}
+\begin{definition}[Poisson bracket]
 Finally, define the \emph{Poisson bracket} of $\gy\text{, }\gj$ as
 \[
 \Poisson{\gy}{\gj}\of{\vq,\vp} \DefineAs \sum{j=1}[n]{\pderiv {q_j}\gy \pderiv {p_j} \gj-\pderiv {p_j}\gy \pderiv {q_j}\gj}
@@ -933,12 +933,14 @@ Finally, define the \emph{Poisson bracket} of $\gy\text{, }\gj$ as
 \]
 for $\gy\text{, }\gj\in\Continf\of{\gW\Cartesian\Rn}$.
 \end{definition}
-we now have the \foreign{\textgerman{Ur}}-something of classical mechanics: $\tuple{\Continf\of{\gW,\Rn},\Poisson{\placeholder}{\placeholder}}$ is a Lie algebra,
+\begin{proposition}[\foreign{\textgerman{Ur}}-something of classical mechanics]
+We now have the \foreign{\textgerman{Ur}}-something of classical mechanics: $\tuple{\Continf\of{\gW,\Rn},\Poisson{\placeholder}{\placeholder}}$ is a Lie algebra,
 \foreign{\textgerman{das heißt, }} $\Poisson{\placeholder}{\placeholder}$ is bilinear, skew-symmetric and satisfies the Jacobi identity.
-\begin{definition}
+\end{proposition}
+\begin{definition}[Classical mechanical system]
 A \emph{classical mechanical system} on $\gW \Cartesian \Rn$ is a (Hamiltonian) total energy function \[h\of{\vq,\vp}\in \Continf\of{\gW\Cartesian\Rn}\text.\]
 \end{definition}
-\begin{definition}[Evolution of an observable] $\derivop t f = \Poisson f h$  determines the evolution $\FunctionSpec f \R {\Continf\of{\gW\Cartesian\Rn}}$ of an observable $\gy\in\Continf\of{\gW\Cartesian\Rn}$ given at $t=0$ by $f\of{\vq,\vp,0}=\gy\of{\vq,\vp}$.
+\begin{definition}[Evolution of a classical observable] $\derivop t f = \Poisson f h$  determines the evolution $\FunctionSpec f \R {\Continf\of{\gW\Cartesian\Rn}}$ of an observable $\gy\in\Continf\of{\gW\Cartesian\Rn}$ given at $t=0$ by $f\of{\vq,\vp,0}=\gy\of{\vq,\vp}$.
 \end{definition}
 The conservation of energy immediately follows:\[
 \derivop t h = \Poisson h h = 0\text.
@@ -969,33 +971,67 @@ where $J\DefineAs\begin{pmatrix}
 \end{pmatrix}$, for all $v$, $w$, $\tuple{q,p}\in\gW\Cartesian\Rn$.
 
 What is the simplest possible motion? Let's take an $h_0$ that only depends on $\vp$, not on $\vq$. In that case we have
-EQ1
+\begin{alignat*}{3}
+\TimeDerivative{q_j} &= \pderiv{p_j}{h_0}\of\vp &\Implies&& \vq &= \deriv{\vp}{h_0}t + \vq\of{0} \\
+\TimeDerivative{p_j} &= \pderiv{q_j}{h_0}\of\vp = 0 &\Implies && \vp &= \vp\of{0} \\
+\vv &\DefineAs \TimeDerivative \vq = \pderiv p h
+\end{alignat*}
 That's a straight line. There's nothing simpler than a straight line, except no line at all --- but I'm not going to get into discussions of nothingness, though it's fashionable these days. There are entire books written about nothingness, and how string theory explains everything about nothingness...
-Now suppose somebody over there in Oberwinterthur has a fancy Hamiltonian $h\of{\vq,\vp}$. How do you know it's not a straight line, and that you are not being charged non-straight line prices for a straight line? You want to pull back, to find $s$ such that
-EQ2
-You heard about the Hamilton-Jacobi equation, right? And probably your mind went fuzzy at this time, and you heard about maps, and maybe generating functions, and this and that... 
+Now suppose somebody over there in Oberwinterthur has a fancy Hamiltonian $h\of{\vq,\vp}$. How do you know it's not a straight line, and that you are not being charged non-straight line prices for a straight line? You want to pull back, to find $s$ such that $\Pullback s h = h_0$. You heard about the Hamilton-Jacobi equation, right? And probably your mind went fuzzy at this time, and you heard about maps, and maybe generating functions, and this and that... 
+There is an $s$ if and only if $\setst{\gj}{\Poisson\gj h = 0}$ has an Abelian subalgebra $\LieAlgebraSymbol A$ of dimension $n$ such that
+\begin{align*}
+\LieAlgebraSymbol A &= \set{I_1,\dotsc,\I_n}\text, \\
+\Poisson{I_j}{I_k}&= 0\text,\\
+\Poisson{I_j}{h}&=0\text.
+\end{align*}
 
-There is an $s$ if and only if EQ3 has an Abelian subalgebra $\LieAlgebraSymbol A$ of dimension $n$ with EQ4.
+Setting things up like this, the logical structure is crystal clear. This is something a mathematician could do. You may say, as a physicist, ``frankly, my dear, I don't give a damn,''\footnote{\emph{Gone with the Wind}, 1939, directed by Victor Fleming.} but the reason this structure is interesting is because we have beautiful examples. If you only have the beautiful logical structure, and no examples, are you not just playing with yourself? With this you can predict where Pluto or Neptune is. String theory has predicted nothing, and it may never.
 
-Setting things up like this, the logical structure is crystal clear. This is something a mathematician could do. You may say, as a physicist, ``frankly, my dear, I don't give a damn,\footnote{\emph{Gone with the Wind}, 1939, directed by Victor Fleming.}'' but the reason this structure is interesting is because we have beautiful examples. If you only have the beautiful logical structure, and no examples, are you not just playing with yourself? With this you can predict where Pluto or Neptune is. String theory has predicted nothing, and it may never.
-
-In the case EQ5, we have the harmonic oscillator.
+In the case $h\of{q,p}=\frac{1}{2}\pa{\frac{p^2}{n} + m\gw^2 q^2}$, where $\tuple{q,p}\in\R\Cartesian\R$, we have the harmonic oscillator.
 And that's classical mechanics. Now onto quantum mechanics.
 
 \section*{Quantum Mechanics}
+\begingroup%QM
+\newcommand{\QuantumObservables}{\StandardSymbol{QO}}
 How do we start? There is a number $n\geq 1$ of \emph{quantum degrees of freedom}.
 Then, $\gW\Subset \Rn$ is the \emph{quantum configuration space}, like the classical configuration space above. If you had fallen asleep at the beginning of the previous hour, and you thought Q.M. was just a misspelling of classical mechanics, you might think the lecture had just started. Now it becomes different.
-\begin{definition}
+\begin{definition}[Quantum phase space]
 The \emph{quantum phase space} is $\Schwartz$.
 \end{definition}
-Now we need an algebra of quantum observables. We define it as EQ7.
-Let me give you two examples of observables: EQ8.
-Then EQ9 is a Lie algebra. We check it, EQ10. You can check the Jacobi identity and all that.
-\begin{definition}
-A \emph{quantum system} is an EQ11.
+Now we need an algebra of quantum observables.
+\begin{definition}[Quantum observables] The \emph{quantum observables} are the elements of \[
+\QuantumObservables\DefineAs\setst{\opA\in\Endomorphisms\of\Schwartz}{
+\begin{array}{l}
+\text{$A$ is a continuous linear map such that}\\
+ \forall\gy, \gj \in \Schwartz, \LTwoInner{\opA\gy}{\gj} = \LTwoInner{\gy}{\opA\gj}
+\end{array}
+}\text.
+\]
+\end{definition}
+Let me give you two examples of observables: 
+\begin{align*}
+\pa{\opQ_j\gy}\of\vq &\DefineAs q_j\gy\of\vq\text, \\
+\pa{\opP_j\gy}\of\vq &\DefineAs \frac{\ReducedPlanck}{\I} \pderivop{q_j}\text.
+\end{align*}
+\begin{proposition}
+$\tuple{\QuantumObservables, \frac \ReducedPlanck \I \commutator \opA \opB}$ is a Lie algebra.
+\begin{proof} We check that $\QuantumObservables$ is closed under the bracket $\frac \ReducedPlanck \I \commutator\placeholder\placeholder$: let $\opA${, }$\opB$ be self-adjoint. Then
+\begin{align*}
+\adj{\pa{\frac \ReducedPlanck \I \commutator\opA\opB}}
+&= -\frac\ReducedPlanck\I\adj{\pa{\opA\opB-\opB\opA}}\\
+&= -\frac\ReducedPlanck\I\pa{\adj\opB\adj\opA-\adj\opA\adj\opB}\\
+&= -\frac\ReducedPlanck\I\pa{\opB\opA-\opA\opB} = \frac \ReducedPlanck \I \commutator\opA\opB
+\end{align*}
+You can check the Jacobi identity and all that.
+\end{proof}
+\end{proposition}
+\begin{definition}[Quantum system]
+A \emph{quantum system} is an $\opH\in\QuantumObservables$.
+\end{definition}
+\begin{definition}[Evolution of a quantum observable] The evolution of the observable $\opA$ is determined by \[\TimeDerivative\opA= \frac \ReducedPlanck \I \commutator\opA\opH\text.\]
 \end{definition}
 ``That's it. That's quantum mechanics.''
-
 \end{lecture}
+\endgroup%QM
 
 \end{document}
