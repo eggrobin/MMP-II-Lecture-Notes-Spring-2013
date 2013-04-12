@@ -19,10 +19,15 @@
 \contentsline {proof}{{Proof}{4}{}}{15}
 \contentsline {lemma}{{Lemma}{3}{}}{16}
 \contentsline {proposition}{{Proposition}{4}{}}{16}
-\contentsline {definition}{{Definition}{11}{}}{17}
-\contentsline {definition}{{Definition}{12}{}}{17}
-\contentsline {definition}{{Definition}{13}{}}{18}
-\contentsline {definition}{{Definition}{14}{}}{18}
-\contentsline {definition}{{Definition}{15}{Evolution of an observable}}{18}
-\contentsline {definition}{{Definition}{16}{}}{19}
-\contentsline {definition}{{Definition}{17}{}}{19}
+\contentsline {definition}{{Definition}{11}{Classical phase space}}{17}
+\contentsline {definition}{{Definition}{12}{Classical observables}}{17}
+\contentsline {definition}{{Definition}{13}{Poisson bracket}}{18}
+\contentsline {proposition}{{Proposition}{5}{\foreign {\textgerman {Ur}}-something of classical mechanics}}{18}
+\contentsline {definition}{{Definition}{14}{Classical mechanical system}}{18}
+\contentsline {definition}{{Definition}{15}{Evolution of a classical observable}}{18}
+\contentsline {definition}{{Definition}{16}{Quantum phase space}}{19}
+\contentsline {definition}{{Definition}{17}{Quantum observables}}{19}
+\contentsline {proposition}{{Proposition}{6}{}}{19}
+\contentsline {proof}{{Proof}{5}{}}{19}
+\contentsline {definition}{{Definition}{18}{Quantum system}}{19}
+\contentsline {definition}{{Definition}{19}{Evolution of a quantum observable}}{19}
