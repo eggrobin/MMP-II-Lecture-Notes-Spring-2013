@@ -107,10 +107,10 @@
 \end{flushright}
 
 }{}
-\newenvironment{supplemental}{
-\begin{flushright}
-\textsc{Supplemental}
-\end{flushright}}{}
+\newenvironment{supplemental}{}{}
+%\begin{flushright}
+%\textsc{Supplemental}
+%\end{flushright}}{}
 
 % For comments in align environments
 \newcommand\commentbox[1]{\parbox{7cm}{#1}}

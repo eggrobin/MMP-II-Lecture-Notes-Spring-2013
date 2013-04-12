@@ -28,7 +28,7 @@
 \RequirePackage{xparse}
 
 \RequirePackage{amsmath}
-\RequirePackage{amsthm}
+%\RequirePackage{amsthm}
 \RequirePackage{mathtools}
 
 \RequirePackage{xfrac}
@@ -48,16 +48,31 @@
 \newcommand{\OperatorSymbol}[1]{\operatorname{\mathit{#1}}}
 \newcommand{\StandardSymbol}\mathrm
 
+\RequirePackage[amsmath,thmmarks]{ntheorem}
+
+\makeatletter % Don't try to make my math bold!
+\def\theorem@checkbold{}
+\makeatother
+
 % Theorem styles.
-\newtheorem*{definition}{Definition}
-\newtheorem*{lemma}{Lemma}
-\newtheorem*{corollary}{Corollary}
-\newtheorem*{example}{Example}
-\newtheorem*{consequence}{Consequence}
-\newtheorem*{exercise}{Exercise}
-\newtheorem*{theorem}{Theorem}
-\newtheorem*{remark}{Remark}
-\newtheorem*{proposition}{Proposition}
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\normalfont\bfseries}\theorembodyfont{\itshape}
+\theoremseparator{.}
+\theoremsymbol{\ensuremath{\mdlgwhtlozenge}}
+\newtheorem{definition}{Definition}
+\NoEndMark
+\newtheorem{example}{Example}
+\newtheorem{consequence}{Consequence}
+\newtheorem{exercise}{Exercise}
+\newtheorem{remark}{Remark}
+%\qedsymbol{\ensuremath{\mdlgwhtsquare}}
+\theoremsymbol{\ensuremath{\mdlgwhtsquare}}
+\theorembodyfont{\upshape}
+\newtheorem{proof}{Proof}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
 %%%% Typographical constructs, not to be used directly.
 
 %%% begin Voodoo
@@ -244,8 +259,7 @@
 \let\capitalPi\Pi
 
 %%% Delimiters.
-% Always use these delimiters with a '*', as in \singleBars*, \parentheses*,
-% as it makes them scale properly.
+
 %% Unary.
 \DeclareDelimiter\doubleBars{\Vert}{\Vert}
 \DeclareDelimiter\singleBars{\lvert}{\rvert}
@@ -261,6 +275,7 @@
 \DeclareDelimiterX\langleCommaRangle[2]{\langle}{\rangle}{#1, #2}
 \DeclareDelimiterX\unkernedEmptyDotEmpty[2]{.}{.}{#1\cdot #2}
 \DeclareDelimiterX\lcurlyBarRcurly[2]{\lbrace}{\rbrace}{#1\:\delimsize\vert\: #2}
+\DeclareDelimiterX\lcurlyCommaRcurly[2]{\lbrace}{\rbrace}{#1, #2}
 
 \DeclareDocumentCommand\emptyDotEmpty{mm}{
   \unkernedEmptyDotEmpty
@@ -333,12 +348,16 @@
 % \rft is the compact notation for the reverse fourier transform.
 \newcommand\rft\widecheck
 %% Postfix operators.
+% \Pullback s is the pullback of s.
+\newcommand{\Pullback}[1]{#1^*}
 % \Dual V is the dual space of V.
 \newcommand{\Dual}[1]{#1^*}
 % \contdual V is the continuous dual of V.
 \newcommand{\contdual}[1]{#1'}
 % \adj A is the adjoint of A.
 \newcommand{\adj}[1]{#1^\dagger}
+% \Closure A is the closure of A.
+\newcommand{\Closure}[1]{\overline{#1}}
 % f\der is a compact notation for the derivative of f.
 \newcommand{\der}{'}
 %% Many-argument operators.
@@ -475,6 +494,8 @@
 % \LTwoInner{\gj}{\gy} is the standard inner product on \Lspace[2].
 \newcommand{\LTwoInner}[2]{\langleCommaRangle{#1}{#2}}
 
+\newcommand{\Poisson}[2]{\lcurlyCommaRcurly{#1}{#2}}
+
 %%% Variable names.
 %% Greek letters.
 % \g[*] refers to a variable named after a greek letter.
@@ -510,6 +531,7 @@
 \newcommand\gdig\digamma
 
 \newcommand\gS\Sigma
+\newcommand\gW\Omega
 
 %% Vectors, matrices, higher-order tensors.
 % Vectors are typeset in bold italic as per ISO 80000-2:2009.
@@ -552,6 +574,7 @@
 
 \newcommand{\nullmi}{{\VectorSymbol 0}}
 \newcommand{\nullvec}{{\VectorSymbol 0}}
+\newcommand{\nullmat}{{\MatrixSymbol 0}}
 
 \newcommand{\opA}{\OperatorSymbol A}
 \newcommand{\opB}{\OperatorSymbol B}
@@ -642,8 +665,15 @@
 %%% Miscellaneous.
 % \placeholder is a placeholder for a parameter,
 % as in 'if f is linear, f\of{\gl\placeholder}=\gl f.'
-\newcommand\placeholder{\:\cdot\:}
+\newcommand\placeholder{\mbox{\:\cdot\:}}
 % \funcspec{f}{X}{Y} specifies that f is a function from X to Y.
+% \MapSpec [f] X Y does the same, in a more compact notation 
+% appropriate for chains, eg \MapSpec [f] X {\MapSpec [g] Y Z}
+\newcommand{\MapSpec}[3][]{
+\ifstrempty{#1}%
+{#2 \rightarrow #3}%
+{#2\xrightarrow{#1}#3}
+}
 \newcommand{\FunctionSpec}[3]{{#1}:{#2}\rightarrow{#3}}
 \newcommand{\FunctionNamedBody}[3]{{#1}:{#2}\mapsto{#3}}
 \newcommand{\FunctionBody}[2]{{#1}\mapsto{#2}}
