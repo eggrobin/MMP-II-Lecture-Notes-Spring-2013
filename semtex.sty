@@ -406,7 +406,7 @@
 {\integralSign_{#1}^{#2}}
 }
 \DeclareDocumentCommand\sum{m O{}}{\mathchoice
-{\summationSign\limits_{#1}^{#2}}
+{\summationSign\limits_{\mathclap{#1}}^{\mathclap{#2}}}
 {\summationSign_{#1}^{#2}}
 {\summationSign_{#1}^{#2}}
 {\summationSign_{#1}^{#2}}
@@ -509,7 +509,7 @@
 \ifNeedPascal \newcommand{\pascal}[1]{\pa{#1}}
 \else \newcommand{\pascal}[1]{#1} \fi
 % \setst{x\in X}{P\of x} is the set of x in X such that P\of x is true.
-\newcommand{\setst}[2]{\lcurlyBarRcurly{{\textstyle #1}}{{\textstyle #2}}}
+\newcommand{\setst}[2]{\lcurlyBarRcurly{#1}{#2}}
 \newcommand{\GroupPresentation}[2]{\langleBarRangle{#1}{#2}}
 % \LTwoInner{\gj}{\gy} is the standard inner product on \Lspace[2].
 \newcommand{\LTwoInner}[2]{\langleCommaRangle{#1}{#2}}
@@ -773,7 +773,7 @@
 \newcommand\PowerSet[1]{2^{#1}}
 \newcommand{\KroneckerDelta}[2]{\mathrm{\delta}_{#1\,#2}}
 \DeclareMathOperator\LinearSpan{span}
-\newcommand{\Orthogonal}{\perp}
+\newcommand{\Orthogonal}{\mathrel{\bot}}
 \newcommand\LebesgueMeasure[1]{\operatorname{\mathcal{L}}^{#1}}
 \DeclareDocumentCommand\DirectSum{m O{}}{\mathchoice
 {\bigoplus\limits_{#1}^{#2}}
