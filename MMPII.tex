@@ -17,16 +17,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[10pt, a4paper, twoside]{lecturenotes}
-
-%\let\oldtextgreek\textgreek
-%\renewcommand\textgreek[1]{\begin{safecatcodes}\oldtextgreek{#1}\end{safecatcodes}}
-%
-\let\oldtextrussian\textrussian
-\renewcommand\textrussian[1]{\begin{safecatcodes}\oldtextrussian{#1}\end{safecatcodes}}
-
-\let\oldtextgerman\textgerman
-\renewcommand\textgerman[1]{\begin{safecatcodes}\oldtextgerman{#1}\end{safecatcodes}}
-
 \usepackage[Mathematics]{semtex}
 %
 %\renewcommand{\foreign}[1]{\begin{safecatcodes}\emph{#1}\end{safecatcodes}}
@@ -64,10 +54,8 @@ Notes from the Methods of Mathematical Physics \textsc{ii} lectures of 2013-02-1
 
 \begin{document}
   \maketitle
-  
   % The first three lectures are not covered by this document.
-  \setcounter{Lecture}{3}  
-  
+  \setcounter{Lecture}{3} 
   \begin{lecture}[date={2013-02-28}]
   \section{\emph{True Lies}: An introduction to distribution theory}
   In many areas of physics, the Dirac delta ``function'' is an important tool, e.g., for describing localized phenomena. While it is usually described in vague terms as ``only making sense under an integral'', physicists tend to still write identities such as
@@ -101,14 +89,12 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
     \text{ for }\vx \in \Rn\text{, } \migb \in \N^n\text{.}
   \end{align*}
   \end{definition}
-
   \begin{definition}[Schwartz space]  Now we define the \emph{Schwartz space}
   \begin{equation*}
     \Schwartz \DefineAs \setst{\gj \in \Continf\of\Rn}{\forall \miga, \migb \in \N^n, \SchwartzNorm{\miga}{\migb}{\gj} < \infty}
     \text{, where }\SchwartzNorm{\miga}{\migb}{\gj} \DefineAs \sup_{\vx\in\R^n}\abs{\vx^\miga\pd\vx\migb \gj\of\vx}\text{.}
   \end{equation*}
   \end{definition}
-  
   Note that $\gj \in \Schwartz$ implies $\lim_{\conv {\norm\vx} \infty}\pa{1+\norm{\vx}^2}^k \pd\vx\miga \gj\of\vx = 0$, as
   \begin{align*}
     \pa{1+\norm{\vx}^2}^m \pd\vx\miga \gj\of\vx 
@@ -123,7 +109,6 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
       \forall k \geq 0\quad \forall \miga \in \N^n\quad \exists C_\miga \in \R \quad \abs{\pd\vx\miga\gj\of{x}} < \frac{C_\alpha}{\pa{1 + \norm{\vx}^2}^k}\text{.}
     \end{equation*}
   \end{lemma}
-
   \begin{definition}[Convergence in $\Schwartz$]
     The sequence $\tuplespec{\gj_k}{k \in \N} \in \Functions\N{\pa\Schwartz}$ \emph{converges to} $\gj \in \Schwartz$ if and only if 
     \begin{equation*}
@@ -138,15 +123,12 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
       \item $U$ is continuous on $\Schwartz$, i.e. if $\conv[\Schwartz]{\gj_k}\gj$ then $\lim_{\conv k \infty}U\of{\gj_k} = U\of\gj$.
     \end{enumerate}
   \end{definition}
-  
-  
   Let us now consider some examples. First, define the space of locally integrable functions as follows.
   \begin{definition}[Locally integrable functions]
     \begin{equation*}
       \LspaceLoc[1]\of\Rn \DefineAs \setst{\FunctionSpec f \Rn \C}{\forall \vx \in \Rn, \exists \ge > 0, \int{\OpenBall \ge \vx}\abs{f\of\vy} \diffd{\vy} < \infty}
     \end{equation*}
   \end{definition}
-  
   Now let $f \in {\LspaceLoc[1]}\of\Rn$.
   If additionally $\sup_{\vx \in \Rn}\pa{1 + \norm{\vx}^2}^{-s}\abs{f\of{\vx}} < \infty$
   for some $s > 0$ (e.g. $f\of\vx \sum{\total\migb\leq s} c_\migb \vx^\migb$),
@@ -161,7 +143,6 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
       \DiracDelta\of\gj \DefineAs \gj\of{0}\text{,}\quad \DiracDelta[\vx]\of{\gj} \DefineAs \gj\of{\vx}\text{.}
     \end{equation*}
   \end{definition}  
-  
   Distributions have the nice property that we can always differentiate them.
   \begin{definition}[Derivative of a distribution]
     Let $U\in\TemperedDistributions$. Then $\pdop\miga U$ is the distribution defined
@@ -308,14 +289,10 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
           we can use Fubini's theorem.} \\
         &=\int\Rn\gj\of\vy \ft\gy\of\vy \diffd\vy
       \end{align*}
-      
-      
     \end{proof}
   \end{lemma}
-  
   \begin{proposition}
 The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map from the Schwartz space $\Schwartz$ to itself. $\rft{\ft{\gj}}=\gj$, where $\rft\gy\of\vx\DefineAs\ftnrm \int\Rn\gy\of\vk\E^{\I\scal\vk\vx}\diffd\vx$, read ``unhat'', ``bird'', ``seagull'', or whatever you like.
-  
     \begin{proof}
       \begin{align*}
         \gj\in\Schwartz&\Rightarrow\vx^\miga\pd\vx\migb\in\Schwartz \\
@@ -386,7 +363,6 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
       \end{align*}
     \end{proof}
   \end{proposition}
-  
   \section{Seeking eigenfunctions of the Fourier transform}
   ``The main ideas of many things are right here.''
   We seek to find the solutions $\tuple{\gj,\gl}$ of
@@ -398,7 +374,6 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
     \ft{\E^{-\frac{1}{2}\norm\vx^2}}=\E^{-\frac{1}{2}\norm\vx^2} \text{,}
   \end{equation*}
   so we know that 1 is an eigenvalue. How do we find the others? ``Here you actually have to have an idea.''
-  
   \paragraph{Idea}
   Find an $H\in\Endomorphisms\of\Schwartz$ such that $\commutator H {\ft{\placeholder}} = 0$. Then they have the same eigenspaces, so we just need to find the eigenfunctions of $H$ (see \emph{Finite Dimensional Quantum Mechanics}).
   
@@ -518,14 +493,9 @@ The way a bourgeois mathematician thinks of the classical phase space $\Rn\Carte
 ``If you would have the energy to learn ancient Greek, and you talked about the real housewives of Atlanta, it would be a waste.'' It is not sufficient to have a fancy language, you actually have to say something.
 
 We started this lecture with the finite Fourier transform. This is a special case of what we discuss here, with $\IntegersModulo{n}$ as the abelian group $A$. This is perfect pedagogy: after only eight months, we come back to the beginning. Everything I've done so far is just that for various groups. When the group is infinite, e.g., the unit circle for Fourier series, you have to do analysis. ``[Claude] doesn't go there. I do.''
-
 \end{lecture}
-
 \begin{supplemental}
-
-\begin{safecatcodes}
 \subsection{\textsc{Supplemental: }\emph{\textgreek{Ἡ φανταχτερή γλῶσσα τῶν ἀστικῶν μαθηματικῶν}}\footnote{The fancy language of bourgeois mathematicians.}}
-\end{safecatcodes}
 \begingroup
 \newcommand{\VelocitySpace}{\LieAlgebraSymbol{g}}
 \newcommand{\MomentumSpace}{\Dual\VelocitySpace}
