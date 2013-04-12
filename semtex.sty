@@ -37,7 +37,7 @@
 
 \RequirePackage{relsize}
 
-\RequirePackage{unicode-math}
+\RequirePackage[slash-delimiter=frac]{unicode-math}
 \setmathfont[Scale=MatchLowercase, math-style=ISO]{Cambria Math}
 \setmathfont[Scale=MatchLowercase, range={\mathcal,\mathbfcal}]{texgyrepagella-math.otf}
 
@@ -273,12 +273,19 @@
 \DeclareDelimiterX\rsquareCommaLsquare[2]{]}{[}{#1, #2}
 \DeclareDelimiterX\langleBarRangle[2]{\langle}{\rangle}{#1\delimsize\vert #2} 
 \DeclareDelimiterX\langleCommaRangle[2]{\langle}{\rangle}{#1, #2}
+\DeclareDelimiterX\unkernedEmptySlashEmpty[2]{.}{.}{#1\delimsize\fracslash #2}
 \DeclareDelimiterX\unkernedEmptyDotEmpty[2]{.}{.}{#1\cdot #2}
 \DeclareDelimiterX\lcurlyBarRcurly[2]{\lbrace}{\rbrace}{#1\:\delimsize\vert\: #2}
 \DeclareDelimiterX\lcurlyCommaRcurly[2]{\lbrace}{\rbrace}{#1, #2}
 
 \DeclareDocumentCommand\emptyDotEmpty{mm}{
   \unkernedEmptyDotEmpty
+  {\kern-\nulldelimiterspace #1 }
+  {#2}\kern-\nulldelimiterspace
+}
+
+\DeclareDocumentCommand\emptySlashEmpty{mm}{
+  \unkernedEmptySlashEmpty
   {\kern-\nulldelimiterspace #1 }
   {#2}\kern-\nulldelimiterspace
 }
@@ -730,7 +737,7 @@
 
 \newcommand{\LeftConjugationAction}[2]{\fourIdx{#1}{}{}{}#2}
 
-\newcommand{\LeftCosets}{\sfrac}
+\newcommand{\LeftCosets}[2]{\emptySlashEmpty{#1}{#2}}
 \newcommand{\QuotientGroup}{\LeftCosets}
 \newcommand{\EmptySet}\varnothing
 \newcommand{\Union}{\cup}
