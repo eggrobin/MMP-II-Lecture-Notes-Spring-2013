@@ -5,21 +5,9 @@
 %  <http://goo.gl/fVoiF>. Keep other applicable    %
 %  standards in   mind, e.g. ISO 8601:2004, etc.   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% build options (usage:                            %
-% pdflatex "<options>\input{MMPII.tex}")           %
-% [\def\targetComputerModern{}]                    %
-% [\def\targetPedantic{}]                          %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TODO(eggrobin): consider using xparse for more   %
-%                 refined semantic commands.       %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[10pt, a4paper, twoside]{lecturenotes}
 \usepackage[Mathematics]{semtex}
-%
-%\renewcommand{\foreign}[1]{\begin{safecatcodes}\emph{#1}\end{safecatcodes}}
 
 %%%% Shorthands.
 
@@ -47,17 +35,17 @@
 
 \title{%
 \textdisplay{%
-Notes from the\\Methods of Mathematical Physics~\textsc{ii} \\lectures of 2013-02-19{\slash}05-30\\by Prof.~Dr.~Eugene~Trubowitz%
+Notes from the\\Methods of Mathematical Physics~\textsc{ii} \\lectures of 2013-02-19{\slash}05-30 by\\ Prof.~Dr.~Eugene~Trubowitz%
 }%
 }
 \author{Robin~Leroy and David~Nadlinger}
-
+\input{Figures.tex}
 \begin{document}
   \maketitle
   % The first three lectures are not covered by this document.
   \setcounter{Lecture}{3} 
-  \begin{lecture}[date={2013-02-28}]
   \section{\emph{True Lies}: An introduction to distribution theory}
+  \begin{lecture}[date={2013-02-28}]
   In many areas of physics, the Dirac delta ``function'' is an important tool, e.g., for describing localized phenomena. While it is usually described in vague terms as ``only making sense under an integral'', physicists tend to still write identities such as
   \begin{equation*}
     \Laplacian\frac{1}{\norm{\vx}} = -4 \Pi \DiracDelta\of\vx\text{,}
@@ -384,7 +372,7 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
       \ft{\pa{x^2\gj}}\of k &= -\derivop[2]{k}\ft\gj\of k \\
       \ft{\pa{\derivop[2]{x}\gj}}\of k &= -k^2 \ft\gj\of k
     \end{aligned}
-    \right\rbrace \qquad \text{From the lemma your life depends on.}
+    \right\rbrace \qquad \commentbox{From the lemma your life depends on.}
   \end{equation*}
   Subtracting the second equality from the first one above:
   \begin{equation*}
@@ -442,9 +430,9 @@ We will find all the conjugacy classes. ``We're going to hunt them down!''
 
 ``I'll see you on Thursday, and I expect there'll be fewer people.''
 \end{lecture}
-\begin{lecture}[date=2013-03-14, official=true]
 
 \section{The finite Heisenberg group}
+\begin{lecture}[date=2013-03-14, official=true]
 
 \emph{The professor whistles ``Singin' in the Rain'' while waiting for the lecture to start.}
 
@@ -543,7 +531,8 @@ The Pontryagin dual\footnote{The Pontryagin dual is named after %
 \end{supplemental}
 
 \begin{supplemental}
-\subsection{\textsc{Supplemental: }Examples from Raisa Galimova's exercise class}
+
+\subsection{\textsc{Supplemental: }Examples of representations from Raisa Galimova's exercise class}
 \begingroup
 \newcommand{\LeftAction}[2]{f_{#1} \of{#2}}
 Let $G$ be a group acting on a measure space\footnote{Here $X$ is a set, $\FunctionSpec \gm X {\intclos 0 \infty}$ is a measure on $X$ and $\gS\Subset\PowerSet X$ is the $\mathrm{\sigma}$-algebra of $\gm$-measurable subsets.} $\tuple{X, \gS, \gm}$ by the left action $\FunctionSpec f G {\Functions X X}, \FunctionBody g {f_g}$, that is, we denote by $\LeftAction g x$ the action of $g\in G$ on $x\in X$, and $f_g \Compose f_h = f_{gh}$. Define the space of square-integrable functions on $X\text{, }
@@ -641,8 +630,8 @@ The problem is phase transitions: the symmetries change, and you cannot see that
 ``If you don't come back next week I understand.''
 \endgroup
 \end{lecture}
-\begin{lecture}[date=2013-03-26]
 \section{All the eigenfunctions of the Fourier transform}
+\begin{lecture}[date=2013-03-26]
 Recall: 
 \begin{align*}
 \FT\of\gj\of\vk\DefineAs\ft\gj\of\vk&\DefineAs\ftnrm\int\Rn\gj\of\vx\E^{-\I\scal{\vk}{\vx}}\diffd\vx\text{,} &&\gj\in\Schwartz\text,\\
@@ -890,19 +879,20 @@ STUFF FROM THE OTHER BOARD.
            &\leq \frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}} \sqrt{2\pa{n+1}}
 \end{align*}
 
-\section*{Quantising the harmonic oscillator}
+\section{Quantising the harmonic oscillator}
 ``Now, we come into the good stuff''. Once upon a time, there was a classical Hamiltonian:
 \[
   h\of{q,p} \DefineAs \frac{1}{2} \pa{\frac{p^2}{m}+m\gw^2 q^2}
 \]
 Do you remember anything from classical mechanics?
 ``So, Thursday: from the classical to the quantum world and beyond.''
-\section*{Classical Mechanics}
 \end{lecture}
+\subsection{Classical Mechanics}
 \begin{lecture}[date=2013-04-11]
 What's classical mechanics? We start with a number $n\geq 1$, the number of \emph{degrees of freedom}. It does not change while you keep discussing that system. Then, we have a set $\gW \Subset \Rn$, open and connected, called the \emph{classical configuration space}.
-For instance, we can consider a pendulum, with $q\in\gW = \R$ the angle. Or we could have two joints in the pendulum, yielding $\tuple{q_1,q_2}\in\gW=\R^2$.
-\begin{definition}[Classical phase space] The \emph{classical phase space} is defined as $\gW \Cartesian \Rn \owns \tuple{\vq,\vp}$.
+For instance, we can consider a pendulum, with $q\in\gW = \R$ the angle. Or we could have a joint in the pendulum, yielding $\tuple{q_1,q_2}\in\gW=\R^2$.
+\marginfig[The configuration space of a simple pendulum. Here $q\in\R$, as the pendulum can do a full turn --- or several --- around its pivot.]{\FigureSimplePendulumConfigurationSpace}
+\begin{definition}[Classical phase space] The \emph{classical phase space} is defined as $\gW \Cartesian \Rn$, where $\tuple{\vq,\vp}\in\gW \Cartesian \Rn$.
 \end{definition}
 ``If you don't measure anything, then you're doing string theory, and your argument is: there must be supersymmetries, because it's so beautiful.'' 
 \begin{definition}[Classical observables] The set of \emph{classical observables} is the algebra of smooth, real valued functions on $\gW\Cartesian\Rn$, namely $\Continf\of{\gW\Cartesian\Rn, \R} \text.$
@@ -922,6 +912,7 @@ Finally, define the \emph{Poisson bracket} of $\gy\text{, }\gj$ as
 \]
 for $\gy\text{, }\gj\in\Continf\of{\gW\Cartesian\Rn}$.
 \end{definition}
+\marginfig[The configuration space of a double pendulum, where $\vq=\tuple{q_1,q_2}\in\R^2$.]{\FigureDoublePendulumConfigurationSpace}
 \begin{proposition}[\foreign{\textgerman{Ur}}-something of classical mechanics]
 $\tuple{\Continf\of{\gW,\Rn},\Poisson{\placeholder}{\placeholder}}$ is a Lie algebra,
 \foreign{\textgerman{das heißt, }} $\Poisson{\placeholder}{\placeholder}$ is bilinear, skew-symmetric and satisfies the Jacobi identity.
@@ -980,7 +971,7 @@ Setting things up like this, the logical structure is crystal clear. This is som
 In the case $h\of{q,p}=\frac{1}{2}\pa{\frac{p^2}{n} + m\gw^2 q^2}$, where $\tuple{q,p}\in\R\Cartesian\R$, we have the harmonic oscillator.
 And that's classical mechanics. Now onto quantum mechanics.
 
-\section*{Quantum Mechanics}
+\subsection{Quantum Mechanics}
 \begingroup%QM
 \newcommand{\QuantumObservables}{\StandardSymbol{QO}}
 How do we start? There is a number $n\geq 1$ of \emph{quantum degrees of freedom}.
@@ -1010,7 +1001,7 @@ $\tuple{\QuantumObservables, \frac \ReducedPlanck \I \commutator \opA \opB}$ is 
 \adj{\pa{\frac \ReducedPlanck \I \commutator\opA\opB}}
 &= -\frac\ReducedPlanck\I\adj{\pa{\opA\opB-\opB\opA}}\\
 &= -\frac\ReducedPlanck\I\pa{\adj\opB\adj\opA-\adj\opA\adj\opB}\\
-&= -\frac\ReducedPlanck\I\pa{\opB\opA-\opA\opB} = \frac \ReducedPlanck \I \commutator\opA\opB
+&= -\frac\ReducedPlanck\I\pa{\opB\opA-\opA\opB} = \frac \ReducedPlanck \I \commutator\opA\opB\text.
 \end{align*}
 You can check the Jacobi identity and all that.
 \end{proof}

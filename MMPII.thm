@@ -1,33 +1,33 @@
-\contentsline {definition}{{Definition}{1}{}}{2}
+\contentsline {definition}{{Definition}{1}{}}{1}
 \contentsline {definition}{{Definition}{2}{Schwartz space}}{2}
 \contentsline {lemma}{{Lemma}{1}{}}{2}
 \contentsline {definition}{{Definition}{3}{Convergence in $\Schwartz $}}{2}
 \contentsline {definition}{{Definition}{4}{Tempered distributions}}{2}
-\contentsline {definition}{{Definition}{5}{Locally integrable functions}}{3}
-\contentsline {definition}{{Definition}{6}{Dirac delta distribution}}{3}
+\contentsline {definition}{{Definition}{5}{Locally integrable functions}}{2}
+\contentsline {definition}{{Definition}{6}{Dirac delta distribution}}{2}
 \contentsline {definition}{{Definition}{7}{Derivative of a distribution}}{3}
-\contentsline {definition}{{Definition}{8}{Inner product on $\Schwartz $}}{4}
+\contentsline {definition}{{Definition}{8}{Inner product on $\Schwartz $}}{3}
 \contentsline {definition}{{Definition}{9}{Fourier Transform}}{4}
 \contentsline {lemma}{{Lemma}{2}{``Your life in Fourier land depends on it.''}}{4}
-\contentsline {proof}{{Proof}{1}{}}{5}
-\contentsline {proposition}{{Proposition}{1}{}}{6}
-\contentsline {proof}{{Proof}{2}{}}{7}
-\contentsline {definition}{{Definition}{10}{Heisenberg group}}{10}
-\contentsline {proposition}{{Proposition}{2}{}}{18}
-\contentsline {proof}{{Proof}{3}{}}{18}
-\contentsline {proposition}{{Proposition}{3}{}}{19}
-\contentsline {proof}{{Proof}{4}{}}{19}
-\contentsline {lemma}{{Lemma}{3}{}}{21}
-\contentsline {proposition}{{Proposition}{4}{}}{21}
-\contentsline {definition}{{Definition}{11}{Classical phase space}}{22}
-\contentsline {definition}{{Definition}{12}{Classical observables}}{23}
-\contentsline {definition}{{Definition}{13}{Poisson bracket}}{23}
-\contentsline {proposition}{{Proposition}{5}{\foreign {\textgerman {Ur}}-something of classical mechanics}}{23}
-\contentsline {definition}{{Definition}{14}{Classical mechanical system}}{23}
-\contentsline {definition}{{Definition}{15}{Evolution of a classical observable}}{23}
-\contentsline {definition}{{Definition}{16}{Quantum phase space}}{25}
-\contentsline {definition}{{Definition}{17}{Quantum observables}}{25}
-\contentsline {proposition}{{Proposition}{6}{}}{25}
-\contentsline {proof}{{Proof}{5}{}}{25}
-\contentsline {definition}{{Definition}{18}{Quantum system}}{25}
-\contentsline {definition}{{Definition}{19}{Evolution of a quantum observable}}{25}
+\contentsline {proof}{{Proof}{1}{}}{4}
+\contentsline {proposition}{{Proposition}{1}{}}{5}
+\contentsline {proof}{{Proof}{2}{}}{5}
+\contentsline {definition}{{Definition}{10}{Heisenberg group}}{8}
+\contentsline {proposition}{{Proposition}{2}{}}{14}
+\contentsline {proof}{{Proof}{3}{}}{15}
+\contentsline {proposition}{{Proposition}{3}{}}{16}
+\contentsline {proof}{{Proof}{4}{}}{16}
+\contentsline {lemma}{{Lemma}{3}{}}{17}
+\contentsline {proposition}{{Proposition}{4}{}}{17}
+\contentsline {definition}{{Definition}{11}{Classical phase space}}{18}
+\contentsline {definition}{{Definition}{12}{Classical observables}}{18}
+\contentsline {definition}{{Definition}{13}{Poisson bracket}}{19}
+\contentsline {proposition}{{Proposition}{5}{\foreign {\textgerman {Ur}}-something of classical mechanics}}{19}
+\contentsline {definition}{{Definition}{14}{Classical mechanical system}}{19}
+\contentsline {definition}{{Definition}{15}{Evolution of a classical observable}}{19}
+\contentsline {definition}{{Definition}{16}{Quantum phase space}}{20}
+\contentsline {definition}{{Definition}{17}{Quantum observables}}{20}
+\contentsline {proposition}{{Proposition}{6}{}}{20}
+\contentsline {proof}{{Proof}{5}{}}{20}
+\contentsline {definition}{{Definition}{18}{Quantum system}}{20}
+\contentsline {definition}{{Definition}{19}{Evolution of a quantum observable}}{21}
