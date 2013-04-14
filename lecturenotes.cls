@@ -73,10 +73,19 @@
 
 \iftwoside
 \RequirePackage[heightrounded,
-marginparwidth=5cm, marginparsep=0.5cm, top=2cm, bottom=2cm, left=2.5cm, right=6.5cm]{geometry}
+marginparwidth=5cm, marginparsep=0.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, right=6.5cm]{geometry}
 \else
 \RequirePackage[top=2.25cm, bottom=2.25cm, left=3.5cm, right=3.5cm]{geometry}
 \fi
+
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\textsc{Lecture} \theLecture}
+\renewcommand{\headrulewidth}{0pt}
+\let\makearticletitle\maketitle
+\renewcommand{\maketitle}{\makearticletitle\thispagestyle{empty}}
 
 % Miscellaneous.
 \RequirePackage[iso, english]{isodate} 
@@ -119,14 +128,13 @@ marginparwidth=5cm, marginparsep=0.5cm, top=2cm, bottom=2cm, left=2.5cm, right=6
 \ifKV@lecture@official
 \def\lectureOfficial{\\* There are official notes for the material covered in this lecture.}
 \else
-\def\lectureOfficial{\\* The material covered in this lecture is not part of the official notes.}
+\def\lectureOfficial{}%\\* The material covered in this lecture is not part of the official notes.}  % Empty, as this has become the standard; such a remark leads to useless clutter.
 \fi}
 \makeatother
 \newcounter{Lecture}
 \newenvironment{lecture}[1][]{
 \refstepcounter{Lecture}
 \setkeys{lecture}{official, #1}
-
 \mbox{}\marginnote{
 \textsc{Lecture} \theLecture, \printdate{\lectureDate}.\emph{\lectureOfficial}
 }\nopagebreak

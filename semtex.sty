@@ -52,8 +52,6 @@
 
 %%%% Layout.
 
-\allowdisplaybreaks[2]
-
 \makeatletter % Don't try to make my math bold!
 \def\theorem@checkbold{}
 \makeatother
@@ -81,21 +79,13 @@
 
 %%% begin Voodoo
 
-% This conjures some dark TeX magic to create a \widecheck.
+% This adds a widecheck, unicode-math style.
 
-\makeatletter
-\newdimen\rh@wd
-\newdimen\rh@hta
-\newdimen\rh@htb
-\newbox\rh@box
-\def\rh@measure#1{\setbox\rh@box=\hbox{$#1$}\rh@wd=\wd\rh@box \rh@hta=\ht\rh@box}
-
-\def\widecheck#1{\rh@measure{#1}%
-  \setbox\rh@box=\hbox{$\widehat{\vrule height \rh@hta width\z@ \kern\rh@wd}$}%
-  \rh@htb=\ht\rh@box \advance\rh@htb\rh@hta \advance\rh@htb\p@
-  \ooalign{$\vrule height \ht\rh@box width\z@ #1$\cr
-           \raise\rh@htb\hbox{\scalebox{1}[-1]{\box\rh@box}}\cr}}
-\makeatother
+\ExplSyntaxOn
+\cs_gset_protected_nopar:Npx \widecheck {
+  \um_accent:nnn {} { \um_symfont_tl } { "030C }
+}
+\ExplSyntaxOff
 
 % This is declares a scaling delimiter which does not scale
 % with indices, exponents, limits etc.
