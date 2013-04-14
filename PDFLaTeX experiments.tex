@@ -1,205 +1,31 @@
-\documentclass[10pt]{article}
+\documentclass[12pt, twoside]{article}
 \usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{mathtools}
-\usepackage{environ}
-
-\makeatletter
-\newif\if@delimsize
-\@delimsizefalse
-
-\newcommand{\smartSum}[3]{\if@delimsize\sum #3\else \sum_{#1}^{#2} #3\fi}
-\newcommand{\smartInt}[3]{\if@delimsize\int #3\else \int\limits_{#1}^{#2} #3\fi}
-\newcommand{\pa}[1]{
-\if@delimsize
-#1
-\else
-\mathopen{\left(\@delimsizetrue\vphantom{#1}{\kern-\nulldelimiterspace}\right.}\@delimsizefalse #1 \mathclose{\left.{\kern-\nulldelimiterspace}\@delimsizetrue \vphantom{#1} \right)} \@delimsizefalse
-\fi}
-
-\newcommand\delimsize[1]{
-\if@delimsize
-\else
-  \mathopen{
-    \left.{\kern-\nulldelimiterspace}
-    \@delimsizetrue\vphantom{\@delimcontent}\@delimsizefalse
-    \middle#1
-    {\kern-\nulldelimiterspace}\right.
-  }
-\fi
-}
-
-\def\DeclareDelimiterX#1[#2]#3#4#5 {
-  \newcommand{#1}[#2]{
-    \if@delimsize
-      #5
-    \else
-      \begingroup
-        \@delimsizetrue
-        \def\@delimcontent{#5}
-        \@delimsizefalse
-        \mathopen{
-          \left#3\@delimsizetrue\vphantom{#5}
-          {\kern-\nulldelimiterspace}\right.
-        }
-        {#5}
-        \mathclose{
-          \left.{\kern-\nulldelimiterspace}
-          \@delimsizetrue \vphantom{#5} \right#4
-        }
-      \endgroup
-    \fi
-  }
-}
-
-\newcommand\DeclareDelimiter[3]{\DeclareDelimiterX{#1}[1]{#2}{#3}{##1}}
-
-\DeclareDelimiterX\Delim[2]{\langle}{]}{#1 \delimsize| #2}
-\DeclareDelimiter\DelimSimple{\langle}{]}
-\catcode`_=\active
-\newcommand_[1]{\if@delimsize{}\else\sb{#1}\fi}
-
-\makeatother
-
-
-\usepackage{expl3}
-\usepackage{xparse}
-\ExplSyntaxOn
-
-\NewDocumentCommand{\RangedOperator}{ m } {
-  \clist_set:Nn\args {#1}
-  \operatorname*{R}
-  \clist_pop:NN \args \operand
-  \int_case:nnn { \clist_count:N\args }
-    {
-      {0} {}
-      {1} {
-        \clist_pop:NN \args \range
-        \bigOperatorRange{\range}
-      }
-    }
-    {\text{ERROR~\clist_count:N\args}}
-  \tl_use:N\operand
-}
-
-\NewDocumentCommand{\bigOperatorRange}{ m } {
-  \clist_pop:NN #1 \low
-  _{\low}
-  \int_case:nnn { \clist_count:N#1 }
-    {
-      {0} {}
-      {1} { 
-        \clist_pop:NN #1 \high
-        ^{\high}
-          }
-    }
-    {\text{ERROR~\clist_count:N#1}}
-  }
-\seq_put_left:Nn\l_char_active_seq{^}
-\seq_put_left:Nn\l_char_active_seq{_}
-
-
-\char_set_catcode_active:N ^
-
-\makeatletter
-\newcommand^[1]{\if@delimsize{}\else\sp{#1}\fi}
-\makeatother
-\ExplSyntaxOff
-
-\makeatletter
-
-\newcommand{\savecatcodes}{
-  \edef\@dotcatcode{\the\catcode`.  }\relax
-  \edef\@lbracketcatcode{\the\catcode`[ }\relax
-  \edef\@rbracketcatcode{\the\catcode`] }\relax
-  \edef\@caretcatcode\the{\catcode`^ }\relax
-  \edef\@underscorecatcode{\the\catcode`_ }\relax
-}
-\newcommand{\catcodes}{
-  \catcode`\.=0
-  \catcode`\[=1
-  \catcode`\]=2
-  \catcode`^=\active
-  \catcode`_=\active
-}
-
-\newcommand{\normalcatcodes}{
-  \catcode`.=\@dotcatcode
-  \catcode`[=\@lbracketcatcode
-  \catcode`]=\@rbracketcatcode
-  \catcode`\^=12
-  \catcode`\_=12
-}
-\makeatother
-
-\newenvironment{syntax}{\catcodes}{\normalcatcodes}
+\usepackage{tikz}
+\usetikzlibrary{calc, patterns}
+\usepackage{caption}
+\usepackage[marginparwidth=5cm, marginparsep=0.5cm,
+top=4cm, bottom=4cm, left=2.5cm, right=6.5cm]{geometry}
+\usepackage[latin]{babel}
 
 \begin{document}
+\input{Figures.tex}%
+\section*{Catilina pendulaque}
+Quousque tandem abutere, Catilina, patientia nostra? quamdiu etiam furor iste tuus nos eludet? quem ad finem sese effrenata jactabit audacia? Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae, nihil timor populi, nihil concursus bonorum omnium, nihil hic munitissimus habendi senatus locus, nihil horum ora voltusque moverunt? Patere tua consilia non sentis, constrictam jam horum omnium scientia teneri conjurationem tuam non vides? Quid proxima, quid superiore nocte egeris, ubi fueris, quos convocaveris, quid consilii ceperis, quem nostrum ignorare arbitraris?
+\marginpar{
+\FigureSimplePendulumConfigurationSpace%
+\captionof{figure}{Simplex pendula massa.}
+}
 
-\savecatcodes
+O tempora, o mores! Senatus haec intellegit. Consul videt; hic tamen vivit. Vivit? immo vero etiam in senatum venit, fit publici consilii particeps, notat et designat oculis ad caedem unum quemque nostrum. Nos autem fortes viri satisfacere rei publicae videmur, si istius furorem ac tela vitemus. Ad mortem te, Catilina, duci iussu consulis iam pridem oportebat, in te conferri pestem, quam tu in nos [omnes iam diu] machinaris.
 
-\begin{syntax}
-\begin{gather}
-\RangedOperator{x}\\
-\RangedOperator{x,X}\\
-\RangedOperator{x,{0,1}}\\
-\RangedOperator{xy,{X\times Y}}\\
-\pa{\RangedOperator{x^2,{0,1}}}\\
-\pa{
-  \RangedOperator{
-    \pa{
-      y\RangedOperator{x^2,{0,1}}
-    }, {
-      \pa{\RangedOperator{z^3,{0,4}}},
-      \RangedOperator{t^2,{0,5}}
-    }
-  }
-}\\
-.pa[
-  .RangedOperator[
-    .pa[
-      y.RangedOperator[x^2,[0,1]]
-    ], [
-      .pa[.RangedOperator[z^3,[0,4]]],
-      .RangedOperator[t^2,[0,5]]
-    ]
-  ]
-]
-\end{gather}
+An vero vir amplissumus, P. Scipio, pontifex maximus, Ti. Gracchum mediocriter labefactantem statum rei publicae privatus interfecit; Catilinam orbem terrae caede atque incendiis vastare cupientem nos consules perferemus? Nam illa nimis antiqua praetereo, quod C. Servilius Ahala Sp.\ Maelium novis rebus studentem manu sua occidit. Fuit, fuit ista quondam in hac re publica virtus, ut viri fortes acrioribus suppliciis civem perniciosum quam acerbissimum hostem coercerent. Habemus senatus consultum in te, Catilina, vehemens et grave, non deest rei publicae consilium neque auctoritas huius ordinis; nos, nos, dico aperte, consules desumus.
 
-.[
-.pa[x\sp 2].pa[x].pa[x^2](x)
-.]
+Decrevit quondam senatus, ut L. Opimius consul videret, ne quid res publica detrimenti caperet; nox nulla intercessit; interfectus est propter quasdam seditionum suspiciones C. Gracchus, clarissimo patre, avo, maioribus, occisus est cum liberis M. Fulvius consularis. Simili senatus consulto C. Mario et L. Valerio consulibus est permissa res publica; num unum diem postea L. Saturninum tribunum pl. et C. Servilium praetorem mors ac rei publicae poena remorata est? At [vero] nos vicesimum iam diem patimur hebescere aciem horum auctoritatis. Habemus enim huiusce modi senatus consultum, verum inclusum in tabulis tamquam in vagina reconditum, quo ex senatus consulto confestim te interfectum esse, Catilina, convenit. Vivis, et vivis non ad deponendam, sed ad confirmandam audaciam. Cupio, patres conscripti, me esse clementem, cupio in tantis rei publicae periculis me non dissolutum videri, sed iam me ipse inertiae nequitiaeque condemno.
 
-\begin{gather}
-\sum_{\text{loooongtext}}=\sum_{\mathclap{\text{loooongtext}}}\\
-\left(\sum_{i}i\right)=\pa{\smartSum{i=1}{\infty}{i}}=\pa{\smartSum{i=1}{\infty}{\frac 1i}}\\
-\pa{\smartInt{0}{1}{x \operatorname{d} x}}\\
-\pa{\pa{\pa{\pa{x}}}}\\
-((((x))))\\
-\left(\left(\left(\left(x\right)\right)\right)\right)\\
-(((x)_i)_k)\left(\left(\left(x\right)_i\right)_k\right)\pa{\pa{\pa{x}_i}_k}\\
-(x_{i_{j_k}})\left(x_{i_{j_k}}\right)\pa{x_{i_{j_k}}}\\
-.pa[.mathbb R^n]^*\\
-.pa[.mathbb R \sp n]\sp *\\
-\end{gather}
-
-\begin{align}
-.Delim[a][b]\\
-.Delim[.RangedOperator[x, [x=1, .infty]]][42]\\
-.Delim[\frac[1][.RangedOperator[x, [x=1, .infty]]]][42]\\
-.Delim[\frac[1][.RangedOperator[x, [x=1, .infty]]]][.Delim[.RangedOperator[x, [x=1, .infty]]][42]] \\
-.Delim[0][.Delim[\frac[1][.RangedOperator[x, [x=1, .infty]]]][42]]\\
-.DelimSimple[\frac{a^b}c].DelimSimple[.RangedOperator[l,[o,f]]]
-\end{align}
-\end{syntax}
-\DeclareDelimiterX\Inner[2]{\langle}{\rangle}{#1,#2}
-\newcommand{\InnerWrapped}[2]{\Inner{#1}{#2}}
-\[\Inner{\hat\psi}\varphi\InnerWrapped{\hat\psi}\varphi\]
-\[\left(\smash{\sum_i}\vphantom\sum\right)\]
-\[\sqrt{2\Inner{x}{n+1}}\sqrt{2\left\langle x, n+1\right\rangle}
-\]
-\[
-x\hphantom y z; x\phantom y z
-\]
+Castra sunt in Italia contra populum Romanum in Etruriae faucibus conlocata, crescit in dies singulos hostium numerus; eorum\marginpar{
+\begin{center}
+\FigureDoublePendulumConfigurationSpace%
+\captionof{figure}{Duplex pendulae massae.}
+\end{center}
+} autem castrorum imperatorem ducemque hostium intra moenia atque adeo in senatu videmus intestinam aliquam cotidie perniciem rei publicae molientem. Si te iam, Catilina, comprehendi, si interfici iussero, credo, erit verendum mihi, ne non potius hoc omnes boni serius a me quam quisquam crudelius factum esse dicat. Verum ego hoc, quod iam pridem factum esse oportuit, certa de causa nondum adducor ut faciam. Tum denique interficiere, cum iam nemo tam inprobus, tam perditus, tam tui similis inveniri poterit, qui id non iure factum esse fateatur.
 \end{document}

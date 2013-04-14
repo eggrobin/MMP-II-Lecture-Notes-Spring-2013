@@ -7,10 +7,11 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions
 \LoadClass{article}
+%\raggedbottom
 
-\makeatletter
-\def\@seccntformat#1{\llap{\csname the#1\endcsname\quad}}
-\makeatother
+%\makeatletter
+%\def\@seccntformat#1{\llap{\csname the#1\endcsname\quad}}
+%\makeatother
 
 \RequirePackage{xltxtra}
 
@@ -71,7 +72,8 @@
 % Layout.
 
 \iftwoside
-\RequirePackage[top=4cm, bottom=4cm, left=3.5cm, right=5.5cm]{geometry}
+\RequirePackage[heightrounded,
+marginparwidth=5cm, marginparsep=0.5cm, top=2cm, bottom=2cm, left=2.5cm, right=6.5cm]{geometry}
 \else
 \RequirePackage[top=2.25cm, bottom=2.25cm, left=3.5cm, right=3.5cm]{geometry}
 \fi
@@ -81,6 +83,23 @@
 \usepackage{verse}
 \renewcommand{\textsuperscript}[1]{{\textup{#1}}}
 \RequirePackage[stable]{footmisc}
+%\RequirePackage{bigfoot}
+\RequirePackage{tikz}
+% For some obscure reason, XeTeX does not support
+% TikZ patterns. We are not getting rid of unicode
+% and font support anytime soon, so just do that by
+% hand.
+\usetikzlibrary{calc} %, patterns}
+\RequirePackage{caption}
+\RequirePackage{marginfix}
+\newcommand{\marginfig}[2][]{%
+\marginpar{%
+\begin{center}%
+#2%
+\ifstrempty{#1}{}{\captionof{figure}{#1}}
+\end{center}%
+}%
+}
 
 %\makeatletter
 %\renewcommand*{\@makefnmark}{%
@@ -91,6 +110,8 @@
 %  }%  
 %}   
 %\makeatother
+
+\RequirePackage{marginnote}
 
 \makeatletter
 \define@key{lecture}{date}{\def\lectureDate{#1}}
@@ -106,10 +127,9 @@
 \refstepcounter{Lecture}
 \setkeys{lecture}{official, #1}
 
-\begin{flushright}
+\mbox{}\marginnote{
 \textsc{Lecture} \theLecture, \printdate{\lectureDate}.\emph{\lectureOfficial}
-\end{flushright}
-
+}\nopagebreak
 }{}
 \newenvironment{supplemental}{}{}
 %\begin{flushright}
