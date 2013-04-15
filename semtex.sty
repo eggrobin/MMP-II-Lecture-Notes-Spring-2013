@@ -24,10 +24,11 @@
 \ProcessOptions\relax
 
 \RequirePackage{etoolbox}
+\RequirePackage{expl3}
 \RequirePackage{xparse}
 
 \RequirePackage{amsmath}
-\RequirePackage{amsthm}
+%\RequirePackage{amsthm}
 \RequirePackage{mathtools}
 
 \RequirePackage{xfrac}
@@ -36,23 +37,9 @@
 
 \RequirePackage{relsize}
 
-%\ifUtopia
-%  \RequirePackage[utopia]{mathdesign}
-%  \RequirePackage[sfdefault=fav]{isomath}
-%\fi
-%\ifComputerModern
-%  \RequirePackage{amsfonts}
-%  \RequirePackage{upgreek}
-%  \RequirePackage{isomath}
-%\fi
-
-\RequirePackage{unicode-math}
+\RequirePackage[slash-delimiter=frac]{unicode-math}
 \setmathfont[Scale=MatchLowercase, math-style=ISO]{Cambria Math}
 \setmathfont[Scale=MatchLowercase, range={\mathcal,\mathbfcal}]{texgyrepagella-math.otf}
-%\setmathfont[math-style=ISO]{texgyrepagella-math.otf}
-%\setmathfont[range={\mathscr,\mathbfscr}]{Cambria Math}
-%\setmathfont[math-style=ISO]{latinmodern-math.otf}
-%\setmathfont[range={\mathscr,\mathbfscr}]{Cambria Math}
 
 \newcommand{\VectorSymbol}\mathbfit
 \newcommand{\MultiIndexSymbol}\VectorSymbol
@@ -61,34 +48,133 @@
 \newcommand{\OperatorSymbol}[1]{\operatorname{\mathit{#1}}}
 \newcommand{\StandardSymbol}\mathrm
 
+\RequirePackage[amsmath,thmmarks]{ntheorem}
+
+%%%% Layout.
+
+\makeatletter % Don't try to make my math bold!
+\def\theorem@checkbold{}
+\makeatother
+
+\numberwithin{equation}{section}
+
 % Theorem styles.
-\newtheorem*{definition}{Definition}
-\newtheorem*{lemma}{Lemma}
-\newtheorem*{corollary}{Corollary}
-\newtheorem*{example}{Example}
-\newtheorem*{consequence}{Consequence}
-\newtheorem*{exercise}{Exercise}
-\newtheorem*{theorem}{Theorem}
-\newtheorem*{remark}{Remark}
-\newtheorem*{proposition}{Proposition}
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\normalfont\bfseries}\theorembodyfont{\itshape}
+\theoremseparator{.}
+\theoremsymbol{\ensuremath{\mdlgwhtlozenge}}
+\newtheorem{definition}{Definition}
+\NoEndMark
+\newtheorem{example}{Example}
+\newtheorem{consequence}{Consequence}
+\newtheorem{exercise}{Exercise}
+\newtheorem{remark}{Remark}
+%\qedsymbol{\ensuremath{\mdlgwhtsquare}}
+\theoremsymbol{\ensuremath{\mdlgwhtsquare}}
+\theorembodyfont{\upshape}
+\newtheorem{proof}{Proof}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
 %%%% Typographical constructs, not to be used directly.
 
 %%% begin Voodoo
 
-% This conjures some dark TeX magic to create a \widecheck.
+% This adds a widecheck, unicode-math style.
+
+\ExplSyntaxOn
+\cs_gset_protected_nopar:Npx \widecheck {
+  \um_accent:nnn {} { \um_symfont_tl } { "030C }
+}
+\ExplSyntaxOff
+
+% This is declares a scaling delimiter which does not scale
+% with indices, exponents, limits etc.
 
 \makeatletter
-\newdimen\rh@wd
-\newdimen\rh@hta
-\newdimen\rh@htb
-\newbox\rh@box
-\def\rh@measure#1{\setbox\rh@box=\hbox{$#1$}\rh@wd=\wd\rh@box \rh@hta=\ht\rh@box}
 
-\def\widecheck#1{\rh@measure{#1}%
-  \setbox\rh@box=\hbox{$\widehat{\vrule height \rh@hta width\z@ \kern\rh@wd}$}%
-  \rh@htb=\ht\rh@box \advance\rh@htb\rh@hta \advance\rh@htb\p@
-  \ooalign{$\vrule height \ht\rh@box width\z@ #1$\cr
-           \raise\rh@htb\hbox{\scalebox{1}[-1]{\box\rh@box}}\cr}}
+% Something seems to be very buggy, so we need to do some
+% dark magic to render things in the right order.
+% In particular, this involves negative phantoms.
+
+\def\nvphantom{\v@true\h@false\nph@nt}
+\def\nhphantom{\v@false\h@true\nph@nt}
+\def\nphantom{\v@true\h@true\nph@nt}
+\def\nph@nt{\ifmmode\def\next{\mathpalette\nmathph@nt}%
+  \else\let\next\nmakeph@nt\fi\next}
+\def\nmakeph@nt#1{\setbox\z@\hbox{#1}\nfinph@nt}
+\def\nmathph@nt#1#2{\setbox\z@\hbox{$\m@th#1{#2}$}\nfinph@nt}
+\def\nfinph@nt{\setbox\tw@\null
+  \ifv@ \ht\tw@\ht\z@ \dp\tw@\dp\z@\fi
+  \ifh@ \wd\tw@-\wd\z@\fi \box\tw@}
+
+% This is a well-known hack.
+
+\newcommand\@delimiterWrapper[3]{\mathopen{}\mathclose\bgroup #1 #2\aftergroup\egroup #3}
+
+
+\newcommand\delimsize[1]{
+\if@delimsize
+\else
+  \mathopen{
+    \left.{\kern-\nulldelimiterspace}
+    \@delimsizetrue\vphantom{\@delimcontent}\@delimsizefalse
+    \middle#1
+    {\kern-\nulldelimiterspace}\right.
+  }
+\fi
+}
+
+% The dance with \(n)phantoms typesets the content first,
+% then the left bracket and finally the right one. XeLaTeX
+% does weird stuff when mathmode starts with a delimiter 
+% containing only a vphantom.
+\def\DeclareDelimiterX#1[#2]#3#4#5 {
+  \DeclareRobustCommand{#1}[#2]{
+    \if@delimsize
+      #5
+    \else
+      \begingroup
+        \mathopen{}
+        \@delimsizetrue
+        \hphantom{
+          \@delimiterWrapper{\left#3}{
+            \vphantom{#5}
+            {\kern-\nulldelimiterspace}
+          }{\right.}
+        }
+        \def\@delimcontent{#5}
+        \@delimsizefalse
+        {#5}
+        \nhphantom{#5}
+        \@delimsizetrue
+        \nhphantom{
+          \@delimiterWrapper{\left#3}{
+            \vphantom{#5}
+            {\kern-\nulldelimiterspace}
+          }{\right.}
+        }
+        \@delimiterWrapper{\left#3}{
+          \vphantom{#5}
+          {\kern-\nulldelimiterspace}
+        }{\right.}
+        \@delimsizefalse
+        \hphantom{#5}
+        \mathclose{
+        \@delimsizetrue
+        \@delimiterWrapper{\left.}{
+          {\kern-\nulldelimiterspace}
+          \vphantom{#5}
+        }{\right#4}
+        }
+      \endgroup
+    \fi
+  }
+}
+
+\newcommand\DeclareDelimiter[3]{\DeclareDelimiterX{#1}[1]{#2}{#3}{##1}}
+
 \makeatother
 
 % This makes a scaling integral sign that seems to (kind of) work.
@@ -107,13 +193,63 @@
     \@delint
     \right.{\kern-\nulldelimiterspace}
   }
+  \if@delimsize
+  \else
   _{\mathclap{\@mathraisebox{-3pt}{#1\hspace{6.75pt}}}}
   ^{\mathclap{\@mathraisebox{1pt}{\hspace{3.6pt} #2}}}
+  \fi
 }{\hspace{-1.25pt}#3}
 }
 \makeatother
 
 %%% end Voodoo 
+
+% We need ^ and _ to be active in order to ignore
+% them when sizing brackets. Beware that 
+% ^\frac{1}{2} will no longer work, use
+% ^{\frac{1}{2}} instead. (^, _, now work as normal 
+% commands).
+
+\mathcode`\^="8000
+\mathcode`\_="8000
+
+\makeatletter
+\def\livechars@{
+  \catcode`\^=\active
+  \catcode`\_=\active
+}
+\def\killchars@{
+  \catcode`\^=7
+  \catcode`\_=8
+}
+\makeatother
+%\makeatletter
+%\ExplSyntaxOn
+%  \newcommand{\semtexsyntax}{
+%    \seq_put_left:Nn\l_char_active_seq{^}
+%    \seq_put_left:Nn\l_char_active_seq{_}
+%    \catcode`\^=\active
+%    \catcode`\_=\active
+%  }
+%  \newcommand{\normalsyntax}{
+%    \seq_pop_left:NN\l_char_active_seq\@junk
+%    \seq_pop_left:NN\l_char_active_seq\@junk
+%    \catcode`\^=7
+%    \catcode`\_=8
+%  }
+%\ExplSyntaxOff
+%\makeatother
+%\semtexsyntax
+%
+%\newenvironment{safecatcodes}{\normalsyntax}{\semtexsyntax}
+
+\makeatletter
+\newif\if@delimsize
+\@delimsizefalse
+\livechars@
+\newcommand^[1]{\if@delimsize{}\else\sp{#1}\fi}
+\newcommand_[1]{\if@delimsize{}\else\sb{#1}\fi}
+\makeatother
  
 \AtBeginDocument{   
 
@@ -132,34 +268,35 @@
 \let\capitalPi\Pi
 
 %%% Delimiters.
-% Always use these delimiters with a '*', as in \singleBars*, \parentheses*,
-% as it makes them scale properly.
-%% Unary.
-\DeclarePairedDelimiter\doubleBars{\Vert}{\Vert}
-\DeclarePairedDelimiter\singleBars{\lvert}{\rvert}
-\DeclarePairedDelimiter\parentheses{\lparen}{\rparen}
-\DeclarePairedDelimiter\squareBrackets{[}{]}
-\DeclarePairedDelimiter\curlyBrackets{\lbrace}{\rbrace}
-%% Binary.
-\DeclarePairedDelimiterX\lsquareCommaRsquare[2]{[}{]}{#1, #2}
-\DeclarePairedDelimiterX\lsquareCommaLsquare[2]{[}{[}{#1, #2}
-\DeclarePairedDelimiterX\rsquareCommaRsquare[2]{]}{]}{#1, #2}
-\DeclarePairedDelimiterX\rsquareCommaLsquare[2]{]}{[}{#1, #2}
-\DeclarePairedDelimiterX\langleBarRangle[2]{\langle}{\rangle}{#1\delimsize\vert #2} 
-\DeclarePairedDelimiterX\langleCommaRangle[2]{\langle}{\rangle}{#1, #2}
-\DeclarePairedDelimiterX\unkernedEmptyDotEmpty[2]{.}{.}{#1\cdot #2}
-\DeclarePairedDelimiterX\lcurlyBarRcurly[2]{\lbrace}{\rbrace}{#1\:\delimsize\vert\: #2}
 
-\DeclareDocumentCommand\emptyDotEmpty{smm}{
-\IfBooleanTF#1{
-    \unkernedEmptyDotEmpty*
-    {\kern-\nulldelimiterspace #2 }
-    {#3}\kern-\nulldelimiterspace
-  }{
-    \unkernedEmptyDotEmpty
-    {\kern-\nulldelimiterspace #2 }
-    {#3}\kern-\nulldelimiterspace
-  }
+%% Unary.
+\DeclareDelimiter\doubleBars{\Vert}{\Vert}
+\DeclareDelimiter\singleBars{\lvert}{\rvert}
+\DeclareDelimiter\parentheses{\lparen}{\rparen}
+\DeclareDelimiter\squareBrackets{[}{]}
+\DeclareDelimiter\curlyBrackets{\lbrace}{\rbrace}
+%% Binary.
+\DeclareDelimiterX\lsquareCommaRsquare[2]{[}{]}{#1, #2}
+\DeclareDelimiterX\lsquareCommaLsquare[2]{[}{[}{#1, #2}
+\DeclareDelimiterX\rsquareCommaRsquare[2]{]}{]}{#1, #2}
+\DeclareDelimiterX\rsquareCommaLsquare[2]{]}{[}{#1, #2}
+\DeclareDelimiterX\langleBarRangle[2]{\langle}{\rangle}{#1\delimsize\vert #2} 
+\DeclareDelimiterX\langleCommaRangle[2]{\langle}{\rangle}{#1, #2}
+\DeclareDelimiterX\unkernedEmptySlashEmpty[2]{.}{.}{#1\delimsize\fracslash #2}
+\DeclareDelimiterX\unkernedEmptyDotEmpty[2]{.}{.}{#1\cdot #2}
+\DeclareDelimiterX\lcurlyBarRcurly[2]{\lbrace}{\rbrace}{#1\:\delimsize\vert\: #2}
+\DeclareDelimiterX\lcurlyCommaRcurly[2]{\lbrace}{\rbrace}{#1, #2}
+
+\DeclareDocumentCommand\emptyDotEmpty{mm}{
+  \unkernedEmptyDotEmpty
+  {\kern-\nulldelimiterspace #1 }
+  {#2}\kern-\nulldelimiterspace
+}
+
+\DeclareDocumentCommand\emptySlashEmpty{mm}{
+  \unkernedEmptySlashEmpty
+  {\kern-\nulldelimiterspace #1 }
+  {#2}\kern-\nulldelimiterspace
 }
 
 %%%% Semantic commands. These are the ones that should be used in the document.
@@ -193,7 +330,7 @@
 % \Sign is the sign function.
 \DeclareMathOperator{\Sign}{sgn}
 % \Laplacian is the Laplacian.
-\DeclareMathOperator{\Laplacian}{\Delta}
+\DeclareMathOperator{\Laplacian}{\increment}
 % \diffd is the total differential.
 \DeclareMathOperator{\diffd}{d}
 % \FT is the prefix notation for the fourier transform.
@@ -227,12 +364,16 @@
 % \rft is the compact notation for the reverse fourier transform.
 \newcommand\rft\widecheck
 %% Postfix operators.
+% \Pullback s is the pullback of s.
+\newcommand{\Pullback}[1]{#1^*}
 % \Dual V is the dual space of V.
 \newcommand{\Dual}[1]{#1^*}
 % \contdual V is the continuous dual of V.
 \newcommand{\contdual}[1]{#1'}
 % \adj A is the adjoint of A.
 \newcommand{\adj}[1]{#1^\dagger}
+% \Closure A is the closure of A.
+\newcommand{\Closure}[1]{\overline{#1}}
 % f\der is a compact notation for the derivative of f.
 \newcommand{\der}{'}
 %% Many-argument operators.
@@ -261,7 +402,7 @@
 {\integralSign_{#1}^{#2}}
 }
 \DeclareDocumentCommand\sum{m O{}}{\mathchoice
-{\summationSign\limits_{#1}^{#2}}
+{\summationSign\limits_{\mathclap{#1}}^{\mathclap{#2}}}
 {\summationSign_{#1}^{#2}}
 {\summationSign_{#1}^{#2}}
 {\summationSign_{#1}^{#2}}
@@ -314,30 +455,30 @@
 %%% Delimiters.
 % \of is the bracketing for function arguments, as in
 % f\of\vx, \diffd{x^2+1}. It is distinct from the normal parenthesising.
-\newcommand\of[1]{\parentheses*{#1}}
+\newcommand\of[1]{\parentheses{#1}}
 % \Associate is the parenthesising for associativity, as in \pa{x+y}^2.
-\newcommand\Associate[1]{\parentheses*{#1}}
+\newcommand\Associate[1]{\parentheses{#1}}
 % \tuple{a,b,c} is the tuple containing a, b and c in that order.
-\newcommand\tuple[1]{\parentheses*{#1}}
+\newcommand\tuple[1]{\parentheses{#1}}
 % \set{a,b,c} is the set containing a, b and c.
-\newcommand\set[1]{\curlyBrackets*{#1}}
+\newcommand\set[1]{\curlyBrackets{#1}}
 %% Normlike delimiters.
 % \abs is the absolute value on C or R, \abs z = \sqrt{z\conj{z}}.
-\newcommand\abs[1]{\singleBars*{#1}}
+\newcommand\abs[1]{\singleBars{#1}}
 % \norm is the Euclidean norm on R^n, \norm \vx = \sum_i \abs{x_i}^2.
-\newcommand\norm[1]{\singleBars*{#1}}
+\newcommand\norm[1]{\singleBars{#1}}
 % \Lnorm[p] is the Lp function norm, \Lnorm[p] f = \pa{Int_\Rn \abs{f}^p \diffd x}^\frac{1}{p}
 % \Lnorm is the L\infty function norm,
 % \Lnorm f = \setst{C\geq0}{\abs{f}\leq C \text{almost everywhere}}.
-\newcommand\Lnorm[2][\infty]{\doubleBars*{#2}_{#1}}
+\newcommand\Lnorm[2][\infty]{\doubleBars{#2}_{#1}}
 % \SchwartzNorm\miga\migb{f} is defined as \sup_\{\vx\in\R^n}\abs{\vx^\miga\pd\vx\miga f\of\vx}.
 % The Schwartz space is the space of functions for which it is finite for all \miga and \migb.
-\newcommand{\SchwartzNorm}[3]{\doubleBars*{#3}_{#1,#2}}
+\newcommand{\SchwartzNorm}[3]{\doubleBars{#3}_{#1,#2}}
 % \total is the total of multi-indices, \total \miga = \sum_i \ga_i.
-\newcommand\total[1]{\singleBars*{#1}}
+\newcommand\total[1]{\singleBars{#1}}
 % \diff{0}{1}{F} is F\of 1 - F\of 0. This notation is used for definite integrals,
 % as in \Int 0[1] f\of x \diffd x = \diff 0 1 F if F\der = f
-\newcommand{\diff}[3]{\squareBrackets*{#3}_{#1}^{#2}}
+\newcommand{\diff}[3]{\squareBrackets{#3}_{#1}^{#2}}
 
 %% Binary delimiters.
 % Intervals.
@@ -352,10 +493,10 @@
 \newcommand{\intclop}[2]{\lsquareCommaLsquare{#1}{#2}}
 \newcommand{\intclos}[2]{\lsquareCommaRsquare{#1}{#2}}
 % \commutator is the commutator of operators, \commutator A B = AB - BA.
-\newcommand\commutator[2]{\lsquareCommaRsquare*{#1}{#2}}
+\newcommand\commutator[2]{\lsquareCommaRsquare{#1}{#2}}
 % \InnerProduct is the standard scalar product on R^n, \InnerProduct \vx \vy = \sum_i x_i y_i
 % we use \emptyDotEmpty as per ISO 80000-2:2009.
-\newcommand\InnerProduct[2]{\emptyDotEmpty*{#1}{#2}}
+\newcommand\InnerProduct[2]{\emptyDotEmpty{#1}{#2}}
 % \pascal is used for expressions which need to be parenthesised if the notation for the
 % scalar product \InnerProduct does not include delimiters, e.g. \emptyDotEmpty, but should not be if 
 % it does, e.g. \angleCommaAngle. 'pascal' stands for pa[rentheses] scal[ar].
@@ -364,10 +505,12 @@
 \ifNeedPascal \newcommand{\pascal}[1]{\pa{#1}}
 \else \newcommand{\pascal}[1]{#1} \fi
 % \setst{x\in X}{P\of x} is the set of x in X such that P\of x is true.
-\newcommand{\setst}[2]{\lcurlyBarRcurly*{{\textstyle #1}}{{\textstyle #2}}}
-\newcommand{\GroupPresentation}[2]{\langleBarRangle*{#1}{#2}}
+\newcommand{\setst}[2]{\lcurlyBarRcurly{#1}{#2}}
+\newcommand{\GroupPresentation}[2]{\langleBarRangle{#1}{#2}}
 % \LTwoInner{\gj}{\gy} is the standard inner product on \Lspace[2].
-\newcommand{\LTwoInner}[2]{\langleCommaRangle*{#1}{#2}}
+\newcommand{\LTwoInner}[2]{\langleCommaRangle{#1}{#2}}
+
+\newcommand{\Poisson}[2]{\lcurlyCommaRcurly{#1}{#2}}
 
 %%% Variable names.
 %% Greek letters.
@@ -404,6 +547,7 @@
 \newcommand\gdig\digamma
 
 \newcommand\gS\Sigma
+\newcommand\gW\Omega
 
 %% Vectors, matrices, higher-order tensors.
 % Vectors are typeset in bold italic as per ISO 80000-2:2009.
@@ -446,6 +590,7 @@
 
 \newcommand{\nullmi}{{\VectorSymbol 0}}
 \newcommand{\nullvec}{{\VectorSymbol 0}}
+\newcommand{\nullmat}{{\MatrixSymbol 0}}
 
 \newcommand{\opA}{\OperatorSymbol A}
 \newcommand{\opB}{\OperatorSymbol B}
@@ -531,13 +676,20 @@
 \newcommand{\Identity}{\mathbb{1}}
 
 
-\newcommand{\ReducedPlanck}{\hbar}
+\newcommand{\ReducedPlanck}{\hslash}
 
 %%% Miscellaneous.
 % \placeholder is a placeholder for a parameter,
 % as in 'if f is linear, f\of{\gl\placeholder}=\gl f.'
-\newcommand\placeholder{\:\cdot\:}
+\newcommand\placeholder{\mbox{\:\cdot\:}}
 % \funcspec{f}{X}{Y} specifies that f is a function from X to Y.
+% \MapSpec [f] X Y does the same, in a more compact notation 
+% appropriate for chains, eg \MapSpec [f] X {\MapSpec [g] Y Z}
+\newcommand{\MapSpec}[3][]{
+\ifstrempty{#1}%
+{#2 \rightarrow #3}%
+{#2\xrightarrow{#1}#3}
+}
 \newcommand{\FunctionSpec}[3]{{#1}:{#2}\rightarrow{#3}}
 \newcommand{\FunctionNamedBody}[3]{{#1}:{#2}\mapsto{#3}}
 \newcommand{\FunctionBody}[2]{{#1}\mapsto{#2}}
@@ -552,18 +704,18 @@
 % \tupleSpec{f\of i}{i\in X} denotes the Cartesian product \prod{i\in X}f\of i.
 % as such it should be used for defining sequences, vectors, and higher-order
 % tensors (with several index specifications.
-\newcommand{\tuplespec}[2]{\parentheses*{#1}_{#2}}
+\newcommand{\tuplespec}[2]{\parentheses{#1}_{#2}}
 
 %%% Pedantic variants.
 \ifPedanticNotation
-  \renewcommand\Associate[1]{\parentheses*{#1}_\mathrm{Assoc.}}
-  \renewcommand\of[1]{\squareBrackets*{#1}}
-  \renewcommand\total[1]{\singleBars*{#1}_{\mathrm{MI}}}
-  \renewcommand\norm[1]{\singleBars*{#1}_{2}}
-  \renewcommand\abs[1]{\singleBars*{#1}_{\mathrm{abs}}}
-  \renewcommand\tuple[1]{\parentheses*{#1}_{\mathrm{tuple}}}
-  \renewcommand\commutator[2]{\lsquareCommaRsquare*{#1}{#2}_{\mathrm{commutator}}}
-  \renewcommand\Lnorm[2][\infty]{\doubleBars*{#2}_{\mathcal{L}_{#1}}}
+  \renewcommand\Associate[1]{\parentheses{#1}_\mathrm{Assoc.}}
+  \renewcommand\of[1]{\squareBrackets{#1}}
+  \renewcommand\total[1]{\singleBars{#1}_{\mathrm{MI}}}
+  \renewcommand\norm[1]{\singleBars{#1}_{2}}
+  \renewcommand\abs[1]{\singleBars{#1}_{\mathrm{abs}}}
+  \renewcommand\tuple[1]{\parentheses{#1}_{\mathrm{tuple}}}
+  \renewcommand\commutator[2]{\lsquareCommaRsquare{#1}{#2}_{\mathrm{commutator}}}
+  \renewcommand\Lnorm[2][\infty]{\doubleBars{#2}_{\mathcal{L}_{#1}}}
   \renewcommand{\intopen}[2]{\rsquareCommaLsquare{#1}{#2}_{\mathrm{interval}}}
   \renewcommand{\intopcl}[2]{\rsquareCommaRsquare{#1}{#2}_{\mathrm{interval}}}
   \renewcommand{\intclop}[2]{\lsquareCommaLsquare{#1}{#2}_{\mathrm{interval}}}
@@ -582,10 +734,10 @@
 
 \newcommand{\FreeGroup}[1]{\operatorname{F}_{#1}}
 \newcommand{\NormalSubgroup}{\trianglelefteq}
-\newcommand{\Cardinality}[1]{\singleBars*{#1}}
+\newcommand{\Cardinality}[1]{\singleBars{#1}}
 \newcommand{\HeisenbergGroup}{\mathrm{H}}
 \newcommand{\FiniteHeisenbergGroup}[1]{\HeisenbergGroup_{#1}}
-\newcommand{\Helt}[3]{\squareBrackets*{#1,#2;#3}}
+\newcommand{\Helt}[3]{\squareBrackets{#1,#2;#3}}
 \newcommand{\Compose}{\circ}
 
 \newcommand{\LongDomainSpec}[1]{
@@ -594,7 +746,7 @@
 
 \newcommand{\LeftConjugationAction}[2]{\fourIdx{#1}{}{}{}#2}
 
-\newcommand{\LeftCosets}{\sfrac}
+\newcommand{\LeftCosets}[2]{\emptySlashEmpty{#1}{#2}}
 \newcommand{\QuotientGroup}{\LeftCosets}
 \newcommand{\EmptySet}\varnothing
 \newcommand{\Union}{\cup}
@@ -617,7 +769,7 @@
 \newcommand\PowerSet[1]{2^{#1}}
 \newcommand{\KroneckerDelta}[2]{\mathrm{\delta}_{#1\,#2}}
 \DeclareMathOperator\LinearSpan{span}
-\newcommand{\Orthogonal}{\perp}
+\newcommand{\Orthogonal}{\mathrel{\bot}}
 \newcommand\LebesgueMeasure[1]{\operatorname{\mathcal{L}}^{#1}}
 \DeclareDocumentCommand\DirectSum{m O{}}{\mathchoice
 {\bigoplus\limits_{#1}^{#2}}
@@ -659,7 +811,7 @@
 \newcommand{\Cartesian}{\times}
 \newcommand{\DirectProduct}{\Cartesian}
 \newcommand\DefinitionOf\eqcolon
-\newcommand{\Equivalent}{\Leftrightarrow}
+\newcommand{\Equivalent}{\iff}
 
 \newcommand{\CircleGroup}{\mathbb{T}}
 \newcommand{\Torus}[1]{\CircleGroup^{#1}}
@@ -671,8 +823,11 @@
 \end{aligned}
 }
 \newcommand{\Factorial}[1]{#1 !}
-\newcommand{\Implies}{\Rightarrow}
+\newcommand{\Implies}{\implies}
 \newcommand\dder{^\dprime}
 \newcommand{\Identically}{\equiv}
 
+%\makeatletter
+%\killchars@
+%\makeatother
 }

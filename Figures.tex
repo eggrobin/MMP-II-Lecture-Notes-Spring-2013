@@ -1,0 +1,43 @@
+\newcommand{\FigureSimplePendulumConfigurationSpace}{%
+\begin{tikzpicture}
+%\draw [fill, pattern = north east lines, draw = none] (-1.75, 0) -- ++(3.5, 0) -- ++(45:.25) -- ++(-3.5, 0) -- cycle;
+\useasboundingbox (-2.5, -4) rectangle (2.5, 0);
+\foreach \x in {-.5,-.45,...,.51}
+  \draw (\x, 0) -- ++(45:.125);
+\draw (-.5, 0) -- (.5, 0);
+\coordinate (P) at (0, 0);
+\coordinate (I) at (0, -4);
+\node at (-65 : 4) [name=m, circle, inner sep = .25 cm, draw] {};
+\node at (P) [name=pivot, label={[label distance=1cm]-87:$q$}] {};
+\draw (P) -- (m);
+\draw [->] (-90 : 1) arc (-90 : -65 : 1);
+\draw [dashdotted] (I) -- (P);
+\end{tikzpicture}%
+}
+
+\newcommand{\FigureDoublePendulumConfigurationSpace}{%
+\begin{tikzpicture}
+%\draw [fill, pattern = north east lines, draw = none] (-1.75, 0) -- ++(3.5, 0) -- ++(45:.25) -- ++(-3.5, 0) -- cycle;
+%\foreach \x in {-1.75,-1.65,...,1.76}
+%  \draw (\x, 0) -- ++(45:.25);
+%\draw (-1.75, 0) -- (1.75, 0);
+\useasboundingbox (-2.5, -4) rectangle (2.5, 0);
+\foreach \x in {-.5,-.45,...,.51}
+  \draw (\x, 0) -- ++(45:.125);
+\draw (-.5, 0) -- (.5, 0);
+\coordinate (P) at (0, 0);
+\coordinate (I) at (0, -4);
+\coordinate (M1) at (-60 : 2);
+\coordinate (M2) at ($(M1) + (-150 : 2)$);
+\coordinate (D) at ($(M1)-(P)!(M1)!(I)$);
+\coordinate (I2) at ($(I)+(D)$);
+\node at (M1) [name=m1, circle, inner sep = .125 cm, label={[label distance=1cm]-100:$q_2$}, draw] {};
+\node at (M2) [name=m2, circle, inner sep = .125 cm, draw] {};
+\node at (P) [name=pivot, label={[label distance=1cm]-87:$q_1$}] {};
+\draw (P) -- (m1) -- (m2);
+\draw [->] (-90 : 1) arc (-90 : -60 : 1);
+\draw [->] ($(M1)+(0, -1)$) arc (-90 : -150 : 1);
+\draw [dashdotted] (I) -- (P);
+\draw [dashdotted] (I2) -- (m1);
+\end{tikzpicture}
+}

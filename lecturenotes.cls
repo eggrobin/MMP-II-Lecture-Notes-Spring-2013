@@ -7,6 +7,11 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions
 \LoadClass{article}
+%\raggedbottom
+
+%\makeatletter
+%\def\@seccntformat#1{\llap{\csname the#1\endcsname\quad}}
+%\makeatother
 
 \RequirePackage{xltxtra}
 
@@ -29,6 +34,10 @@
   Contextuals=WordFinal,
             ]{Linux Libertine O}
 \setmonofont{Linux Libertine Mono O}
+\newfontface\textup[
+  VerticalPosition=Superior,
+  Numbers={OldStyle, Proportional}
+]{Linux Libertine O}
 \newfontface\textinitial[]{Linux Libertine Initials O}
 \newfontface\textdisplay[
   Mapping=tex-text, 
@@ -63,15 +72,57 @@
 % Layout.
 
 \iftwoside
-\RequirePackage[top=2.0cm, bottom=2.0cm, left=3.25cm, right=2.25cm]{geometry}
+\RequirePackage[heightrounded,
+marginparwidth=5cm, marginparsep=0.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, right=6.5cm]{geometry}
 \else
-\RequirePackage[top=2.0cm, bottom=2.0cm, left=2.75cm, right=2.75cm]{geometry}
+\RequirePackage[top=2.25cm, bottom=2.25cm, left=3.5cm, right=3.5cm]{geometry}
 \fi
+
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\textsc{Lecture} \theLecture}
+\renewcommand{\headrulewidth}{0pt}
+\let\makearticletitle\maketitle
+\renewcommand{\maketitle}{\makearticletitle\thispagestyle{empty}}
+
+\usepackage[margin=10pt,font=small,labelfont=bf]{caption}
 
 % Miscellaneous.
 \RequirePackage[iso, english]{isodate} 
-\RequirePackage[stable]{footmisc}
 \usepackage{verse}
+\renewcommand{\textsuperscript}[1]{{\textup{#1}}}
+\RequirePackage[stable]{footmisc}
+%\RequirePackage{bigfoot}
+\RequirePackage{tikz}
+% For some obscure reason, XeTeX does not support
+% TikZ patterns. We are not getting rid of unicode
+% and font support anytime soon, so just do that by
+% hand.
+\usetikzlibrary{calc} %, patterns}
+\RequirePackage{caption}
+\RequirePackage{marginfix}
+\newcommand{\marginfig}[2][]{%
+\marginpar{%
+\begin{center}%
+#2%
+\ifstrempty{#1}{}{\captionof{figure}{#1}}
+\end{center}%
+}%
+}
+
+%\makeatletter
+%\renewcommand*{\@makefnmark}{%
+%  \hbox{%
+%    \textup{%
+%      \thempfn%
+%    }%
+%  }%  
+%}   
+%\makeatother
+
+\RequirePackage{marginnote}
 
 \makeatletter
 \define@key{lecture}{date}{\def\lectureDate{#1}}
@@ -79,26 +130,30 @@
 \ifKV@lecture@official
 \def\lectureOfficial{\\* There are official notes for the material covered in this lecture.}
 \else
-\def\lectureOfficial{\\* The material covered in this lecture is not part of the official notes.}
+\def\lectureOfficial{}%\\* The material covered in this lecture is not part of the official notes.}  % Empty, as this has become the standard; such a remark leads to useless clutter.
 \fi}
 \makeatother
 \newcounter{Lecture}
-\newenvironment{lecture}[1][]{
+\newcommand{\LectureStartsHere}{
+\mbox{}%
+\marginnote{%
+\textsc{Lecture} \theLecture, \printdate{\lectureDate}.\emph{\lectureOfficial}%
+}%
+\nopagebreak%
+}
+\NewDocumentEnvironment{lecture}{s o}{
 \refstepcounter{Lecture}
-\setkeys{lecture}{official, #1}
+\setkeys{lecture}{official, #2}
 
-\begin{flushright}
-\textsc{Lecture} \theLecture, \printdate{\lectureDate}.\emph{\lectureOfficial}
-\end{flushright}
-
+\IfBooleanTF{#1}{}{\LectureStartsHere\nopagebreak}
 }{}
-\newenvironment{supplemental}{
-\begin{flushright}
-\textsc{Supplemental}
-\end{flushright}}{}
+\newenvironment{supplemental}{}{}
+%\begin{flushright}
+%\textsc{Supplemental}
+%\end{flushright}}{}
 
 % For comments in align environments
-\newcommand\commentbox[1]{\parbox{7cm}{#1}}
+\newcommand\commentbox[1]{\parbox{.3\linewidth}{#1}}
 
 \usepackage{lettrine}
 \newcommand{\up}[1]{{\addfontfeature{VerticalPosition=Superior}#1}}

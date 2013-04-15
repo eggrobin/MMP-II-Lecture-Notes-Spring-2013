@@ -5,19 +5,8 @@
 %  <http://goo.gl/fVoiF>. Keep other applicable    %
 %  standards in   mind, e.g. ISO 8601:2004, etc.   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% build options (usage:                            %
-% pdflatex "<options>\input{MMPII.tex}")           %
-% [\def\targetComputerModern{}]                    %
-% [\def\targetPedantic{}]                          %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TODO(eggrobin): consider using xparse for more   %
-%                 refined semantic commands.       %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[10pt, a4paper, twoside]{lecturenotes}
-
 \usepackage[Mathematics]{semtex}
 
 %%%% Shorthands.
@@ -29,7 +18,7 @@
 
 %% Freqently-used expressions.
 \newcommand{\sqftnrm}{\frac{1}{\pa{2\Pi}^n} }
-\newcommand{\ftnrm}{\frac{1}{\pa{2\Pi}^\frac{n}{2}} }
+\newcommand{\ftnrm}{\frac{1}{\pa{2\Pi}^{\frac{n}{2}}} }
 
 \newcommand{\opAdag}{\adj{\opA}}
 
@@ -46,19 +35,17 @@
 
 \title{%
 \textdisplay{%
-Notes from the Methods of Mathematical Physics \textsc{ii} lectures of 2013-02-19{\slash}05-30 by Prof.~Dr.~Eugene~Trubowitz%
+Notes from the\\Methods of Mathematical Physics~\textsc{ii} \\lectures of 2013-02-19{\slash}05-30 by\\ Prof.~Dr.~Eugene~Trubowitz%
 }%
 }
 \author{Robin~Leroy and David~Nadlinger}
-
+\input{Figures.tex}
 \begin{document}
   \maketitle
-  
   % The first three lectures are not covered by this document.
-  \setcounter{Lecture}{3}  
-  
-  \begin{lecture}[date={2013-02-28}]
+  \setcounter{Lecture}{3} 
   \section{\emph{True Lies}: An introduction to distribution theory}
+  \begin{lecture}[date={2013-02-28}]
   In many areas of physics, the Dirac delta ``function'' is an important tool, e.g., for describing localized phenomena. While it is usually described in vague terms as ``only making sense under an integral'', physicists tend to still write identities such as
   \begin{equation*}
     \Laplacian\frac{1}{\norm{\vx}} = -4 \Pi \DiracDelta\of\vx\text{,}
@@ -78,26 +65,25 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   \begin{equation*}
     \Continf\of\Rn \DefineAs \setst{\FunctionSpec\gj\Rn\C}
     {\forall \miga \in \N^n, \pdop\miga\gj \in \Cont\of\Rn}
-    \text{ is the space of \emph{smooth functions} from }\Rn \text{ to } \C \text{, where}
-  \end{equation*}
-  \begin{align*}
-    \N &\DefineAs \set{0, 1, 2, \dotsc}\text{,}
+  \end{equation*} is the space of $\emph{smooth functions}$ from $\Rn$ to $\C$, where
+  \begin{alignat*}{2}
+    \N &\DefineAs \set{0, 1, 2, \dotsc}\text{,}\quad
     &\miga &= \tuple{\ga_1, \dotsc, \ga_n} \in \N^n \text{ is a \emph{multi-index},} \\
     \total{\miga} &\DefineAs \ga_1 + \dotsb + \ga_n\text{,}\quad
-    &\pd\vx\miga &\DefineAs \frac{\partial^{\total{\miga}}}{\pd{x_1}{\ga_1} \dotsm \pd{x_n}{\ga_n}}
-    \text{(we use }\pdop\miga\text{ when the variable is implicit),} \\
+    &\pd\vx\miga &\DefineAs \frac{\partial^{\total{\miga}}}{\pd{x_1}{\ga_1} \dotsm \pd{x_n}{\ga_n}} \quad
+    \commentbox{(we use $\pdop\miga$ when the variable is implicit),}\\
     \text{and }\vx^\migb &\DefineAs x_1^{\gb_1} \dotsm x_n^{\gb_n}
     \text{ for }\vx \in \Rn\text{, } \migb \in \N^n\text{.}
-  \end{align*}
+      \span\omit\span\omit\span\omit
+  \end{alignat*}
   \end{definition}
-
+  
   \begin{definition}[Schwartz space]  Now we define the \emph{Schwartz space}
   \begin{equation*}
     \Schwartz \DefineAs \setst{\gj \in \Continf\of\Rn}{\forall \miga, \migb \in \N^n, \SchwartzNorm{\miga}{\migb}{\gj} < \infty}
     \text{, where }\SchwartzNorm{\miga}{\migb}{\gj} \DefineAs \sup_{\vx\in\R^n}\abs{\vx^\miga\pd\vx\migb \gj\of\vx}\text{.}
   \end{equation*}
   \end{definition}
-  
   Note that $\gj \in \Schwartz$ implies $\lim_{\conv {\norm\vx} \infty}\pa{1+\norm{\vx}^2}^k \pd\vx\miga \gj\of\vx = 0$, as
   \begin{align*}
     \pa{1+\norm{\vx}^2}^m \pd\vx\miga \gj\of\vx 
@@ -112,7 +98,6 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
       \forall k \geq 0\quad \forall \miga \in \N^n\quad \exists C_\miga \in \R \quad \abs{\pd\vx\miga\gj\of{x}} < \frac{C_\alpha}{\pa{1 + \norm{\vx}^2}^k}\text{.}
     \end{equation*}
   \end{lemma}
-
   \begin{definition}[Convergence in $\Schwartz$]
     The sequence $\tuplespec{\gj_k}{k \in \N} \in \Functions\N{\pa\Schwartz}$ \emph{converges to} $\gj \in \Schwartz$ if and only if 
     \begin{equation*}
@@ -127,15 +112,12 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
       \item $U$ is continuous on $\Schwartz$, i.e. if $\conv[\Schwartz]{\gj_k}\gj$ then $\lim_{\conv k \infty}U\of{\gj_k} = U\of\gj$.
     \end{enumerate}
   \end{definition}
-  
-  
   Let us now consider some examples. First, define the space of locally integrable functions as follows.
   \begin{definition}[Locally integrable functions]
     \begin{equation*}
-      \LspaceLoc[1]\of\Rn \DefineAs \setst{\FunctionSpec f \Rn \C}{\forall \vx \in \Rn, \exists \ge > 0, \int{\OpenBall \ge \vx}\abs{f\of\vy} \diffd{\vy} < \infty}
+      \LspaceLoc[1]\of\Rn \DefineAs \setst{\FunctionSpec f \Rn \C}{\textstyle{\forall \vx \in \Rn, \exists \ge > 0, \int{\OpenBall \ge \vx}\abs{f\of\vy} \diffd{\vy} < \infty}}
     \end{equation*}
   \end{definition}
-  
   Now let $f \in {\LspaceLoc[1]}\of\Rn$.
   If additionally $\sup_{\vx \in \Rn}\pa{1 + \norm{\vx}^2}^{-s}\abs{f\of{\vx}} < \infty$
   for some $s > 0$ (e.g. $f\of\vx \sum{\total\migb\leq s} c_\migb \vx^\migb$),
@@ -150,7 +132,6 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
       \DiracDelta\of\gj \DefineAs \gj\of{0}\text{,}\quad \DiracDelta[\vx]\of{\gj} \DefineAs \gj\of{\vx}\text{.}
     \end{equation*}
   \end{definition}  
-  
   Distributions have the nice property that we can always differentiate them.
   \begin{definition}[Derivative of a distribution]
     Let $U\in\TemperedDistributions$. Then $\pdop\miga U$ is the distribution defined
@@ -194,8 +175,8 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
     \Laplacian N &= -4 \pi \DiracDelta\text{.}
   \end{align*}
   \end{lecture}
-  \begin{lecture}[date=2013-03-05]
-  \begin{definition}[Inner product on $\Schwartz$]
+  \begin{lecture}*[date=2013-03-05]
+  \begin{definition}[Inner product on $\Schwartz$]\LectureStartsHere
   Let $\gj,\gy\in\Schwartz$. We define:
   \begin{equation*}
   \LTwoInner \gy \gj \DefineAs \int\Rn \conj\gy\of\vx \gj\of\vx \diffd\vx \text{.}
@@ -210,8 +191,8 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
   \]
   \end{definition}
   \end{lecture}
-  \begin{lecture}[date=2013-03-07]
-  \begin{lemma}[``Your life in Fourier land depends on it.'']
+  \begin{lecture}*[date=2013-03-07]
+  \begin{lemma}[``Your life in Fourier land depends on it.'']\LectureStartsHere
     \begin{align}
       \label{FTLinearity}
       \begin{split}      
@@ -242,21 +223,21 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
     \end{align}
     \begin{proof}
       Proof of (\ref{FTUpperBound}):
-      \begin{equation*}
+      \begin{align*}
        \abs{\ft\gj\of\vk} 
-        = \abs{\ftnrm\int\Rn \gj\of\vx \E^{-\I \scal\vk\vx}\diffd\vx} 
-        \leq \ftnrm\int\Rn \abs{\gj\of\vx 
+        &= \abs{\ftnrm\int\Rn \gj\of\vx \E^{-\I \scal\vk\vx}\diffd\vx} \\
+        &\leq \ftnrm\int\Rn \abs{\gj\of\vx 
         \E^{-\I \scal\vk\vx}}\diffd\vx  = \ftnrm
         \underbrace{\int\Rn \abs{\gj\of\vx}}_{\Lnorm[1]{\gj}}
         \underbrace{\abs{\E^{-\I\scal\vk\vx}}}_{1}\diffd\vx \\
-      \end{equation*}
+      \end{align*}
       Proof of existence of the integral $\Lnorm[1]\gj$:
       \begin{align*}
         \int\Rn\abs{\gj\of\vx}\diffd\vx 
-        &= \int\Rn\pa{1+\norm{\vx}^2}^\frac{s}{2}\abs{\gj\of\vx}
-        \frac{\diffd\vx}{\pa{1+\norm{\vx}^2}^\frac{s}{2}}  \\
-        &\leq \SchwartzNorm s\nullmi\gj \int\Rn\frac{1}{\pa{1+\norm{\vx}^2}^\frac{s}{2}}\diffd\vx\\
-        &= \SchwartzNorm s\nullmi\gj \int0[\infty]\frac{r^{n-1}}{\pa{1+r^2}^\frac{s}{2}}\diffd r
+        &= \int\Rn\pa{1+\norm{\vx}^2}^{\frac{s}{2}}\abs{\gj\of\vx}
+        \frac{\diffd\vx}{\pa{1+\norm{\vx}^2} ^ {\frac{s}{2}}}  \\
+        &\leq \SchwartzNorm s\nullmi\gj \int\Rn\frac{1}{\pa{1+\norm{\vx}^2}^{\frac{s}{2}}}\diffd\vx\\
+        &= \SchwartzNorm s\nullmi\gj \int0[\infty]\frac{r^{n-1}}{\pa{1+r^2}^{\frac{s}{2}}}\diffd r
         < \infty &&\text{for } s\geq n+1\text{.}
       \end{align*}
       ``(\ref{FTLinearity}) I will not do!''
@@ -287,30 +268,26 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
       
       Proof of (\ref{FTUnitary}):
       \begin{align*}
-        \int\Rn\ft\gj\of\vy \gy\of\vy \diffd\vy
-        &= \int\Rn\ftnrm\int\Rn\gj\of\vx
+        &\int\Rn\ft\gj\of\vy \gy\of\vy \diffd\vy
+        = \int\Rn\ftnrm\int\Rn\gj\of\vx
           \E^{-\I\scal\vy\vx}\diffd\vx\:\gy\of\vy\diffd\vy \\
         &= \int\Rn\gj\of\vx\ftnrm\int\Rn
           \E^{-\I\scal\vx\vy}\gy\of\vy\diffd\vy\diffd\vx
-          && \commentbox{As $\int {\R^{2n}}\abs{\gj\of\vx
+          \quad \parbox{.5\linewidth}{As $\int {\R^{2n}}\abs{\gj\of\vx
           \E^{-\I\scal\vy\vx}\gy\of\vy}\diffd\vx\diffd\vy<\infty$,
           we can use Fubini's theorem.} \\
         &=\int\Rn\gj\of\vy \ft\gy\of\vy \diffd\vy
       \end{align*}
-      
-      
     \end{proof}
   \end{lemma}
-  
   \begin{proposition}
 The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map from the Schwartz space $\Schwartz$ to itself. $\rft{\ft{\gj}}=\gj$, where $\rft\gy\of\vx\DefineAs\ftnrm \int\Rn\gy\of\vk\E^{\I\scal\vk\vx}\diffd\vx$, read ``unhat'', ``bird'', ``seagull'', or whatever you like.
-  
     \begin{proof}
       \begin{align*}
         \gj\in\Schwartz&\Rightarrow\vx^\miga\pd\vx\migb\in\Schwartz \\
         \FT\of{\vx^\miga\pd\vx\migb\gj}\of\vk
         &=\I^{\total\miga}\pd\vk\miga\ft{\pa{\pd\vx\migb\gj}}\of\vk 
-          && \text{from the second equality in (\ref{FTDerivative}), applied }\total\miga\text{ times.} \\
+          && \commentbox{from the second equality in (\ref{FTDerivative}), applied $\total\miga$ times.} \\
         &=\I^{\total\miga}\pd\vk\miga\of{\I^{\total\migb}\vk^\migb\ft\gj}\of\vk \\
         &=\I^{\total\miga+\total\migb}\pd\vk\miga\of{\vk^\migb\ft\gj}\of\vk
       \end{align*}
@@ -336,14 +313,14 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
         &=\sqftnrm\int\Rn\int\Rn\gj\of\vy\E^{-\I\scal\vk\vy}\diffd\vy\:\E^{\I\scal\vk\vx}\diffd\vk
       \end{align*}
       We don't interchange the integrals here because that would lead to ugly calculations. ``If pou paint the walls before you start building, it's not a good idea.''
-      At this point, somebody suggests replacing $\sqftnrm\int\Rn \E^{\I\scal\vk{\pascal{\vx-\vy}}}\diffd\vk$ by $\DiracDelta\of{\vx-\vy}$. ``It's plausible! --- WHY? [...] Ah I said it, so it's plausible.'' However, we would need to do some nasty calculations in order to do this. ``How are we going to do it so fast that you don't get bored, and yet in enough detail that he's convinced? Be sneaky.''
+      At this point, somebody suggests replacing $\sqftnrm\int\Rn \E^{\I\scal\vk{\pascal{\vx-\vy}}}\diffd\vk$ by $\DiracDelta\of{\vx-\vy}$. ``It's plausible! --- \textsc{Why}? [...] Ah I said it, so it's plausible.'' However, we would need to do some nasty calculations in order to do this. ``How are we going to do it so fast that you don't get bored, and yet in enough detail that he's convinced? Be sneaky.''
       \begin{align*}
         \rft{\ft{\gj}}
         &=\ftnrm\int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}
         \underbrace{\lim_{\ge\downarrow 0}\E^{-\ge\frac{\norm\vk^2}{2}}}_{\mathclap{\substack{1
         \text{ written in}\\\text{some other way}}}}\diffd\vk\\
         &=\lim_{\ge\downarrow 0}\ftnrm\int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}
-        \E^{-\ge\frac{\norm\vk^2}{2}}&&\commentbox{``Don't worry.'' This is actually a one-liner 
+        \E^{-\ge\frac{\norm\vk^2}{2}}&&\parbox{.4\linewidth}{``Don't worry.'' This is actually a one-liner 
         using Lebesgue's dominated convergence theorem.}
       \end{align*}
       \emph{The 10-minute break ends with the loud noise of a metallic pointing stick hitting the desk.}
@@ -357,17 +334,17 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
       Recall: ``every path leads to Rome and every Gaussian is in $\Schwartz$.'' Also, the last foot of a dactylic hexameter is always a spondee. 
       \begin{equation*}
         \ftnrm\int\Rn\E^{-\ge\frac{\norm\vk^2}{2}}\E^{\I\scal{\pascal{\vy-\vx}}\vk}\diffd\vk
-        =\frac{\E^{-\frac{1}{2\ge}\norm{\vx-\vy}^2}}{\ge^\frac{n}{2}}
+        =\frac{\E^{-\frac{1}{2\ge}\norm{\vx-\vy}^2}}{\ge^{\frac{n}{2}}}
       \end{equation*}
       We therefore get:
       \begin{align*}
          \ftnrm\int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}\E^{-\ge\frac{\norm\vk^2}{2}}\diffd\vk
-         &=\ftnrm\int\Rn\gj\of\vy\ftnrm\int\Rn\E^{\I\scal\vk{\pascal{\vx-\vy}}}
-        \E^{-\ge\frac{\norm\vk^2}{2}}\diffd\vk\diffd\vy\\
-        &=\ftnrm\int\Rn\gj\of\vy\frac{\E^{-\frac{1}{2\ge}\norm{\vx-\vy}^2}}
-        {\ge^\frac{n}{2}}\diffd\vy \\
+         =\ftnrm\int\Rn\gj\of\vy\ftnrm\int\Rn\E^{\I\scal\vk{\pascal{\vx-\vy}}} \E^{-\ge\frac{\norm\vk^2}{2}}\diffd\vk\diffd\vy
+        \span\omit\span\omit\span\omit\\
+        \qquad &=\ftnrm\int\Rn\gj\of\vy\frac{\E^{-\frac{1}{2\ge}\norm{\vx-\vy}^2}}
+        {\ge^{\frac{n}{2}}}\diffd\vy \\
         &=\ftnrm\int\Rn\gj\of{\vy\sqrt\ge+\vx}\frac{\E^{-\frac{1}{2\ge}\norm{\vy\sqrt\ge}^2}}
-        {\ge^\frac{n}{2}}\diffd\of{\vy\sqrt\ge} && \text{``Epsilons everywhere!''}\\    
+        {\ge^{\frac{n}{2}}}\diffd\of{\vy\sqrt\ge} && \text{``Epsilons everywhere!''}\\    
         &=\ftnrm\int\Rn\gj\of{\vx+\vy\sqrt\ge}\E^{-\frac{1}{2}\norm\vy^2}\diffd\vy
         && \text{``Now we can paint.''}\\
         &\overset{\ge\downarrow 0}{\rightarrow}
@@ -375,7 +352,6 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
       \end{align*}
     \end{proof}
   \end{proposition}
-  
   \section{Seeking eigenfunctions of the Fourier transform}
   ``The main ideas of many things are right here.''
   We seek to find the solutions $\tuple{\gj,\gl}$ of
@@ -387,7 +363,6 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
     \ft{\E^{-\frac{1}{2}\norm\vx^2}}=\E^{-\frac{1}{2}\norm\vx^2} \text{,}
   \end{equation*}
   so we know that 1 is an eigenvalue. How do we find the others? ``Here you actually have to have an idea.''
-  
   \paragraph{Idea}
   Find an $H\in\Endomorphisms\of\Schwartz$ such that $\commutator H {\ft{\placeholder}} = 0$. Then they have the same eigenspaces, so we just need to find the eigenfunctions of $H$ (see \emph{Finite Dimensional Quantum Mechanics}).
   
@@ -398,7 +373,7 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
       \ft{\pa{x^2\gj}}\of k &= -\derivop[2]{k}\ft\gj\of k \\
       \ft{\pa{\derivop[2]{x}\gj}}\of k &= -k^2 \ft\gj\of k
     \end{aligned}
-    \right\rbrace \qquad \text{From the lemma your life depends on.}
+    \right\rbrace \qquad \commentbox{From the lemma your life depends on.}
   \end{equation*}
   Subtracting the second equality from the first one above:
   \begin{equation*}
@@ -408,8 +383,8 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
   
   Let $\opH \DefineAs \frac{1}{2}\pa{-\derivop[2]{x}+x^2-1}$. Then $\commutator \opH {\ft{\placeholder}}=0$. We multiplied by $\frac{1}{2}$ so that it looks even more like a harmonic potential (it is the Hamiltonian of the quantum harmonic oscillator). Why did we add $-1$? Define
   \begin{align*}
-    \opAdag &\DefineAs \frac{1}{\sqrt 2}\pa{\derivop{x} + x}\text{,}\\
-    \opA &\DefineAs \frac{1}{\sqrt 2}\pa{-\derivop{x} + x}\text{.}
+    \opA &\DefineAs \frac{1}{\sqrt 2}\pa{\derivop{x} + x}\text{,}\\
+    \opAdag &\DefineAs \frac{1}{\sqrt 2}\pa{-\derivop{x} + x}\text{.}
   \end{align*}
   We then have $\opH = \opAdag\opA$. If $a$ and $b$ commute, then we have $\pa{a-b}\pa{a+b}  = a^2-b^2$, but here $x$ and $\derivop{x}$ don't quite commute, hence the $-1$.
 \end{lecture}
@@ -420,7 +395,7 @@ Let us look at these operators in more detail: define $\pa{\opQ f}\of x \DefineA
   &= \int\R \conj\gj\of x \derivop x \gy \of x \diffd x \\
   &= \diff {-\infty}{\infty}{\conj\gj\gy} - 
     \int\R \derivop x \gj \of x \gy\of x \diffd x \\
-  &= - \LTwoInner {\opP\gj} \gy \text{,}&&\parbox{7cm}{$\diff {-\infty}{\infty}{\conj\gj\gy} = 0$  as $\gj\in\SchwartzSpace\of\R$, $\gy\in\SchwartzSpace\of\R$, and therefore $\conj\gj\gy\in\SchwartzSpace\of\R$.}
+  &= - \LTwoInner {\opP\gj} \gy \text{,}&&\commentbox{$\diff {-\infty}{\infty}{\conj\gj\gy} = 0$  as $\gj\in\SchwartzSpace\of\R$, $\gy\in\SchwartzSpace\of\R$, and therefore $\conj\gj\gy\in\SchwartzSpace\of\R$.}
 \end{align*}
 so $\opP$ is skew symmetric. What is better than skew symmetric? Self adjoint is better. How do we make a skew symmetric operator self adjoint? We add an $\I$. Namely, redefine $\pa{\opP f}\of x \DefineAs \frac{1}{\I}\derivop x f\of x$, we then have $\LTwoInner \gj {\opP\gy}  = \LTwoInner {\opP\gj} \gy$. $\opQ$ is obviously self adjoint. We now have $\commutator \opQ \opP = \I \Identity$. Multiplying by some $h\in\R$, redefine $\pa{\opP f}\of x \DefineAs \frac{h}{\I}\derivop x f\of x$, we get $\commutator \opQ \opP = h \I \Identity$.
 
@@ -445,7 +420,7 @@ We define the Heisenberg group, introduced by Hermann Weyl.
 
 You know that if you take $\E^x\E^y$ on reals numbers, you get $\E^{x+y}$, but that doesn't work for matrices. Hermann Weyl's idea is the following: we look at the identities \begin{align*}
 \pa{\E^{\I t P} f}\of x &= f\of{x+t}
-&&\text{ as }\pa{\E^{\I t \pa{\frac{1}{\I}\derivop x}}}f\of x \overset{\text{formally}}{=} \sum{l=0}[\infty]\frac{t^l}{l!}\derivop[l] x f \of x \text{, the Taylor series of $f\of{x + t}$ at $x$.}\\
+&&\parbox{.5\linewidth}{ as $\pa{\E^{\I t \pa{\frac{1}{\I}\derivop x}}}f\of x \overset{\text{formally}}{=} \sum{l=0}[\infty]\frac{t^l}{l!}\derivop[l] x f \of x $, the Taylor series of $f\of{x + t}$ at $x$.}\\
 \E^{\I t P}\E^{\I s Q} &= \E^{\I s t} \E^{\I s Q} \E^{\I t P}
 \end{align*}
 
@@ -456,10 +431,9 @@ We will find all the conjugacy classes. ``We're going to hunt them down!''
 
 ``I'll see you on Thursday, and I expect there'll be fewer people.''
 \end{lecture}
-\begin{lecture}[date=2013-03-14, official=true]
 
 \section{The finite Heisenberg group}
-
+\begin{lecture}[date=2013-03-14, official=true]
 \emph{The professor whistles ``Singin' in the Rain'' while waiting for the lecture to start.}
 
 In its soul, the finite Heisenberg group has captured the essence of calculating something in quantum mechanics. The point of abstraction is to remove all that gets in the way of communing with the thing in and of itself. 
@@ -507,18 +481,16 @@ The way a bourgeois mathematician thinks of the classical phase space $\Rn\Carte
 ``If you would have the energy to learn ancient Greek, and you talked about the real housewives of Atlanta, it would be a waste.'' It is not sufficient to have a fancy language, you actually have to say something.
 
 We started this lecture with the finite Fourier transform. This is a special case of what we discuss here, with $\IntegersModulo{n}$ as the abelian group $A$. This is perfect pedagogy: after only eight months, we come back to the beginning. Everything I've done so far is just that for various groups. When the group is infinite, e.g., the unit circle for Fourier series, you have to do analysis. ``[Claude] doesn't go there. I do.''
-
 \end{lecture}
-
 \begin{supplemental}
-\subsection{\foreign{\textgreek{Ἡ φανταχτερή γλῶσσα τῶν ἀστικῶν μαθηματικῶν}}\footnote{The fancy language of bourgeois mathematicians.}}
+\subsection{\textsc{Supplemental: }\emph{\textgreek{Ἡ φανταχτερή γλῶσσα τῶν ἀστικῶν μαθηματικῶν}}\footnote{The fancy language of bourgeois mathematicians.}}
 \begingroup
 \newcommand{\VelocitySpace}{\LieAlgebraSymbol{g}}
 \newcommand{\MomentumSpace}{\Dual\VelocitySpace}
 \newcommand{\Lagrangian}{\mathscr{L}}
 \newcommand{\Hamiltonian}{\mathscr{H}}
 \newcommand{\eqrel}{\sim}
-Assume the space $G$ of generalised coordinates of a physical system is a Lie group, i.e., a group which is also a differentiable manifold, and in which composition and inversion are smooth maps. Then if $\FunctionSpec\vq \R G$ describes the evolution of the generalised coordinates of the system with time, the generalised velocity at time $t$, $\TimeDerivative\vq\of t$, lies in the tangent space $\TangentSpace{\vq\of t}G$ --- recall that the tangent space of $g$ at $\vx$ is defined as the set of derivatives\footnote{One has to be careful here: unless $G$ is a submanifold of $\Rn$, the derivative is not well-defined. In that case however, $\TimeDerivative \vgg\of 0$ can be defined as the equivalence class of $\vgg$ in the set of curves through $\vx$ with $\vgg\of 0 = \vx$ under the relation $\vgg_1\eqrel\vgg_2 \Equivalent \pa{f\Compose\vgg_1}\der\of 0 = \pa{f\Compose\vgg_2}\der\of 0$, where $f$ is a differentiable chart of a neighbourhood of $\vx$ onto $\Rn$. It can then be shown that this is independent of $f$. Quite often though, $G$ is naturally a submanifold of $\Rn$ and this trick is unneeded.} $\TimeDerivative \vgg\of 0$ at $0$ of smooth curves $\FunctionSpec\vgg\R G$ with $\vgg\of 0 = \vx$.
+Assume the space $G$ of generalised coordinates of a physical system is a Lie group, i.e., a group which is also a differentiable manifold, and in which composition and inversion are smooth maps. Then if $\FunctionSpec\vq \R G$ describes the evolution of the generalised coordinates of the system with time, the generalised velocity at time $t$, $\TimeDerivative\vq\of t$, lies in the tangent space $\TangentSpace{\vq\of t}G$ --- recall that the tangent space of $g$ at $\vx$ is defined as the set of derivatives\footnote{One has to be careful here: unless $G$ is a submanifold of $\Rn$, the derivative is not well-defined. In that case however, $\TimeDerivative \vgg\of 0$ can be defined as the equivalence class of $\vgg$ in the set of curves through $\vx$ with $\vgg\of 0 = \vx$ under the relation $\vgg_1\eqrel\vgg_2 \Equivalent \pa{f\Compose\vgg_1}\der\of 0 = \pa{f\Compose\vgg_2}\der\of 0$, where $f$ is a differentiable chart of a neighbourhood of $\vx$ onto $\Rn$. It can then be shown that this is independent of $f$.} $\TimeDerivative \vgg\of 0$ at $0$ of smooth curves $\FunctionSpec\vgg\R G$ with $\vgg\of 0 = \vx$.
 
 The ordered pair $\tuple{\vq\of t,\TimeDerivative\vq\of t}$ lies in the \emph{tangent bundle} $\TangentBundle G$, that is,
 \begin{equation*}
@@ -527,7 +499,7 @@ The ordered pair $\tuple{\vq\of t,\TimeDerivative\vq\of t}$ lies in the \emph{ta
 Informally, $\TangentBundle G$ is the disjoint union of all the tangent spaces of the manifold $G$. An element $\tuple{\vx,\vv}\in \TangentBundle G$  represents a tangent vector $\vv$ to $G$ at $\vx$. Physically, this is a state of the system, namely the one with coordinates $\vx$ and velocity $\vv$. 
 
 As $G$ is a Lie group, composition on the left --- or right --- by any element is a diffeomorphism. In particular, for $q\in G$,
-$\FunctionSpec {\gj_\vq} G G, \FunctionBody \vx {\vq^{-1} \vx}$ is a diffeomorphism, and so it induces a canonical linear isomorphism $\diffd \gj_\vq \of\vq$ between the tangent spaces $\TangentSpace{\vq}G$ and $\TangentSpace{\gj_\vq\vq}=\TangentSpace{\Identity}G$, by
+$\FunctionSpec {\gj_\vq} G G, \FunctionBody \vx {\vq^{-1} \vx}$ is a diffeomorphism, and so it induces a canonical linear isomorphism $\diffd \gj_\vq \of\vq$ between the tangent spaces $\TangentSpace{\vq}G$ and $\TangentSpace{\gj_\vq\of{\vq}}=\TangentSpace{\Identity}G$, by
 \begin{equation*}
 \diffd \gj_\vq \of\vq\TimeDerivative\vgg\of 0 = \diffd \gj_\vq \of{\vgg\of 0}\TimeDerivative\vgg\of 0 = \pa{\gj_\vq\Compose\vgg}\der\of 0 = \TimeDerivative\vgg_0\of 0\text{,}
 \end{equation*}
@@ -537,7 +509,6 @@ It follows from this isomorphism that the tangent bundle of $G$ is \emph{paralle
 \TangentBundle G = \UnionOver{\vx \in G} \set{\vx} \Cartesian \TangentSpace{\vx}G \Isomorphic \UnionOver{\vx \in G} \set{\vx} \Cartesian \TangentSpace\Identity G = G \Cartesian \TangentSpace\Identity G = G \Cartesian \VelocitySpace\text{,}
 \end{equation*}
 where the isomorphism is canonical.
-
 Recall from Hamiltonian mechanics that for a Lagrangian
 $\FunctionSpec \Lagrangian {\TangentBundle G \Cartesian \R}{\R}, \FunctionBody {\tuple{\vq,\vv,t}} {\Lagrangian\of{\vq,\vv,t}}$,
 the Hamiltonian is defined as the Legendre transform of $\Lagrangian$,
@@ -560,16 +531,16 @@ The Pontryagin dual\footnote{The Pontryagin dual is named after %
 \end{supplemental}
 
 \begin{supplemental}
-\subsection{Examples from Raisa Galimova's exercise class}
+
+\subsection{\textsc{Supplemental: }Examples of representations from Raisa Galimova's exercise class}
 \begingroup
 \newcommand{\LeftAction}[2]{f_{#1} \of{#2}}
-Let $G$ be a group acting on a measure space\footnote{Here $X$ is a set, $\FunctionSpec \gm X {\intclos 0 \infty}$ is a measure on $X$ and $\gS\Subset\PowerSet X$ is the $\mathrm{\sigma}$-algebra of $\gm$-measurable subsets.} $\tuple{X, \gS, \gm}$ by the left action $\FunctionSpec f G {\Functions X X}, \FunctionBody g {f_g}$, that is, we denote by $\LeftAction g x$ the action of $g\in G$ on $x\in X$, and $f_g \Compose f_h = f_{gh}$. Define the space of square-integrable functions on $X$
+Let $G$ be a group acting on a measure space\footnote{Here $X$ is a set, $\FunctionSpec \gm X {\intclos 0 \infty}$ is a measure on $X$ and $\gS\Subset\PowerSet X$ is the $\mathrm{\sigma}$-algebra of $\gm$-measurable subsets.} $\tuple{X, \gS, \gm}$ by the left action $\FunctionSpec f G {\Functions X X}, \FunctionBody g {f_g}$, that is, we denote by $\LeftAction g x$ the action of $g\in G$ on $x\in X$, and $f_g \Compose f_h = f_{gh}$. Define the space of square-integrable functions on $X\text{, }
+  \Lspace[2]\of X \DefineAs \setst{\gj\in\Functions \C X}{\Lnorm[2] \gj < \infty}$, where $
+  \Lnorm[2] \gj \DefineAs \LTwoInner \gj \gj \text{, }
+  \LTwoInner \gy \gj \DefineAs \int X \conj\gy \gj \diffd \gm
+  $. Note that if $X$ is finite, and $\gm$ is the counting measure,
 \begin{align*} 
-  \Lspace[2]\of X &\DefineAs \setst{\gj\in\Functions \C X}{\Lnorm[2] \gj < \infty} \text{,} \\
-\intertext{where}
-  \Lnorm[2] \gj &\DefineAs \LTwoInner \gj \gj \text{,} \\
-  \LTwoInner \gy \gj &\DefineAs \int X \conj\gy \gj \diffd \gm\text{.} \\
-\intertext{Note that if $X$ is finite, and $\gm$ is the counting measure,}
   \LTwoInner\gy\gj &= \int X \conj\gy\gj \diffd \gm = \sum {x\in X} \conj\gy\of x \gj\of x \text{,}\\
   \forall\gj\in\Functions X \C \quad  \Lnorm[2]\gj &= \int X \abs{\gj}^2 \diffd \gm = \sum {x\in X} \abs{\gj}^2  < \infty \text{,}\\
 \intertext{so this is consistent with the definitions from the lecture for a finite group $A$, namely $\Lspace[2]\of A = \Functions A \C$, and $\LTwoInner\gy\gj = \sum {g\in A} \conj\gy\of g \gj\of g$. If $X=\Rn$, and $\gm$ is the Lebesgue measure,}
@@ -582,14 +553,13 @@ Now consider the representation $\FunctionSpec \gr G \GeneralLinearGroup\of{\Lsp
 \paragraph{Fourier Series and $\UnitSphere 1$.}
 If $G=\UnitSphere 1=X$ is the circle group, acting on itself by addition (here we use the definition $\UnitSphere 1 = \QuotientGroup\R {2\Pi\Z}$), $\Lspace[2]\of X = \Lspace[2]\of{\UnitSphere 1}$ decomposes under $\gr$ in a way which is dictated by Fourier series. Indeed, we have for $\gj\in \Lspace[2]\of{\UnitSphere 1}$, $j\in\Z$ --- see \emph{The Discrete Fourier Transform}, page~8, though note that the inner product was antilinear in the second argument back then, whereas it is antilinear in the first one this semester:
 \begin{equation*}
-  \ft\gj\of j = \frac{1}{2\Pi}\int 0[2\Pi] \gj\of \gq \E^{-\I j \gq}\diffd \gq = \int {\UnitSphere 1} \gj \E^{-\I j \placeholder}\diffd \gm = \LTwoInner {\E^{\I j \placeholder}} \gj \quad \text{where $\E^{\I j \placeholder}\DefineAs \FunctionBody \gq {\E^{\I j \gq}}$, $\E^{\I j \placeholder} \in \PontryaginDual{\UnitSphere 1} \Isomorphic \Z$.}
+  \ft\gj\of j = \frac{1}{2\Pi}\int 0[2\Pi] \gj\of \gq \E^{-\I j \gq}\diffd \gq = \int {\UnitSphere 1} \gj \E^{-\I j \placeholder}\diffd \gm = \LTwoInner {\E^{\I j \placeholder}} \gj\text,
 \end{equation*}
-by taking $\gm$ normed, i.e., $\gm\of{\UnitSphere 1} = 1$. In other words, $\ft{\placeholder}\of j =  \LTwoInner {\E^{\I j \placeholder}} \placeholder$ is the projection of $\gj$ onto the subspace $V_j\DefineAs\LinearSpan\set{\E^{\I j \placeholder}}$ of $\Lspace[2]\of{\UnitSphere 1}$. Note that the $\E^{\I j \placeholder}$ are exactly the elements of $\PontryaginDual{\UnitSphere 1}$.
+where $\E^{\I j \placeholder}\DefineAs \FunctionBody \gq {\E^{\I j \gq}}$, $\E^{\I j \placeholder} \in \PontryaginDual{\UnitSphere 1} \Isomorphic \Z$ and where we take a normed $\gm$, i.e., $\gm\of{\UnitSphere 1} = 1$. In other words, $\ft{\placeholder}\of j =  \LTwoInner {\E^{\I j \placeholder}} \placeholder$ is the projection of $\gj$ onto the subspace $V_j\DefineAs\LinearSpan\set{\E^{\I j \placeholder}}$ of $\Lspace[2]\of{\UnitSphere 1}$. Note that the $\E^{\I j \placeholder}$ are exactly the elements of $\PontryaginDual{\UnitSphere 1}$.
 Moreover, $V_j$ is $\gr$-invariant, as $\gr$ acts by translation on $\gj\in \Lspace[2]\of{\UnitSphere 1}$, namely $\pa{\gr_\ga\of\gj}\of \gq = \gj\of{\ga+\gq}$, and hence
-\begin{equation*} 
-\forall \gl\E^{\I j \placeholder} \in V_j \quad
-\pa{\gr_\ga\of{\gl\E^{\I j \placeholder}}} =\gl\E^{\I j \pa{\ga+\placeholder}}=\gl\E^{\I j \ga} \E^{\I j \placeholder} \in V_j\text{.}
-\end{equation*}
+$
+\forall \gl\E^{\I j \placeholder} \in V_j,\quad
+\pa{\gr_\ga\of{\gl\E^{\I j \placeholder}}} =\gl\E^{\I j \pa{\ga+\placeholder}}=\gl\E^{\I j \ga} \E^{\I j \placeholder} \in V_j$.
 As it is one-dimensional, $V_j$ is irreducible. We also have, with $\LTwoInner {\E^{\I j \placeholder}}{\E^{\I k \placeholder}}= \ft{\E^{\I k \placeholder}}\of j  = \KroneckerDelta j k$, $V_j \Orthogonal V_k$ for $k\neq j$.
 By Parseval's identity, $\sum {j\in\Z}\ft\gj\of j \E^{\I j \placeholder}$ converges absolutely to $\gj$ for all $\gj\in\Lspace[2]\of{\UnitSphere 1}$, so
 \begin{equation*} \Lspace[2]\of{\UnitSphere 1}=\DirectSum{j\in\Z}
@@ -634,11 +604,8 @@ where the irreducible $\Harmonic\degL$ are defined as follows: $\Harmonic\degL$ 
 \begin{equation*}
 \Harmonic\degL = \setst{\FunctionSpec f {\UnitSphere 2} \C, \FunctionBody {\Transpose{\tuple{x,y,z}}} {f\of{x,y,z}}}{f\of{x,y,z} = \sum {\ga+\gb+\gg = \degL} c_{\ga\,\gb\,\gg} x^{\ga}y^{\gb}z^{\gg} \And \Laplacian f = 0  }\text{.}
 \end{equation*}
-
 \endgroup
 \end{supplemental}
-
-
 \begin{lecture}[date=2013-03-21, official=true]
 \begingroup
 \newcommand{\vsqrtninv}{\frac{1}{\sqrt{\vn}}}
@@ -650,7 +617,7 @@ We switched from an additive to a multiplicative notation. ``Algebraists... you 
 
 ``We're going to come to the point where you see the difference between [Claude] and me.'' We will need not one, but \emph{two} proofs for the Stone-Von Neumann theorem.
 
-``Why am I not happy [about Proof I] whereas he is happy? [...] I'm only going to talk about mathematical reasons.'' Man cannot live on algebra alone. What happens as $n$ goes to infinity? The proof doesn't converge. He doesn't care. 
+``Why am I not happy [about Proof \textsc{i}] whereas he is happy? [...] I'm only going to talk about mathematical reasons.'' Man cannot live on algebra alone. What happens as $n$ goes to infinity? The proof doesn't converge. He doesn't care. 
 
 The problem is phase transitions: the symmetries change, and you cannot see that with algebra. For instance, for superconductivity, you have to have enough stuff. You cannot just have an explicit $n$. 
 ``Suddenly, we're going to go back to the Fourier transform.'' 
@@ -663,9 +630,8 @@ The problem is phase transitions: the symmetries change, and you cannot see that
 ``If you don't come back next week I understand.''
 \endgroup
 \end{lecture}
-
-\begin{lecture}[date=2013-03-26]
 \section{All the eigenfunctions of the Fourier transform}
+\begin{lecture}[date=2013-03-26]
 Recall: 
 \begin{align*}
 \FT\of\gj\of\vk\DefineAs\ft\gj\of\vk&\DefineAs\ftnrm\int\Rn\gj\of\vx\E^{-\I\scal{\vk}{\vx}}\diffd\vx\text{,} &&\gj\in\Schwartz\text,\\
@@ -680,7 +646,7 @@ This will be around long after strings are seen as a strange cult of the 21st ce
 We defined:
 \begin{align*}
 \opA&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text,\\
-\opAdag&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text.
+\opAdag&\DefineAs\frac{1}{\sqrt{2}}\pa{x-\derivop x}\text.
 \end{align*}
 We wrote ``dagger''. This makes sense, as;
 \begin{align*}
@@ -693,7 +659,7 @@ We wrote ``dagger''. This makes sense, as;
 Write 
 \begin{align*}
 \opA_x&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text,\\
-\adj{\opA_x}&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text{,}
+\adj{\opA_x}&\DefineAs\frac{1}{\sqrt{2}}\pa{x-\derivop x}\text{,}
 \end{align*}
 and similarly for $k$ instead of $x$.
 Observe:
@@ -720,9 +686,7 @@ In other words, the $\pa{\opAdag}^n h_0$ --- with an $\opAdag$, not an $\opA$; `
 \commutator A {\pa{\adj A}^n} &= n \pa{\adj A}^{n-1} \text.
 \end{align*}
 This is the only real idea in group representations: you find some commutation relations, and you generate all the eigenvectors and eigenvalues.
-
 \end{lecture}
-
 \begin{lecture}[date=2013-03-28]
 We also define $\opH \DefineAs \opAdag \opA$, $h_n\of  x \DefineAs \pa{\opAdag}^n h_0$ for $n\geq 1$. We have $h_n\in \SchwartzSpace\of\R$ for $n\geq 0$. $\opA$, $\opAdag$ and $\opH$ all map $\SchwartzSpace\of\R$ to itself.
 Now we compute:
@@ -761,16 +725,13 @@ Proof of (\ref{comm2}) by induction:
   &= \opA \pa{\opAdag}^{n+1} - \opAdag \opA \pa{\opAdag}^n + n \pa{\opAdag}^n
 \end{align*}
   ``Ah, there must be an easier way to show this, it can't be that hard. Let's just reboot this argument:''
-\begin{align*}
-\opA\pa{\opAdag}^n - \pa{\opAdag}^n\opA &= n \pa{\opAdag}^{n-1}\\
-\Implies \opA\pa{\opAdag}^{n+1} - \pa{\opAdag}^n \opA \opAdag &= n \pa{\opAdag}^n \\
-\Implies \opA \pa{\opAdag}^{n+1} - \pa{\opAdag}^n \pa{\Identity + \opAdag\opA}&= n \pa{\opAdag}^n \\
-\Implies \opA \pa{\opAdag}^{n+1} - \pa{\opAdag}^{n+1} \opA - \pa{\opAdag}^{n} &= n \pa{\opAdag}^n \text.
-\end{align*}
-
-Now we are going to do something quickly, where algebra really shines: you do nothign but apply the same basic identities over and over, yet get something useful out:
-
-Proof of (\ref{orth4}). Let us assume $m>n\geq 0$, because we already did the case where both are $0$.
+\begin{alignat*}{2}
+&& \opA\pa{\opAdag}^n - \pa{\opAdag}^n\opA &= n \pa{\opAdag}^{n-1}\\
+\Implies&& \opA\pa{\opAdag}^{n+1} - \pa{\opAdag}^n \opA \opAdag &= n \pa{\opAdag}^n \\
+\Implies&& \opA \pa{\opAdag}^{n+1} - \pa{\opAdag}^n \pa{\Identity + \opAdag\opA}&= n \pa{\opAdag}^n \\
+\Implies&& \opA \pa{\opAdag}^{n+1} - \pa{\opAdag}^{n+1} \opA - \pa{\opAdag}^{n} &= n \pa{\opAdag}^n \text.
+\end{alignat*}
+Proof of (\ref{orth4}). Now we are going to do something quickly, where algebra really shines: you do nothing but apply the same basic identities over and over, yet get something useful out. Let us assume $m>n\geq 0$, because we already did the case where both are $0$.
 \begin{align*}
 \LTwoInner{h_m}{h_n} &= \frac{1}{\sqrt{\Factorial m}} \frac{1}{\sqrt{\Factorial n}} \LTwoInner{\pa{\opAdag}^{m} h_0}{\pa{\opAdag}^{n} h_0} \\
 &= \frac{1}{\sqrt{\Factorial m}} \frac{1}{\sqrt{\Factorial n}}\LTwoInner{\pa{\opAdag}^{m-1} h_0}{\opA\pa{\opAdag}^{n} h_0}\\
@@ -795,20 +756,19 @@ As $\opAdag$ kills $h_0$ --- it is called the \emph{annihilation} operator, in G
   \LTwoInner{h_0}{h_0}=1$.  
   In other words, $\set{h_n}$ is an orthogonal family.
 
-  Proof (\ref{creation5}):
+  Proof of (\ref{creation5}):
   \begin{align*}
   \opA h_n &= \frac{1}{\sqrt{\Factorial n}} \opA\pa{\opAdag}^n h_0 \\
   &= \frac{1}{\sqrt{\Factorial n}}\pa{\pa{\opAdag}^n\opA + n \pa{\opAdag}^{n-1}}h_0\\
   &= \frac{n}{\sqrt{\Factorial n}} \pa{\opAdag}^{n-1} h_0 = \sqrt{n} h_{n-1}\text.
   \end{align*}
-  The other one are even easier; I'm not doing them, you are getting bored.
+  The other ones are even easier; I'm not doing them, you are getting bored.
 
   Now for something fun, the proof of (\ref{Hh07}). First, note that
   \begin{align*}
     \opH h_0 &= \opAdag \opA h_0 = 0\text.
   \end{align*}
-
-  With what we already have, we can complete the proof elegantly (— but then, I have always maintained that elegance is for tailors):
+  With what we already have, we can complete the proof elegantly --- but then, I have always maintained that elegance is for tailors:
  \begin{align*}
    \opH h_n &= \opAdag \pa{\opA h_n} = \opAdag \sqrt{n} h_{n-1} = \sqrt{n} \sqrt{n} h_n = n h_n\text.
  \end{align*}
@@ -821,10 +781,10 @@ Now, ladies and gentlemen, your jaws should be dropping. We have these beautiful
 \end{align*}
 So, ``out of nowhere'' we now have eigenvectors with eigenvalues 0, 1, 2, etc.!
 
-``Whenever I think of Algebra, I think about Lawrence of Arabia. It's clean.'' \emph{The professor asks if anyone in the audience has actually heard about T. E. Lawrence, and goes on to discuss how the David Lean film features a scene widely known in the film world as an example for the jump cut technique.} ``If you are really interested, I can just tell you about film and skip this [points to the blackboard] boring crap. I know something about it.'' \emph{At this point the lecture has extended five minutes into the break, and people are beginning to leave.}
+``Whenever I think of algebra, I think about Lawrence of Arabia. It's clean.'' \emph{The professor asks if anyone in the audience has actually heard about T. E. Lawrence, and goes on to discuss how the David Lean film features a scene widely known in the film world as an example for the jump cut technique.} ``If you are really interested, I can just tell you about film and skip this [points to the blackboard] boring crap. I know something about it.'' \emph{At this point the lecture has extended five minutes into the break, and people are beginning to leave.}
 ``You should leave the moment you feel lied to. That's a basic thing in all human relationships.''
 
-Now, what would make this even better? Let us show that we are done, that we have all the eigenvectors – in other words, that our orthogonal family is a basis. ``That, is, you can't get away from it. You can run, but you can't get away.''
+Now, what would make this even better? Let us show that we are done, that we have all the eigenvectors --- in other words, that our orthogonal family is a basis. ``That, is, you can't get away from it. You can run, but you can't get away.''
 
 \begin{proposition}
 If $\gj\in\SchwartzSpace\of\R$ and $\LTwoInner \gj {h_n} = 0$, $n\geq 0$, then $\gj\Identically 0$.
@@ -900,7 +860,159 @@ Concluding, we have the following
 \begin{lemma}
   If $\gy \in \SchwartzSpace\of\R$, then $\abs{\LTwoInner \gy {h_n}} \leq \frac{\Lnorm[2]{\opH^p \gy}}{n^p}$, $n \geq 1$, $p \geq 0$.
 \end{lemma}
-
 \end{lecture}
+\begin{lecture}*[date=2013-04-09]
+\begin{proposition}\LectureStartsHere The $h_n\of x$, $n\geq 0$ form an orthonormal basis of $\SchwartzSpace\of\R$. More precisely, let \[\SchwartzSpace\of\N \DefineAs \setst{\tuple{s_0,s_1,s_2,\dotsc}}{s_j \in \C \text{ and } \forall p \exists c_p, \abs{s_j} \leq c_p \frac{1}{\pa{1 + j}^p}}\].
+\[
+\MapSpec {\SchwartzSpace\of \N} SOMETHING
+\]
+HAS SOME PROPERTIES.\\
+STUFF FROM THE OTHER BOARD.
+\end{proposition}
+\begin{align*}
+{h_n\of x} &= \pa{-\I}^{-n} \ft{h_n}\of x \\
+           &\leq \frac{1}{\sqrt{2\Pi}}\int{-\infty}[\infty] 1 \abs{h_n\of y}\diffd  y \\
+           &= \frac{1}{\sqrt{2\Pi}}\int{-\infty}[\infty] \frac{1}{\sqrt{1+y^2}} \sqrt{1+y^2} \abs{h_n\of y}\diffd  y \\
+           &\leq \frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}\pa{\int{-\infty}[\infty]{\pa{1+y^2}h_n^2\of y\diffd y}}^{\frac{1}{2}} \\
+           &= \frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}\pa{\LTwoInner{h_n}{\pa{1+y^2}h_n}}^{\frac{1}{2}} \\
+           &=\frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}\pa{\LTwoInner{h_n}{h_n} + \frac{1}{2} \LTwoInner{h_n}{\pa{\opA+\opAdag}^2 h_n}}^{\frac{1}{2}}\\
+           &\leq \frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}} \sqrt{2\pa{n+1}}
+\end{align*}
+
+\section{Quantising the harmonic oscillator}
+``Now, we come into the good stuff''. Once upon a time, there was a classical Hamiltonian:
+\[
+  h\of{q,p} \DefineAs \frac{1}{2} \pa{\frac{p^2}{m}+m\gw^2 q^2}
+\]
+Do you remember anything from classical mechanics?
+``So, Thursday: from the classical to the quantum world and beyond.''
+\end{lecture}
+\subsection{Classical Mechanics}
+\begin{lecture}[date=2013-04-11]
+What's classical mechanics? We start with a number $n\geq 1$, the number of \emph{degrees of freedom}. It does not change while you keep discussing that system. Then, we have a set $\gW \Subset \Rn$, open and connected, called the \emph{classical configuration space}.
+For instance, we can consider a pendulum, with $q\in\gW = \R$ the angle. Or we could have a joint in the pendulum, yielding $\tuple{q_1,q_2}\in\gW=\R^2$.
+\marginfig[The configuration space $\gW=\R$ of a simple pendulum. Here $q\in\R$, as the pendulum can do a full turn --- or several --- around its pivot.]{\FigureSimplePendulumConfigurationSpace}
+\begin{definition}[Classical phase space] The \emph{classical phase space} is defined as $\gW \Cartesian \Rn$, where $\tuple{\vq,\vp}\in\gW \Cartesian \Rn$.
+\end{definition}
+``If you don't measure anything, then you're doing string theory, and your argument is: there must be supersymmetries, because it's so beautiful.'' 
+\begin{definition}[Classical observables] The set of \emph{classical observables} is the algebra of smooth, real valued functions on $\gW\Cartesian\Rn$, namely $\Continf\of{\gW\Cartesian\Rn, \R} \text.$
+\end{definition}
+An example of a classical observable is
+\begin{align*}
+q_i\in\Continf\of{\gW\Cartesian\Rn, \R}\\
+\FunctionBody{\gW\Cartesian\Rn\owns\tuple{\vq,\vp}}{q_i\in\R}\text.
+\end{align*}
+Somebody complained about complex-valued functions not being real enough, so we use real-valued functions.
+``You could ask me: why smooth? --- Why smooth?'' You can't measure something that isn't regular. ``No human being can work with something other than a polynomial anyway.''
+\begin{definition}[Poisson bracket]
+Finally, define the \emph{Poisson bracket} of $\gy\text{, }\gj$ as
+\[
+\Poisson{\gy}{\gj}\of{\vq,\vp} \DefineAs \sum{j=1}[n]{\pderiv {q_j}\gy \pderiv {p_j} \gj-\pderiv {p_j}\gy \pderiv {q_j}\gj}
+\text,
+\]
+for $\gy\text{, }\gj\in\Continf\of{\gW\Cartesian\Rn}$.
+\end{definition}
+\marginfig[The configuration space $\gW=\R^2$ of a double pendulum, where $\vq=\tuple{q_1,q_2}\in\R^2$.]{\FigureDoublePendulumConfigurationSpace}
+\begin{proposition}[\foreign{\textgerman{Ur}}-something of classical mechanics]
+$\tuple{\Continf\of{\gW,\Rn},\Poisson{\placeholder}{\placeholder}}$ is a Lie algebra,
+\foreign{\textgerman{das heißt, }} $\Poisson{\placeholder}{\placeholder}$ is bilinear, skew-symmetric and satisfies the Jacobi identity.
+\end{proposition}
+\begin{definition}[Classical mechanical system]
+A \emph{classical mechanical system} on $\gW \Cartesian \Rn$ is a (Hamiltonian) total energy function \[h\of{\vq,\vp}\in \Continf\of{\gW\Cartesian\Rn}\text.\]
+\end{definition}
+\begin{definition}[Evolution of a classical observable] $\derivop t f = \Poisson f h$  determines the evolution $\FunctionSpec f \R {\Continf\of{\gW\Cartesian\Rn}}$ of an observable $\gy\in\Continf\of{\gW\Cartesian\Rn}$ given at $t=0$ by $f\of{\vq,\vp,0}=\gy\of{\vq,\vp}$.
+\end{definition}
+The conservation of energy immediately follows:\[
+\derivop t h = \Poisson h h = 0\text.
+\]
+This is all of classical mechanics. TEXT HERE From this we can derive Hamilton's equations of motion:
+\begin{align*}
+\derivop t q_j &= \Poisson{q_j}{h} \\
+&=\sum{k=1}[n]\pa{\pderivop{q_k} q_j}\pderiv {p_k} h - \pa{\pderivop{q_k} p_j}\pderiv {q_k} h \\
+&=\pderiv {p_j} h\\
+\pderivop t p_j &= - \pderiv {q_j} h\text.
+\end{align*}
+TEXT HERE TEXT HERE
+If $s$ verifies:
+\begin{align*}
+TODOTODO	\\
+\pa{\Pullback s \gy}\of{\vq,\vp} &= \gy\of{s\of{q,p}}\in\Continf\of{\gW\Cartesian\Rn} && \gy\in\Continf\of{\Closure\gW\Cartesian\Rn}\\
+\Poisson{\Pullback s}{}
+\end{align*}
+then it is a \emph{symplectic} map
+TODOTODOTODO.
+Let me just show you one thing. $s$ is a symplectic isomorphism if and only if $\diffd s = \tuple{\pderiv {s_j}{x_k}}$ satisfies
+\[
+\LTwoInner{v}{J\diffd s \of{q,p}w }= \LTwoInner{TODO}{TODO}\text,
+\]
+where $J\DefineAs\begin{pmatrix}
+\nullmat & \Identity_n\\
+-\Identity_n & \nullmat
+\end{pmatrix}$, for all $v$, $w$, $\tuple{q,p}\in\gW\Cartesian\Rn$.
+
+What is the simplest possible motion? Let's take an $h_0$ that only depends on $\vp$, not on $\vq$. In that case we have
+\begin{alignat*}{3}
+\TimeDerivative{q_j} &= \pderiv{p_j}{h_0}\of\vp &\Implies&& \vq &= \deriv{\vp}{h_0}t + \vq\of{0} \\
+\TimeDerivative{p_j} &= \pderiv{q_j}{h_0}\of\vp = 0 &\Implies && \vp &= \vp\of{0} \\
+\vv &\DefineAs \TimeDerivative \vq = \pderiv p h
+\end{alignat*}
+That's a straight line. There's nothing simpler than a straight line, except no line at all --- but I'm not going to get into discussions of nothingness, though it's fashionable these days. There are entire books written about nothingness, and how string theory explains everything about nothingness...
+
+Now suppose somebody over there in Oberwinterthur has a fancy Hamiltonian $h\of{\vq,\vp}$. How do you know it's not a straight line, and that you are not being charged non-straight line prices for a straight line? You want to pull back, to find $s$ such that $\Pullback s h = h_0$. You heard about the Hamilton-Jacobi equation, right? And probably your mind went fuzzy at this time, and you heard about maps, and maybe generating functions, and this and that... 
+There is an $s$ if and only if $\setst{\gj}{\Poisson\gj h = 0}$ has an Abelian subalgebra $\LieAlgebraSymbol A$ of dimension $n$ such that
+\begin{align*}
+\LieAlgebraSymbol A &= \set{I_1,\dotsc,\I_n}\text, \\
+\Poisson{I_j}{I_k}&= 0\text,\\
+\Poisson{I_j}{h}&=0\text.
+\end{align*}
+
+Setting things up like this, the logical structure is crystal clear. This is something a mathematician could do. You may say, as a physicist, ``frankly, my dear, I don't give a damn,''\footnote{\emph{Gone with the Wind}, 1939, directed by Victor Fleming.} but the reason this structure is interesting is because we have beautiful examples. If you only have the beautiful logical structure, and no examples, are you not just playing with yourself? With this you can predict where Pluto or Neptune is. String theory has predicted nothing, and it may never.
+
+In the case $h\of{q,p}=\frac{1}{2}\pa{\frac{p^2}{n} + m\gw^2 q^2}$, where $\tuple{q,p}\in\R\Cartesian\R$, we have the harmonic oscillator.
+And that's classical mechanics. Now onto quantum mechanics.
+
+\subsection{Quantum Mechanics}
+\begingroup%QM
+\newcommand{\QuantumObservables}{\StandardSymbol{QO}}
+How do we start? There is a number $n\geq 1$ of \emph{quantum degrees of freedom}.
+Then, $\gW\Subset \Rn$ is the \emph{quantum configuration space}, like the classical configuration space above. If you had fallen asleep at the beginning of the previous hour, and you thought Q.M. was just a misspelling of classical mechanics, you might think the lecture had just started. Now it becomes different.
+\begin{definition}[Quantum phase space]
+The \emph{quantum phase space} is $\Schwartz$.
+\end{definition}
+Now we need an algebra of quantum observables.
+\begin{definition}[Quantum observables] The \emph{quantum observables} are the elements of \[
+\QuantumObservables\DefineAs\setst{\opA\in\Endomorphisms\of\Schwartz}{
+\begin{array}{l}
+\text{$A$ is a continuous linear map such that}\\
+ \forall\gy, \gj \in \Schwartz, \LTwoInner{\opA\gy}{\gj} = \LTwoInner{\gy}{\opA\gj}
+\end{array}
+}\text.
+\]
+\end{definition}
+Let me give you two examples of observables: 
+\begin{align*}
+\pa{\opQ_j\gy}\of\vq &\DefineAs q_j\gy\of\vq\text, \\
+\pa{\opP_j\gy}\of\vq &\DefineAs \frac{\ReducedPlanck}{\I} \pderivop{q_j}\text.
+\end{align*}
+\begin{proposition}
+$\tuple{\QuantumObservables, \frac \ReducedPlanck \I \commutator \opA \opB}$ is a Lie algebra.
+\begin{proof} We check that $\QuantumObservables$ is closed under the bracket $\frac \ReducedPlanck \I \commutator\placeholder\placeholder$: let $\opA${, }$\opB$ be self-adjoint. Then
+\begin{align*}
+\adj{\pa{\frac \ReducedPlanck \I \commutator\opA\opB}}
+&= -\frac\ReducedPlanck\I\adj{\pa{\opA\opB-\opB\opA}}\\
+&= -\frac\ReducedPlanck\I\pa{\adj\opB\adj\opA-\adj\opA\adj\opB}\\
+&= -\frac\ReducedPlanck\I\pa{\opB\opA-\opA\opB} = \frac \ReducedPlanck \I \commutator\opA\opB\text.
+\end{align*}
+You can check the Jacobi identity and all that.
+\end{proof}
+\end{proposition}
+\begin{definition}[Quantum system]
+A \emph{quantum system} is an $\opH\in\QuantumObservables$.
+\end{definition}
+\begin{definition}[Evolution of a quantum observable] The evolution of the observable $\opA$ is determined by \[\TimeDerivative\opA= \frac \ReducedPlanck \I \commutator\opA\opH\text.\]
+\end{definition}
+``That's it. That's quantum mechanics.''
+\end{lecture}
+\endgroup%QM
 
 \end{document}
