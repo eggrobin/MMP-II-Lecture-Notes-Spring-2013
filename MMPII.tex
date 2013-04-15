@@ -861,22 +861,31 @@ Concluding, we have the following
   If $\gy \in \SchwartzSpace\of\R$, then $\abs{\LTwoInner \gy {h_n}} \leq \frac{\Lnorm[2]{\opH^p \gy}}{n^p}$, $n \geq 1$, $p \geq 0$.
 \end{lemma}
 \end{lecture}
-\begin{lecture}*[date=2013-04-09]
-\begin{proposition}\LectureStartsHere The $h_n\of x$, $n\geq 0$ form an orthonormal basis of $\SchwartzSpace\of\R$. More precisely, let \[\SchwartzSpace\of\N \DefineAs \setst{\tuple{s_0,s_1,s_2,\dotsc}}{s_j \in \C \text{ and } \forall p \exists c_p, \abs{s_j} \leq c_p \frac{1}{\pa{1 + j}^p}}\].
-\[
-\MapSpec {\SchwartzSpace\of \N} SOMETHING
-\]
-HAS SOME PROPERTIES.\\
-STUFF FROM THE OTHER BOARD.
+\begin{lecture}[date=2013-04-09]
+\begin{proposition}The $h_n\of x$, $n\geq 0$ form an orthonormal basis of $\SchwartzSpace\of\R$. More precisely, let \[\SchwartzSpace\of\N \DefineAs \setst{\tuple{s_0,s_1,s_2,\dotsc}}{s_j \in \C \text{ and } \forall p \exists c_p, \abs{s_j} \leq c_p \frac{1}{\pa{1 + j}^p}}\text.\]
+Then,
+\begin{equation*}
+  \begin{split}
+    \MapSpec{\SchwartzSpace\of \N}{\SchwartzSpace\of\R}\\ %TODO: Fix alignment.
+    \FunctionBody s {\sum{n=0}[\infty] s_n h_n\of x}
+  \end{split}
+\end{equation*}
+is a continuous, bijective linear map with a continuous inverse.
 \end{proposition}
+
+``Whatever somebody means by an orthonormal basis for an infinite dimensional vetor space, this is about as good as it gets.'' In proving the theorem, which is an exercise, we will have to something like \[ \abs{\sum{n \geq 0} s_n h_n\of x} \leq \sum{n \geq 0} \abs{s_n} \abs{h_n\of x} \] (and remember, them macho waits as long as possible before bringing the $\abs{\placeholder}$ in). Compare this to what we had for Fourier series:
+\[
+  \abs{\sum{j=-\infty}[\infty] \ft{\gj}\of j \E^{\I j x}} \leq \sum{j=-\infty}[\infty] \abs{\ft{\gj}\of j} \underbrace{\abs{\E^{\I j x}}}_{=1}
+\]
+For the $h_n$, we are not so lucky, and actually have to estimate $sup_{x\in \R} \abs{h_n\of x}$.
 \begin{align*}
-{h_n\of x} &= \pa{-\I}^{-n} \ft{h_n}\of x \\
+\abs{h_n\of x} &= \abs{\pa{-\I}^{-n} \ft{h_n}\of x} \\
            &\leq \frac{1}{\sqrt{2\Pi}}\int{-\infty}[\infty] 1 \abs{h_n\of y}\diffd  y \\
            &= \frac{1}{\sqrt{2\Pi}}\int{-\infty}[\infty] \frac{1}{\sqrt{1+y^2}} \sqrt{1+y^2} \abs{h_n\of y}\diffd  y \\
            &\leq \frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}\pa{\int{-\infty}[\infty]{\pa{1+y^2}h_n^2\of y\diffd y}}^{\frac{1}{2}} \\
            &= \frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}\pa{\LTwoInner{h_n}{\pa{1+y^2}h_n}}^{\frac{1}{2}} \\
            &=\frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}\pa{\LTwoInner{h_n}{h_n} + \frac{1}{2} \LTwoInner{h_n}{\pa{\opA+\opAdag}^2 h_n}}^{\frac{1}{2}}\\
-           &\leq \frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}} \sqrt{2\pa{n+1}}
+           &\leq \frac{1}{\sqrt{2\Pi}}\underbrace{\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}}_{< \infty \text{, indep. of }n} \sqrt{2\pa{n+1}}
 \end{align*}
 
 \section{Quantising the harmonic oscillator}
@@ -965,7 +974,7 @@ There is an $s$ if and only if $\setst{\gj}{\Poisson\gj h = 0}$ has an Abelian s
 \Poisson{I_j}{I_k}&= 0\text,\\
 \Poisson{I_j}{h}&=0\text.
 \end{align*}
-
+\
 Setting things up like this, the logical structure is crystal clear. This is something a mathematician could do. You may say, as a physicist, ``frankly, my dear, I don't give a damn,''\footnote{\emph{Gone with the Wind}, 1939, directed by Victor Fleming.} but the reason this structure is interesting is because we have beautiful examples. If you only have the beautiful logical structure, and no examples, are you not just playing with yourself? With this you can predict where Pluto or Neptune is. String theory has predicted nothing, and it may never.
 
 In the case $h\of{q,p}=\frac{1}{2}\pa{\frac{p^2}{n} + m\gw^2 q^2}$, where $\tuple{q,p}\in\R\Cartesian\R$, we have the harmonic oscillator.
