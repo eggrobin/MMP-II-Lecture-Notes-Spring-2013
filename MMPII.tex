@@ -77,6 +77,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
       \span\omit\span\omit\span\omit
   \end{alignat*}
   \end{definition}
+  
   \begin{definition}[Schwartz space]  Now we define the \emph{Schwartz space}
   \begin{equation*}
     \Schwartz \DefineAs \setst{\gj \in \Continf\of\Rn}{\forall \miga, \migb \in \N^n, \SchwartzNorm{\miga}{\migb}{\gj} < \infty}
@@ -174,8 +175,8 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
     \Laplacian N &= -4 \pi \DiracDelta\text{.}
   \end{align*}
   \end{lecture}
-  \begin{lecture}[date=2013-03-05]
-  \begin{definition}[Inner product on $\Schwartz$]
+  \begin{lecture}*[date=2013-03-05]
+  \begin{definition}[Inner product on $\Schwartz$]\LectureStartsHere
   Let $\gj,\gy\in\Schwartz$. We define:
   \begin{equation*}
   \LTwoInner \gy \gj \DefineAs \int\Rn \conj\gy\of\vx \gj\of\vx \diffd\vx \text{.}
@@ -190,8 +191,8 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
   \]
   \end{definition}
   \end{lecture}
-  \begin{lecture}[date=2013-03-07]
-  \begin{lemma}[``Your life in Fourier land depends on it.'']
+  \begin{lecture}*[date=2013-03-07]
+  \begin{lemma}[``Your life in Fourier land depends on it.'']\LectureStartsHere
     \begin{align}
       \label{FTLinearity}
       \begin{split}      
@@ -312,7 +313,7 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
         &=\sqftnrm\int\Rn\int\Rn\gj\of\vy\E^{-\I\scal\vk\vy}\diffd\vy\:\E^{\I\scal\vk\vx}\diffd\vk
       \end{align*}
       We don't interchange the integrals here because that would lead to ugly calculations. ``If pou paint the walls before you start building, it's not a good idea.''
-      At this point, somebody suggests replacing $\sqftnrm\int\Rn \E^{\I\scal\vk{\pascal{\vx-\vy}}}\diffd\vk$ by $\DiracDelta\of{\vx-\vy}$. ``It's plausible! --- WHY? [...] Ah I said it, so it's plausible.'' However, we would need to do some nasty calculations in order to do this. ``How are we going to do it so fast that you don't get bored, and yet in enough detail that he's convinced? Be sneaky.''
+      At this point, somebody suggests replacing $\sqftnrm\int\Rn \E^{\I\scal\vk{\pascal{\vx-\vy}}}\diffd\vk$ by $\DiracDelta\of{\vx-\vy}$. ``It's plausible! --- \textsc{Why}? [...] Ah I said it, so it's plausible.'' However, we would need to do some nasty calculations in order to do this. ``How are we going to do it so fast that you don't get bored, and yet in enough detail that he's convinced? Be sneaky.''
       \begin{align*}
         \rft{\ft{\gj}}
         &=\ftnrm\int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}
@@ -382,8 +383,8 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
   
   Let $\opH \DefineAs \frac{1}{2}\pa{-\derivop[2]{x}+x^2-1}$. Then $\commutator \opH {\ft{\placeholder}}=0$. We multiplied by $\frac{1}{2}$ so that it looks even more like a harmonic potential (it is the Hamiltonian of the quantum harmonic oscillator). Why did we add $-1$? Define
   \begin{align*}
-    \opAdag &\DefineAs \frac{1}{\sqrt 2}\pa{\derivop{x} + x}\text{,}\\
-    \opA &\DefineAs \frac{1}{\sqrt 2}\pa{-\derivop{x} + x}\text{.}
+    \opA &\DefineAs \frac{1}{\sqrt 2}\pa{\derivop{x} + x}\text{,}\\
+    \opAdag &\DefineAs \frac{1}{\sqrt 2}\pa{-\derivop{x} + x}\text{.}
   \end{align*}
   We then have $\opH = \opAdag\opA$. If $a$ and $b$ commute, then we have $\pa{a-b}\pa{a+b}  = a^2-b^2$, but here $x$ and $\derivop{x}$ don't quite commute, hence the $-1$.
 \end{lecture}
@@ -645,7 +646,7 @@ This will be around long after strings are seen as a strange cult of the 21st ce
 We defined:
 \begin{align*}
 \opA&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text,\\
-\opAdag&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text.
+\opAdag&\DefineAs\frac{1}{\sqrt{2}}\pa{x-\derivop x}\text.
 \end{align*}
 We wrote ``dagger''. This makes sense, as;
 \begin{align*}
@@ -658,7 +659,7 @@ We wrote ``dagger''. This makes sense, as;
 Write 
 \begin{align*}
 \opA_x&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text,\\
-\adj{\opA_x}&\DefineAs\frac{1}{\sqrt{2}}\pa{x+\derivop x}\text{,}
+\adj{\opA_x}&\DefineAs\frac{1}{\sqrt{2}}\pa{x-\derivop x}\text{,}
 \end{align*}
 and similarly for $k$ instead of $x$.
 Observe:
@@ -860,8 +861,8 @@ Concluding, we have the following
   If $\gy \in \SchwartzSpace\of\R$, then $\abs{\LTwoInner \gy {h_n}} \leq \frac{\Lnorm[2]{\opH^p \gy}}{n^p}$, $n \geq 1$, $p \geq 0$.
 \end{lemma}
 \end{lecture}
-\begin{lecture}[date=2013-04-09]
-\begin{proposition} The $h_n\of x$, $n\geq 0$ form an orthonormal basis of $\SchwartzSpace\of\R$. More precisely, let \[\SchwartzSpace\of\N \DefineAs \setst{\tuple{s_0,s_1,s_2,\dotsc}}{s_j \in \C \text{ and } \forall p \exists c_p, \abs{s_j} \leq c_p \frac{1}{\pa{1 + j}^p}}\].
+\begin{lecture}*[date=2013-04-09]
+\begin{proposition}\LectureStartsHere The $h_n\of x$, $n\geq 0$ form an orthonormal basis of $\SchwartzSpace\of\R$. More precisely, let \[\SchwartzSpace\of\N \DefineAs \setst{\tuple{s_0,s_1,s_2,\dotsc}}{s_j \in \C \text{ and } \forall p \exists c_p, \abs{s_j} \leq c_p \frac{1}{\pa{1 + j}^p}}\].
 \[
 \MapSpec {\SchwartzSpace\of \N} SOMETHING
 \]
@@ -890,7 +891,7 @@ Do you remember anything from classical mechanics?
 \begin{lecture}[date=2013-04-11]
 What's classical mechanics? We start with a number $n\geq 1$, the number of \emph{degrees of freedom}. It does not change while you keep discussing that system. Then, we have a set $\gW \Subset \Rn$, open and connected, called the \emph{classical configuration space}.
 For instance, we can consider a pendulum, with $q\in\gW = \R$ the angle. Or we could have a joint in the pendulum, yielding $\tuple{q_1,q_2}\in\gW=\R^2$.
-\marginfig[The configuration space of a simple pendulum. Here $q\in\R$, as the pendulum can do a full turn --- or several --- around its pivot.]{\FigureSimplePendulumConfigurationSpace}
+\marginfig[The configuration space $\gW=\R$ of a simple pendulum. Here $q\in\R$, as the pendulum can do a full turn --- or several --- around its pivot.]{\FigureSimplePendulumConfigurationSpace}
 \begin{definition}[Classical phase space] The \emph{classical phase space} is defined as $\gW \Cartesian \Rn$, where $\tuple{\vq,\vp}\in\gW \Cartesian \Rn$.
 \end{definition}
 ``If you don't measure anything, then you're doing string theory, and your argument is: there must be supersymmetries, because it's so beautiful.'' 
@@ -911,7 +912,7 @@ Finally, define the \emph{Poisson bracket} of $\gy\text{, }\gj$ as
 \]
 for $\gy\text{, }\gj\in\Continf\of{\gW\Cartesian\Rn}$.
 \end{definition}
-\marginfig[The configuration space of a double pendulum, where $\vq=\tuple{q_1,q_2}\in\R^2$.]{\FigureDoublePendulumConfigurationSpace}
+\marginfig[The configuration space $\gW=\R^2$ of a double pendulum, where $\vq=\tuple{q_1,q_2}\in\R^2$.]{\FigureDoublePendulumConfigurationSpace}
 \begin{proposition}[\foreign{\textgerman{Ur}}-something of classical mechanics]
 $\tuple{\Continf\of{\gW,\Rn},\Poisson{\placeholder}{\placeholder}}$ is a Lie algebra,
 \foreign{\textgerman{das heißt, }} $\Poisson{\placeholder}{\placeholder}$ is bilinear, skew-symmetric and satisfies the Jacobi identity.
