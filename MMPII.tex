@@ -971,16 +971,16 @@ Let me just show you one thing. $\vs$ is a symplectic isomorphism if and only if
 \]
 for all $\vv\in\Rn$, $\vw\in\Rn$ and $\tuple{\vq,\vp}\in\gW\Cartesian\Rn$.
 \begin{definition}[Symplectic group]
-And if we really want to, we can now also define the group of symplectic matrices $\SymplecticGroup\of{n, \R} \DefineAs \setst{\matA \in \GeneralLinearGroup\of{2n, \R}}{\Transpose{\matA} = - \matJ \matA^{-1} \matJ}$.
+And if we really want to, we can now also define the group of \emph{symplectic matrices} $\SymplecticGroup\of{2n, \R} \DefineAs \setst{\matA \in \GeneralLinearGroup\of{2n, \R}}{\Transpose{\matA} = - \matJ \matA^{-1} \matJ}$.
 \end{definition}
 % The standard notation is Sp(2n, R). What do we do here?
-Note that ``it's even in the Heisenberg stuff'', as $\SymplecticGroup\of{1, \R} = \SpecialLinearGroup\of{2, \R}$. % This is true, but what does it have to do with the Heisenberg group? There seems to be something in Wikipedia about Heisenberg groups and symplectic vector spaces.
-With this definition, the above characterisation of a symplectic isomorphism can be reformulated to $\diffd \vs \in \SymplecticGroup\of{n, \R}$.
+Note that ``it's even in the Heisenberg stuff'', as $\SymplecticGroup\of{2, \R} = \SpecialLinearGroup\of{2, \R}$. % This is true, but what does it have to do with the Heisenberg group? There seems to be something in Wikipedia about Heisenberg groups and symplectic vector spaces.
+With this definition, the above characterisation of a symplectic isomorphism can be reformulated to $\diffd \vs \in \SymplecticGroup\of{2n, \R}$.
 
 What is the simplest possible motion? Let's take an $h_0$ that only depends on $\vp$, not on $\vq$. In that case we have
 \begin{alignat*}{3}
-\TimeDerivative{q_j} &= \pderiv{p_j}{h_0}\of\vp &\Implies&& \vq &= \deriv{\vp}{h_0}t + \vq\of{0} \\
-\TimeDerivative{p_j} &= \pderiv{q_j}{h_0}\of\vp = 0 &\Implies && \vp &= \vp\of{0} \\
+\TimeDerivative q_j &= \pderiv{p_j}{h_0}\of\vp &\Implies&& \vq &= \deriv{\vp}{h_0}t + \vq\of{0} \\
+\TimeDerivative p_j &= \pderiv{q_j}{h_0}\of\vp = 0 &\Implies && \vp &= \vp\of{0} \\
 \vv &\DefineAs \TimeDerivative \vq = \pderiv p h
 \end{alignat*}
 That's a straight line. There's nothing simpler than a straight line, except no line at all --- but I'm not going to get into discussions of nothingness, though it's fashionable these days. There are entire books written about nothingness, and how string theory explains everything about nothingness...
@@ -1036,16 +1036,33 @@ You can check the Jacobi identity and all that.
 \begin{definition}[Quantum system]
 A \emph{quantum system} is an $\opH\in\QuantumObservables$.
 \end{definition}
-\begin{definition}[Evolution of a quantum observable] The evolution of the observable $\opA$ is determined by \[\TimeDerivative\opA= \frac \I \ReducedPlanck \commutator\opA\opH\text.\]
+\begin{definition}[Evolution of a quantum observable] The evolution of the observable $\opA$ is determined by \[\TimeDerivative A= \frac \I \ReducedPlanck \commutator\opA\opH\text.\] % TODO(eggrobin): this should be an operator, but accents appear in weird places over operators...
 \end{definition}
 ``That's it. That's quantum mechanics.''
 \end{lecture}
 \begin{lecture}[date=2013-04-16]
-Okay! So where were we, ladies and gentlemen? When I last saw you, we talked about quantum mechanics. We have: EQ1
+Okay! So where were we, ladies and gentlemen? When I last saw you, we talked about quantum mechanics. We have: 
+\begin{gather*}
+\tuple{
+\underbrace{n}_{\mathclap{\substack{\uparrow\\\text{degrees of}\\\text{freedom}}}},
+\overbrace{\Rn}^{\mathclap{\substack{\text{configuration space}\\\downarrow}}},
+\underbrace{\tuple{\Schwartz, \LTwoInner\placeholder\placeholder}}_{\text{classical phase space}},
+\overbrace{\HermitianOperators\of{\Schwartz}}^{\text{quantum observables}},
+\underbrace{\frac{\I}{\ReducedPlanck}\commutator\placeholder\placeholder}_{\mathclap{\text{Lie algebra structure}}}
+}\text, \\
+\derivop t \opA = \frac{\I}{\ReducedPlanck}\commutator \opA \opH
+\end{gather*}
+We're doing this the French way. This is a 5-tuple, the way Bourbaki would write it. To them, mathematics is just long strings of symbols.
 
-We're doing this the French way. This is a 5-tuple, the way Bourbaki would write it.
-Such a logical structure is of no interest if you can't find $\opH$, unless there is a way of picking $\opH$s that describe quantum systems, not just because you believe they do, but because they do actually predict things that you can verify. It's like finding Waldo.\footnote{This is a reference to Martin Handford's \emph{Where's Wally?}, a series of children's books in which a character (Wally) is hidden on every page, published in the United Kingdom from 1987 onwards. It was published as \emph{Where's Waldo?} in the United States, and as \emph{\textgerman{Wo ist Walter?}} is Germany.} Unless you can find Waldo, it's just a meaningless complicated picture. Finding Waldo gives it its meaning. Actually let's call the Hamiltonian $\opW$. Finding Waldo is \emph{not} the Bourbaki way of doing things. I'll show you two books any physicist will tell you about: \emph{Find classical Waldo}, and \emph{Find quantum Waldo}. \emph{Find classical Waldo} you already had a lecture about last semester.
-EQ2
+Such a logical structure is of no interest if you can't find $\opH$, unless there is a way of picking $\opH$s that describe quantum systems, not just because you believe they do, but because they do actually predict things that you can verify. It's like finding Waldo.\footnote{This is a reference to Martin Handford's \emph{Where's Wally?}, a series of children's books in which a character (Wally) is hidden on every page, published in the United Kingdom from 1987 onwards. It was published as \emph{Where's Waldo?} in the United States, and as \emph{\textgerman{Wo ist Walter?}} in Germany.} Unless you can find Waldo, it's just a meaningless complicated picture. Finding Waldo gives it its meaning. Actually let's call the Hamiltonian $\opW$.\footnote{This notation was --- fortunately --- not actually used during the lecture, so we stick to the standard $\opH$.} Finding Waldo is \emph{not} the Bourbaki way of doing things. I'll show you two books any physicist will tell you about: \emph{Find classical Waldo}, and \emph{Find quantum Waldo}. \emph{Find classical Waldo} you already had a lecture about last semester.
+
+Recall the following quantum observables from the last lecture.
+\begin{definition}[Momentum and position operators]
+\begin{alignat*}{2}
+\pa{\opP_k \gj}\of \vq &\DefineAs \frac{\ReducedPlanck}{\I} \pderivop {q_k} \gj\of\vq && \text{ is the \emph{momentum operator},} \\
+\pa{\opQ_k \gj}\of \vq &\DefineAs q_k \gj\of\vq &&\text{ is the \emph{position operator}.}
+\end{alignat*}
+\end{definition}
 Now we do something \emph{really} weird. We find Waldo in the classical case --- this may be hard, but we find Waldo hiding amidst the electric and magnetic fields ---, and then we quantise him: EQ3
 For instance, EQ4
 %%% REMOVED UNTIL SENSE IS MADE OUT OF THIS %%% Why does this make sense? Do you remember the Weierstrass approximation theorem? [...] EXPAND You could do all of Analysis~\textsc{i} by just defining the derivative for $x^k$ and saying it is linear. % WHAT? This only works for analytic functions, and then it has little to do with the Weierstrass theorem anymore...
