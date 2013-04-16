@@ -1022,13 +1022,13 @@ Let me give you two examples of observables:
 \pa{\opP_j\gy}\of\vq &\DefineAs \frac{\ReducedPlanck}{\I} \pderivop{q_j}\text.
 \end{align*}
 \begin{proposition}
-$\tuple{\QuantumObservables, \frac \ReducedPlanck \I \commutator \opA \opB}$ is a Lie algebra.
-\begin{proof} We check that $\QuantumObservables$ is closed under the bracket $\frac \ReducedPlanck \I \commutator\placeholder\placeholder$: let $\opA${, }$\opB$ be self-adjoint. Then
+$\tuple{\QuantumObservables, \frac  \I \ReducedPlanck \commutator \opA \opB}$ is a Lie algebra.
+\begin{proof} We check that $\QuantumObservables$ is closed under the bracket $\frac \I \ReducedPlanck \commutator\placeholder\placeholder$: let $\opA${, }$\opB$ be self-adjoint. Then
 \begin{align*}
-\adj{\pa{\frac \ReducedPlanck \I \commutator\opA\opB}}
-&= -\frac\ReducedPlanck\I\adj{\pa{\opA\opB-\opB\opA}}\\
-&= -\frac\ReducedPlanck\I\pa{\adj\opB\adj\opA-\adj\opA\adj\opB}\\
-&= -\frac\ReducedPlanck\I\pa{\opB\opA-\opA\opB} = \frac \ReducedPlanck \I \commutator\opA\opB\text.
+\adj{\pa{\frac \I \ReducedPlanck \commutator\opA\opB}}
+&= -\frac \I \ReducedPlanck\adj{\pa{\opA\opB-\opB\opA}}\\
+&= -\frac \I \ReducedPlanck\pa{\adj\opB\adj\opA-\adj\opA\adj\opB}\\
+&= -\frac \I \ReducedPlanck\pa{\opB\opA-\opA\opB} = \frac \I \ReducedPlanck \commutator\opA\opB\text.
 \end{align*}
 You can check the Jacobi identity and all that.
 \end{proof}
@@ -1036,7 +1036,7 @@ You can check the Jacobi identity and all that.
 \begin{definition}[Quantum system]
 A \emph{quantum system} is an $\opH\in\QuantumObservables$.
 \end{definition}
-\begin{definition}[Evolution of a quantum observable] The evolution of the observable $\opA$ is determined by \[\TimeDerivative\opA= \frac \ReducedPlanck \I \commutator\opA\opH\text.\]
+\begin{definition}[Evolution of a quantum observable] The evolution of the observable $\opA$ is determined by \[\TimeDerivative\opA= \frac \I \ReducedPlanck \commutator\opA\opH\text.\]
 \end{definition}
 ``That's it. That's quantum mechanics.''
 \end{lecture}
