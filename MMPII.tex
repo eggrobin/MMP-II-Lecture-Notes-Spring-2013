@@ -861,8 +861,8 @@ Concluding, we have the following
   If $\gy \in \SchwartzSpace\of\R$, then $\abs{\LTwoInner \gy {h_n}} \leq \frac{\Lnorm[2]{\opH^p \gy}}{n^p}$, $n \geq 1$, $p \geq 0$.
 \end{lemma}
 \end{lecture}
-\begin{lecture}[date=2013-04-09]
-\begin{proposition}The $h_n\of x$, $n\geq 0$ form an orthonormal basis of $\SchwartzSpace\of\R$. More precisely, let \[\SchwartzSpace\of\N \DefineAs \setst{\tuple{s_0,s_1,s_2,\dotsc}}{s_j \in \C \text{ and } \forall p \exists c_p, \abs{s_j} \leq c_p \frac{1}{\pa{1 + j}^p}}\text.\]
+\begin{lecture}*[date=2013-04-09]
+\begin{proposition}\LectureStartsHere The $h_n\of x$, $n\geq 0$ form an orthonormal basis of $\SchwartzSpace\of\R$. More precisely, let \[\SchwartzSpace\of\N \DefineAs \setst{\tuple{s_0,s_1,s_2,\dotsc}}{s_j \in \C \text{ and } \forall p \exists c_p, \abs{s_j} \leq c_p \frac{1}{\pa{1 + j}^p}}\text.\]
 Then,
 \begin{equation*}
   \begin{split}
@@ -934,30 +934,35 @@ A \emph{classical mechanical system} on $\gW \Cartesian \Rn$ is a (Hamiltonian) 
 The conservation of energy immediately follows:\[
 \derivop t h = \Poisson h h = 0\text.
 \]
-This is all of classical mechanics. TEXT HERE From this we can derive Hamilton's equations of motion:
+This is all of classical mechanics. We can certainly ``pimp'' the theoretical structure behind it further by introducing symplectic manifolds, Poisson algebras, and so on. But so far, this could have all been done by mathematicians – where does the physicist come in? The art and the genius lies in finding the correct $h$. In doing so, at least when describing a real system you see around you, you more or less establish a naw of nature.
+
+Starting from this theoretical perspective could be described as the modern view, because it brings the symmetries of the theory to the front. From what we have, we can now derive Hamilton's equations of motion:
 \begin{align*}
 \derivop t q_j &= \Poisson{q_j}{h} \\
 &=\sum{k=1}[n]\pa{\pderivop{q_k} q_j}\pderiv {p_k} h - \pa{\pderivop{q_k} p_j}\pderiv {q_k} h \\
 &=\pderiv {p_j} h\\
 \pderivop t p_j &= - \pderiv {q_j} h\text.
 \end{align*}
-TEXT HERE TEXT HERE
-If $s$ verifies:
+
+But how can we now describe a ``natural'' transformation between two phase spaces? If
 \begin{align*}
-TODOTODO	\\
-\pa{\Pullback s \gy}\of{\vq,\vp} &= \gy\of{s\of{q,p}}\in\Continf\of{\gW\Cartesian\Rn} && \gy\in\Continf\of{\Closure\gW\Cartesian\Rn}\\
-\Poisson{\Pullback s}{}
+\FunctionSpec{s}{\gW\Cartesian\Rn}{\tilde\gW\Cartesian\Rn}\\
+\pa{\Pullback s \gy}\of{\vq,\vp} &= \gy\of{s\of{q,p}}\in\Continf\of{\gW\Cartesian\Rn}
+\end{align*} verifies
+\begin{align*}
+\gy\in\Continf\of{\Closure\gW\Cartesian\Rn}\\
+\Poisson{\Pullback s \gy}{\Pullback s \gj}\of{\vq, \vp} = \Poisson{\gy}{\gj}\of{s\of{\vq, \vp}} = \Pullback s \Poisson{\gy}{\gj} && \forall \gy, \gj \in \Continf\of{\Closure\gW\Cartesian\Rn}\text,
 \end{align*}
-then it is a \emph{symplectic} map
-TODOTODOTODO.
+then it is called \emph{symplectic} (or ``canonical'' in 19th century math slang). Why is this important? It allows us to define when two systems (i.e., hamiltonians and the associated phase spaces) are physically equivalent.
+
 Let me just show you one thing. $s$ is a symplectic isomorphism if and only if $\diffd s = \tuple{\pderiv {s_j}{x_k}}$ satisfies
 \[
-\LTwoInner{v}{J\diffd s \of{q,p}w }= \LTwoInner{TODO}{TODO}\text,
+\LTwoInner{v}{J\diffd s \of{q,p}w }= \LTwoInner{v}{J w}\text, % TODO: This seems off
 \]
 where $J\DefineAs\begin{pmatrix}
 \nullmat & \Identity_n\\
 -\Identity_n & \nullmat
-\end{pmatrix}$, for all $v$, $w$, $\tuple{q,p}\in\gW\Cartesian\Rn$.
+\end{pmatrix}$, for all $v$, $w$, $\tuple{q,p}\in\gW\Cartesian\Rn$. And if we really want to, we can now also define the group of symplectic matrices $\SymplecticGroup\of{n, \R} \DefineAs \setst{A \in \GeneralLinearGroup\of{n, \R}}{\Transpose{A} = - J A^{-1} J}$ (note that ``it's even in the Heisenberg stuff'', as $\SymplecticGroup\of{1, \R} = \SpecialLinearGroup\of{2, \R}$.
 
 What is the simplest possible motion? Let's take an $h_0$ that only depends on $\vp$, not on $\vq$. In that case we have
 \begin{alignat*}{3}
@@ -975,10 +980,10 @@ There is an $s$ if and only if $\setst{\gj}{\Poisson\gj h = 0}$ has an Abelian s
 \Poisson{I_j}{h}&=0\text.
 \end{align*}
 \
-Setting things up like this, the logical structure is crystal clear. This is something a mathematician could do. You may say, as a physicist, ``frankly, my dear, I don't give a damn,''\footnote{\emph{Gone with the Wind}, 1939, directed by Victor Fleming.} but the reason this structure is interesting is because we have beautiful examples. If you only have the beautiful logical structure, and no examples, are you not just playing with yourself? With this you can predict where Pluto or Neptune is. String theory has predicted nothing, and it may never.
+Setting things up like this, the logical structure is crystal clear. This is something a mathematician could do. You may say, as a physicist, ``frankly, my dear, I don't give a damn,''\footnote{\emph{Gone with the Wind}, 1939, directed by Victor Fleming.} but the reason this structure is interesting is because we have beautiful examples. So, if mathematicians are coming up with all different kinds of beautiful structures, the question is – and I am putting this in very low terms: Are they not just playing with themselves? With this you can predict where Pluto or Neptune is. String theory has predicted nothing, and it may never.
 
 In the case $h\of{q,p}=\frac{1}{2}\pa{\frac{p^2}{n} + m\gw^2 q^2}$, where $\tuple{q,p}\in\R\Cartesian\R$, we have the harmonic oscillator.
-And that's classical mechanics. Now onto quantum mechanics.
+And that's classical mechanics. Now on to quantum mechanics.
 
 \subsection{Quantum Mechanics}
 \begingroup%QM
