@@ -136,9 +136,9 @@ marginparwidth=5cm, marginparsep=0.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, rig
 \newcounter{Lecture}
 \newcommand{\LectureStartsHere}{
 \mbox{}%
-\marginnote{%
+\marginnote{{\upshape%
 \textsc{Lecture} \theLecture, \printdate{\lectureDate}.\emph{\lectureOfficial}%
-}%
+}}%
 \nopagebreak%
 }
 \NewDocumentEnvironment{lecture}{s o}{

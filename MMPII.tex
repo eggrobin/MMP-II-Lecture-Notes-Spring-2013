@@ -281,7 +281,7 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
     \end{proof}
   \end{lemma}
   \begin{proposition}
-The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map from the Schwartz space $\Schwartz$ to itself. $\rft{\ft{\gj}}=\gj$, where $\rft\gy\of\vx\DefineAs\ftnrm \int\Rn\gy\of\vk\E^{\I\scal\vk\vx}\diffd\vx$, read ``unhat'', ``bird'', ``seagull'', or whatever you like.
+The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map from the Schwartz space $\Schwartz$ to itself. $\rft{\ft{\gj}}=\gj$, where $\rft\gy\of\vx\DefineAs\pa{2\Pi}^{-n/2} \int\Rn\gy\of\vk\E^{\I\scal\vk\vx}\diffd\vx$, read ``unhat'', ``bird'', ``seagull'', or whatever you like.
     \begin{proof}
       \begin{align*}
         \gj\in\Schwartz&\Rightarrow\vx^\miga\pd\vx\migb\in\Schwartz \\
@@ -1002,7 +1002,7 @@ And that's classical mechanics. Now on to quantum mechanics.
 \begingroup%QM
 \newcommand{\QuantumObservables}{\StandardSymbol{QO}}
 How do we start? There is a number $n\geq 1$ of \emph{quantum degrees of freedom}.
-Then, $\gW\Subset \Rn$ is the \emph{quantum configuration space}, like the classical configuration space above. If you had fallen asleep at the beginning of the previous hour, and you thought Q.M. was just a misspelling of classical mechanics, you might think the lecture had just started. Now it becomes different.
+Then, $\gW\Subset \Rn$ is the \emph{quantum configuration space}, like the classical configuration space above. If you had fallen asleep at the beginning of the previous hour, and you thought \textsc{q.m.} was just a misspelling of classical mechanics, you might think the lecture had just started. Now it becomes different.
 \begin{definition}[Quantum phase space]
 The \emph{quantum phase space} is $\Schwartz$.
 \end{definition}
@@ -1041,7 +1041,7 @@ A \emph{quantum system} is an $\opH\in\QuantumObservables$.
 ``That's it. That's quantum mechanics.''
 \end{lecture}
 \begin{lecture}[date=2013-04-16]
-Okay! So where were we, ladies and gentlemen? When I last saw you, we talked about quantum mechanics. We have:
+Okay! So where were we, ladies and gentlemen? When I last saw you, we talked about quantum mechanics. We have: EQ1
 
 We're doing this the French way. This is a 5-tuple, the way Bourbaki would write it.
 Such a logical structure is of no interest if you can't find $\opH$, unless there is a way of picking $\opH$s that describe quantum systems, not just because you believe they do, but because they do actually predict things that you can verify. It's like finding Waldo.\footnote{This is a reference to Martin Handford's \emph{Where's Wally?}, a series of children's books in which a character (Wally) is hidden on every page, published in the United Kingdom from 1987 onwards. It was published as \emph{Where's Waldo?} in the United States, and as \emph{\textgerman{Wo ist Walter?}} is Germany.} Unless you can find Waldo, it's just a meaningless complicated picture. Finding Waldo gives it its meaning. Actually let's call the Hamiltonian $\opW$. Finding Waldo is \emph{not} the Bourbaki way of doing things. I'll show you two books any physicist will tell you about: \emph{Find classical Waldo}, and \emph{Find quantum Waldo}. \emph{Find classical Waldo} you already had a lecture about last semester.
