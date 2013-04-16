@@ -60,7 +60,7 @@
 
 % Theorem styles.
 \theoremstyle{nonumberplain}
-\theoremheaderfont{\normalfont\bfseries}\theorembodyfont{\itshape}
+\theoremheaderfont{\normalfont\bfseries}\theorembodyfont{\upshape}
 \theoremseparator{.}
 \theoremsymbol{\ensuremath{\mdlgwhtlozenge}}
 \newtheorem{definition}{Definition}
@@ -71,8 +71,8 @@
 \newtheorem{remark}{Remark}
 %\qedsymbol{\ensuremath{\mdlgwhtsquare}}
 \theoremsymbol{\ensuremath{\mdlgwhtsquare}}
-\theorembodyfont{\upshape}
 \newtheorem{proof}{Proof}
+\theorembodyfont{\itshape}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
 \newtheorem{corollary}{Corollary}
@@ -589,9 +589,9 @@
 \newcommand{\vgg}{\VectorSymbol \gamma}
 \newcommand{\vgl}{\VectorSymbol \lambda}
 
-\newcommand{\nullmi}{{\VectorSymbol 0}}
-\newcommand{\nullvec}{{\VectorSymbol 0}}
-\newcommand{\nullmat}{{\MatrixSymbol 0}}
+\newcommand{\nullmi}{\mathbf 0}
+\newcommand{\nullvec}{\mathbf 0}
+\newcommand{\nullmat}{\mathbf 0}
 
 \newcommand{\opA}{\OperatorSymbol A}
 \newcommand{\opB}{\OperatorSymbol B}
@@ -656,7 +656,7 @@
 \newcommand{\matG}{\MatrixSymbol G}
 \newcommand{\matH}{\MatrixSymbol H}
 \newcommand{\matI}{\MatrixSymbol I}
-\newcommand{\matJ}{\MatrixSymbol J}
+\newcommand{\matJ}{\,\MatrixSymbol J} % Bad kerning in Cambria Math...
 \newcommand{\matK}{\MatrixSymbol K}
 \newcommand{\matL}{\MatrixSymbol L}
 \newcommand{\matM}{\MatrixSymbol M}
@@ -827,6 +827,9 @@
 \newcommand{\Implies}{\implies}
 \newcommand\dder{^\dprime}
 \newcommand{\Identically}{\equiv}
+\newcommand{\Exterior}{\wedge}
+\newcommand{\FunctionActionSpecBody}[5]{#1:#2&\rightarrow #3\\#4 &= #5}
+\newcommand{\MapSpecBody}[4]{#1&\rightarrow #2\\#3 &\mapsto #4}
 
 %\makeatletter
 %\killchars@
