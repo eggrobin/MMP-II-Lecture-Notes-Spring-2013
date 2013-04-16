@@ -862,18 +862,18 @@ Concluding, we have the following
 \end{lemma}
 \end{lecture}
 \begin{lecture}*[date=2013-04-09]
-\begin{proposition}\LectureStartsHere The $h_n\of x$, $n\geq 0$ form an orthonormal basis of $\SchwartzSpace\of\R$. More precisely, let \[\SchwartzSpace\of\N \DefineAs \setst{\tuple{s_0,s_1,s_2,\dotsc}}{s_j \in \C \text{ and } \forall p \exists c_p, \abs{s_j} \leq c_p \frac{1}{\pa{1 + j}^p}}\text.\]
+\begin{proposition}\LectureStartsHere The $h_n\of x$, $n\geq 0$ form an orthonormal basis of $\SchwartzSpace\of\R$. More precisely, let \[\SchwartzSpace\of\N \DefineAs \setst{\tuple{s_0,s_1,s_2,\dotsc}}{s_j \in \C \text{ and } \forall p, \exists c_p, \abs{s_j} \leq c_p \frac{1}{\pa{1 + j}^p}}\text.\]
 Then,
-\begin{equation*}
-  \begin{split}
-    \MapSpec{\SchwartzSpace\of \N}{\SchwartzSpace\of\R}\\ %TODO: Fix alignment.
-    \FunctionBody s {\sum{n=0}[\infty] s_n h_n\of x}
-  \end{split}
-\end{equation*}
+\begin{align*}
+    \MapSpecBody
+    {\SchwartzSpace\of \N}
+    {\SchwartzSpace\of\R}
+    {\vs}
+    {\sum{n=0}[\infty] s_n h_n\of x}
+\end{align*}
 is a continuous, bijective linear map with a continuous inverse.
 \end{proposition}
-
-``Whatever somebody means by an orthonormal basis for an infinite dimensional vetor space, this is about as good as it gets.'' In proving the theorem, which is an exercise, we will have to something like \[ \abs{\sum{n \geq 0} s_n h_n\of x} \leq \sum{n \geq 0} \abs{s_n} \abs{h_n\of x} \] (and remember, them macho waits as long as possible before bringing the $\abs{\placeholder}$ in). Compare this to what we had for Fourier series:
+``Whatever somebody means by an orthonormal basis for an infinite dimensional vetor space, this is about as good as it gets.'' In proving the theorem, which is an exercise, we will have to do something like \[ \abs{\sum{n \geq 0} s_n h_n\of x} \leq \sum{n \geq 0} \abs{s_n} \abs{h_n\of x} \] --- and remember, them macho wait as long as possible before bringing the $\abs{\placeholder}$ in. Compare this to what we had for Fourier series:
 \[
   \abs{\sum{j=-\infty}[\infty] \ft{\gj}\of j \E^{\I j x}} \leq \sum{j=-\infty}[\infty] \abs{\ft{\gj}\of j} \underbrace{\abs{\E^{\I j x}}}_{=1}
 \]
@@ -885,9 +885,8 @@ For the $h_n$, we are not so lucky, and actually have to estimate $sup_{x\in \R}
            &\leq \frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}\pa{\int{-\infty}[\infty]{\pa{1+y^2}h_n^2\of y\diffd y}}^{\frac{1}{2}} \\
            &= \frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}\pa{\LTwoInner{h_n}{\pa{1+y^2}h_n}}^{\frac{1}{2}} \\
            &=\frac{1}{\sqrt{2\Pi}}\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}\pa{\LTwoInner{h_n}{h_n} + \frac{1}{2} \LTwoInner{h_n}{\pa{\opA+\opAdag}^2 h_n}}^{\frac{1}{2}}\\
-           &\leq \frac{1}{\sqrt{2\Pi}}\underbrace{\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}}_{< \infty \text{, indep. of }n} \sqrt{2\pa{n+1}}
+           &\leq \frac{1}{\sqrt{2\Pi}}\underbrace{\pa{\int{-\infty}[\infty]{\frac{1}{1+y^2}\diffd y}}^{\frac{1}{2}}}_{\mathclap{< \infty \text{, indepedent of }n}} \sqrt{2\pa{n+1}}
 \end{align*}
-
 \section{Quantising the harmonic oscillator}
 ``Now, we come into the good stuff''. Once upon a time, there was a classical Hamiltonian:
 \[
@@ -900,7 +899,9 @@ Do you remember anything from classical mechanics?
 \begin{lecture}[date=2013-04-11]
 What's classical mechanics? We start with a number $n\geq 1$, the number of \emph{degrees of freedom}. It does not change while you keep discussing that system. Then, we have a set $\gW \Subset \Rn$, open and connected, called the \emph{classical configuration space}.
 For instance, we can consider a pendulum, with $q\in\gW = \R$ the angle. Or we could have a joint in the pendulum, yielding $\tuple{q_1,q_2}\in\gW=\R^2$.
-\marginfig[The configuration space $\gW=\R$ of a simple pendulum. Here $q\in\R$, as the pendulum can do a full turn --- or several --- around its pivot.]{\FigureSimplePendulumConfigurationSpace}
+\marginfig[The configuration space $\gW=\R^2$ of a double pendulum, where $\vq=\tuple{q_1,q_2}\in\R^2$.]{\FigureSimplePendulumConfigurationSpace}
+\marginpar{\vspace*{.5cm}}
+\marginfig[The configuration space $\gW=\R$ of a simple pendulum. Here $q\in\R$, as the pendulum can do a full turn --- or several --- around its pivot.]{\FigureDoublePendulumConfigurationSpace}
 \begin{definition}[Classical phase space] The \emph{classical phase space} is defined as $\gW \Cartesian \Rn$, where $\tuple{\vq,\vp}\in\gW \Cartesian \Rn$.
 \end{definition}
 ``If you don't measure anything, then you're doing string theory, and your argument is: there must be supersymmetries, because it's so beautiful.'' 
@@ -921,7 +922,7 @@ Finally, define the \emph{Poisson bracket} of $\gy\text{, }\gj$ as
 \]
 for $\gy\text{, }\gj\in\Continf\of{\gW\Cartesian\Rn}$.
 \end{definition}
-\marginfig[The configuration space $\gW=\R^2$ of a double pendulum, where $\vq=\tuple{q_1,q_2}\in\R^2$.]{\FigureDoublePendulumConfigurationSpace}
+
 \begin{proposition}[\foreign{\textgerman{Ur}}-something of classical mechanics]
 $\tuple{\Continf\of{\gW,\Rn},\Poisson{\placeholder}{\placeholder}}$ is a Lie algebra,
 \foreign{\textgerman{das heißt, }} $\Poisson{\placeholder}{\placeholder}$ is bilinear, skew-symmetric and satisfies the Jacobi identity.
@@ -934,9 +935,9 @@ A \emph{classical mechanical system} on $\gW \Cartesian \Rn$ is a (Hamiltonian) 
 The conservation of energy immediately follows:\[
 \derivop t h = \Poisson h h = 0\text.
 \]
-This is all of classical mechanics. We can certainly ``pimp'' the theoretical structure behind it further by introducing symplectic manifolds, Poisson algebras, and so on. But so far, this could have all been done by mathematicians – where does the physicist come in? The art and the genius lies in finding the correct $h$. In doing so, at least when describing a real system you see around you, you more or less establish a naw of nature.
+This is all of classical mechanics. We can certainly ``pimp'' the theoretical structure behind it further by introducing symplectic manifolds, Poisson algebras, and so on. But so far, this could have all been done by mathematicians. Where does the physicist come in? The art and the genius lies in finding the correct $h$. In doing so, at least when describing a real system you see around you, you more or less establish a law of nature.
 
-Starting from this theoretical perspective could be described as the modern view, because it brings the symmetries of the theory to the front. From what we have, we can now derive Hamilton's equations of motion:
+Starting from this theoretical perspective, as opposed to doing a history course and starting with Newton and $F = ma$, could be described as the modern view, because it brings the symmetries of the theory to the front. From what we have, we can now derive Hamilton's equations of motion:
 \begin{align*}
 \derivop t q_j &= \Poisson{q_j}{h} \\
 &=\sum{k=1}[n]\pa{\pderivop{q_k} q_j}\pderiv {p_k} h - \pa{\pderivop{q_k} p_j}\pderiv {q_k} h \\
@@ -944,25 +945,37 @@ Starting from this theoretical perspective could be described as the modern view
 \pderivop t p_j &= - \pderiv {q_j} h\text.
 \end{align*}
 
-But how can we now describe a ``natural'' transformation between two phase spaces? If
+How can we now describe a ``natural'' transformation between two phase spaces? If the map
 \begin{align*}
-\FunctionSpec{s}{\gW\Cartesian\Rn}{\tilde\gW\Cartesian\Rn}\\
-\pa{\Pullback s \gy}\of{\vq,\vp} &= \gy\of{s\of{q,p}}\in\Continf\of{\gW\Cartesian\Rn}
+\FunctionActionSpecBody
+{\vs}
+{\gW\Cartesian\Rn}
+{\Closure\gW\Cartesian\Rn}
+{\pa{\Pullback \vs \gy}\of{\vq,\vp}}
+{\gy\of{\vs\of{\vq,\vp}}\in\Continf\of{\gW\Cartesian\Rn}}
 \end{align*} verifies
 \begin{align*}
 \gy\in\Continf\of{\Closure\gW\Cartesian\Rn}\\
 \Poisson{\Pullback s \gy}{\Pullback s \gj}\of{\vq, \vp} = \Poisson{\gy}{\gj}\of{s\of{\vq, \vp}} = \Pullback s \Poisson{\gy}{\gj} && \forall \gy, \gj \in \Continf\of{\Closure\gW\Cartesian\Rn}\text,
 \end{align*}
-then it is called \emph{symplectic} (or ``canonical'' in 19th century math slang). Why is this important? It allows us to define when two systems (i.e., hamiltonians and the associated phase spaces) are physically equivalent.
+then it is called \emph{symplectic} --- or ``canonical'' in 19th century math slang. Why is this important? It allows us to define when two systems, i.e., two hamiltonians and the associated phase spaces, are physically equivalent.
 
-Let me just show you one thing. $s$ is a symplectic isomorphism if and only if $\diffd s = \tuple{\pderiv {s_j}{x_k}}$ satisfies
+Let me just show you one thing. $\vs$ is a symplectic isomorphism if and only if $\diffd \vs = \tuple{\pderiv {x_k} {s_j}}$ satisfies
 \[
-\LTwoInner{v}{J\diffd s \of{q,p}w }= \LTwoInner{v}{J w}\text, % TODO: This seems off
-\]
-where $J\DefineAs\begin{pmatrix}
+\scal{\vv\diffd \vs \of{\vq,\vp}}{\pascal{\matJ\diffd \vs \of{\vq,\vp}\vw }} = 
+\scal{\vv}{\pascal{\matJ \vw}}\text{, where } % TODO: This seems off
+\matJ\DefineAs\begin{pmatrix}
 \nullmat & \Identity_n\\
 -\Identity_n & \nullmat
-\end{pmatrix}$, for all $v$, $w$, $\tuple{q,p}\in\gW\Cartesian\Rn$. And if we really want to, we can now also define the group of symplectic matrices $\SymplecticGroup\of{n, \R} \DefineAs \setst{A \in \GeneralLinearGroup\of{n, \R}}{\Transpose{A} = - J A^{-1} J}$ (note that ``it's even in the Heisenberg stuff'', as $\SymplecticGroup\of{1, \R} = \SpecialLinearGroup\of{2, \R}$.
+\end{pmatrix}\text,
+\]
+for all $\vv\in\Rn$, $\vw\in\Rn$ and $\tuple{\vq,\vp}\in\gW\Cartesian\Rn$.
+\begin{definition}[Symplectic group]
+And if we really want to, we can now also define the group of symplectic matrices $\SymplecticGroup\of{n, \R} \DefineAs \setst{\matA \in \GeneralLinearGroup\of{2n, \R}}{\Transpose{\matA} = - \matJ \matA^{-1} \matJ}$.
+\end{definition}
+% The standard notation is Sp(2n, R). What do we do here?
+Note that ``it's even in the Heisenberg stuff'', as $\SymplecticGroup\of{1, \R} = \SpecialLinearGroup\of{2, \R}$. % This is true, but what does it have to do with the Heisenberg group? There seems to be something in Wikipedia about Heisenberg groups and symplectic vector spaces.
+With this definition, the above characterisation of a symplectic isomorphism can be reformulated to $\diffd \vs \in \SymplecticGroup\of{n, \R}$.
 
 What is the simplest possible motion? Let's take an $h_0$ that only depends on $\vp$, not on $\vq$. In that case we have
 \begin{alignat*}{3}
@@ -972,15 +985,15 @@ What is the simplest possible motion? Let's take an $h_0$ that only depends on $
 \end{alignat*}
 That's a straight line. There's nothing simpler than a straight line, except no line at all --- but I'm not going to get into discussions of nothingness, though it's fashionable these days. There are entire books written about nothingness, and how string theory explains everything about nothingness...
 
-Now suppose somebody over there in Oberwinterthur has a fancy Hamiltonian $h\of{\vq,\vp}$. How do you know it's not a straight line, and that you are not being charged non-straight line prices for a straight line? You want to pull back, to find $s$ such that $\Pullback s h = h_0$. You heard about the Hamilton-Jacobi equation, right? And probably your mind went fuzzy at this time, and you heard about maps, and maybe generating functions, and this and that... 
-There is an $s$ if and only if $\setst{\gj}{\Poisson\gj h = 0}$ has an Abelian subalgebra $\LieAlgebraSymbol A$ of dimension $n$ such that
+Now suppose somebody over there in Oberwinterthur has a fancy Hamiltonian $h\of{\vq,\vp}$. How do you know it's not a straight line, and that you are not being charged non-straight line prices for a straight line? You want to pull back, to find $\vs$ such that $\Pullback \vs h = h_0$. You heard about the Hamilton-Jacobi equation, right? And probably your mind went fuzzy at this time, and you heard about maps, and maybe generating functions, and this and that... 
+There is an $\vs$ if and only if $\setst{\gj}{\Poisson\gj h = 0}$ has an Abelian subalgebra $\LieAlgebraSymbol A$ of dimension $n$ such that
 \begin{align*}
-\LieAlgebraSymbol A &= \set{I_1,\dotsc,\I_n}\text, \\
+\LieAlgebraSymbol A &= \set{I_1,\dotsc,I_n}\text, \\
 \Poisson{I_j}{I_k}&= 0\text,\\
 \Poisson{I_j}{h}&=0\text.
 \end{align*}
 \
-Setting things up like this, the logical structure is crystal clear. This is something a mathematician could do. You may say, as a physicist, ``frankly, my dear, I don't give a damn,''\footnote{\emph{Gone with the Wind}, 1939, directed by Victor Fleming.} but the reason this structure is interesting is because we have beautiful examples. So, if mathematicians are coming up with all different kinds of beautiful structures, the question is – and I am putting this in very low terms: Are they not just playing with themselves? With this you can predict where Pluto or Neptune is. String theory has predicted nothing, and it may never.
+Setting things up like this, the logical structure is crystal clear. This is something a mathematician could do. You may say, as a physicist, ``frankly, my dear, I don't give a damn,''\footnote{\emph{Gone with the Wind}, 1939, directed by Victor Fleming.} but the reason this structure is interesting is because we have beautiful examples. So, if mathematicians are coming up with all different kinds of beautiful structures, the question is --- and I am putting this in very low terms --- Are they not just playing with themselves? With this you can predict where Pluto or Neptune is. String theory has predicted nothing, and it may never.
 
 In the case $h\of{q,p}=\frac{1}{2}\pa{\frac{p^2}{n} + m\gw^2 q^2}$, where $\tuple{q,p}\in\R\Cartesian\R$, we have the harmonic oscillator.
 And that's classical mechanics. Now on to quantum mechanics.
