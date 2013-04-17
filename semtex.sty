@@ -200,6 +200,12 @@
   \fi
 }{\hspace{-1.25pt}#3}
 }
+
+\let\oldunderbrace\underbrace
+\renewcommand{\underbrace}[1]{\if@delimsize#1\else\oldunderbrace{#1}\fi}
+\let\oldoverbrace\overbrace
+\renewcommand{\overbrace}[1]{\if@delimsize#1\else\oldoverbrace{#1}\fi}
+
 \makeatother
 
 %%% end Voodoo 
@@ -355,6 +361,7 @@
 \DeclareMathOperator{\SpecialOrthogonalGroup}{SO}
 \DeclareMathOperator{\UnitaryGroup}{U}
 \DeclareMathOperator{\SymplecticGroup}{Sp}
+\DeclareMathOperator{\HermitianOperators}{Hermitian}
 %% Diacritics (one-parameter LaTeX commands).
 % \conj z is the complex conjugate of z.
 % By ISO 80000-2:2009 \overline{z} is the standard notation
@@ -548,6 +555,7 @@
 \newcommand\gdig\digamma
 
 \newcommand\gS\Sigma
+\newcommand\gP\capitalPi
 \newcommand\gW\Omega
 
 %% Vectors, matrices, higher-order tensors.
@@ -619,6 +627,13 @@
 \newcommand{\opX}{\OperatorSymbol X}
 \newcommand{\opY}{\OperatorSymbol Y}
 \newcommand{\opZ}{\OperatorSymbol Z}
+
+
+\newcommand{\opgP}{\OperatorSymbol \capitalPi}
+
+% Vectors of operators.
+\newcommand{\opvP}{\operatorname{\VectorSymbol{P}}}
+\newcommand{\opvQ}{\operatorname{\VectorSymbol{Q}}}
 
 \newcommand{\tensA}{\TensorSymbol A}
 \newcommand{\tensB}{\TensorSymbol B}
