@@ -87,7 +87,7 @@ marginparwidth=5cm, marginparsep=0.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, rig
 \let\makearticletitle\maketitle
 \renewcommand{\maketitle}{\makearticletitle\thispagestyle{empty}}
 
-\usepackage[margin=10pt,font=small,labelfont=bf]{caption}
+\usepackage[margin=10pt,font=small,labelfont=bf,labelsep=period]{caption}
 
 % Miscellaneous.
 \RequirePackage[iso, english]{isodate} 

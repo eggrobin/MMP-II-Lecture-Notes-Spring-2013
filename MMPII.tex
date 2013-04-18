@@ -899,9 +899,9 @@ Do you remember anything from classical mechanics?
 \begin{lecture}[date=2013-04-11]
 What's classical mechanics? We start with a number $n\geq 1$, the number of \emph{degrees of freedom}. It does not change while you keep discussing that system. Then, we have a set $\gW \Subset \Rn$, open and connected, called the \emph{classical configuration space}.
 For instance, we can consider a pendulum, with $q\in\gW = \R$ the angle. Or we could have a joint in the pendulum, yielding $\tuple{q_1,q_2}\in\gW=\R^2$.
-\marginfig[The configuration space $\gW=\R^2$ of a double pendulum, where $\vq=\tuple{q_1,q_2}\in\R^2$.]{\FigureSimplePendulumConfigurationSpace}
+\marginfig[The configuration space $\gW=\R$ of a simple pendulum. Here $q\in\R$, as the pendulum can do a full turn --- or several --- around its pivot.]{\FigureSimplePendulumConfigurationSpace}
 %\marginpar{\vspace*{.5cm}}
-\marginfig[The configuration space $\gW=\R$ of a simple pendulum. Here $q\in\R$, as the pendulum can do a full turn --- or several --- around its pivot.]{\FigureDoublePendulumConfigurationSpace}
+\marginfig[The configuration space $\gW=\R^2$ of a double pendulum, where $\vq=\tuple{q_1,q_2}\in\R^2$.]{\FigureDoublePendulumConfigurationSpace}
 \marginpar{\vspace*{3cm}}
 \begin{definition}[Classical phase space] The \emph{classical phase space} is defined as $\gW \Cartesian \Rn$, where $\tuple{\vq,\vp}\in\gW \Cartesian \Rn$.
 \end{definition}
@@ -931,7 +931,7 @@ $\tuple{\Continf\of{\gW,\Rn},\Poisson{\placeholder}{\placeholder}}$ is a Lie alg
 \begin{definition}[Classical mechanical system]
 A \emph{classical mechanical system} on $\gW \Cartesian \Rn$ is a (Hamiltonian) total energy function \[h\of{\vq,\vp}\in \Continf\of{\gW\Cartesian\Rn}\text.\]
 \end{definition}
-\begin{definition}[Evolution of a classical observable] $\derivop t f = \Poisson f h$  determines the evolution $\FunctionSpec f \R {\Continf\of{\gW\Cartesian\Rn}}$ of an observable $\gy\in\Continf\of{\gW\Cartesian\Rn}$ given at $t=0$ by $f\of{\vq,\vp,0}=\gy\of{\vq,\vp}$.
+\begin{definition}[Evolution of a classical observable] The \emph{Liouville equation} $\derivop t f = \Poisson f h$  determines the evolution $\FunctionSpec f \R {\Continf\of{\gW\Cartesian\Rn}}$ of an observable $\gy\in\Continf\of{\gW\Cartesian\Rn}$ given at $t=0$ by $f\of{\vq,\vp,0}=\gy\of{\vq,\vp}$.
 \end{definition}
 The conservation of energy immediately follows:\[
 \derivop t h = \Poisson h h = 0\text.
@@ -1094,13 +1094,12 @@ h\of{\vq,\vp} = \frac{1}{2m} \vp^2 + V\of\vq
 \Implies
 \opH\of{\opvQ, \opvP} = \frac{1}{2m} \sum{j=1}[n]\opP_j^2 + V\of{\opQ_1,\dotsc,\opQ_n}\text,
 \]
-where we define for a function $f$ on $\R$ and an operator $\opA$ with spectral decomposition 
+where we have for a continuous function $f$ on $\R$ and an operator $\opA$ with spectral decomposition 
 \begin{align*}
-\opA &= \sum{k=1}[r]\gl_r \opgP_r\text,\\
-f\of\opA &\DefineAs \sum{k=1}[r] f\of{\gl_r} \opgP_r\text.
+\opA &= \sum{k=1}[r]\gl_k \opgP_k\text,\\
+f\of\opA &= \sum{k=1}[r] f\of{\gl_k} \opgP_k\text.
 \end{align*}
-%%% REMOVED UNTIL SENSE IS MADE OUT OF THIS %%% Why does this make sense? Do you remember the Weierstrass approximation theorem? [...] EXPAND You could do all of Analysis~\textsc{i} by just defining the derivative for $x^k$ and saying it is linear. 
-% WHAT? This only works for analytic functions, and then it has little to do with the Weierstrass theorem anymore...
+Why? This is obvious if $f$ is a polynomial, because $\opgP_k\opP_l = \KroneckerDelta k l \opgP_k$. Recall the Weierstrass approximation theorem: any continuous function can be approximated by polynomials, and the approximation is uniform so by taking the limit, $f\of\opA = \sum{k=1}[r] f\of{\gl_k} \opgP_k$.
 
 This works because we have a strict Apartheid between the $\opP$s and $\opQ$s. They have to sit on different sides of the bus.
 For instance, look at the harmonic oscillator:
