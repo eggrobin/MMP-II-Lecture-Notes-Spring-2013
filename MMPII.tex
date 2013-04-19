@@ -1119,20 +1119,29 @@ So do you understand the point? There is a logical structure which is neat, and 
 \appendix
 \newpage
 \section*{Colophon}
-This document was typeset using the \XeTeX\ engine by Jonathan Kew and Khaled Hosny, version 0.9998, and written in the \XeLaTeX\ markup language. The serif text is typeset in the Linux Libertine font family, version 5.3, and the sans serif text in the \textsf{Linux Biolinum} font family, version 5.3, both published by the Libertine Open Fonts Project under the GNU%Should this be small caps?
-General Public License with the font exception and under the Open Font License. The mathematical expressions are typeset in the $\operatorname{Cambria~Math}$ font family, version 5.93, designed under the direction of Jelle Bosma (Monotype Imaging Incorporated) and Ross Mills (Tiro Typeworks), and licensed by Microsoft Corporation. Version control was done using the Git source code management system by Linus Torvalds \foreign{\textlatin{et~alii}}. The document is hosted on the GitHub hosting service provided by GitHub Incorporated.
+This document is available online at \url{http://goo.gl/m6YNz} \marginnote{\includegraphics[width=.5\marginparwidth]{QR-MMP-II}}(\textsc{qr}-code beside).
+
+It was typeset using the \XeTeX\ engine by Jonathan Kew and Khaled Hosny, version 0.9998, published under the MIT
+%Should MIT be small caps?
+License, and written in the \XeLaTeX\ markup language.
+
+The serif text is typeset in the Linux Libertine font family, version 5.3, and the sans serif text in the \textsf{Linux Biolinum} font family, version 5.3, both published by the Libertine Open Fonts Project under the GNU
+%Should GNU be small caps?
+General Public License with the font exception and under the Open Font License. The mathematical expressions are typeset in the $\operatorname{Cambria~Math}$ font family, version 5.93, designed under the direction of Jelle Bosma (Monotype Imaging Incorporated) and Ross Mills (Tiro Typeworks), and licensed by Microsoft Corporation.
+
+Version control was done using the Git source code management system by Linus Torvalds \foreign{\textlatin{et~alii}}. The document is hosted on the GitHub hosting service provided by GitHub Incorporated.
 
 \subsection*{Bug reporting}
 The reader is kindly invited to report any falsehoods, typos, unclarities, etc. For the sake of everybody's sanity, please follow the following guidelines when reporting an issue:
 \begin{itemize}
-\item check whether the issue still is present in the latest version of the document, and whether the issue has already been reported on the ``issues'' page of the repository \url{http://goo.gl/XNQRk} (\textsc{qr}-code beside);%TODO
+\item check whether the issue still is present in the latest version of the document, and whether it has already been reported on the ``issues'' page of the repository \url{http://goo.gl/XNQRk} \marginnote{\includegraphics[width=.5\marginparwidth]{QR-MMP-II-issues-page}}[-0.3\marginparwidth](\textsc{qr}-code beside);%TODO
 \item if you have a GitHub account, file an issue at the above page and properly label it as
 \begin{itemize}
 \item a \emph{bug} if it is a typo, falsehood or any other issue which is unambiguously an error;
 \item an \emph{enhancement} if it is a request for clarification, a missing part of a lecture or any other addition.
 \end{itemize}
 Please file separate issues for unrelated issues found in the document, and include a concise yet descriptive title;
-\item if you do not have a GitHub account --- and are not willing to create one --- send the report to \hyperref{mailto:egg.robin.leroy+MMPII.bugs@gmail.com}{}{}{\nolinkurl{egg.robin.leroy+MMPII.bugs@gmail.com}} (\textsc{qr}-code beside). Note that bugs reported in this way will take more time to be fixed;
+\item if you do not have a GitHub account --- and are not willing to create one --- send the report to \hyperref{mailto:egg.robin.leroy+MMPII@gmail.com}{}{}{\nolinkurl{egg.robin.leroy+MMPII@gmail.com}} \marginnote{\includegraphics[width=.5\marginparwidth]{QR-MMP-II-issues-email}}[-0.3\marginparwidth](\textsc{qr}-code beside). Note that bugs reported by email will take longer to process than those reported via GitHub;
 \item the report should include:
 \begin{itemize}
 \item the relevant page(s) and lecture number(s);
@@ -1145,10 +1154,10 @@ An example of a bug report could be the following:
 \begin{quote}
 \textsf{%
 \textbf{Typo: ``them macho wait'' p.~19}\\
-Page 19, lecture 14, build date 2013-04-18T08:47:21: ``remember, them macho wait as long as possible'' should read ``remember, the macho waits as long as possible''.
+Page 19, lecture 14, build date 2013-04-18T08:47:21+02:00, ``remember, them macho wait as long as possible'' should read ``remember, the macho waits as long as possible''.
 }
 \end{quote}
 \vfill
-Build date: \texttt{\today T\currenttime}.
+Build date: \texttt{\today T\currenttime+02:00}.
 
 \end{document}

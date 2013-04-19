@@ -15,6 +15,8 @@
 
 \RequirePackage{xltxtra}
 
+\RequirePackage{graphicx}
+
 % Language.
 
 \RequirePackage{polyglossia}
