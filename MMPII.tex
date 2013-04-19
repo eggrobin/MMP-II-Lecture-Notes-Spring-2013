@@ -873,7 +873,7 @@ Then,
 \end{align*}
 is a continuous, bijective linear map with a continuous inverse.
 \end{proposition}
-``Whatever somebody means by an orthonormal basis for an infinite dimensional vetor space, this is about as good as it gets.'' In proving the theorem, which is an exercise, we will have to do something like \[ \abs{\sum{n \geq 0} s_n h_n\of x} \leq \sum{n \geq 0} \abs{s_n} \abs{h_n\of x} \] --- and remember, them macho wait as long as possible before bringing the $\abs{\placeholder}$ in. Compare this to what we had for Fourier series:
+``Whatever somebody means by an orthonormal basis for an infinite dimensional vetor space, this is about as good as it gets.'' In proving the theorem, which is an exercise, we will have to do something like \[ \abs{\sum{n \geq 0} s_n h_n\of x} \leq \sum{n \geq 0} \abs{s_n} \abs{h_n\of x} \] --- and remember, the macho waits as long as possible before bringing the $\abs{\placeholder}$ in. Compare this to what we had for Fourier series:
 \[
   \abs{\sum{j=-\infty}[\infty] \ft{\gj}\of j \E^{\I j x}} \leq \sum{j=-\infty}[\infty] \abs{\ft{\gj}\of j} \underbrace{\abs{\E^{\I j x}}}_{=1}
 \]
@@ -900,9 +900,9 @@ Do you remember anything from classical mechanics?
 What's classical mechanics? We start with a number $n\geq 1$, the number of \emph{degrees of freedom}. It does not change while you keep discussing that system. Then, we have a set $\gW \Subset \Rn$, open and connected, called the \emph{classical configuration space}.
 For instance, we can consider a pendulum, with $q\in\gW = \R$ the angle. Or we could have a joint in the pendulum, yielding $\tuple{q_1,q_2}\in\gW=\R^2$.
 \marginfig[The configuration space $\gW=\R$ of a simple pendulum. Here $q\in\R$, as the pendulum can do a full turn --- or several --- around its pivot.]{\FigureSimplePendulumConfigurationSpace}
-%\marginpar{\vspace*{.5cm}}
+\marginpar{\vspace*{1.5cm}}
 \marginfig[The configuration space $\gW=\R^2$ of a double pendulum, where $\vq=\tuple{q_1,q_2}\in\R^2$.]{\FigureDoublePendulumConfigurationSpace}
-\marginpar{\vspace*{3cm}}
+%\marginpar{\vspace*{3cm}}
 \begin{definition}[Classical phase space] The \emph{classical phase space} is defined as $\gW \Cartesian \Rn$, where $\tuple{\vq,\vp}\in\gW \Cartesian \Rn$.
 \end{definition}
 ``If you don't measure anything, then you're doing string theory, and your argument is: there must be supersymmetries, because it's so beautiful.''
@@ -1099,7 +1099,7 @@ where we have for a continuous function $f$ on $\R$ and an operator $\opA$ with 
 \opA &= \sum{k=1}[r]\gl_k \opgP_k\text,\\
 f\of\opA &= \sum{k=1}[r] f\of{\gl_k} \opgP_k\text.
 \end{align*}
-Why? This is obvious if $f$ is a polynomial, because $\opgP_k\opP_l = \KroneckerDelta k l \opgP_k$. Recall the Weierstrass approximation theorem: any continuous function can be approximated by polynomials, and the approximation is uniform so by taking the limit, $f\of\opA = \sum{k=1}[r] f\of{\gl_k} \opgP_k$.
+Why? This is obvious if $f$ is a polynomial, because $\opgP_k\opgP_l = \KroneckerDelta k l \opgP_k$. Recall the Weierstrass approximation theorem: any continuous function can be approximated by polynomials, and the approximation is uniform, so by taking the limit, $f\of\opA = \sum{k=1}[r] f\of{\gl_k} \opgP_k$.
 
 This works because we have a strict Apartheid between the $\opP$s and $\opQ$s. They have to sit on different sides of the bus.
 For instance, look at the harmonic oscillator:
