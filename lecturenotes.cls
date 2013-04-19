@@ -91,6 +91,7 @@ marginparwidth=5cm, marginparsep=0.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, rig
 
 % Miscellaneous.
 \RequirePackage[iso, english]{isodate} 
+\RequirePackage[iso]{datetime}
 \usepackage{verse}
 \renewcommand{\textsuperscript}[1]{{\textup{#1}}}
 \RequirePackage[stable]{footmisc}
@@ -106,8 +107,9 @@ marginparwidth=5cm, marginparsep=0.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, rig
 \newcommand{\marginfig}[2][]{%
 \marginpar{%
 \begin{center}%
+\captionsetup{type=figure}%
 #2%
-\ifstrempty{#1}{}{\captionof{figure}{#1}}
+\ifstrempty{#1}{}{\caption{#1}}
 \end{center}%
 }%
 }
@@ -158,3 +160,14 @@ marginparwidth=5cm, marginparsep=0.5cm, top=2.5cm, bottom=2.5cm, left=2.5cm, rig
 \usepackage{lettrine}
 \newcommand{\up}[1]{{\addfontfeature{VerticalPosition=Superior}#1}}
 \newcommand{\textdn}[1]{{\addfontfeature{VerticalPosition=ScientificInferior}#1}}
+
+\let\articleappendix\appendix
+\renewcommand{\appendix}{%
+\articleappendix%
+\fancyhf{}%
+\fancyhead[LE,RO]{\thepage}%
+\fancyhead[RE,LO]{}%
+\renewcommand{\headrulewidth}{0pt}%
+}
+
+\RequirePackage{hyperref}
