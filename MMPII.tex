@@ -483,7 +483,7 @@ The way a bourgeois mathematician thinks of the classical phase space $\Rn\Carte
 We started this lecture with the finite Fourier transform. This is a special case of what we discuss here, with $\IntegersModulo{n}$ as the abelian group $A$. This is perfect pedagogy: after only eight months, we come back to the beginning. Everything I've done so far is just that for various groups. When the group is infinite, e.g., the unit circle for Fourier series, you have to do analysis. ``[Claude] doesn't go there. I do.''
 \end{lecture}
 \begin{supplemental}
-\subsection{\textsc{Supplemental: }\emph{\textgreek{Ἡ φανταχτερή γλῶσσα τῶν ἀστικῶν μαθηματικῶν}}\footnote{The fancy language of bourgeois mathematicians.}}
+\subsection{\textsc{Supplemental: }\emph{\texorpdfstring{\textgreek{Ἡ φανταχτερή γλῶσσα τῶν ἀστικῶν μαθηματικῶν\footnote{The fancy language of bourgeois mathematicians.}}}{Ἡ φανταχτερή γλῶσσα τῶν ἀστικῶν μαθηματικῶν}}}
 \begingroup
 \newcommand{\VelocitySpace}{\LieAlgebraSymbol{g}}
 \newcommand{\MomentumSpace}{\Dual\VelocitySpace}
@@ -584,7 +584,7 @@ for almost all $x$ --- $\PontryaginDual\gm$ is the dual measure\footnote{The dua
   need to define the inverse Fourier transform accordingly as
   $\rft\gy\of\vx\DefineAs\sqftnrm \int\Rn\gy\of\vk\E^{\I\scal\vk\vx}\diffd\vx$, i.e., for
   $\gm=\LebesgueMeasure n$, $\PontryaginDual \gm = \sqftnrm \LebesgueMeasure n$.}
----, the representation $\gr$ of $\R$ on $\Lspace[2]\of\R$ by translation decomposes in irreducible representations as
+--- the representation $\gr$ of $\R$ on $\Lspace[2]\of\R$ by translation decomposes in irreducible representations as
 \begin{equation*}
   \Lspace[2]\of{\UnitSphere 1}=\DirectSum{\vk\in\Rn}
   V_\vk=\DirectSum{\gc\in\PontryaginDual{\Rn}} \LinearSpan \gc \text{.}
@@ -745,7 +745,7 @@ Proof of (\ref{orth4}). Now we are going to do something quickly, where algebra 
   \frac{n\pa{n-1}\dotsm 1}{\sqrt{\Factorial n}} 
   \LTwoInner{\pa{\opAdag}^{m-n} h_0}{h_0}\text.
 \end{align*}
-As $\opAdag$ kills $h_0$ --- it is called the \emph{annihilation} operator, in German the \foreign{\textgerman{Vernichtungsoperator}} ---, we get $
+As $\opAdag$ kills $h_0$ --- it is called the \emph{annihilation} operator, in German the \foreign{\textgerman{Vernichtungsoperator}} --- we get $
   \LTwoInner{h_m}{h_n} =
   \frac{1}{\sqrt{\Factorial m}} 
   \frac{n\pa{n-1}\dotsm 1}{\sqrt{\Factorial n}} 
@@ -1083,7 +1083,7 @@ The cases where the commutator is $0$ are obvious. We prove the last equality,
 \end{proof}
 \end{lemma}
 \end{definition}
-Now we do something \emph{really} weird. We find Waldo in the classical case --- this may be hard, but we find Waldo hiding amidst the electric and magnetic fields ---, and then we quantise him. Namely, for a classical Waldo $h\of{\vq,\vp}$, replace any $q_k$ by $Q_k$ and any $p_k$ by $P_k$.
+Now we do something \emph{really} weird. We find Waldo in the classical case --- this may be hard, but we find Waldo hiding amidst the electric and magnetic fields --- and then we quantise him. Namely, for a classical Waldo $h\of{\vq,\vp}$, replace any $q_k$ by $Q_k$ and any $p_k$ by $P_k$.
 \[
 h\of{\vq,\vp} \xrightarrow{\text{Quantise Waldo}} \opH\of{\opQ_1,\dotsc,\opQ_n, \opP_1, \dotsc, \opP_n}
 \]
@@ -1109,7 +1109,7 @@ h\of{p,q}&= \frac{1}{2}\pa{\frac{p^2}{m}+m\gw^2 q^2}\\
 \opH\of{Q, P} &= \frac{1}{2}\pa{-\frac{\ReducedPlanck^2}{m}\derivop[2] q + m^2 \gw^2 q^2}\text.
 \end{align*}
 Note that there are no $qp$ terms in the classical Hamiltonian.
-But if we do not have this Apartheid in the classical Hamiltonian, if Waldo lives in the United States after the civil rights movement --- or even after Obama was elected ---, we may have $q_i p_j$ in the Hamiltonian --- say with $\vq \Exterior \vp = \smash{\Transpose{\tuple{q_2 p_3 - q_3 p_2, q_3 p_1 - q_1 p_3, q_1 p_2 - q_2 p_1}}}$. And then this commutes in the classical case, but not in the quantum case, so we have a problem: do we write $\opQ_i \opP_j$ or $\opP_j \opQ_i$? Somehow, if you have a physically interesting Hamiltonian, it just happens that you can fiddle with it to get rid of those $q_i p_j$. This may sound like a ridiculous story like \foreign{\textgerman{Samichlaus}}, but it works. That's all I can tell you. Do you know about Pauling? He got the Nobel Peace Prize --- and also the Nobel Prize in Chemistry for something he did on the side. Well Pauling used that sort of bullshit to calculate the angle in the water molecule, and he got the right answer.
+But if we do not have this Apartheid in the classical Hamiltonian, if Waldo lives in the United States after the civil rights movement --- or even after Obama was elected --- we may have $q_i p_j$ in the Hamiltonian --- say with $\vq \Exterior \vp = \smash{\Transpose{\tuple{q_2 p_3 - q_3 p_2, q_3 p_1 - q_1 p_3, q_1 p_2 - q_2 p_1}}}$. And then this commutes in the classical case, but not in the quantum case, so we have a problem: do we write $\opQ_i \opP_j$ or $\opP_j \opQ_i$? Somehow, if you have a physically interesting Hamiltonian, it just happens that you can fiddle with it to get rid of those $q_i p_j$. This may sound like a ridiculous story like \foreign{\textgerman{Samichlaus}}, but it works. That's all I can tell you. Do you know about Pauling? He got the Nobel Peace Prize --- and also the Nobel Prize in Chemistry for something he did on the side. Well Pauling used that sort of bullshit to calculate the angle in the water molecule, and he got the right answer.
 
 So do you understand the point? There is a logical structure which is neat, and there is this weird recipe to quantise Waldo, and it works. I can't tell you more, and nobody can. Actually, there is a slightly more satisfying recipe, using these $\opW$s --- hey, more Waldos! --- these Weyl operators we talked about. We'll come back to this later. It's a messy story, and it doesn't even have a good end. Somehow or other, quantum mechanics and gravity don't mix. There was a time when string theory was supposed to quantise gravity. Twenty years ago there was a long list of all the thing string theory was supposed to do. Now the list looks very different, and it's much shorter; none of the things that used to be on that list are on it anymore. String theory has changed its \foreign{\textlatin{curriculum vitae}}.
 \end{lecture}
@@ -1136,5 +1136,49 @@ It's just you, right? No, he wants to do that too. So next Tuesday, I'll bite th
 The biggest mistake people do when they decide to do research is to read a book. That's just as bad as jumping into a crevice, except if you fall into a crevice, some Austrian might find you in 3000 years and you'll end up in a museum. If you read a book, you're really finished.
 \end{lecture}
 \endgroup%QM
+
+\appendix
+\newpage
+\section*{Colophon}
+This document is available online at \url{http://goo.gl/m6YNz} \marginnote{\includegraphics[width=.5\marginparwidth]{QR-MMP-II}}(\textsc{qr}-code beside).
+
+It was typeset using the \XeTeX\ engine by Jonathan Kew and Khaled Hosny, version 0.9998, published under the MIT
+%Should MIT be small caps?
+License, and written in the \XeLaTeX\ markup language.
+
+The serif text is typeset in the Linux Libertine font family, version 5.3, and the sans serif text in the \textsf{Linux Biolinum} font family, version 5.3, both published by the Libertine Open Fonts Project under the GNU
+%Should GNU be small caps?
+General Public License with the font exception and under the Open Font License. The mathematical expressions are typeset in the $\operatorname{Cambria~Math}$ font family, version 5.93, designed under the direction of Jelle Bosma (Monotype Imaging Incorporated) and Ross Mills (Tiro Typeworks), and licensed by Microsoft Corporation.
+
+Version control was done using the Git source code management system by Linus Torvalds \foreign{\textlatin{et~alii}}. The document is hosted on the GitHub hosting service provided by GitHub Incorporated.
+
+\subsection*{Bug reporting}
+The reader is kindly invited to report any falsehoods, typos, unclarities, etc. For the sake of everybody's sanity, please follow the following guidelines when reporting an issue:
+\begin{itemize}
+\item check whether the issue still is present in the latest version of the document, and whether it has already been reported on the ``issues'' page of the repository \url{http://goo.gl/XNQRk} \marginnote{\includegraphics[width=.5\marginparwidth]{QR-MMP-II-issues-page}}[-0.3\marginparwidth](\textsc{qr}-code beside);%TODO
+\item if you have a GitHub account, file an issue at the above page and properly label it as
+\begin{itemize}
+\item a \emph{bug} if it is a typo, falsehood or any other issue which is unambiguously an error;
+\item an \emph{enhancement} if it is a request for clarification, a missing part of a lecture or any other addition.
+\end{itemize}
+Please file separate issues for unrelated issues found in the document, and include a concise yet descriptive title;
+\item if you do not have a GitHub account --- and are not willing to create one --- send the report to \hyperref{mailto:egg.robin.leroy+MMPII@gmail.com}{}{}{\nolinkurl{egg.robin.leroy+MMPII@gmail.com}} \marginnote{\includegraphics[width=.5\marginparwidth]{QR-MMP-II-issues-email}}[-0.3\marginparwidth](\textsc{qr}-code beside). Note that bugs reported by email will take longer to process than those reported via GitHub;
+\item the report should include:
+\begin{itemize}
+\item the relevant page(s) and lecture number(s);
+\item the build date and time found at the bottom of this page;
+\item a description of the erroneous version, with enough context to find the issue;
+\item a clear description of how the issue should be fixed.
+\end{itemize}
+\end{itemize}
+An example of a bug report could be the following:
+\begin{quote}
+\textsf{%
+\textbf{Typo: ``them macho wait'' p.~19}\\
+Page 19, lecture 14, build date 2013-04-18T08:47:21+02:00, ``remember, them macho wait as long as possible'' should read ``remember, the macho waits as long as possible''.
+}
+\end{quote}
+\vfill
+Build date: \texttt{\today T\currenttime+02:00}.
 
 \end{document}
