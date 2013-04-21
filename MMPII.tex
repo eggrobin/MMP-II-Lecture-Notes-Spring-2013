@@ -1114,18 +1114,65 @@ But if we do not have this Apartheid in the classical Hamiltonian, if Waldo live
 So do you understand the point? There is a logical structure which is neat, and there is this weird recipe to quantise Waldo, and it works. I can't tell you more, and nobody can. Actually, there is a slightly more satisfying recipe, using these $\opW$s --- hey, more Waldos! --- these Weyl operators we talked about. We'll come back to this later. It's a messy story, and it doesn't even have a good end. Somehow or other, quantum mechanics and gravity don't mix. There was a time when string theory was supposed to quantise gravity. Twenty years ago there was a long list of all the thing string theory was supposed to do. Now the list looks very different, and it's much shorter; none of the things that used to be on that list are on it anymore. String theory has changed its \foreign{\textlatin{curriculum vitae}}.
 \end{lecture}
 \begin{lecture}[date=2013-04-18]
-The last time I saw you we were looking for Waldo. We're going to look for Waldo some more. We were looking at EQ1. The easiest case is when we have this strict Apartheid between $q$ and $p$, and of course this does not happen all that much in real life --- thank God for that.
-EQ2
-There is one more thing that I should do to bring us back to the nostalgic world of our childhood. There is one more thing that I should do, and all will be right in the world.
-We add $-1$ in the last expression:
-EQ3 The red $\opH$ is the one you know --- I ran out of $\opH$s. The fact that I picked red has no political overtones whatsoever. This is Switzerland, red's okay. It's on the flag.%Shit.
-Recall: EQ4.
-%TODO: novel stuff. This is hilarious.
-So here, EQ5, so we have found the energy levels of the quantum harmonic oscillator. \emph{Somebody asks whether this has something to do with blackbody radiation}. ``Most physicists aren't even aware that they're lying,'' but you \emph{really} need quantum field theory for that.
+\newcommand{\redH}{\operatorname{\mathit{\textcolor{red}{H}}}}
+The last time I saw you we were looking for Waldo. We're going to look for Waldo some more. We were looking at
+\begin{align*}
+h\of{p,q} &\DefineAs \frac{1}{2}\pa{\frac{p^2}{m}+m\gw^2q^2}\text,\\
+\opH=h\of{\frac{\ReducedPlanck}{\I}\derivop q, q} &= \frac{1}{2}\pa{\frac{1}{m}\pa{\frac{\ReducedPlanck}{\I}\derivop q}^2+m\gw^2 q^2}\\
+&=\frac{1}{2}\pa{-\frac{\ReducedPlanck^2}{m}\derivop[2] q + m\gw^2 q^2}\text.
+\end{align*}
+Now we look for the eigenvalues $E$, $\opH\gy = E \gy \text{, for }\gy\in\SchwartzSpace\of\R$.
 
-MISSING TEXT It's normalised so that EQ6, and we interpret this as the probability EQ7.
-There's no reason why it should work, but it does.
-The other thing is EQ8. What is the Heisenberg uncertainty principle? Define EQ9. Here's the punchline: EQ10. What does this mean? The tinier the variance, the more the expected value is expected, so the more you know about $\opQ$, the less you know about $\opP$. I'm not going to prove this, you'll do it in quantum mechanics next year.
+The easiest case is when we have this strict Apartheid between $q$ and $p$, and of course this does not happen all that much in real life --- thank God for that.
+Write
+\begin{align*}
+x&\DefineAs \pa{\frac{m\gw}{\ReducedPlanck}}^{\frac{1}{2}} q\text,
+\intertext{we get}
+\derivop x = \deriv x q \derivop q &= \pa{\frac{\ReducedPlanck}{m\gw}}^{\frac{1}{2}} \derivop q\text.
+\intertext{We now expand the eigenvalue equation from above,}
+\pa{\opH \gy}\of q = E\gy\of q  &\Equivalent -\frac{\ReducedPlanck^2}{2m} \derivop[2] q \gy\of q + \frac{m\gw^2}{2}q^2 \gy\of q
+=E\gy\of q\text.
+\intertext{Let}
+f\of x \DefineAs \gy\of{\pa{\frac{\ReducedPlanck}{m\gw}}^{\frac{1}{2}}x}\text.
+\intertext{The eigenvalue equation becomes}
+\frac{1}{2}\pa{-\gw\ReducedPlanck\derivop[2] x + \gw \ReducedPlanck x^2}f\of x
+&= E f\of x\text,\\
+\frac{1}{2} \pa{-\derivop[2] x + x^2}f\of x &= \frac{E}{\ReducedPlanck\gw}f\of x\text.
+\end{align*}
+There is one more thing that I should do to bring us back to the nostalgic world of our childhood. There is one more thing that I should do, and all will be right in the world.
+We add a $-1$ in the last expression:
+\begin{align*}
+\frac{1}{2} \pa{-\derivop[2] x + x^2 - 1}f\of x &= \pa{\frac{E}{\ReducedPlanck\gw}-\frac{1}{2}}f\of x\text.
+\intertext{We rewrite that as}
+\redH f \of x &= \gl f \of x\text{, where }\gl = \frac{E}{\ReducedPlanck\gw}-\frac{1}{2}\text.
+\end{align*}
+The red $\redH$ is the one you know --- I ran out of $\opH$s. The fact that I picked red has no political overtones whatsoever. This is Switzerland, red's okay. It's on the flag. %TODO: novel stuff. This was hilarious.
+Recall:
+\begin{align*}
+\redH h_n &= n h_n\text{, where}\\
+h_n &= \frac{1}{\sqrt{\Factorial n}}\pa{\opAdag}^n h_0\text,\\
+h_0\of x &= \frac{1}{\sqrt[4]{\Pi}} \E^{-\frac{1}{2}x^2}\text.
+\intertext{So here,}
+n &= \frac{E}{\ReducedPlanck\gw}-\frac{1}{2}\text,\\
+E_n &= \ReducedPlanck\gw \pa{n+\frac{1}{2}}\text,
+\end{align*}
+and we have found the energy levels of the quantum harmonic oscillator. \emph{Somebody asks whether this has something to do with blackbody radiation}. ``Most physicists aren't even aware that they're lying,'' but you \emph{really} need quantum field theory for that.
+
+MISSING TEXT ETAOIN SHRDLU It's normalised so that
+\begin{align*}
+\int\R \abs{\gy\of q}^2 \diffd q &= 1\text,
+\intertext{and we interpret this as the probability}
+\Probability[\gy]{a<q<b}&=\int{a}[b] \abs{\gy\of q}^2 \diffd q\text.
+\intertext{There's no reason why it should work, but it does.
+The other thing is}
+\Probability[\gy]{a<k<b}&=\int{a}[b] \abs{\ft\gy\of k}^2 \diffd q\text.
+\intertext{What is the Heisenberg uncertainty principle? Define}
+\ExpectedValue[\gy]{\opA}&\DefineAs\LTwoInner{\gy}{\opA\gy}\text,\\
+\Variance[\gy]{\opA}&\DefineAs\ExpectedValue[\gy]{\pa{\opA-\ExpectedValue[\gy]{\opA}\Identity}^2}\text.
+\intertext{Here's the punchline:}
+\Variance[\gy]{\opQ}\Variance[\gy]{\opP}&\geq\frac{\ReducedPlanck^2}{4}\text.
+\end{align*} %TODO:CHECK
+What does this mean? The tinier the variance, the more the expected value is expected, so the more you know about $\opQ$, the less you know about $\opP$. I'm not going to prove this, you'll do it in quantum mechanics next year.
 
 I'm now going to show you a more rational way of quantising Waldo. This is still a story, but while --- unless you're really gullible --- you stopped believing in \foreign{\textgerman{Samichlaus}} at the age of 4. This you might believe until 10.
 
