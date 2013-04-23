@@ -58,7 +58,7 @@ Notes from the\\Methods of Mathematical Physics~\textsc{ii} \\lectures of 2013-0
   \end{equation*}
   to be a functional, and more specifically an element of the dual space of whatever class of functions we can allow for $\gj$. But the question is: what restrictions do we need on this space of functions if we want to find objects like the Dirac delta in its dual space?
   
-  Actually, we want these functionals to be in the continuous dual of our space, that is, we want them to be functionals $U$ such that $\conv {U\of{\gj_k}}{U\of\gj}$ for all sequence of functions $\tuplespec{\gj_k}{k\in\N}$  that converge to $\gj$ in an appropriate norm\footnote{This simply means that $U$ is a continuous map from the function space endowed with its norm topology to $\R$ endowed with the standard topology.} --- we want our space to be a Banach space.
+  Actually, we want these functionals to be in the continuous dual of our space, that is, we want them to be functionals $U$ such that $\conv {U\of{\gj_k}}{U\of\gj}$ for all sequence of functions $\tuplespec{\gj_k}{k\in\N}$  that converge to $\gj$ in an appropriate norm\footnote{This simply means that $U$ is a continuous map from the function space endowed with its norm topology to $\R$ endowed with the standard topology.}---we want our space to be a Banach space.
 Intuition tells us that the smaller, i.e., more restricted, a space of functions is, the stronger the conditions on $\conv{\gj_k}{\gj}$ must be in order for it to be complete, and so the bigger its continuous dual can be, as we only need $\conv {U\of{\gj_k}}{U\of\gj}$ for the sequences $\tuplespec{\gj_k}{k\in\N}$ that converge in that space. Thus, we will investigate a space of functions $\gj\of\vx \in \Continf\of\Rn$ that vanish quickly as $\conv {\norm\vx} \infty$ (``converge with a vengeance''), hoping to find the Dirac delta in its continuous dual.
   \begin{definition} First, a few definitions used throughout this course:
 %TODO(eggrobin): the big partial derivative is nonsemantic.
@@ -313,7 +313,7 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
         &=\sqftnrm\int\Rn\int\Rn\gj\of\vy\E^{-\I\scal\vk\vy}\diffd\vy\:\E^{\I\scal\vk\vx}\diffd\vk
       \end{align*}
       We don't interchange the integrals here because that would lead to ugly calculations. ``If you paint the walls before you start building, it's not a good idea.''
-      At this point, somebody suggests replacing $\pa{2\Pi}^{-n}\int\Rn \E^{\I\scal\vk{\pascal{\vx-\vy}}}\diffd\vk$ by $\DiracDelta\of{\vx-\vy}$. ``It's plausible! --- \textsc{Why}? [...] Ah I said it, so it's plausible.'' However, we would need to do some nasty calculations in order to do this. ``How are we going to do it so fast that you don't get bored, and yet in enough detail that he's convinced? Be sneaky.''
+      At this point, somebody suggests replacing $\pa{2\Pi}^{-n}\int\Rn \E^{\I\scal\vk{\pascal{\vx-\vy}}}\diffd\vk$ by $\DiracDelta\of{\vx-\vy}$. ``It's plausible!---\textsc{Why}? [...] Ah I said it, so it's plausible.'' However, we would need to do some nasty calculations in order to do this. ``How are we going to do it so fast that you don't get bored, and yet in enough detail that he's convinced? Be sneaky.''
       \begin{align*}
         \rft{\ft{\gj}}
         &=\ftnrm\int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}
@@ -331,7 +331,7 @@ The Fourier transform $\ft{\placeholder}$ is a continuous bijective linear map f
         &=\ftnrm\int\Rn\gj\of\vy\ftnrm\int\Rn\E^{\I\scal\vk{\pascal{\vx-\vy}}}
         \E^{-\ge\frac{\norm\vk^2}{2}}\diffd\vk\diffd\vy
       \end{align*}
-      Recall: ``every path leads to Rome and every Gaussian is in $\Schwartz$.'' Also, the last foot of a dactylic hexameter is always a spondee. 
+      Recall: ``every path leads to Rome and every Gaussian is in $\Schwartz$''. Also, the last foot of a dactylic hexameter is always a spondee. 
       \begin{equation*}
         \ftnrm\int\Rn\E^{-\ge\frac{\norm\vk^2}{2}}\E^{\I\scal{\pascal{\vy-\vx}}\vk}\diffd\vk
         =\frac{\E^{-\frac{1}{2\ge}\norm{\vx-\vy}^2}}{\ge^{\frac{n}{2}}}
@@ -426,7 +426,7 @@ You know that if you take $\E^x\E^y$ on reals numbers, you get $\E^{x+y}$, but t
 
 Write $X \DefineAs \E^{\I Q}$ and $Y \DefineAs \E^{\I P}$, $X^r Y^s = \E^{\I r s} Y^s X^r$, $Z \DefineAs \pa{\E^\I}^t \Identity$. We will generate a group with these three elements. ``I'll think up another way of doing this; it's something worth doing twice.'' How do we preserve all the ideas, and yet get rid of all the infinite dimensional vector spaces? We study a finite dimensional analog, the finite Heisenberg group $\FiniteHeisenbergGroup n$, in which we use $\IntegersModulo{n}$ instead of $\R$. And we'll use that little group to do all sorts of experiments. No one will complain about what we do to it. 
 
-Let us start again. ``Those of you who have done the exercises, and those of you who have the determination to go to Prof. Willwacher's --- `Willwacher.' I like that name. --- lecture, we are going to do that again, but on a concrete example.''
+Let us start again. ``Those of you who have done the exercises, and those of you who have the determination to go to Prof. Willwacher's---`Willwacher.' I like that name.---lecture, we are going to do that again, but on a concrete example.''
 We will find all the conjugacy classes. ``We're going to hunt them down!'' 
 
 ``I'll see you on Thursday, and I expect there'll be fewer people.''
@@ -443,7 +443,7 @@ In its soul, the finite Heisenberg group has captured the essence of calculating
 
  ``Conjugacy is where it's at, in the language of the 1960s.'' This is what the entire linear algebra lecture is about. For instance, the Jordan normal form gives you a unique representative of a conjugacy class. ``You can dig down here and spend years in this hole. Or you can go up. I'll go up, I'll let you dig down.''
 
-$\matX\DefineAs\Helt 1 0 0$, $\matY\DefineAs\Helt 0 1 0$, $\matZ\DefineAs\Helt 0 0 1$ generate the finite Heisenberg group. With $\matZ=\matX\matY\matX^{-1}\matY^{-1}$, $\matX$, $\matY$ generate it. ``Jacobi? --- no, no, no. No Jacobi identity.'' 
+$\matX\DefineAs\Helt 1 0 0$, $\matY\DefineAs\Helt 0 1 0$, $\matZ\DefineAs\Helt 0 0 1$ generate the finite Heisenberg group. With $\matZ=\matX\matY\matX^{-1}\matY^{-1}$, $\matX$, $\matY$ generate it. ``Jacobi?---no, no, no. No Jacobi identity.'' 
 
 The free group on one element is isomorphic to $\tuple{\Z,+}$. The normal subgroup of $\FreeGroup X$ generated by $W$ is the smallest normal subgroup which contains $W$. This is well-defined, as $\FreeGroup X$ is such a normal subgroup, and the intersection of normal subgroups is a normal subgroup, so the normal subgroup generated by $W$ is
 \begin{equation*}
@@ -490,7 +490,7 @@ We started this lecture with the finite Fourier transform. This is a special cas
 \newcommand{\Lagrangian}{\mathscr{L}}
 \newcommand{\Hamiltonian}{\mathscr{H}}
 \newcommand{\eqrel}{\sim}
-Assume the space $G$ of generalised coordinates of a physical system is a Lie group, i.e., a group which is also a differentiable manifold, and in which composition and inversion are smooth maps. Then if $\FunctionSpec\vq \R G$ describes the evolution of the generalised coordinates of the system with time, the generalised velocity at time $t$, $\TimeDerivative\vq\of t$, lies in the tangent space $\TangentSpace{\vq\of t}G$ --- recall that the tangent space of $g$ at $\vx$ is defined as the set of derivatives\footnote{One has to be careful here: unless $G$ is a submanifold of $\Rn$, the derivative is not well-defined. In that case however, $\TimeDerivative \vgg\of 0$ can be defined as the equivalence class of $\vgg$ in the set of curves through $\vx$ with $\vgg\of 0 = \vx$ under the relation $\vgg_1\eqrel\vgg_2 \Equivalent \pa{f\Compose\vgg_1}\der\of 0 = \pa{f\Compose\vgg_2}\der\of 0$, where $f$ is a differentiable chart of a neighbourhood of $\vx$ onto $\Rn$. It can then be shown that this is independent of $f$.} $\TimeDerivative \vgg\of 0$ at $0$ of smooth curves $\FunctionSpec\vgg\R G$ with $\vgg\of 0 = \vx$.
+Assume the space $G$ of generalised coordinates of a physical system is a Lie group, i.e., a group which is also a differentiable manifold, and in which composition and inversion are smooth maps. Then if $\FunctionSpec\vq \R G$ describes the evolution of the generalised coordinates of the system with time, the generalised velocity at time $t$, $\TimeDerivative\vq\of t$, lies in the tangent space $\TangentSpace{\vq\of t}G$---recall that the tangent space of $g$ at $\vx$ is defined as the set of derivatives\footnote{One has to be careful here: unless $G$ is a submanifold of $\Rn$, the derivative is not well-defined. In that case however, $\TimeDerivative \vgg\of 0$ can be defined as the equivalence class of $\vgg$ in the set of curves through $\vx$ with $\vgg\of 0 = \vx$ under the relation $\vgg_1\eqrel\vgg_2 \Equivalent \pa{f\Compose\vgg_1}\der\of 0 = \pa{f\Compose\vgg_2}\der\of 0$, where $f$ is a differentiable chart of a neighbourhood of $\vx$ onto $\Rn$. It can then be shown that this is independent of $f$.} $\TimeDerivative \vgg\of 0$ at $0$ of smooth curves $\FunctionSpec\vgg\R G$ with $\vgg\of 0 = \vx$.
 
 The ordered pair $\tuple{\vq\of t,\TimeDerivative\vq\of t}$ lies in the \emph{tangent bundle} $\TangentBundle G$, that is,
 \begin{equation*}
@@ -498,7 +498,7 @@ The ordered pair $\tuple{\vq\of t,\TimeDerivative\vq\of t}$ lies in the \emph{ta
 \end{equation*}
 Informally, $\TangentBundle G$ is the disjoint union of all the tangent spaces of the manifold $G$. An element $\tuple{\vx,\vv}\in \TangentBundle G$  represents a tangent vector $\vv$ to $G$ at $\vx$. Physically, this is a state of the system, namely the one with coordinates $\vx$ and velocity $\vv$. 
 
-As $G$ is a Lie group, composition on the left --- or right --- by any element is a diffeomorphism. In particular, for $q\in G$,
+As $G$ is a Lie group, composition on the left---or right---by any element is a diffeomorphism. In particular, for $q\in G$,
 $\FunctionSpec {\gj_\vq} G G, \FunctionBody \vx {\vq^{-1} \vx}$ is a diffeomorphism, and so it induces a canonical linear isomorphism $\diffd \gj_\vq \of\vq$ between the tangent spaces $\TangentSpace{\vq}G$ and $\TangentSpace{\gj_\vq\of{\vq}}=\TangentSpace{\Identity}G$, by
 \begin{equation*}
 \diffd \gj_\vq \of\vq\TimeDerivative\vgg\of 0 = \diffd \gj_\vq \of{\vgg\of 0}\TimeDerivative\vgg\of 0 = \pa{\gj_\vq\Compose\vgg}\der\of 0 = \TimeDerivative\vgg_0\of 0\text{,}
@@ -536,7 +536,7 @@ The Pontryagin dual\footnote{The Pontryagin dual is named after %
 \begingroup
 \newcommand{\LeftAction}[2]{f_{#1} \of{#2}}
 Let $G$ be a group acting on a measure space\footnote{Here $X$ is a set, $\FunctionSpec \gm X {\intclos 0 \infty}$ is a measure on $X$ and $\gS\Subset\PowerSet X$ is the $\mathrm{\sigma}$-algebra of $\gm$-measurable subsets.} $\tuple{X, \gS, \gm}$ by the left action $\FunctionSpec f G {\Functions X X}, \FunctionBody g {f_g}$, that is, we denote by $\LeftAction g x$ the action of $g\in G$ on $x\in X$, and $f_g \Compose f_h = f_{gh}$. Define the space of square-integrable functions on $X\text{, }
-  \Lspace[2]\of X \DefineAs \setst{\gj\in\Functions \C X}{\Lnorm[2] \gj < \infty}$, where $
+  \Lspace[2]\of X \DefineAs \setst{\gj\in\Functions X \C}{\Lnorm[2] \gj < \infty}$, where $
   \Lnorm[2] \gj \DefineAs \LTwoInner \gj \gj \text{, }
   \LTwoInner \gy \gj \DefineAs \int X \conj\gy \gj \diffd \gm
   $. Note that if $X$ is finite, and $\gm$ is the counting measure,
@@ -551,11 +551,11 @@ and again we recover the definition we gave for the inner product on $\Schwartz\
 
 Now consider the representation $\FunctionSpec \gr G \GeneralLinearGroup\of{\Lspace[2]\of X}, \FunctionBody g {\gr_g}$ of $G$ on $\Lspace[2]\of X$ defined by $\pa{\gr_g\of\gj}\of x =  \gj\of{\LeftAction g x}$.
 \paragraph{Fourier Series and $\UnitSphere 1$.}
-If $G=\UnitSphere 1=X$ is the circle group, acting on itself by addition (here we use the definition $\UnitSphere 1 = \QuotientGroup\R {2\Pi\Z}$), $\Lspace[2]\of X = \Lspace[2]\of{\UnitSphere 1}$ decomposes under $\gr$ in a way which is dictated by Fourier series. Indeed, we have for $\gj\in \Lspace[2]\of{\UnitSphere 1}$, $j\in\Z$ --- see \emph{The Discrete Fourier Transform}, page~8, though note that the inner product was antilinear in the second argument back then, whereas it is antilinear in the first one this semester:
+If $G=\UnitSphere 1=X$ is the circle group, acting on itself by addition (here we use the definition $\UnitSphere 1 = \QuotientGroup\R {2\Pi\Z}$), $\Lspace[2]\of X = \Lspace[2]\of{\UnitSphere 1}$ decomposes under $\gr$ in a way which is dictated by Fourier series. Indeed, we have for $\gj\in \Lspace[2]\of{\UnitSphere 1}$, $j\in\Z$---see \emph{The Discrete Fourier Transform}, page~8, though note that the inner product was antilinear in the second argument back then, whereas it is antilinear in the first one this semester:
 \begin{equation*}
   \ft\gj\of j = \frac{1}{2\Pi}\int 0[2\Pi] \gj\of \gq \E^{-\I j \gq}\diffd \gq = \int {\UnitSphere 1} \gj \E^{-\I j \placeholder}\diffd \gm = \LTwoInner {\E^{\I j \placeholder}} \gj\text,
 \end{equation*}
-where $\E^{\I j \placeholder}\DefineAs \FunctionBody \gq {\E^{\I j \gq}}$, $\E^{\I j \placeholder} \in \PontryaginDual{\UnitSphere 1} \Isomorphic \Z$ and where we take a normed $\gm$, i.e., $\gm\of{\UnitSphere 1} = 1$. In other words, $\ft{\placeholder}\of j =  \LTwoInner {\E^{\I j \placeholder}} \placeholder$ is the projection of $\gj$ onto the subspace $V_j\DefineAs\LinearSpan\set{\E^{\I j \placeholder}}$ of $\Lspace[2]\of{\UnitSphere 1}$. Note that the $\E^{\I j \placeholder}$ are exactly the elements of $\PontryaginDual{\UnitSphere 1}$.
+where $\E^{\I j \placeholder}\DefineAs \FunctionBody \gq {\E^{\I j \gq}}$, $\E^{\I j \placeholder} \in \PontryaginDual{\UnitSphere 1} \Isomorphic \Z$ and where we take a normed $\gm$, i.e., $\gm\of{\UnitSphere 1} = 1$. In other words, $\ft{\gj}\of j =  \LTwoInner {\E^{\I j \placeholder}} \gj$ is the projection of $\gj$ onto the subspace $V_j\DefineAs\LinearSpan\set{\E^{\I j \placeholder}}$ of $\Lspace[2]\of{\UnitSphere 1}$. Note that the $\E^{\I j \placeholder}$ are exactly the elements of $\PontryaginDual{\UnitSphere 1}$.
 Moreover, $V_j$ is $\gr$-invariant, as $\gr$ acts by translation on $\gj\in \Lspace[2]\of{\UnitSphere 1}$, namely $\pa{\gr_\ga\of\gj}\of \gq = \gj\of{\ga+\gq}$, and hence
 $
 \forall \gl\E^{\I j \placeholder} \in V_j,\quad
@@ -577,19 +577,19 @@ by taking $\gm = \ftnrm\LebesgueMeasure n$, where $\LebesgueMeasure n$ is the Le
 \rft{\ft\gj}\of\vx = \ftnrm\int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}\diffd\vk \gj\of\vx=
 \int\Rn\ft\gj\E^{\I\scal\vx{}}\diffd \PontryaginDual\gm = \gj\of\vx
 \end{equation*}
-for almost all $x$ --- $\PontryaginDual\gm$ is the dual measure\footnote{The dual measure $\PontryaginDual\gm$ is the measure we need to get the
+for almost all $x$---$\PontryaginDual\gm$ is the dual measure\footnote{The dual measure $\PontryaginDual\gm$ is the measure we need to get the
   expressions to look the same when written in terms of measures. We chose $\gm$ in such
   a way that $\gm = \PontryaginDual\gm$, but if we had defined a non-unitary version, e.g.
   $\ft\gj\of \vk \DefineAs \int \Rn \gj\of x \E^{-\I \scal\vk \vx}\diffd \vx$, we would  
   need to define the inverse Fourier transform accordingly as
   $\rft\gy\of\vx\DefineAs\sqftnrm \int\Rn\gy\of\vk\E^{\I\scal\vk\vx}\diffd\vx$, i.e., for
   $\gm=\LebesgueMeasure n$, $\PontryaginDual \gm = \sqftnrm \LebesgueMeasure n$.}
---- the representation $\gr$ of $\R$ on $\Lspace[2]\of\R$ by translation decomposes in irreducible representations as
+---the representation $\gr$ of $\R$ on $\Lspace[2]\of\R$ by translation decomposes in irreducible representations as
 \begin{equation*}
   \Lspace[2]\of{\UnitSphere 1}=\DirectSum{\vk\in\Rn}
   V_\vk=\DirectSum{\gc\in\PontryaginDual{\Rn}} \LinearSpan \gc \text{.}
 \end{equation*}
-Once again, it makes sense to think of the projectors as  $\ft{\placeholder}\of{\E^{\I \scal\vk{}}}$, with $\ft\gj\of\gc \DefineAs \LTwoInner \gc \gj$ for $\gc\in\PontryaginDual\Rn$, as the isomorphism $\PontryaginDual\Rn\Isomorphic\Rn$ is not unique. Actually, the isomorphism $\FunctionBody \vk {\E^{2 \Pi \I \scal{\vk}{} }}$ is sometimes used, as it allows for $\gm = \PontryaginDual\gm = \LebesgueMeasure n$ --- there are no constant factors before the integrals. Using this isomorphism, the Gaussian $\E^{-\frac{1}{2}\norm\vx^2}$ is no longer self-dual, i.e., the same as its Fourier transform, but $\E^{-\Pi\norm\vx^2}$ is instead.
+Once again, it makes sense to think of the projectors as  $\ft{\placeholder}\of{\E^{\I \scal\vk{}}}$, with $\ft\gj\of\gc \DefineAs \LTwoInner \gc \gj$ for $\gc\in\PontryaginDual\Rn$, as the isomorphism $\PontryaginDual\Rn\Isomorphic\Rn$ is not unique. Actually, the isomorphism $\FunctionBody \vk {\E^{2 \Pi \I \scal{\vk}{} }}$ is sometimes used, as it allows for $\gm = \PontryaginDual\gm = \LebesgueMeasure n$---there are no constant factors before the integrals. Using this isomorphism, the Gaussian $\E^{-\frac{1}{2}\norm\vx^2}$ is no longer self-dual, i.e., the same as its Fourier transform, but $\E^{-\Pi\norm\vx^2}$ is instead.
 
 This also gives us an isomorphism between the momentum space $\CotangentSpace 0 \Rn = \Dual{\pa\Rn}$ and the Pontryagin dual $\PontryaginDual \Rn$, namely $\FunctionBody \vgl {\E^{2 \Pi \I \vgl }}$, with $\PontryaginDual \Rn\owns\FunctionNamedBody{\E^{2 \Pi \I \vgl}} \vk {\E^{2 \Pi \I \vgl\vk}}$, which, in contrast to the isomorphism from $\Rn$ to $\PontryaginDual\Rn$, does not depend on the choice of an inner product. It therefore makes sense to think of momenta as lying in the dual of the tangent space, and not in the tangent space. Thus the phase space should indeed be $\CotangentBundle \Rn$, and not $\TangentBundle \Rn$.
 
@@ -613,7 +613,7 @@ The dual of a group is a sort of nonlinear version of the dual of a vector space
 
 We switched from an additive to a multiplicative notation. ``Algebraists... you have to be careful. They're sensitive.''
 
-``Representation theory is like a bubble on Wall Street.'' We have, obviously, $\matT  \vsqrtninv = \vsqrtninv$. ``Does nobody know about Elmo?''  Now, by taking this eigenvector and applying $\matM$ over and over again, --- in a perfectly legal manner --- we get all the other eigenvectors! All the representation theory, all the modules, all the things they talk about... it's just this. ``[Claude's] entire thesis is just a super-duper version of this.'' You don't have to do anything, you just talk. This is the French influence.
+``Representation theory is like a bubble on Wall Street.'' We have, obviously, $\matT  \vsqrtninv = \vsqrtninv$. ``Does nobody know about Elmo?''  Now, by taking this eigenvector and applying $\matM$ over and over again---in a perfectly legal manner---we get all the other eigenvectors! All the representation theory, all the modules, all the things they talk about... it's just this. ``[Claude's] entire thesis is just a super-duper version of this.'' You don't have to do anything, you just talk. This is the French influence.
 
 ``We're going to come to the point where you see the difference between [Claude] and me.'' We will need not one, but \emph{two} proofs for the Stone-Von Neumann theorem.
 
@@ -639,7 +639,7 @@ Recall:
 \FT\RFT &=\RFT\FT=\Identity\text,\\
 \FT{\pa{\derivop[2]x + x^2}}\of{k}&=\pa{\derivop[2]x + x^2}\FT\of\gj\of{k}\text.
 \end{align*}
-So we have this very nice guy here: $\derivop[2]x + x^2$, and having gone to \foreign{\textgerman{Elementarschule}}, you'd think \[\derivop[2]x + x^2 \stackrel{?}= \pa{x-\derivop x}\pa{x+\derivop x}\text{.}\] But the \emph{real} identity they should teach you at school --- life is short, the sooner you get going, the better --- is \[\pa{a-b}\pa{a+b}=a^2-b^2+\commutator a b\text{.}\] That's the difference between childhood and adulthood: $ab$ is no longer equal to $ba$, and it causes a lot of problems.
+So we have this very nice guy here: $\derivop[2]x + x^2$, and having gone to \foreign{\textgerman{Elementarschule}}, you'd think \[\derivop[2]x + x^2 \stackrel{?}= \pa{x-\derivop x}\pa{x+\derivop x}\text{.}\] But the \emph{real} identity they should teach you at school---life is short, the sooner you get going, the better---is \[\pa{a-b}\pa{a+b}=a^2-b^2+\commutator a b\text{.}\] That's the difference between childhood and adulthood: $ab$ is no longer equal to $ba$, and it causes a lot of problems.
 Here $\commutator {\derivop x} x = \Identity$. We now know  $ \pa{x-\derivop x}\pa{x+\derivop x} = -\derivop[2]x + x^2 -1$.
 This will be around long after strings are seen as a strange cult of the 21st century.
 
@@ -679,7 +679,7 @@ We can now perform the following induction:
 \FT\of{\pa{\adj{\opA_x}}^n h_0}\of k &= \pa{-\I} \adj{\opA_k}\FT\of{\pa{\adj \opA_x}^{n-1}h_0}\of k
 = \pa{-\I}^n \pa{\adj{\opA_k}}^n h_0\of k\text.
 \end{align*}
-In other words, the $\pa{\opAdag}^n h_0$ --- with an $\opAdag$, not an $\opA$; ``a dagger can be the difference between life and death!'' --- are eigenfunctions of the the Fourier transform. We will need to prove that these are orthogonal and form a complete set, and we will have an orthogonal basis of $\SchwartzSpace\of\R$.
+In other words, the $\pa{\opAdag}^n h_0$---with an $\opAdag$, not an $\opA$: ``a dagger can be the difference between life and death!''---are eigenfunctions of the the Fourier transform. We will need to prove that these are orthogonal and form a complete set, and we will have an orthogonal basis of $\SchwartzSpace\of\R$.
 ``I'll do some coherent states. I like coherent states.'' Next time we shall prove:
 \begin{align*}
 \commutator A {\adj A} &= \Identity \text,\\
@@ -745,7 +745,7 @@ Proof of (\ref{orth4}). Now we are going to do something quickly, where algebra 
   \frac{n\pa{n-1}\dotsm 1}{\sqrt{\Factorial n}} 
   \LTwoInner{\pa{\opAdag}^{m-n} h_0}{h_0}\text.
 \end{align*}
-As $\opAdag$ kills $h_0$ --- it is called the \emph{annihilation} operator, in German the \foreign{\textgerman{Vernichtungsoperator}} --- we get $
+As $\opAdag$ kills $h_0$---it is called the \emph{annihilation} operator, in German the \foreign{\textgerman{Vernichtungsoperator}}---we get $
   \LTwoInner{h_m}{h_n} =
   \frac{1}{\sqrt{\Factorial m}} 
   \frac{n\pa{n-1}\dotsm 1}{\sqrt{\Factorial n}} 
@@ -768,7 +768,7 @@ As $\opAdag$ kills $h_0$ --- it is called the \emph{annihilation} operator, in G
   \begin{align*}
     \opH h_0 &= \opAdag \opA h_0 = 0\text.
   \end{align*}
-  With what we already have, we can complete the proof elegantly --- but then, I have always maintained that elegance is for tailors:
+  With what we already have, we can complete the proof elegantly---but then, I have always maintained that elegance is for tailors:
  \begin{align*}
    \opH h_n &= \opAdag \pa{\opA h_n} = \opAdag \sqrt{n} h_{n-1} = \sqrt{n} \sqrt{n} h_n = n h_n\text.
  \end{align*}
@@ -784,7 +784,7 @@ So, ``out of nowhere'' we now have eigenvectors with eigenvalues $0$, $1$, $2$, 
 ``Whenever I think of algebra, I think about Lawrence of Arabia. It's clean.'' \emph{The professor asks if anyone in the audience has actually heard about T. E. Lawrence, and goes on to discuss how the David Lean film features a scene widely known in the film world as an example for the match cut technique.} ``If you are really interested, I can just tell you about film and skip this [points to the blackboard] boring crap. I know something about it.'' \emph{At this point the lecture has extended five minutes into the break, and people are beginning to leave.}
 ``You should leave the moment you feel lied to. That's a basic thing in all human relationships.''
 
-Now, what would make this even better? Let us show that we are done, that we have all the eigenvectors --- in other words, that our orthogonal family is a basis. ``That, is, you can't get away from it. You can run, but you can't get away.''
+Now, what would make this even better? Let us show that we are done, that we have all the eigenvectors---in other words, that our orthogonal family is a basis. ``That, is, you can't get away from it. You can run, but you can't get away.''
 
 \begin{proposition}
 If $\gj\in\SchwartzSpace\of\R$ and $\LTwoInner \gj {h_n} = 0$, $n\geq 0$, then $\gj\Identically 0$.
@@ -873,7 +873,7 @@ Then,
 \end{align*}
 is a continuous, bijective linear map with a continuous inverse.
 \end{proposition}
-``Whatever somebody means by an orthonormal basis for an infinite dimensional vetor space, this is about as good as it gets.'' In proving the theorem, which is an exercise, we will have to do something like \[ \abs{\sum{n \geq 0} s_n h_n\of x} \leq \sum{n \geq 0} \abs{s_n} \abs{h_n\of x} \] --- and remember, the macho waits as long as possible before bringing the $\abs{\placeholder}$ in. Compare this to what we had for Fourier series:
+``Whatever somebody means by an orthonormal basis for an infinite dimensional vetor space, this is about as good as it gets.'' In proving the theorem, which is an exercise, we will have to do something like \[ \abs{\sum{n \geq 0} s_n h_n\of x} \leq \sum{n \geq 0} \abs{s_n} \abs{h_n\of x} \]---and remember, the macho waits as long as possible before bringing the $\abs{\placeholder}$ in. Compare this to what we had for Fourier series:
 \[
   \abs{\sum{j=-\infty}[\infty] \ft{\gj}\of j \E^{\I j x}} \leq \sum{j=-\infty}[\infty] \abs{\ft{\gj}\of j} \underbrace{\abs{\E^{\I j x}}}_{=1}
 \]
@@ -899,7 +899,7 @@ Do you remember anything from classical mechanics?
 \begin{lecture}[date=2013-04-11]
 What's classical mechanics? We start with a number $n\geq 1$, the number of \emph{degrees of freedom}. It does not change while you keep discussing that system. Then, we have a set $\gW \Subset \Rn$, open and connected, called the \emph{classical configuration space}.
 For instance, we can consider a pendulum, with $q\in\gW = \R$ the angle. Or we could have a joint in the pendulum, yielding $\tuple{q_1,q_2}\in\gW=\R^2$.
-\marginfig[The configuration space $\gW=\R$ of a simple pendulum. Here $q\in\R$, as the pendulum can do a full turn --- or several --- around its pivot.]{\FigureSimplePendulumConfigurationSpace}
+\marginfig[The configuration space $\gW=\R$ of a simple pendulum. Here $q\in\R$, as the pendulum can do a full turn---or several---around its pivot.]{\FigureSimplePendulumConfigurationSpace}
 \marginpar{\vspace*{1.5cm}}
 \marginfig[The configuration space $\gW=\R^2$ of a double pendulum, where $\vq=\tuple{q_1,q_2}\in\R^2$.]{\FigureDoublePendulumConfigurationSpace}
 %\marginpar{\vspace*{3cm}}
@@ -914,7 +914,7 @@ q_i\in\Continf\of{\gW\Cartesian\Rn, \R}\\
 \FunctionBody{\gW\Cartesian\Rn\owns\tuple{\vq,\vp}}{q_i\in\R}\text.
 \end{align*}
 Somebody complained about complex-valued functions not being real enough, so we use real-valued functions.
-``You could ask me: why smooth? --- Why smooth?'' You can't measure something that isn't regular. ``No human being can work with something other than a polynomial anyway.''
+``You could ask me: why smooth?---Why smooth?'' You can't measure something that isn't regular. ``No human being can work with something other than a polynomial anyway.''
 \begin{definition}[Poisson bracket]
 Finally, define the \emph{Poisson bracket} of $\gy\text{, }\gj$ as
 \[
@@ -959,7 +959,7 @@ How can we now describe a ``natural'' transformation between two phase spaces? I
 \gy\in\Continf\of{\Closure\gW\Cartesian\Rn}\\
 \Poisson{\Pullback s \gy}{\Pullback s \gj}\of{\vq, \vp} = \Poisson{\gy}{\gj}\of{s\of{\vq, \vp}} = \Pullback s \Poisson{\gy}{\gj} && \forall \gy, \gj \in \Continf\of{\Closure\gW\Cartesian\Rn}\text,
 \end{align*}
-then it is called \emph{symplectic} --- or ``canonical'' in 19th century math slang. Why is this important? It allows us to define when two systems, i.e., two hamiltonians and the associated phase spaces, are physically equivalent.
+then it is called \emph{symplectic}---or ``canonical'' in 19th century math slang. Why is this important? It allows us to define when two systems, i.e., two hamiltonians and the associated phase spaces, are physically equivalent.
 
 Let me just show you one thing. $\vs$ is a symplectic isomorphism if and only if $\diffd \vs = \tuple{\pderiv {x_k} {s_j}}$ satisfies
 \[
@@ -985,7 +985,7 @@ What is the simplest possible motion? Let's take an $h_0$ that only depends on $
 \TimeDerivative p_j &= \pderiv{q_j}{h_0}\of\vp = 0 &\Implies && \vp &= \vp\of{0} \\
 \vv &\DefineAs \TimeDerivative \vq = \pderiv p h
 \end{alignat*}
-That's a straight line. There's nothing simpler than a straight line, except no line at all --- but I'm not going to get into discussions of nothingness, though it's fashionable these days. There are entire books written about nothingness, and how string theory explains everything about nothingness...
+That's a straight line. There's nothing simpler than a straight line, except no line at all---but I'm not going to get into discussions of nothingness, though it's fashionable these days. There are entire books written about nothingness, and how string theory explains everything about nothingness...
 
 Now suppose somebody over there in Oberwinterthur has a fancy Hamiltonian $h\of{\vq,\vp}$. How do you know it's not a straight line, and that you are not being charged non-straight line prices for a straight line? You want to pull back, to find $\vs$ such that $\Pullback \vs h = h_0$. You heard about the Hamilton-Jacobi equation, right? And probably your mind went fuzzy at this time, and you heard about maps, and maybe generating functions, and this and that... 
 There is an $\vs$ if and only if $\setst{\gj}{\Poisson\gj h = 0}$ has an Abelian subalgebra $\LieAlgebraSymbol A$ of dimension $n$ such that
@@ -995,7 +995,7 @@ There is an $\vs$ if and only if $\setst{\gj}{\Poisson\gj h = 0}$ has an Abelian
 \Poisson{I_j}{h}&=0\text.
 \end{align*}
 \
-Setting things up like this, the logical structure is crystal clear. This is something a mathematician could do. You may say, as a physicist, ``frankly, my dear, I don't give a damn,''\footnote{\emph{Gone with the Wind}, 1939, directed by Victor Fleming.} but the reason this structure is interesting is because we have beautiful examples. So, if mathematicians are coming up with all different kinds of beautiful structures, the question is --- and I am putting this in very low terms --- Are they not just playing with themselves? With this you can predict where Pluto or Neptune is. String theory has predicted nothing, and it may never.
+Setting things up like this, the logical structure is crystal clear. This is something a mathematician could do. You may say, as a physicist, ``frankly, my dear, I don't give a damn'',\footnote{\emph{Gone with the Wind}, 1939, directed by Victor Fleming.} but the reason this structure is interesting is because we have beautiful examples. So, if mathematicians are coming up with all different kinds of beautiful structures, the question is---and I am putting this in very low terms---``Are they not just playing with themselves?'' With this you can predict where Pluto or Neptune is. String theory has predicted nothing, and it may never.
 
 In the case $h\of{q,p}=\frac{1}{2}\pa{\frac{p^2}{n} + m\gw^2 q^2}$, where $\tuple{q,p}\in\R\Cartesian\R$, we have the harmonic oscillator.
 And that's classical mechanics. Now on to quantum mechanics.
@@ -1056,7 +1056,7 @@ Okay! So where were we, ladies and gentlemen? When I last saw you, we talked abo
 \end{gather*}
 We're doing this the French way. This is a 5-tuple, the way Bourbaki would write it. To them, mathematics is just long strings of symbols.
 
-Such a logical structure is of no interest if you can't find $\opH$, unless there is a way of picking $\opH$s that describe quantum systems, not just because you believe they do, but because they do actually predict things that you can verify. It's like finding Waldo.\footnote{This is a reference to Martin Handford's \emph{Where's Wally?}, a series of children's books in which a character (Wally) is hidden on every page, published in the United Kingdom from 1987 onwards. It was published as \emph{Where's Waldo?} in the United States, and as \emph{\textgerman{Wo ist Walter?}} in Germany.} Unless you can find Waldo, it's just a meaningless complicated picture. Finding Waldo gives it its meaning. Actually let's call the Hamiltonian $\opW$.\footnote{This notation was --- fortunately --- not actually used during the lecture, so we stick to $\opH$.} Finding Waldo is \emph{not} the Bourbaki way of doing things. I'll show you two books any physicist will tell you about: \emph{Find classical Waldo}, and \emph{Find quantum Waldo}. \emph{Find classical Waldo} you already had a lecture about last semester.
+Such a logical structure is of no interest if you can't find $\opH$, unless there is a way of picking $\opH$s that describe quantum systems, not just because you believe they do, but because they do actually predict things that you can verify. It's like finding Waldo.\footnote{This is a reference to Martin Handford's \emph{Where's Wally?}, a series of children's books in which a character (Wally) is hidden on every page, published in the United Kingdom from 1987 onwards. It was published as \emph{Where's Waldo?} in the United States, and as \emph{\textgerman{Wo ist Walter?}} in Germany.} Unless you can find Waldo, it's just a meaningless complicated picture. Finding Waldo gives it its meaning. Actually let's call the Hamiltonian $\opW$.\footnote{This notation was---fortunately---not actually used during the lecture, so we stick to $\opH$.} Finding Waldo is \emph{not} the Bourbaki way of doing things. I'll show you two books any physicist will tell you about: \emph{Find classical Waldo}, and \emph{Find quantum Waldo}. \emph{Find classical Waldo} you already had a lecture about last semester.
 
 Recall the two quantum observables from the last lecture.
 \begin{definition}[Momentum and position operators]
@@ -1083,7 +1083,7 @@ The cases where the commutator is $0$ are obvious. We prove the last equality,
 \end{proof}
 \end{lemma}
 \end{definition}
-Now we do something \emph{really} weird. We find Waldo in the classical case --- this may be hard, but we find Waldo hiding amidst the electric and magnetic fields --- and then we quantise him. Namely, for a classical Waldo $h\of{\vq,\vp}$, replace any $q_k$ by $Q_k$ and any $p_k$ by $P_k$.
+Now we do something \emph{really} weird. We find Waldo in the classical case---this may be hard, but we find Waldo hiding amidst the electric and magnetic fields---and then we quantise him. Namely, for a classical Waldo $h\of{\vq,\vp}$, replace any $q_k$ by $Q_k$ and any $p_k$ by $P_k$.
 \[
 h\of{\vq,\vp} \xrightarrow{\text{Quantise Waldo}} \opH\of{\opQ_1,\dotsc,\opQ_n, \opP_1, \dotsc, \opP_n}
 \]
@@ -1109,9 +1109,97 @@ h\of{p,q}&= \frac{1}{2}\pa{\frac{p^2}{m}+m\gw^2 q^2}\\
 \opH\of{Q, P} &= \frac{1}{2}\pa{-\frac{\ReducedPlanck^2}{m}\derivop[2] q + m^2 \gw^2 q^2}\text.
 \end{align*}
 Note that there are no $qp$ terms in the classical Hamiltonian.
-But if we do not have this Apartheid in the classical Hamiltonian, if Waldo lives in the United States after the civil rights movement --- or even after Obama was elected --- we may have $q_i p_j$ in the Hamiltonian --- say with $\vq \Exterior \vp = \smash{\Transpose{\tuple{q_2 p_3 - q_3 p_2, q_3 p_1 - q_1 p_3, q_1 p_2 - q_2 p_1}}}$. And then this commutes in the classical case, but not in the quantum case, so we have a problem: do we write $\opQ_i \opP_j$ or $\opP_j \opQ_i$? Somehow, if you have a physically interesting Hamiltonian, it just happens that you can fiddle with it to get rid of those $q_i p_j$. This may sound like a ridiculous story like \foreign{\textgerman{Samichlaus}}, but it works. That's all I can tell you. Do you know about Pauling? He got the Nobel Peace Prize --- and also the Nobel Prize in Chemistry for something he did on the side. Well Pauling used that sort of bullshit to calculate the angle in the water molecule, and he got the right answer.
+But if we do not have this Apartheid in the classical Hamiltonian, if Waldo lives in the United States after the civil rights movement---or even after Obama was elected---we may have $q_i p_j$ in the Hamiltonian---say with $\vq \Exterior \vp = \smash{\Transpose{\tuple{q_2 p_3 - q_3 p_2, q_3 p_1 - q_1 p_3, q_1 p_2 - q_2 p_1}}}$. And then this commutes in the classical case, but not in the quantum case, so we have a problem: do we write $\opQ_i \opP_j$ or $\opP_j \opQ_i$? Somehow, if you have a physically interesting Hamiltonian, it just happens that you can fiddle with it to get rid of those $q_i p_j$. This may sound like a ridiculous story like \foreign{\textgerman{Samichlaus}}, but it works. That's all I can tell you. Do you know about Pauling? He got the Nobel Peace Prize---and also the Nobel Prize in Chemistry for something he did on the side. Well Pauling used that sort of bullshit to calculate the angle in the water molecule, and he got the right answer.
 
-So do you understand the point? There is a logical structure which is neat, and there is this weird recipe to quantise Waldo, and it works. I can't tell you more, and nobody can. Actually, there is a slightly more satisfying recipe, using these $\opW$s --- hey, more Waldos! --- these Weyl operators we talked about. We'll come back to this later. It's a messy story, and it doesn't even have a good end. Somehow or other, quantum mechanics and gravity don't mix. There was a time when string theory was supposed to quantise gravity. Twenty years ago there was a long list of all the thing string theory was supposed to do. Now the list looks very different, and it's much shorter; none of the things that used to be on that list are on it anymore. String theory has changed its \foreign{\textlatin{curriculum vitae}}.
+So do you understand the point? There is a logical structure which is neat, and there is this weird recipe to quantise Waldo, and it works. I can't tell you more, and nobody can. Actually, there is a slightly more satisfying recipe, using these $\opW$s---hey, more Waldos!---these Weyl operators we talked about. We'll come back to this later. It's a messy story, and it doesn't even have a good end. Somehow or other, quantum mechanics and gravity don't mix. There was a time when string theory was supposed to quantise gravity. Twenty years ago there was a long list of all the thing string theory was supposed to do. Now the list looks very different, and it's much shorter; none of the things that used to be on that list are on it anymore. String theory has changed its \foreign{\textlatin{curriculum vitae}}.
+\end{lecture}
+
+\begin{lecture}[date=2013-04-18]
+\newcommand{\redH}{\operatorname{\mathit{\textcolor{red}{H}}}}
+The last time I saw you we were looking for Waldo. We're going to look for Waldo some more. We were looking at
+\begin{align*}
+h\of{p,q} &\DefineAs \frac{1}{2}\pa{\frac{p^2}{m}+m\gw^2q^2}\text,\\
+\opH=h\of{\frac{\ReducedPlanck}{\I}\derivop q, q} &= \frac{1}{2}\pa{\frac{1}{m}\pa{\frac{\ReducedPlanck}{\I}\derivop q}^2+m\gw^2 q^2}\\
+&=\frac{1}{2}\pa{-\frac{\ReducedPlanck^2}{m}\derivop[2] q + m\gw^2 q^2}\text.
+\end{align*}
+Now we look for the eigenvalues $E$, $\opH\gy = E \gy \text{, for }\gy\in\SchwartzSpace\of\R$.
+
+The easiest case is when we have this strict Apartheid between $q$ and $p$, and of course this does not happen all that much in real life---thank God for that.
+Write
+\begin{align*}
+x&\DefineAs \pa{\frac{m\gw}{\ReducedPlanck}}^{\frac{1}{2}} q\text,
+\intertext{we get}
+\derivop x = \deriv x q \derivop q &= \pa{\frac{\ReducedPlanck}{m\gw}}^{\frac{1}{2}} \derivop q\text.
+\intertext{We now expand the eigenvalue equation from above,}
+\pa{\opH \gy}\of q = E\gy\of q  &\Equivalent -\frac{\ReducedPlanck^2}{2m} \derivop[2] q \gy\of q + \frac{m\gw^2}{2}q^2 \gy\of q
+=E\gy\of q\text.
+\intertext{Let}
+f\of x \DefineAs \gy\of{\pa{\frac{\ReducedPlanck}{m\gw}}^{\frac{1}{2}}x}\text.
+\intertext{The eigenvalue equation becomes}
+\frac{1}{2}\pa{-\gw\ReducedPlanck\derivop[2] x + \gw \ReducedPlanck x^2}f\of x
+&= E f\of x\text,\\
+\frac{1}{2} \pa{-\derivop[2] x + x^2}f\of x &= \frac{E}{\ReducedPlanck\gw}f\of x\text.
+\end{align*}
+There is one more thing that I should do to bring us back to the nostalgic world of our childhood. There is one more thing that I should do, and all will be right in the world.
+We add a $-1$ in the last expression:
+\begin{align*}
+\frac{1}{2} \pa{-\derivop[2] x + x^2 - 1}f\of x &= \pa{\frac{E}{\ReducedPlanck\gw}-\frac{1}{2}}f\of x\text.
+\intertext{We rewrite that as}
+\redH f \of x &= \gl f \of x\text{, where }\gl = \frac{E}{\ReducedPlanck\gw}-\frac{1}{2}\text.
+\end{align*}
+The red $\redH$ is the one you know---I ran out of $\opH$s. The fact that I picked red has no political overtones whatsoever. This is Switzerland, red's okay. It's on the flag. %TODO: novel stuff. This was hilarious.
+Recall:
+\begin{align*}
+\redH h_n &= n h_n\text{, where}\\
+h_n &= \frac{1}{\sqrt{\Factorial n}}\pa{\opAdag}^n h_0\text,\\
+h_0\of x &= \frac{1}{\sqrt[4]{\Pi}} \E^{-\frac{1}{2}x^2}\text.
+\intertext{So here,}
+n &= \frac{E}{\ReducedPlanck\gw}-\frac{1}{2}\text,\\
+E_n &= \ReducedPlanck\gw \pa{n+\frac{1}{2}}\text,
+\end{align*}
+and we have found the energy levels of the quantum harmonic oscillator. \emph{Somebody asks whether this has something to do with blackbody radiation}. ``Most physicists aren't even aware that they're lying'', but you \emph{really} need quantum field theory for that.
+
+Let us look at the wavefunction $\gj$. It's normalised so that
+\begin{align*}
+\int\R \abs{\gy\of q}^2 \diffd q &= 1\text,
+\intertext{and we interpret this as the probability}
+\Probability[\gy]{a<q<b}&=\int{a}[b] \abs{\gy\of q}^2 \diffd q\text.
+\intertext{There's no reason why it should work, but it does.
+The other thing is}
+\Probability[\gy]{a<k<b}&=\int{a}[b] \abs{\ft\gy\of k}^2 \diffd q\text.
+\intertext{What is the Heisenberg uncertainty principle? Define}
+\ExpectedValue[\gy]{\opA}&\DefineAs\LTwoInner{\gy}{\opA\gy}\text,\\
+\Variance[\gy]{\opA}&\DefineAs\ExpectedValue[\gy]{\pa{\opA-\ExpectedValue[\gy]{\opA}\Identity}^2}\text.
+\intertext{Here's the punchline:}
+\Variance[\gy]{\opQ}\Variance[\gy]{\opP}&\geq\frac{\ReducedPlanck^2}{4}\text.
+\end{align*} %TODO:CHECK
+What does this mean? The tinier the variance, the more the expected value is expected, so the more you know about $\opQ$, the less you know about $\opP$. I'm not going to prove this, you'll do it in quantum mechanics next year.
+
+I'm now going to show you a more rational way of quantising Waldo. This is still a story, but while---unless you're really gullible---you stopped believing in \foreign{\textgerman{Samichlaus}} at the age of 4. This you might believe until 10.
+
+\marginnote{\emph{From here onwards there are official notes for the material covered in the lecture.}}
+\emph{Somebody asks about the dominated convergence theorem, which is used in the proof of irreducibility of $\gr_h$.}
+It's just you, right? No, he wants to do that too. So next Tuesday, I'll bite the bullet and we'll talk about the Lebesgue dominated convergence theorem.
+
+The biggest mistake people do when they decide to do research is to read a book. That's just as bad as jumping into a crevice, except if you fall into a crevice, some Austrian might find you in 3000 years and you'll end up in a museum. If you read a book, you're really finished.
+\end{lecture}
+
+\begin{lecture}[date=2013-04-23]
+\emph{Parts of this lecture are missing, and will be added in the coming days.}
+
+The poet:---Isn't it open?---Well, that's the problem with education. Does anyone remember the definition of connected? \emph{The poet answers with the definition of path-connected}.---There was another definition, one with open sets and so on. What are the subsets of $\Rn$ that are both open and closed? Somebody else:---The half open, half closed intervals. \emph{The professor whistles ``La Vie en rose''}.---Sorry, nothing personal. I had to wait for my blood pressure to go down.
+
+An open set $\gW$ of $\Rn$ is a set such that every point is contained in an open ball inside $\gW$. A closed set of  $\Rn$ is a set in which every Cauchy sequence converges. Here our group verifies both, so it is both open and closed in $\R^{{n+2}^2}$, and thus it is connected.
+
+Now we look at a Lie group at the very bottom of the food chain. This is the plankton in the sea of algebraic objects. The reason we talk about it though is that to understand spin, you have to eat sandwiches with $\SpecialUnitaryGroup\of{2}$ inside. And you have to look at the representations. That's what we need this representation crap for.
+EQ1
+So you have a nice closed subgroup of $\GeneralLinearGroup\of{2,\C}$ looking at you. Now I don't know how you feel about things looking at you, but it's looking at you.
+
+Do you remember what a compact set is? The poet answers ``closed and bounded'', though they got the answer from someone else. ``You should be a novelist. You know how to incorporate ideas from others''. So $\SpecialUnitaryGroup\of{2}$ is a compact matrix Lie group, as EQ2.
+
+The fundamental reason we study compact sets is that it's like being finite without being finite. For instance you can extract a finite subcover from any open cover.
+
+Now, after an hour of being yelled at and patronised, and all sorts of other wonderful things,  we now have a compact matrix Lie group. We could have picked the circle group, but this has a nice property that the circle group doesn't have. The poet:---The circle group is abelian, this one isn't.---You see? leave it to a poet.
 \end{lecture}
 \endgroup%QM
 
@@ -1140,7 +1228,7 @@ The reader is kindly invited to report any falsehoods, typos, unclarities, etc. 
 \item an \emph{enhancement} if it is a request for clarification, a missing part of a lecture or any other addition.
 \end{itemize}
 Please file separate issues for unrelated issues found in the document, and include a concise yet descriptive title;
-\item if you do not have a GitHub account --- and are not willing to create one --- send the report to \hyperref{mailto:egg.robin.leroy+MMPII@gmail.com}{}{}{\nolinkurl{egg.robin.leroy+MMPII@gmail.com}} \marginnote{\includegraphics[width=.5\marginparwidth]{QR-MMP-II-issues-email}}[-0.3\marginparwidth](\textsc{qr}-code beside). Note that bugs reported by email will take longer to process than those reported via GitHub;
+\item if you do not have a GitHub account---and are unwilling to create one---send the report to \hyperref{mailto:egg.robin.leroy+MMPII@gmail.com}{}{}{\nolinkurl{egg.robin.leroy+MMPII@gmail.com}} \marginnote{\includegraphics[width=.5\marginparwidth]{QR-MMP-II-issues-email}}[-0.3\marginparwidth](\textsc{qr}-code beside). Note that bugs reported by email will take longer to process than those reported via GitHub;
 \item the report should include:
 \begin{itemize}
 \item the relevant page(s) and lecture number(s);
@@ -1157,6 +1245,8 @@ Page 19, lecture 14, build date 2013-04-18T08:47:21+02:00, ``remember, them mach
 }
 \end{quote}
 \vfill
+\begin{flushright}
 Build date: \texttt{\today T\currenttime+02:00}.
+\end{flushright}
 
 \end{document}

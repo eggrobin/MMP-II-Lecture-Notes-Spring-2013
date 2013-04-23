@@ -48,7 +48,7 @@
 \newcommand{\OperatorSymbol}[1]{\operatorname{\mathit{#1}}}
 \newcommand{\StandardSymbol}\mathrm
 
-\RequirePackage[amsmath,thmmarks]{ntheorem}
+\RequirePackage[amsmath,thmmarks,hyperref]{ntheorem}
 
 %%%% Layout.
 
@@ -360,6 +360,7 @@
 % Remarks from \GL apply.
 \DeclareMathOperator{\SpecialOrthogonalGroup}{SO}
 \DeclareMathOperator{\UnitaryGroup}{U}
+\DeclareMathOperator{\SpecialUnitaryGroup}{SU}
 \DeclareMathOperator{\SymplecticGroup}{Sp}
 \DeclareMathOperator{\HermitianOperators}{Hermitian}
 %% Diacritics (one-parameter LaTeX commands).
@@ -845,6 +846,10 @@
 \newcommand{\Exterior}{\wedge}
 \newcommand{\FunctionActionSpecBody}[5]{#1:#2&\rightarrow #3\\#4 &= #5}
 \newcommand{\MapSpecBody}[4]{#1&\rightarrow #2\\#3 &\mapsto #4}
+
+\newcommand{\Probability}[2][]{\operatorname{P_{#1}}\squareBrackets{#2}}
+\newcommand{\ExpectedValue}[2][]{\operatorname{E_{#1}}\squareBrackets{#2}}
+\renewcommand{\Variance}[2][]{\operatorname{Var_{#1}}\squareBrackets{#2}}
 
 %\makeatletter
 %\killchars@
