@@ -281,6 +281,7 @@
 \DeclareDelimiter\parentheses{\lparen}{\rparen}
 \DeclareDelimiter\squareBrackets{[}{]}
 \DeclareDelimiter\curlyBrackets{\lbrace}{\rbrace}
+\DeclareDelimiter\angleBrackets{\langle}{\rangle}
 %% Binary.
 \DeclareDelimiterX\lsquareCommaRsquare[2]{[}{]}{#1, #2}
 \DeclareDelimiterX\lsquareCommaLsquare[2]{[}{[}{#1, #2}
@@ -754,6 +755,7 @@
 \renewcommand\C\Complexes
 
 \newcommand{\FreeGroup}[1]{\operatorname{F}_{#1}}
+\newcommand{\GroupGeneratedBy}[1]{\angleBrackets{#1}}
 \newcommand{\NormalSubgroup}{\trianglelefteq}
 \newcommand{\Cardinality}[1]{\singleBars{#1}}
 \newcommand{\HeisenbergGroup}[1][]{\ifstrempty{#1}{\operatorname{H}}{\operatorname{Heisenberg}_{#1}}}
