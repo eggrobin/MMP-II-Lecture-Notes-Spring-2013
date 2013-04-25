@@ -21,7 +21,7 @@
 
 \RequirePackage{polyglossia}
 \setdefaultlanguage{english}
-\setotherlanguages{greek,german,russian,latin}
+\setotherlanguages{greek,german,russian,latin,french}
 \newcommand{\foreign}{\emph}
 
 % Font definitions.
