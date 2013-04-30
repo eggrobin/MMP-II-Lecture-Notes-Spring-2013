@@ -1235,7 +1235,7 @@ Why is it closed? Look at the map\[
 \FunctionBody{\R^{\pa{n+2}^2}\Superset\Helt \vr \vs t} {\tuple{r_1,\dotsc,r_n,s_1,\dotsc,s_n,t}\in\R^{2n+1}}\text.
 \]
 Do I have to prove that it's continuous? 
-The poet:---Isn't it open?---`Well, that's the problem with education. Does anyone remember the definition of connected?' \emph{The poet answers with the definition of path-connected}.---`There was another definition, one with open sets and so on. What are the subsets of $\Rn$ that are both open and closed?' Somebody else:---The half open, half closed intervals. \emph{The professor whistles ``La Vie en rose''}.---`Sorry, nothing personal. I had to wait for my blood pressure to go down.'
+The poet:---Isn't it open?---``Well, that's the problem with education. Does anyone remember the definition of connected?'' \emph{The poet answers with the definition of path-connected}.---``There was another definition, one with open sets and so on. What are the subsets of $\Rn$ that are both open and closed?'' Somebody else:---The half open, half closed intervals. \emph{The professor whistles ``La Vie en rose''}.---``Sorry, nothing personal. I had to wait for my blood pressure to go down.''
 
 An open set $\gW$ of $\Rn$ is a set such that every point is contained in an open ball inside $\gW$. A closed set of  $\Rn$ is a set in which every Cauchy sequence converges. Here our group verifies both, so it is both open and closed in $\R^{{n+2}^2}$, and thus it is connected.
 
@@ -1265,19 +1265,19 @@ It is closed, as $\FunctionBody \matrh {\adj\matrh}$ is a continuous function, a
 and the determinant is a continuous function too.
 So you have a nice closed subgroup of $\GeneralLinearGroup\of{2,\C}$ looking at you. Now I don't know how you feel about things looking at you, but it's looking at you.
 
-`Do you remember what a compact set is?'---Any cover by open sets has a finite subcover.---`This is correct, but with this definition you have to look at all open covers, and check whether they have a finite subcover, and we don't have time for that. There is a nicer property, named after two Germans---actually it was one German and one Frenchman.\footnote{This is the Heine-Borel theorem, after Heinrich Eduard Heine (1828/1881) and Félix Édouard Justin Émile Borel (1871/1956). Note that in France this is called the \foreign{\textfrench{théorème de Borel-Lebesgue}} after the aforementioned Borel and an additional Frenchman, Henri Léon Lebesgue (1875/1941). We have found no Russians associated with this theorem, but interestingly, the theorem is called \foreign{\textrussian{лемма Гейне --- Бореля}} there, so it is only a lemma. Many mathematicians have actually contributed to this theorem, so taking those mentioned by \emph{Wikipedia}, it could be called the Borel-Cousin-Dirichlet-Heine-Pincherle-Lebesgue-Schoenflies-Weierstrass theorem---That's 1 Italian, 3 French, 3 Prussians and Dirichlet, who was born in Napoleonic France in 1805 and became \foreign{\textlatin{de facto}} Prussian in 1815. Do not confuse this Heine with Christian Johann Heinrich Heine (1797/1856), another poet.}' The poet answers ``closed and bounded'', though he got the answer from someone else.\footnote{This is true in $\Rn$. For a general metric space, replace ``closed and bounded'' by ``complete and totally bounded''.}---`You should be a novelist. You know how to incorporate ideas from others'. So $\SpecialUnitaryGroup\of{2}$ is a compact matrix Lie group, as \[
+``Do you remember what a compact set is?''---Any cover by open sets has a finite subcover.---``This is correct, but with this definition you have to look at all open covers, and check whether they have a finite subcover, and we don't have time for that. There is a nicer property, named after two Germans---actually it was one German and one Frenchman.\footnote{This is the Heine-Borel theorem, after Heinrich Eduard Heine (1828/1881) and Félix Édouard Justin Émile Borel (1871/1956). Note that in France this is called the \foreign{\textfrench{théorème de Borel-Lebesgue}} after the aforementioned Borel and an additional Frenchman, Henri Léon Lebesgue (1875/1941). We have found no Russians associated with this theorem, but interestingly, the theorem is called \foreign{\textrussian{лемма Гейне --- Бореля}} there, so it is only a lemma. Many mathematicians have actually contributed to this theorem, so taking those mentioned by \emph{Wikipedia}, it could be called the Borel-Cousin-Dirichlet-Heine-Pincherle-Lebesgue-Schoenflies-Weierstrass theorem---That's 1 Italian, 3 French, 3 Prussians and Dirichlet, who was born in Napoleonic France in 1805 and became \foreign{\textlatin{de facto}} Prussian in 1815. Do not confuse this Heine with Christian Johann Heinrich Heine (1797/1856), another poet.}'' The poet answers ``closed and bounded'', though he got the answer from someone else.\footnote{This is true in $\Rn$. For a general metric space, replace ``closed and bounded'' by ``complete and totally bounded''.}---``You should be a novelist. You know how to incorporate ideas from others''. So $\SpecialUnitaryGroup\of{2}$ is a compact matrix Lie group, as \[
 \matg\in\SpecialUnitaryGroup\of 2 \Implies \FrobeniusNorm\matg = \sqrt{\Trace \matg\adj\matg} = \sqrt{\Trace \Identity_2} = \sqrt{2}\text.
 \]
 
 The fundamental reason we study compact sets is that it's like being finite without being finite. For instance you can extract a finite subcover from any open cover.
 
-Now, after an hour of being yelled at and patronised, and all sorts of other wonderful things,  we now have a compact matrix Lie group. We could have picked the circle group, but this has a nice property that the circle group doesn't have. The poet:---The circle group is abelian, this one isn't.---You see? leave it to a poet.
+Now, after an hour of being yelled at and patronised, and all sorts of other wonderful things,  we now have a compact matrix Lie group. We could have picked the circle group, but this has a nice property that the circle group doesn't have. The poet:---The circle group is abelian, this one isn't.---``You see? leave it to a poet''.
 \end{lecture}
 \begin{lecture}[date=2013-04-25]
 Okay, so we have $\SpecialUnitaryGroup\of 2 \Subset \GeneralLinearGroup\of{2,\C}$, which is a compact matrix group. We inflicted upon you all sorts of things about %WHAT
 finite groups. What is it about these groups that make them richer? Let's look at $\GeneralLinearGroup\of{n,\Field}\Subset\Matrices n \Field \Isomorphic \Field^{n^2}$. Now one thing that you've learned about is paths.
 \begin{definition}[Smooth path]
-A smooth path in $\GeneralLinearGroup\of{n,\Field}$ is a smooth map\[\FunctionSpec\gg{\tuple{a,b}}{\GeneralLinearGroup\of{n,\Field}}\text.\]
+A smooth path in $\GeneralLinearGroup\of{n,\Field}$ is a smooth map\[\FunctionSpec\matgg{\tuple{a,b}}{\GeneralLinearGroup\of{n,\Field}}\text.\]
 \end{definition}
 \begin{definition}[Tangent vector]
 A tangent vector $\matX$ to the matrix Lie group $G$  at $\Identity\in G$ is \[\matX=\Evaluate{\derivop t \matgg}{t=0}\] for some smooth path $\matgg\of t\in G$, $a<t<b$ and $\matgg\of 0 = \Identity$. %TODO appropriate symbol types.
@@ -1350,7 +1350,7 @@ So far we have shown
 \matX\in\LAsutwo\text.
 \]
 But we don't know if there \emph{are} any tangent vectors yet. We haven't looked at any actual smooth curves.
----`How do we find smooth curves?'---Exponentiate.
+---``How do we find smooth curves?''---Exponentiate.
 
 If you tell me you have never heard about this I'll call you all liars, because when I tried to do the properties of the exponential map last semester you told me you had already seen that. I know, last semester was a long time ago, you don't remember anything.
 
@@ -1359,9 +1359,9 @@ Review: Papers \& Proceedings}, 100.} saying that if your debt reaches 90~\% of 
 
 As the gentleman said here, ``exponentiate''. Let $\matX\in \LAsutwo$. We have\begin{align*}
 \matX+\adj\matX &= \nullmat\text,\\
-\Trace\matX=0\text.
+\Trace\matX&=0\text.
 \end{align*}
-\emph{Pointing to the poet}---`You told me you had done the properties of the exponential map.'---So it's my fault.---`We've got to have a fault guy. It's like FILMREFHERE.'
+\emph{Pointing to the poet}---``You told me you had done the properties of the exponential map.''---So it's my fault.---``We've got to have a fall guy. It's like \emph{the Maltese Falcon}.\footnote{\emph{The Maltese Falcon}, 1941, directed by John Huston.}''
 \begin{align*}
 \E^\matA&=\sum{k=0}[\infty]\frac{\matA^k}{\Factorial k}\text, \\
 \E^{-\matA}&=\pa{\E^\matA}^{-1}\text.
@@ -1373,19 +1373,22 @@ As the gentleman said here, ``exponentiate''. Let $\matX\in \LAsutwo$. We have\b
 \Determinant \matgg_\matX\of t &=\Determinant \E^{t\matX}= \E^{\Trace t\matX}\\
 &= \E^{t\Trace\matX}=1\text.
 \end{align*}
-So we have the following \textsc{fact}:\[
-\forall t \in \R\quad \forall \matX \in \LAsutwo\quad \matgg_\matX\of t \in \SpecialUnitaryGroup\of 2\text.
-\]
-Moreover,\begin{align*}
-\matgg_\matX\of 0 &= \Identity\text,\\
-\matX = \Evaluate{\derivop t \matgg_\matX}{t=0}\in \LieAlgebra\of{\SpecialUnitaryGroup\of 2}\text.
-\end{align*}
+So we have the following \textsc{fact}:$
+\forall t \in \R\quad
+\forall \matX \in \LAsutwo\quad
+\matgg_\matX\of t \in \SpecialUnitaryGroup\of 2$.
+Moreover, $\matgg_\matX\of 0 = \Identity$, so\[
+\matX = \Evaluate{\derivop t \matgg_\matX}{t=0}\in \LieAlgebra\of{\SpecialUnitaryGroup\of 2}\text.\]
 We have proven the following proposition.
 \begin{proposition}The Lie algebra of $\SpecialUnitaryGroup\of 2$ is the set of skew-Hermitian $2\times 2$ complex matrices with trace $0$,\[
 \LieAlgebra\of{\SpecialUnitaryGroup\of 2} = \LAsutwo\text.
 \]
 \end{proposition}
-I have called $LAsutwo$ a ``Lie algebra''. Where's the bracket? It's the commutator. Let $\matX$, $\matY\in\LAsutwo$.
+I have called $\LAsutwo$ a ``Lie algebra''. Where's the bracket? It's the commutator.
+\begin{proposition}
+$\tuple{\LAsutwo,\commutator\placeholder\placeholder}$ is a Lie algebra.
+\begin{proof}
+ Let $\matX$, $\matY\in\LAsutwo$.
 \begin{align*}
 \Trace\commutator \matX \matY &= \Trace \matX\matY - \Trace \matY\matX = 0\text.\\
 \adj{\commutator\matX\matY} &= \adj{\pa{\matX\matY-\matY\matX}}\\
@@ -1393,22 +1396,45 @@ I have called $LAsutwo$ a ``Lie algebra''. Where's the bracket? It's the commuta
 &=\pa{-\matY}\pa{-\matX}-\pa{-\matX}\pa{-\matY}\\
 &=\commutator\matY\matX=-\commutator\matX\matY\text.
 \end{align*}
-\begin{proposition}
-$\tuple{\LAsutwo,\commutator\placeholder\placeholder}$ is a Lie algebra.
-\end{proposition}
-Where does this Lie bracket come from? Consider two paths 
+\end{proof}
+\end{proposition} 
 
-[The poet] just proved it's a vector space, without even knowing it.
-EQ10
+[The poet] just proved it's a real vector space, without even knowing it. Consider two tangent vectors $\TimeDerivative\matgg\of 0$ and $\TimeDerivative\matgg'\of 0$ at $\Identity$. Then we can construct a smooth path whose tangent vector at $\Identity$ is any real linear combination of those. $\matgg\of{at}$ just means that we go slower or faster along the path $\matgg$. ---`Who do you gotta call?'---Chain rule; but it's not a name.---`Just call it Chain's rule.'
+\[
+\Evaluate{\derivop t \of{\matgg\of{at} \matgg'\of{bt}}}{t=0}
+=a\TimeDerivative\matgg\of 0 + b\TimeDerivative\matgg'\of 0\text.
+\]
 
-EQ11
-The moment you memorise you're dead, unless you're an actor like him, or you're counting cards in Vegas. But if you count cards and they catch you, you're not in good shape either.
+You may ask, ``why is the commutator, $\commutator{\TimeDerivative\matgg\of 0}{\TimeDerivative\matgg'\of 0} = {\TimeDerivative\matgg\of 0} {\TimeDerivative\matgg'\of 0} - {\TimeDerivative\matgg'\of 0}{\TimeDerivative\matgg\of 0}$, the Lie bracket?''. How do we get a minus in the derivative? The poet:---The guy behind me whispers `quotient'.---``It's a girl.''---Oh! I'm sorry. \emph{He turns around to see who was whispering.} Evidently.---``You're a real poet. You had me worried for a moment. Poets are supposed to know that stuff.'' So, the derivative of a quotient is \[
+\derivop x f\of x ^{-1} = (-1) \frac{f'\of x}{f\of x^2}\text. \quad
+\parbox{.5\textwidth}{`There's no analogy, just differentiate the damn function!'}
+\]
+The \emph{group} commutator of $\matgg\of t$ and $\matgg'\of t$ is $\matgg\of t\matgg'\of t\matgg\of t^{-1}\matgg'\of t^{-1}$. If we differentiate it, we get\[
+\Evaluate{\derivop t \matgg\of t\matgg'\of t\matgg\of t^{-1}\matgg'\of t^{-1}}{t=0}=\TimeDerivative\matgg\of 0 + \TimeDerivative\matgg'\of 0 - \TimeDerivative\matgg\of 0 -\TimeDerivative\matgg'\of 0 = 0\text,
+\]
+so that doesn't work. We have to differentiate twice. The reason is that we're just taking the first term in the expansion of $\log\of{\matgg\of t\matgg'\of t\matgg\of t^{-1}\matgg'\of t^{-1}}$, and we want more terms.
+\begin{align*}
+\log\of{\E^{s\matA}\E^{s\matB}}&=\log\of{\Identity+\pa{\E^{s\matA}\E^{s\matB}-\Identity}}
+\intertext{Now we plug this into the Taylor series of the logarithm, which is---\emph{after several attempts at getting the signs right}---}
+\log\of{1+x}&=-\sum{k=1}[\infty]\frac{\pa{-x}^n}{n}.
+\intertext{The moment you memorise you're dead, unless you're an actor like him, or you're counting cards in Vegas. But if you count cards and they catch you, you're not in good shape either. We get, for $\matA$, $\matB$ in the Lie algebra,}
+\log\of{\E^\matA\E^\matB}&=\matA+\matB+\frac{1}{2}\commutator\matA\matB+\dotsb\\
+\log\of{\E^\matA\E^\matB\E^{-\matA}\E^{-\matB}}&=\commutator\matA\matB+\dotsb
+\end{align*}
 
 Here's the question, ladies and gentlemen.
-EQ12
-What do you pick? What can you hit with the exponential map? Quiet man:---$\NonZero\C$. So it's surjective. It can't be bijective, so it's (B). 
-EQ13
-`Where do the eigenvalues of an unitary operator lie? Please, after a whole year'---On the unit circle.---`Thank God.'
+\begin{proposition}
+$\FunctionSpec{\exp}{\LAsutwo}{\SpecialUnitaryGroup\of 2}$ is\begin{itemize}
+\item[(\textsc{a})]\st{injective;}
+\item[(\textsc{b})]surjective;
+\item[(\textsc{c})]\st{bijective;}
+\item[(\textsc{d})]\st{all of the above.}
+\end{itemize}
+What do you pick? What can you hit with the exponential map? Quiet man:---$\NonZero\C$. So it's surjective. It can't be bijective, so it's (\textsc{b}). 
+\begin{proof}{}[...]
+``Where do the eigenvalues of an unitary operator lie? Please, after a whole year''---On the unit circle.---``Thank God.''
+\end{proof}
+\end{proposition}
 
 Next time we'll do something more fun. We'll talk about spin, and we'll talk about quarks.
 \end{lecture}
