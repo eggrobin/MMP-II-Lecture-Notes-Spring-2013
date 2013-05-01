@@ -41,3 +41,23 @@
 \draw [dashdotted] (I2) -- (m1);
 \end{tikzpicture}
 }
+
+\newcommand{\FigureComplexThingThatYouCantVisualise}{%
+\begin{tikzpicture}[scale=.85]
+\coordinate (I) at (.5,.5);
+\coordinate (Tin) at (45:1);
+\coordinate (Tout) at (45:-1);
+\coordinate (P) at (0,-.75);
+\coordinate (Pin) at (45:3);
+\coordinate (Pout) at (45:-3);
+\draw plot [smooth cycle] coordinates {(1.75,1.75) (0,2) (-1,1) (-2.5,3) (-1.5,0) (-2,-3) (-.5,-1.5) (2,-3) (1,0) (3,.5)};
+\node at (I) [name=i, circle, inner sep = .05 cm, fill=black, label={[label distance=0.25cm]15:$\Identity$}, draw] {};
+\node at ($(I)+(Tout)$) [name=t, label={[label distance = 0.1 cm]90:$\TimeDerivative\matgg\of 0$}] {};
+\draw [->] (I) -- +(Tout);
+\node at (P) [name=p, label={0:$\matgg$}] {};
+\draw (-.75,.75) .. controls +(0:1) and +(Tin)  .. (I);
+\draw [->] (I) .. controls +(Tout) and +(Pin) .. (P);
+\draw (P) .. controls +(Pout) and +(120:1) .. (-1,-.75);
+\node at (1, -2) {$G$};
+\end{tikzpicture}%
+}
