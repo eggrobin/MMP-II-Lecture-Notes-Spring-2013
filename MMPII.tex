@@ -1298,8 +1298,9 @@ A smooth path in $\GeneralLinearGroup\of{n,\Field}$ is a smooth map\[\FunctionSp
 \begin{definition}[Tangent vector]
 A tangent vector $\matX$ to the matrix Lie group $G$  at $\Identity\in G$ is \[\matX=\Evaluate{\derivop t \matgg}{t=0}\] for some smooth path $\matgg\of t\in G$, $a<t<b$ and $\matgg\of 0 = \Identity$. %TODO appropriate symbol types.
 \end{definition}
-The idea is the following. The group is a complex thing that you can't visualise, so I draw a complex thing that you can't visualise. You pick a curve lying in $G$, and as it lies in $G$---which it can do---it lies in $\GeneralLinearGroup\of{n,\Field}$, so you can differentiate it,\[
-\derivop t \matg = \pa{\derivop t \gg_{ij}\of t}\in\Matrices n \Field \text.
+\marginfig[A complex thing that you can't visualise.\label{ComplexThing}]{\FigureComplexThingThatYouCantVisualise}
+The idea is the following. The group is a complex thing that you can't visualise, so I draw a complex thing that you can't visualise (Figure~\ref{ComplexThing}). You study it locally instead, by looking at the tangent space. You pick a curve lying in $G$, and as it lies in $G$---which it can do---it lies in $\GeneralLinearGroup\of{n,\Field}$, so you can differentiate it,\[
+\derivop t \matg = \tuple{\derivop t \gg_{ij}\of t}\in\Matrices n \Field \text.
 \]
 We now define the Lie algebra of $G$.
 \begin{definition}[Lie algebra of a matrix Lie group] Lie algebra of $G$ is its tangent space at the identity,
@@ -1332,7 +1333,7 @@ Consider a path in $\SpecialUnitaryGroup \of 2$,
 \nullmat &= \TimeDerivative\matgg\of 0 \adj{\matgg\of 0} + \matgg\of 0 \adj{\TimeDerivative\matgg\of 0}\\
 &=\TimeDerivative\matgg\of 0 + \adj{\TimeDerivative\matgg\of 0}\text.
 \end{split}&&\parbox{.4\textwidth}
-{---`What's $\matgg\of 0$?'---Zero.---`Zero! I understand poetic license, I like poetic license, but saying saying a one is a zero is too much poetic license.'}
+{---`What's $\matgg\of 0$?'---Zero.---`Zero! I understand poetic license, I like poetic license, but saying a one is a zero is too much poetic license.'}
 \end{align*}
 So we have shown
 \begin{equation}
