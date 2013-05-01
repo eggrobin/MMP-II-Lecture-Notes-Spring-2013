@@ -562,8 +562,8 @@ $
 \pa{\gr_\ga\of{\gl\E^{\I j \placeholder}}} =\gl\E^{\I j \pa{\ga+\placeholder}}=\gl\E^{\I j \ga} \E^{\I j \placeholder} \in V_j$.
 As it is one-dimensional, $V_j$ is irreducible. We also have, with $\LTwoInner {\E^{\I j \placeholder}}{\E^{\I k \placeholder}}= \ft{\E^{\I k \placeholder}}\of j  = \KroneckerDelta j k$, $V_j \Orthogonal V_k$ for $k\neq j$.
 By Parseval's identity, $\sum {j\in\Z}\ft\gj\of j \E^{\I j \placeholder}$ converges absolutely to $\gj$ for all $\gj\in\Lspace[2]\of{\UnitSphere 1}$, so
-\begin{equation*} \Lspace[2]\of{\UnitSphere 1}=\DirectSum{j\in\Z}
-V_j=\DirectSum{\gc\in\PontryaginDual{\UnitSphere 1}} \LinearSpan \gc \text{.}
+\begin{equation*} \Lspace[2]\of{\UnitSphere 1}=\DirectSumOver{j\in\Z}
+V_j=\DirectSumOver{\gc\in\PontryaginDual{\UnitSphere 1}} \LinearSpan \gc \text{.}
 \end{equation*}
 To summarise, the translation action $\gr$ is a unitary representation of $\UnitSphere 1$ on $\Lspace[2]\of{\UnitSphere 1}$ with respect to the inner product $\LTwoInner \placeholder\placeholder$, it decomposes in the irreducible representations $V_j$ which are the spans of individual elements $\E^{\I j \placeholder}$ of $\PontryaginDual{\UnitSphere 1}$ and $\ft{\placeholder}\of{j}$ is the projector onto $V_j$. Since $\PontryaginDual {\UnitSphere 1} \Isomorphic \Z$, and the elements of $\PontryaginDual {\UnitSphere 1}$ are the basis onto which functions are projected by the Fourier transform, it makes sense to think of the projector as $\ft{\placeholder}\of{\E^{\I j \placeholder}}$ instead, with $\ft\gj\of{\gc}\DefineAs\LTwoInner\gc\gj$ for $\gc\in\PontryaginDual {\UnitSphere 1}$.
  
@@ -586,8 +586,8 @@ for almost all $x$---$\PontryaginDual\gm$ is the dual measure\footnote{The dual 
   $\gm=\LebesgueMeasure n$, $\PontryaginDual \gm = \sqftnrm \LebesgueMeasure n$.}
 ---the representation $\gr$ of $\R$ on $\Lspace[2]\of\R$ by translation decomposes in irreducible representations as
 \begin{equation*}
-  \Lspace[2]\of{\UnitSphere 1}=\DirectSum{\vk\in\Rn}
-  V_\vk=\DirectSum{\gc\in\PontryaginDual{\Rn}} \LinearSpan \gc \text{.}
+  \Lspace[2]\of{\UnitSphere 1}=\DirectSumOver{\vk\in\Rn}
+  V_\vk=\DirectSumOver{\gc\in\PontryaginDual{\Rn}} \LinearSpan \gc \text{.}
 \end{equation*}
 Once again, it makes sense to think of the projectors as  $\ft{\placeholder}\of{\E^{\I \scal\vk{}}}$, with $\ft\gj\of\gc \DefineAs \LTwoInner \gc \gj$ for $\gc\in\PontryaginDual\Rn$, as the isomorphism $\PontryaginDual\Rn\Isomorphic\Rn$ is not unique. Actually, the isomorphism $\FunctionBody \vk {\E^{2 \Pi \I \scal{\vk}{} }}$ is sometimes used, as it allows for $\gm = \PontryaginDual\gm = \LebesgueMeasure n$---there are no constant factors before the integrals. Using this isomorphism, the Gaussian $\E^{-\frac{1}{2}\norm\vx^2}$ is no longer self-dual, i.e., the same as its Fourier transform, but $\E^{-\Pi\norm\vx^2}$ is instead.
 
@@ -598,7 +598,7 @@ This also gives us an isomorphism between the momentum space $\CotangentSpace 0 
 \newcommand{\Harmonic}[1]{\mathbf{H}_{#1}}
 If $G=\SpecialOrthogonalGroup\of 3$ acts by rotations on $X=\UnitSphere 2$, the representation $\gr$ decomposes as 
 \begin{equation*}
-\Lspace[2]\of{\UnitSphere 2} = \DirectSum{\degL=1}[\infty] \Harmonic\degL\text{,}
+\Lspace[2]\of{\UnitSphere 2} = \DirectSumOver{\degL=1}[\infty] \Harmonic\degL\text{,}
 \end{equation*}
 where the irreducible $\Harmonic\degL$ are defined as follows: $\Harmonic\degL$ is the set of all homogeneous harmonic polynomials of degree $\degL$ on $\UnitSphere 2$, i.e.,
 \begin{equation*}
@@ -1139,7 +1139,23 @@ f\of x \DefineAs \gy\of{\pa{\frac{\ReducedPlanck}{m\gw}}^{\frac{1}{2}}x}\text.
 &= E f\of x\text,\\
 \frac{1}{2} \pa{-\derivop[2] x + x^2}f\of x &= \frac{E}{\ReducedPlanck\gw}f\of x\text.
 \end{align*}
-There is one more thing that I should do to bring us back to the nostalgic world of our childhood. There is one more thing that I should do, and all will be right in the world.
+``There is one more thing that I should do to bring us back to the nostalgic world of our childhood. There is one more thing that I should do, and all will be right in the world. What do I need to do?'' \emph{Somebody\footnote{He will henceforth be referred to as `the poet'.} answers with a complicated circumlocution for `subtract one'.} You should write novels. This is like Percy Bysshe Shelley when he talks about a skylark:
+\renewcommand{\poemtoc}{paragraph}
+\poemtitle{To a Skylark}
+\settowidth{\versewidth}{That from heaven or near it}
+\begin{verse}[\versewidth]
+{\large\textinitial{H}}\textsc{ail} to thee, blithe spirit!\\
+Bird thou never wert---\\
+That from heaven or near it\\
+Pourest thy full heart\\
+In profuse strains of unpremeditated art.
+
+[...]
+\begin{flushright}
+---Percy Bysshe Shelley.
+\end{flushright}
+\end{verse}
+I just say `it's a skylark'. Here I just want the formula.
 We add a $-1$ in the last expression:
 \begin{align*}
 \frac{1}{2} \pa{-\derivop[2] x + x^2 - 1}f\of x &= \pa{\frac{E}{\ReducedPlanck\gw}-\frac{1}{2}}f\of x\text.
@@ -1156,7 +1172,7 @@ h_0\of x &= \frac{1}{\sqrt[4]{\Pi}} \E^{-\frac{1}{2}x^2}\text.
 n &= \frac{E}{\ReducedPlanck\gw}-\frac{1}{2}\text,\\
 E_n &= \ReducedPlanck\gw \pa{n+\frac{1}{2}}\text,
 \end{align*}
-and we have found the energy levels of the quantum harmonic oscillator. \emph{Somebody asks whether this has something to do with blackbody radiation}. ``Most physicists aren't even aware that they're lying'', but you \emph{really} need quantum field theory for that.
+and we have found the energy levels of the quantum harmonic oscillator. \emph{The poet asks whether this has something to do with blackbody radiation}. ``Most physicists aren't even aware that they're lying'', but you \emph{really} need quantum field theory for that.
 
 Let us look at the wavefunction $\gj$. It's normalised so that
 \begin{align*}
@@ -1438,6 +1454,92 @@ What do you pick? What can you hit with the exponential map? Quiet man:---$\NonZ
 
 Next time we'll do something more fun. We'll talk about spin, and we'll talk about quarks.
 \end{lecture}
+\begin{lecture}[date=2013-04-30, official=true]
+This will involve a lot of calculations, you're not going to like it. I'll tell you why you'll love it.
+
+---``Common, you keep mixing real and complex. If $\matX$ is skew-Hermitian, $\adj\matX=-\matX$. What is $\adj{\pa{\I\matX}}$?'' \emph{The professor whistles ``la Vie en rose''}.\[\adj{\pa{\I\matX}}=\I\matX\]
+
+Now these groups should appeal to physicists. $\R^3$ is both \emph{what} and \emph{what}? It's both homogeneous, the laws of physics are the same in Boston and in Zürich, and isotropic. What does this have to do with groups? What it looks like at the origin is what it looks like everywhere: multiplication by $\matg$ is an invertible smooth map.
+
+The first thing you do with $\SpecialUnitaryGroup\of 2$ is we look at the electron. Let's just have an electron sitting there in the Universe. We turn everything else off. How many degrees of freedom do we have? Two, I've yelled at you last semester about this, trying to get \emph{some} response.
+\begin{align*}
+\begin{pmatrix}
+\gy_\uparrow\\
+\gy_\downarrow
+\end{pmatrix}
+&\in\C^2
+\intertext{---``Is that how you write it?''---Everybody has their own notation.---``Okay, so I'll use my own.''}
+\begin{pmatrix}
+a\\
+b
+\end{pmatrix}
+&\in\C^2\text,
+\intertext{where the up and down states are respectively}
+\begin{pmatrix}
+1\\0
+\end{pmatrix}\text{ and }\begin{pmatrix}
+0\\1
+\end{pmatrix} \text.\span\omit
+\end{align*}
+If you rotate the spin space---by applying an element of $\SpecialUnitaryGroup\of 2$ to it---it doesn't change anything. It's a law of physics. ---``Have you ever heard of spin one in physics?''---We only talked about spin one half, although we mentioned that some exotic particles had other spins.---``Has anyone heard of Helium 3?''---It's a liquid.---``It depends on the temperature. You may be a poet, but the temperature has to come into the equation. Do you know about Percy Bysshe Shelley? Has anyone heard of \emph{Frankenstein}? It was written by Mary Wollstonecraft Shelley. This Mary Shelley had a husband, Percy Bysshe Shelley, who was a poet, and who wrote about the Moon:
+\renewcommand{\poemtoc}{paragraph}
+\poemtitle{The Moon}
+\settowidth{\versewidth}{And feeble wanderings of her fading brain}
+\begin{verse}[\versewidth]
+{\large\textinitial{A}}\textsc{nd}, like a dying lady lean and pale,\\
+Who totters forth, wrapp'd in a gauzy veil,\\
+Out of her chamber, led by the insane\\
+And feeble wanderings of her fading brain,\\
+The moon arose up in the murky east\\
+A white and shapeless mass.
+ 
+Art thou pale for weariness \\
+Of climbing heaven and gazing on the earth,\\
+Wandering companionless\\
+Among the stars that have a different birth,\\
+And ever changing, like a joyless eye\\
+That finds no object worth its constancy?
+\begin{flushright}
+---Percy Bysshe Shelley.
+\end{flushright}
+\end{verse}
+So you can write poetry about modern science---`the stars that have a different birth' was modern science at the time---but you've got to have temperature as part of the equation.''---I'm not here for poetry.---``You may not be here for that, but maybe that's what you are, like this basketball player.\footnote{This is a reference to \textsc{nba} player Jason Collins, who recently revealed he is gay. ``I didn't set out to be the first openly gay athlete playing in a major American team sport. But since I am, I'm happy to start the conversation.''}''
+
+Spin one has three dimensions,\[
+\begin{pmatrix}
+a\\ b\\ c
+\end{pmatrix}\in\C^3\text.
+\] The fact of the matter is, what you want is an irreducible representation $\gr_n$ of $\SpecialUnitaryGroup\of 2$ of dimension $n\geq 2$. Now there are two things we need. We need that there \emph{is} an irreducible representation, and we need to combine them. In economics, they have equilibria. The problem is, they have too many, so they don't know which one they're talking about. And that's the problem with string theory. The trouble with string theory is, it's like economics: they have too many ground states.
+
+---``You go to that guy, who's half Swiss and half German and who likes to calculate''---Well, only sometimes.---``You're only half Swiss and half German part of the time? So we have some sort of quantum European here.'' 
+
+Has anybody seen \emph{the four hundred blows}\footnote{\emph{Les quatre cents coups}, 1959, directed by François Truffaut.}? Well they dress with scarfs like him---it's not a happy film, by the way.
+
+Now if we only have one quark in the Universe---we turn everything else off---it has inside it \emph{three} degrees of freedom, \emph{up}, \emph{down} and \emph{strange}.
+\[
+\begin{pmatrix}
+u\\ d\\ s
+\end{pmatrix}\in \C^3 \text{, the flavour space.}
+\]
+The poet:---Why up, down and strange? Why not give them greek names, so it looks important and fancy?---``Gell-Mann came up with these names. He was---is he still alive?''---He is still alive.---``he is an obstreperous guy. Do you know what obstreperous means? If you don't, look it up.'' 
+
+Heisenberg---\emph{he}'s dead, like Franco---considered a part of that, and he called it \emph{isospin}. It described the symmetry between up and down, and so it used $\SpecialUnitaryGroup\of 2$. Indeed, if you have $\matU\in\SpecialUnitaryGroup\of 2$, then\[
+\tuple{\begin{array}{c|c}
+\matU & \begin{array}{c}
+0\\0
+\end{array} \\
+\hline
+ \begin{array}{cc}0&0\end{array} & 1
+\end{array}}
+\] is in $\SpecialUnitaryGroup\of 3$.
+
+\newcommand{\three}{\mathbf 3}
+\newcommand{\threebar}{\overline{\mathbf 3}}
+\newcommand{\eight}{\mathbf 8}
+\newcommand{\one}{\mathbf 1}
+
+The law of physics is that the antiquark lives in the dual flavour space $\Dual{{\C^3}}$. The flavour space is a representation $\three$ of $\SpecialUnitaryGroup\of 3$, and the dual flavour space is the dual representation $\threebar$. So if we have a quark-antiquark pair---a meson---, it lies in the tensor product $\C^3\Tensor\Dual{{\C^3}}$, or $\three\Tensor\threebar$. Now the dimension of this representation is $3\times3=9$, and it decomposes into the trivial---one-dimensional---representation $\one$, and another---eight-dimensional---irreducible representation, which we call $\eight$, that is, $\three\Tensor\threebar=\one\DirectSum\eight$. Gell-Mann came up with this, and he called it the eightfold way. I hope I have convinced you we need to look at this stuff. This is not some bourgeois pedantic mathematician stuff. When I do it next Friday you cannot complain. You can leave the room, but you cannot complain.
+\end{lecture}
 \endgroup%QM
 
 \appendix
@@ -1465,7 +1567,7 @@ The reader is kindly invited to report any falsehoods, typos, unclarities, etc. 
 \item an \emph{enhancement} if it is a request for clarification, a missing part of a lecture or any other addition.
 \end{itemize}
 Please file separate issues for unrelated issues found in the document, and include a concise yet descriptive title;
-\item if you do not have a GitHub account---and are unwilling to create one---send the report to \hyperref{mailto:egg.robin.leroy+MMPII@gmail.com}{}{}{\nolinkurl{egg.robin.leroy+MMPII@gmail.com}} \marginnote{\includegraphics[width=.5\marginparwidth]{QR-MMP-II-issues-email}}[-0.3\marginparwidth](\textsc{qr}-code beside). Note that bugs reported by email will take longer to process than those reported via GitHub;
+\item if you do not have a GitHub account---and are not willing to create one---, send the report to \hyperref{mailto:egg.robin.leroy+MMPII@gmail.com}{}{}{\nolinkurl{egg.robin.leroy+MMPII@gmail.com}} \marginnote{\includegraphics[width=.5\marginparwidth]{QR-MMP-II-issues-email}}[-0.3\marginparwidth](see \textsc{qr}-code beside). Note that bugs reported by email will take longer to process than those reported via GitHub;
 \item the report should include:
 \begin{itemize}
 \item the relevant page(s) and lecture number(s);

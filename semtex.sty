@@ -808,12 +808,13 @@
 \DeclareMathOperator\LinearSpan{span}
 \newcommand{\Orthogonal}{\mathrel{\bot}}
 \newcommand\LebesgueMeasure[1]{\operatorname{\mathcal{L}}^{#1}}
-\DeclareDocumentCommand\DirectSum{m O{}}{\mathchoice
+\DeclareDocumentCommand\DirectSumOver{m O{}}{\mathchoice
 {\bigoplus\limits_{#1}^{#2}}
 {\bigoplus_{#1}^{#2}}
 {\bigoplus_{#1}^{#2}}
 {\bigoplus_{#1}^{#2}}
 }
+\newcommand{\DirectSum}{\oplus}
 \DeclareDocumentCommand\UnionOver{m O{}}{\mathchoice
 {\bigcup\limits_{#1}^{#2}}
 {\bigcup_{#1}^{#2}}
@@ -873,6 +874,8 @@
 
 \DeclareMathOperator\Determinant{det}
 \DeclareMathOperator\Trace{tr}
+
+\newcommand{\Tensor}{\otimes}
 
 %\makeatletter
 %\killchars@
