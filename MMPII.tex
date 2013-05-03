@@ -19,6 +19,7 @@
 %% Freqently-used expressions.
 \newcommand{\sqftnrm}{\frac{1}{\pa{2\Pi}^n} }
 \newcommand{\ftnrm}{\frac{1}{\pa{2\Pi}^{\frac{n}{2}}} }
+\DeclareMathOperator{\AdjointRep}{Ad}
 
 \newcommand{\opAdag}{\adj{\opA}}
 
@@ -1200,9 +1201,11 @@ The biggest mistake people do when they decide to do research is to read a book.
 \emph{The professor being extremely sleep-deprived, he ends the lecture 25~minutes early, leading to widespread cheering and applause.}
 \end{lecture}
 
+\newcommand{\LAsutwo}{\LieAlgebraSymbol{su}\of 2}%
+\newcommand{\LAgl}{\LieAlgebraSymbol{gl}}
 \newcommand{\Field}{\mathbb{K}}
 \begin{lecture}[date=2013-04-23]
-You've talked at length about $\Matrices n \R \Isomorphic \R^{n^2}$, $\Matrices n \C \Isomorphic \C^{n^2}$. $n\times n$ matrices on $\Field$ are just elements of $\Field^{n^2}$. The only reason we write them as square arrays is to equip these spaces with a---polynomial---multiplication,\[
+You've talked at length about $\smash{\Matrices n \R \Isomorphic \R^{n^2}}$, $\smash{\Matrices n \C \Isomorphic \C^{n^2}}$. $n\times n$ matrices on $\Field$ are just elements of $\smash{\Field^{n^2}}$. The only reason we write them as square arrays is to equip these spaces with a---polynomial---multiplication,\[
 \tuplespec{\matA \matB}{ij} \DefineAs \sum{k=1}[n]A_{ij}B_{ij}\text.
 \]
 Manifolds are just $\R^d$ or $\C^d$ if what you are doing has anything to do with reality.
@@ -1215,7 +1218,7 @@ Define\begin{align*}
 \GeneralLinearGroup\of{n,\Field} &\DefineAs \setst{\matg\in\Matrices n \Field}{\Determinant \matg \neq 0}\\
 &=\Matrices n \Field \setminus \underbrace{\setst{\matg\in\Matrices n \Field}{\Determinant \matg = 0}}_{\mathclap{\text{closed as $\Determinant$ is continuous and $\set{0}$ is closed.}}}\\
 \end{align*}
-$\GeneralLinearGroup\of{n,\Field}$ is an open subset of $\Field^{n^2}$. Now let us look at the multiplication and inversion.
+$\GeneralLinearGroup\of{n,\Field}$ is an open subset of $\smash{\Field^{n^2}}$. Now let us look at the multiplication and inversion.
 \begin{align*}
 \MapSpecBody[\Continf\text{ map}]
 {\GeneralLinearGroup\of{n,\Field}\Cartesian\GeneralLinearGroup\of{n,\Field}}
@@ -1356,7 +1359,6 @@ So the infinitesimal version of (\ref{DeterminantZero})is \[
 \Trace \TimeDerivative\matgg\of 0 = 0\text.
 \]
 These two conditions on the tangent vectors motivate the following definition.
-\newcommand{\LAsutwo}{\LieAlgebraSymbol{su}\of 2}
 \begin{definition}We call $\LAsutwo$ the set of skew-Hermitian $2\times2$ complex matrices with trace $0$,\[
 \LAsutwo\DefineAs\setst{\matX\in\Matrices 2 \C}{\matX+\adj\matX=0, \Trace\matX=0}\text.
 \]
@@ -1540,6 +1542,148 @@ Heisenberg---\emph{he}'s dead, like Franco---considered a part of that, and he c
 \newcommand{\one}{\mathbf 1}
 
 The law of physics is that the antiquark lives in the dual flavour space $\Dual{{\C^3}}$. The flavour space is a representation $\three$ of $\SpecialUnitaryGroup\of 3$, and the dual flavour space is the dual representation $\threebar$. So if we have a quark-antiquark pair---a meson---, it lies in the tensor product $\C^3\Tensor\Dual{{\C^3}}$, or $\three\Tensor\threebar$. Now the dimension of this representation is $3\times3=9$, and it decomposes into the trivial---one-dimensional---representation $\one$, and another---eight-dimensional---irreducible representation, which we call $\eight$, that is, $\three\Tensor\threebar=\one\DirectSum\eight$. Gell-Mann came up with this, and he called it the eightfold way. I hope I have convinced you we need to look at this stuff. This is not some bourgeois pedantic mathematician stuff. When I do it next Friday you cannot complain. You can leave the room, but you cannot complain.
+\end{lecture}
+\begin{lecture}[date=2013-05-02]
+Alright, here we are. I'm going to talk to you about $\LAsutwo$ and $\SpecialUnitaryGroup\of 2$ at a rate at which you can absorb the information---I know that's a slow rate. I'm going to give you a lecture today, just using the blackboard and talking.
+\begin{align*}
+\SpecialUnitaryGroup\of 2 &\DefineAs \setst{\matg\in\GeneralLinearGroup\of{2,\C}}{\matg\adj\matg = 1, \Determinant \matg = 1}\\
+\LAsutwo\of 2 &\DefineAs \setst{\matx\in\LAgl\of{2,\C}}{\adj\matx+\matx=0, \Trace \matx = 0}
+\end{align*}
+We have a little lemma.
+\begin{lemma}
+\[
+\frac{\I}{\sqrt 2} \matgs_1 = \frac{\I}{\sqrt2}\begin{pmatrix}
+0&1\\
+1&0
+\end{pmatrix}\text,
+\frac{\I}{\sqrt 2} \matgs_2 = \frac{\I}{\sqrt2}\begin{pmatrix}
+0&-\I\\
+\I&0
+\end{pmatrix}\text,
+\frac{\I}{\sqrt 2} \matgs_3 = \frac{\I}{\sqrt2}\begin{pmatrix}
+1&0\\
+0&-1
+\end{pmatrix}
+\]  is an orthonormal basis for $\tuple{\LAsutwo, \FrobeniusInner\placeholder\placeholder}$, where $\FrobeniusInner\matA\matB\DefineAs\Trace\of{\matA\adj\matB}$.
+\begin{proof}
+Calculate\begin{align*}
+\FrobeniusInner{\frac{\I\matgs_1}{\sqrt2}}{\frac{\I\matgs_1}{\sqrt2}}
+&= \Trace\of{\frac{\I}{\sqrt2}\matgs_1\frac{-\I}{\sqrt2}\adj{\matgs_1}}\\
+&=\frac{1}{2}\Trace\matgs_1^2 = \frac{1}{2} \Trace\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix} = 1\text,
+\end{align*}
+etc.
+\end{proof}
+\end{lemma}
+So you have an orthonormal basis. It's nice to have an orthonormal basis. 
+\begin{definition}
+$\AdjointRep\of\matg \matx \DefineAs \matg\matx\matg^{-1}$, for $\matg\in\SpecialUnitaryGroup\of 2$ and $\matx\in\LAsutwo$.
+Two by two matrix, two by two matrix, two by two matrix. It's well defined.
+\end{definition}
+\begin{proposition}
+$\FunctionSpec\AdjointRep{\SpecialUnitaryGroup\of 2}{\UnitaryGroup\of{\LAsutwo}}\DefineAs\UnitaryGroup\of{\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}}$ is an irreducible representation of $\SpecialOrthogonalGroup\of2$.
+\begin{proof}
+Let us prove $\AdjointRep\of\matg\in \UnitaryGroup\of{\LAsutwo}$:
+\begin{align*}
+\FrobeniusInner{\AdjointRep\of\matg\matx}{\AdjointRep\of\matg\maty}
+&= \Trace\of{\pa{\AdjointRep\of\matg\matx}\adj{\pa{\AdjointRep\of\matg\maty}}}\\
+&= \Trace\of{\matg\matx\matg^{-1}\adj{\pa{\matg\maty\matg^{-1}}}}\\
+&= \Trace\of{\matg\matx\matg^{-1}\adj{\pa{\matg^{-1}}}\adj\maty\adj\matg}\\
+\begin{split}
+&= \Trace\of{\matg\matx\matg^{-1}\matg\adj\maty\matg^{-1}}\\
+&= \Trace\of{\matx\adj\maty} = \FrobeniusInner\matx\maty\text.
+\end{split}\quad\commentbox{$\matg$ and $\matg^{-1}$ kill each other off---no, let's use a more poetic term. They \emph{merge} into the identity. Then we bring the $\matg^{-1}$ to the front, and again, they \emph{merge} into the identity.}
+\end{align*}
+I hope you can handle all that merging.
+There's something I didn't do! Show $\AdjointRep\of\matg\matx\in\LAsutwo$. ---``I have to \emph{show} that it somehow \emph{metamorphoses} into $\LAsutwo$.''---Maybe \emph{mirrors} would be a good metaphor.---``No. I don't like mirrors.''
+\begin{align*}
+\adj{\pa{\AdjointRep\of\matg\matx}}&=\adj{\pa{\matg\matx\matg^{-1}}}\\
+&=\adj{\pa{\matg^{-1}}}\adj\matx\adj\matg\\
+&=\matg\adj\matx\matg^{-1}=-\matg\matx\matg^{-1}\text.
+\end{align*}
+
+The trace is \foreign{\textgerman{ewig entlang Konjugationsklassen}}---it's \emph{much} easier to be a bad poet than a bad mathematician. This is a basic fact, as our algebraic conscience would tell us. It's as basic as ``you don't eat soup with a fork''. Isn't it? \emph{Claude nods}. It's good to have an algebraic conscience, because I don't have one.
+
+Now we prove that it's  a representation,
+$\AdjointRep\of\matg\AdjointRep\of\matrh\matx
+= \AdjointRep\of{\matg\matrh}$ for all $\matg$, $\matrh\in\SpecialUnitaryGroup\of 2$ and $\matx\in\LAsutwo$.
+\begin{align*}
+\AdjointRep\of\matg\pa{\AdjointRep\of\matrh\matx}&=\matg\pa{\matrh\matx\matrh^{-1}}\matg^{-1}\\
+&=\pa{\matg\matrh}\matx\pa{\matg\matrh}^{-1} = \AdjointRep\of{\matg\matrh}\matx\text,\\
+\AdjointRep\of\Identity\matx&=\Identity\text.
+\end{align*}
+\end{proof}
+\end{proposition}
+\begin{proposition}
+$\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}\Isomorphic\tuple{\R^3,\scal{\quad}{\quad}}$. The isomorphism is given by
+\begin{multline*}
+\FunctionBody
+{\R^3\owns\vgx}
+{
+\gx_1\frac{\I}{\sqrt2}
+\begin{pmatrix}
+1&0\\
+0&-1
+\end{pmatrix}
++\gx_3\frac{\I}{\sqrt2}
+\begin{pmatrix}
+0&-\I\\
+\I&0
+\end{pmatrix}
++\gx_2\frac{\I}{\sqrt2}
+\begin{pmatrix}
+0&1\\
+1&0
+\end{pmatrix}}\\
+=\frac{\I}{\sqrt2}
+\begin{pmatrix}
+\gx_1&\gx_2-\I\gx_3\\
+\gx_2+\I\gx_3&-\gx_1
+\end{pmatrix}
+\text.
+\end{multline*}
+\begin{proof}
+The poet:---We already encountered this formula last year.---``That's right, but I certainly didn't expect you to remember it.'' \emph{the professor holds on to a table and breathes deeply.} ``Sorry. I was beginning to hyperventilate.  I certainly didn't expect you to remember this.''---Isn't this also the measurement operator of a Stern-Gerlach box?---``A what? [...] Yes, that's right.''
+\[
+\FrobeniusInner{\frac{\I}{\sqrt2}\scal\vgx\tensgs}{\frac{\I}{\sqrt2}\scal\vgl\tensgs}
+=\gx_1\gl_1+\gx_2\gl_2+\gx_3\gl_3\text.
+\]
+\end{proof}
+\end{proposition}
+EQ13 The poet:---I'm not sure about the order of the $k$ and $l$ I dictated you.---``Let's just check! Here's how you do linear algebra.''
+EQ14
+---``Algebraic conscience, do you agree?'' \emph{Claude looks confused} ``I'll just give him a few seconds to give us the go-ahead.'' \emph{Claude points out a mistake.} ``It's good to have an algebraic conscience. I don't have an algebraic conscience---I don't have a conscience at all, but that's another matter.''
+EQ15
+``Algebraic conscience, do you agree? You see, I'm doing this to show that you don't have to memorise this. If you memorise, you always make a mistake.''
+EQ16
+EQ17
+---``I want to show it's real. It should be real, right?'' Claude:---The vector space $\LAsutwo$ is a real vector space. $Ad(g) FORMAT$ is a transformation of it.---``We have to take a break, right?''
+EQ18
+
+So what I want to show is EQ19 is a real inner product space.
+EQ20 is real linear in both variables.
+EQ21 is a real linear transformation of the real inner product space EQ22.
+Claude:---We checked that it's an orthogonal matrix. so we \emph{know} that.---``Yes. We checked EQ23. We checked that in complete detail.'' 
+
+The poet is right, it's irreducible because it has no invariant subspace. We now know---hey, how do you like that, `we now know', all you have to do is to add a `k' in front of the `n'--- that EQ24
+TODO INSERT LINK FOR LAST YEAR'S NOTES
+[...]
+So we have proven the following.
+\begin{proposition}
+EQ15 is a surjective homomorphism.
+and EQ42
+\begin{proof}
+We have done the fact that the determinant is one.
+How do we prove it's surjective? When we have proven that, we want to know how many people go to each rotation, \foreign{\textgerman{wieviele blätter liegen im Urbild?}}. So we have to go door-to-door and ask. How the hell are we going to prove that? Or how are we bloody well going to prove that?
+EQ26
+---``How do you characterise a rotation.''---You have to have an axis and angle.---``Exactly. It can be an axis of evil, but you need an axis and an angle.'' Now this will amuse you. What is the definition of EQ27? ---``Does this commute? The poet tells me it commutes. Is there an anti-poet?'' The poet:---I have the reason why it commutes.---``You are the reason why it commutes?''---No, I \emph{have} the reason. EQ28
+$\va$ is the axis of the special orthogonal linear transformation $Ad(\E^\va) FORMAT$. 
+EQ29 has axis $\va$. As $\gf$ changes, the angle has to change. The poet:---Traditionally, $\gf$ is the angle, so the angle must be $\gf$.---``You're making the \emph{Candide} argument. Pangloss said, the reason we have noses is to keep up our eyeglasses. But speaking \emph{culturally} $\ga$ could be $\gf$ or $2\gf$. It's a little proposition that it's just $\gf$.'' Claude:---I think it's $2\gf$.---``I think this is an excellent exercise''. So there is a beautiful map from the beautiful poetic space $\SpecialUnitaryGroup\of 2$ onto the space $\SpecialOrthogonalGroup\of 3$ where we, as sinners, all live.
+\end{proof}
+\end{proposition}
+
 \end{lecture}
 \endgroup%QM
 

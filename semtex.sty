@@ -261,6 +261,7 @@
  
 \AtBeginDocument{   
 
+
 % Use the proper unicode line extender for long arrows in x*arrow, instead of 
 % the minus sign which leads to holes in the arrows.
 \renewcommand{\relbar}{\mathrel{\harrowextender}}
@@ -487,6 +488,7 @@
 % \Lnorm f = \setst{C\geq0}{\abs{f}\leq C \text{almost everywhere}}.
 \newcommand\Lnorm[2][\infty]{\doubleBars{#2}_{#1}}
 \newcommand\FrobeniusNorm[1]{\doubleBars{#1}}
+\newcommand{\FrobeniusInner}[2]{\langleCommaRangle{#1}{#2}}
 % \SchwartzNorm\miga\migb{f} is defined as \sup_\{\vx\in\R^n}\abs{\vx^\miga\pd\vx\miga f\of\vx}.
 % The Schwartz space is the space of functions for which it is finite for all \miga and \migb.
 \newcommand{\SchwartzNorm}[3]{\doubleBars{#3}_{#1,#2}}
@@ -605,6 +607,7 @@
 
 \newcommand{\vgg}{\VectorSymbol \gamma}
 \newcommand{\vgl}{\VectorSymbol \lambda}
+\newcommand{\vgx}{\VectorSymbol \xi}
 
 \newcommand{\nullmi}{\mathbf 0}
 \newcommand{\nullvec}{\mathbf 0}
@@ -644,6 +647,7 @@
 \newcommand{\opvP}{\operatorname{\VectorSymbol{P}}}
 \newcommand{\opvQ}{\operatorname{\VectorSymbol{Q}}}
 
+\newcommand{\tensgs}{\TensorSymbol \gs}
 \newcommand{\tensA}{\TensorSymbol A}
 \newcommand{\tensB}{\TensorSymbol B}
 \newcommand{\tensC}{\TensorSymbol C}
@@ -673,6 +677,9 @@
 
 \newcommand{\matgg}{\MatrixSymbol \gg}
 \newcommand{\matg}{\MatrixSymbol g}
+\newcommand{\matx}{\MatrixSymbol x}
+\newcommand{\maty}{\MatrixSymbol y}
+\newcommand{\matgs}{\MatrixSymbol \gs}
 \newcommand{\matrh}{\MatrixSymbol h}
 \newcommand{\matA}{\MatrixSymbol A}
 \newcommand{\matB}{\MatrixSymbol B}

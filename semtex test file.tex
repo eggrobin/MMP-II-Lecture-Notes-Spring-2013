@@ -1,15 +1,50 @@
 \documentclass[10pt, twoside]{lecturenotes}
 \usepackage{semtex}
 
-
+\newcommand{\scaleMath}[2]{
+\mathchoice{
+\scalebox{#1}{$\displaystyle #2$}
+}{
+\scalebox{#1}{$\textstyle #2$}
+}{
+\scalebox{#1}{$\scriptstyle #2$}
+}{
+\scalebox{#1}{$\scriptscriptstyle #2$}
+}
+}
 \begin{document}
 \[
-\left(
-\binom n k
-\right)
+\frac12\frac12\left(\frac{1}{2}\right)\pa{\frac{1}{2}}\frac 1 2\pa{\scaleMath{.1}{\frac{1}{2}}}
+\LTwoInner{\frac{\I}{\sqrt2}\gy}{\gj}
 \]
+Some matrices:
 \[
-\binom n k
-\binom {\binom{\binom {n} {p}} m} {\sum{i}\frac{1}{i}}
+\begin{pmatrix}
+a&b\\c&d
+\end{pmatrix}
+\tuple{
+\begin{matrix}
+a&b\\c&d
+\end{matrix}
+}
 \]
+Scaling:
+\begin{align*}
+\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x&1.0\\
+\scaleMath {.9} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}&0.9\\
+\scaleMath {.8} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}&0.8\\
+\scaleMath {.7} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}&0.7\\
+\scaleMath {.6} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}&0.6\\
+\scaleMath {.5} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}&0.5
+\end{align*}
+$\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x$1.0\\*
+$\scaleMath {.9} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.9\\*
+$\scaleMath {.8} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.8\\*
+$\scaleMath {.7} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.7\\*
+$\scaleMath {.6} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.6\\*
+$\scaleMath {.5} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.5\\*
+$\scaleMath {.4} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.4\\*
+$\scaleMath {.3} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.3\\*
+$\scaleMath {.2} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.2\\*
+$\scaleMath {.1} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.1
 \end{document}
