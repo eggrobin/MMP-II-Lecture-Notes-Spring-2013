@@ -89,6 +89,9 @@
 \cs_gset_protected_nopar:Npx \widecheck {
   \um_accent:nnn {} { \um_symfont_tl } { "030C }
 }
+\cs_gset_protected_nopar:Npx \slashed { %circumvent an extremely weird bug...
+  \um_accent:nnn {} { \um_symfont_tl } { "0338 }
+}
 \ExplSyntaxOff
 
 % This is declares a scaling delimiter which does not scale
@@ -883,6 +886,9 @@
 \DeclareMathOperator\Trace{tr}
 
 \newcommand{\Tensor}{\otimes}
+
+\newcommand{\ifrac}[2]{\emptySlashEmpty{#1}{#2}}
+
 
 %\makeatletter
 %\killchars@

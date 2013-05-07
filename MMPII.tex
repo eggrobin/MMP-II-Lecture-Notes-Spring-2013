@@ -17,6 +17,7 @@
 \newcommand{\TemperedDistributions}{{\contdual\SchwartzSpace\of{\Rn}}}
 
 %% Freqently-used expressions.
+\newcommand{\ReducedPauli}[1]{\MatrixSymbol{\slashed\sigma}_{#1}}
 \newcommand{\sqftnrm}{\frac{1}{\pa{2\Pi}^n} }
 \newcommand{\ftnrm}{\frac{1}{\pa{2\Pi}^{\frac{n}{2}}} }
 \DeclareMathOperator{\AdjointRep}{Ad}
@@ -862,19 +863,21 @@ Concluding, we have the following
   If $\gy \in \SchwartzSpace\of\R$, then $\abs{\LTwoInner \gy {h_n}} \leq \frac{\Lnorm[2]{\opH^p \gy}}{n^p}$, $n \geq 1$, $p \geq 0$.
 \end{lemma}
 \end{lecture}
+\newcommand{\selt}{\mathscr{s}}
+\newcommand{\vecs}{\mathbfscr{s}}
 \begin{lecture}*[date=2013-04-09]
-\begin{proposition}\LectureStartsHere The $h_n\of x$, $n\geq 0$ form an orthonormal basis of $\SchwartzSpace\of\R$. More precisely, let \[\SchwartzSpace\of\N \DefineAs \setst{\tuple{s_0,s_1,s_2,\dotsc}}{s_j \in \C \text{ and } \forall p, \exists c_p, \abs{s_j} \leq c_p \frac{1}{\pa{1 + j}^p}}\text.\]
+\begin{proposition}\LectureStartsHere The $h_n\of x$, $n\geq 0$ form an orthonormal basis of $\SchwartzSpace\of\R$. More precisely, let \[\SchwartzSpace\of\N \DefineAs \setst{\tuple{\selt_0,\selt_1,\selt_2,\dotsc}}{\selt_j \in \C \text{ and } \forall p, \exists c_p, \abs{\selt_j} \leq c_p \frac{1}{\pa{1 + j}^p}}\text.\]
 Then,
 \begin{align*}
     \MapSpecBody
     {\SchwartzSpace\of \N}
     {\SchwartzSpace\of\R}
-    {\vs}
-    {\sum{n=0}[\infty] s_n h_n\of x}
+    {\vecs}%TODO:use script s, that's what he did.
+    {\sum{n=0}[\infty] \selt_n h_n\of x}
 \end{align*}
 is a continuous, bijective linear map with a continuous inverse.
 \end{proposition}
-``Whatever somebody means by an orthonormal basis for an infinite dimensional vetor space, this is about as good as it gets.'' In proving the theorem, which is an exercise, we will have to do something like \[ \abs{\sum{n \geq 0} s_n h_n\of x} \leq \sum{n \geq 0} \abs{s_n} \abs{h_n\of x} \]---and remember, the macho waits as long as possible before bringing the $\abs{\placeholder}$ in. Compare this to what we had for Fourier series:
+``Whatever somebody means by an orthonormal basis for an infinite dimensional vetor space, this is about as good as it gets.'' In proving the theorem, which is an exercise, we will have to do something like \[ \abs{\sum{n \geq 0} \selt_n h_n\of x} \leq \sum{n \geq 0} \abs{\selt_n} \abs{h_n\of x} \]---and remember, the macho waits as long as possible before bringing the $\abs{\placeholder}$ in. Compare this to what we had for Fourier series:
 \[
   \abs{\sum{j=-\infty}[\infty] \ft{\gj}\of j \E^{\I j x}} \leq \sum{j=-\infty}[\infty] \abs{\ft{\gj}\of j} \underbrace{\abs{\E^{\I j x}}}_{=1}
 \]
@@ -1026,7 +1029,7 @@ Let me give you two examples of observables:
 \end{align*}
 \begin{proposition}
 $\tuple{\QuantumObservables, \frac  \I \ReducedPlanck \commutator \opA \opB}$ is a Lie algebra.
-\begin{proof} We check that $\QuantumObservables$ is closed under the bracket $\frac \I \ReducedPlanck \commutator\placeholder\placeholder$: let $\opA${, }$\opB$ be self-adjoint. Then
+\begin{proof} We check that $\QuantumObservables$ is closed under the bracket $\frac \I \ReducedPlanck \commutator\placeholder\placeholder$. Let $\opA${, }$\opB$ be self-adjoint. Then
 \begin{align*}
 \adj{\pa{\frac \I \ReducedPlanck \commutator\opA\opB}}
 &= -\frac \I \ReducedPlanck\adj{\pa{\opA\opB-\opB\opA}}\\
@@ -1606,7 +1609,7 @@ There's something I didn't do! Show $\AdjointRep\of\matg\matx\in\LAsutwo$. ---``
 
 The trace is \foreign{\textgerman{ewig entlang Konjugationsklassen}}---it's \emph{much} easier to be a bad poet than a bad mathematician. This is a basic fact, as our algebraic conscience would tell us. It's as basic as ``you don't eat soup with a fork''. Isn't it? \emph{Claude nods}. It's good to have an algebraic conscience, because I don't have one.
 
-Now we prove that it's  a representation,
+Now we prove that it's a representation,
 $\AdjointRep\of\matg\AdjointRep\of\matrh\matx
 = \AdjointRep\of{\matg\matrh}$ for all $\matg$, $\matrh\in\SpecialUnitaryGroup\of 2$ and $\matx\in\LAsutwo$.
 \begin{align*}
@@ -1652,20 +1655,34 @@ The poet:---We already encountered this formula last year.---``That's right, but
 \]
 \end{proof}
 \end{proposition}
-EQ13 The poet:---I'm not sure about the order of the $k$ and $l$ I dictated you.---``Let's just check! Here's how you do linear algebra.''
-EQ14
+\[
+\tuplespec{\AdjointRep\of\matg}{kl} = \FrobeniusInner{\AdjointRep\of\matg\frac{\I}{\sqrt2}\matgs_k}{\frac{\I}{\sqrt2}\matgs_l}
+\]
+The poet:---I'm not sure about the order of the $k$ and $l$ I dictated you.---``Let's just check! Here's how you do linear algebra.''
+\[
+\AdjointRep\of\matg\matx = \AdjointRep\of\matg\sum{k=1}[3]\FrobeniusInner\matx{\ReducedPauli k}\ReducedPauli k\text.
+\]
+I don't want to write $\frac\I{\sqrt2}$ all the time, so I defined
+\[
+\ReducedPauli k \DefineAs \frac{\I}{\sqrt2}\matgs_k\text.
+\]
 ---``Algebraic conscience, do you agree?'' \emph{Claude looks confused} ``I'll just give him a few seconds to give us the go-ahead.'' \emph{Claude points out a mistake.} ``It's good to have an algebraic conscience. I don't have an algebraic conscience---I don't have a conscience at all, but that's another matter.''
-EQ15
+EQ15 %TODO:WTF
 ``Algebraic conscience, do you agree? You see, I'm doing this to show that you don't have to memorise this. If you memorise, you always make a mistake.''
-EQ16
-EQ17
----``I want to show it's real. It should be real, right?'' Claude:---The vector space $\LAsutwo$ is a real vector space. $Ad(g) FORMAT$ is a transformation of it.---``We have to take a break, right?''
-EQ18
+\begin{align*}
+\AdjointRep\of\matg & = \tuple{\FrobeniusInner{\AdjointRep\of\matg\ReducedPauli l}{\ReducedPauli k}}\\
+\AdjointRep\of\matg\adj{\AdjointRep\of\matg} &= \Identity_{\LAsutwo}\text.\\
+\FrobeniusInner{\AdjointRep\of\matg\ReducedPauli l}{\ReducedPauli k} &= \FrobeniusInner{\ReducedPauli k}{\AdjointRep\of\matg\ReducedPauli l}\\
+&=\FrobeniusInner{\adj{\pa{\AdjointRep\of\matg}}\ReducedPauli k}{\ReducedPauli l}\\
+&= \FrobeniusInner{\AdjointRep\of\matg^{-1}\ReducedPauli k}{\ReducedPauli l}\\
+&= \FrobeniusInner{\AdjointRep\of{\matg^{-1}}\ReducedPauli k}{\ReducedPauli l}\text{...}
+\end{align*}
+---``I want to show it's real. It should be real, right?'' Claude:---The vector space $\LAsutwo$ is a real vector space. $\AdjointRep\of\matg$ is a transformation of it.---``We have to take a break, right?'' $\AdjointRep\in\SpecialOrthogonalGroup\of{\tuple{LAsutwo,\FrobeniusInner\placeholder\placeholder},3}$.
 
-So what I want to show is EQ19 is a real inner product space.
-EQ20 is real linear in both variables.
-EQ21 is a real linear transformation of the real inner product space EQ22.
-Claude:---We checked that it's an orthogonal matrix. so we \emph{know} that.---``Yes. We checked EQ23. We checked that in complete detail.'' 
+So what I want to show is that $\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}$ is a real inner product space.
+$\FrobeniusInner \matx\maty = \Trace\of{\matx\adj\maty}=-\Trace\of{\matx\maty}$ is real linear in both variables.
+$\AdjointRep\of\matg\matx\DefineAs\matg\matx\matg^{-1}$ is a real linear transformation of the real inner product space $\tuple{LAsutwo,\FrobeniusInner\placeholder\placeholder}$.
+Claude:---We checked that it's an orthogonal matrix. So we \emph{know} that.---``Yes. We checked $\FrobeniusInner{\AdjointRep\of\matg\matx}{\AdjointRep\of\matg\maty}=\FrobeniusInner\matx\maty$ for $\matg\in\SpecialUnitaryGroup\of 2$, $\matx$, $\maty\in\LAsutwo$, in other words, $\AdjointRep\of\matg\in\OrthogonalGroup\of{\tuple{LAsutwo,\FrobeniusInner\placeholder\placeholder}}$. We checked that in complete detail.'' 
 
 The poet is right, it's irreducible because it has no invariant subspace. We now know---hey, how do you like that, `we now know', all you have to do is to add a `k' in front of the `n'--- that EQ24
 TODO INSERT LINK FOR LAST YEAR'S NOTES

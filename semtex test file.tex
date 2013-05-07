@@ -1,50 +1,25 @@
 \documentclass[10pt, twoside]{lecturenotes}
-\usepackage{semtex}
+%\usepackage{semtex}
+\usepackage[slash-delimiter=frac]{unicode-math}
+\setmathfont[Scale=MatchLowercase, math-style=ISO]{Cambria Math}
+\setmathfont[Scale=MatchLowercase, range={\mathcal,\mathbfcal}]{texgyrepagella-math.otf}
 
-\newcommand{\scaleMath}[2]{
-\mathchoice{
-\scalebox{#1}{$\displaystyle #2$}
-}{
-\scalebox{#1}{$\textstyle #2$}
-}{
-\scalebox{#1}{$\scriptstyle #2$}
-}{
-\scalebox{#1}{$\scriptscriptstyle #2$}
+\ExplSyntaxOn
+\cs_gset_protected_nopar:Npx \notnot {
+  \um_accent:nnn {} { \um_symfont_tl } { "0338 }
 }
-}
+\ExplSyntaxOff
+
+%\setmathfont[version=calligraphic,Scale=MatchLowercase]{texgyrepagella-math.otf}
+%\renewcommand{\mathcal}[1]{\mathord{\mbox{\mathversion{calligraphic}$\mathscr{#1}$\mathversion{default}}}}
+%\renewcommand{\mathbfcal}[1]{\mathversion{calligraphic} \mathbfscr{#1} \mathversion{default}}
+%\mathversion{default}
+
 \begin{document}
 \[
-\frac12\frac12\left(\frac{1}{2}\right)\pa{\frac{1}{2}}\frac 1 2\pa{\scaleMath{.1}{\frac{1}{2}}}
-\LTwoInner{\frac{\I}{\sqrt2}\gy}{\gj}
+\mathord{\mbox{$\mathscr{S}$}}^2\mathscr{S}^2
 \]
-Some matrices:
 \[
-\begin{pmatrix}
-a&b\\c&d
-\end{pmatrix}
-\tuple{
-\begin{matrix}
-a&b\\c&d
-\end{matrix}
-}
+\mathbf{\notnot\sigma} = 1 \mathcal{S} \mathbfcal{S}
 \]
-Scaling:
-\begin{align*}
-\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x&1.0\\
-\scaleMath {.9} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}&0.9\\
-\scaleMath {.8} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}&0.8\\
-\scaleMath {.7} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}&0.7\\
-\scaleMath {.6} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}&0.6\\
-\scaleMath {.5} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}&0.5
-\end{align*}
-$\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x$1.0\\*
-$\scaleMath {.9} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.9\\*
-$\scaleMath {.8} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.8\\*
-$\scaleMath {.7} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.7\\*
-$\scaleMath {.6} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.6\\*
-$\scaleMath {.5} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.5\\*
-$\scaleMath {.4} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.4\\*
-$\scaleMath {.3} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.3\\*
-$\scaleMath {.2} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.2\\*
-$\scaleMath {.1} {\int{1}[x]\frac{1}{\gx}\diffd\gx=\log x}$0.1
 \end{document}
