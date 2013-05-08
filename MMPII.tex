@@ -17,7 +17,10 @@
 \newcommand{\TemperedDistributions}{{\contdual\SchwartzSpace\of{\Rn}}}
 
 %% Freqently-used expressions.
-\newcommand{\ReducedPauli}[1]{\MatrixSymbol{\slashed\sigma}_{#1}}
+% Nonstandard, but seen as the application of an informal / to the Pauli matrices.
+\newcommand{\ReducedPauli}[1]{\slashed{\StandardMatrixSymbol{\sigma}}_{#1}}
+% Nonstandard.
+\newcommand{\PauliTensor}{\tensgs}
 \newcommand{\sqftnrm}{\frac{1}{\pa{2\Pi}^n} }
 \newcommand{\ftnrm}{\frac{1}{\pa{2\Pi}^{\frac{n}{2}}} }
 \DeclareMathOperator{\AdjointRep}{Ad}
@@ -1555,24 +1558,24 @@ Alright, here we are. I'm going to talk to you about $\LAsutwo$ and $\SpecialUni
 We have a little lemma.
 \begin{lemma}
 \[
-\frac{\I}{\sqrt 2} \matgs_1 = \frac{\I}{\sqrt2}\begin{pmatrix}
+\frac{\I}{\sqrt 2} \PauliMatrix 1 = \frac{\I}{\sqrt2}\begin{pmatrix}
 0&1\\
 1&0
 \end{pmatrix}\text,
-\frac{\I}{\sqrt 2} \matgs_2 = \frac{\I}{\sqrt2}\begin{pmatrix}
+\frac{\I}{\sqrt 2} \PauliMatrix 2 = \frac{\I}{\sqrt2}\begin{pmatrix}
 0&-\I\\
 \I&0
 \end{pmatrix}\text,
-\frac{\I}{\sqrt 2} \matgs_3 = \frac{\I}{\sqrt2}\begin{pmatrix}
+\frac{\I}{\sqrt 2} \PauliMatrix 3 = \frac{\I}{\sqrt2}\begin{pmatrix}
 1&0\\
 0&-1
 \end{pmatrix}
 \]  is an orthonormal basis for $\tuple{\LAsutwo, \FrobeniusInner\placeholder\placeholder}$, where $\FrobeniusInner\matA\matB\DefineAs\Trace\of{\matA\adj\matB}$.
 \begin{proof}
 Calculate\begin{align*}
-\FrobeniusInner{\frac{\I\matgs_1}{\sqrt2}}{\frac{\I\matgs_1}{\sqrt2}}
-&= \Trace\of{\frac{\I}{\sqrt2}\matgs_1\frac{-\I}{\sqrt2}\adj{\matgs_1}}\\
-&=\frac{1}{2}\Trace\matgs_1^2 = \frac{1}{2} \Trace\begin{pmatrix}
+\FrobeniusInner{\frac{\I\PauliMatrix 1}{\sqrt2}}{\frac{\I\PauliMatrix 1}{\sqrt2}}
+&= \Trace\of{\frac{\I}{\sqrt2}\PauliMatrix 1\frac{-\I}{\sqrt2}\adj{\PauliMatrix 1}}\\
+&=\frac{1}{2}\Trace\PauliMatrix 1^2 = \frac{1}{2} \Trace\begin{pmatrix}
 1&0\\
 0&1
 \end{pmatrix} = 1\text,
@@ -1590,17 +1593,17 @@ $\FunctionSpec\AdjointRep{\SpecialUnitaryGroup\of 2}{\UnitaryGroup\of{\LAsutwo}}
 \begin{proof}
 Let us prove $\AdjointRep\of\matg\in \UnitaryGroup\of{\LAsutwo}$:
 \begin{align*}
+\begin{split}
 \FrobeniusInner{\AdjointRep\of\matg\matx}{\AdjointRep\of\matg\maty}
 &= \Trace\of{\pa{\AdjointRep\of\matg\matx}\adj{\pa{\AdjointRep\of\matg\maty}}}\\
 &= \Trace\of{\matg\matx\matg^{-1}\adj{\pa{\matg\maty\matg^{-1}}}}\\
 &= \Trace\of{\matg\matx\matg^{-1}\adj{\pa{\matg^{-1}}}\adj\maty\adj\matg}\\
-\begin{split}
 &= \Trace\of{\matg\matx\matg^{-1}\matg\adj\maty\matg^{-1}}\\
 &= \Trace\of{\matx\adj\maty} = \FrobeniusInner\matx\maty\text.
-\end{split}\quad\commentbox{$\matg$ and $\matg^{-1}$ kill each other off---no, let's use a more poetic term. They \emph{merge} into the identity. Then we bring the $\matg^{-1}$ to the front, and again, they \emph{merge} into the identity.}
+\end{split}\quad\parbox{.4\textwidth}{$\matg$ and $\matg^{-1}$ kill each other off---no, let's use a more poetic term. They \emph{merge} into the identity. Then we bring the $\matg^{-1}$ to the front, and again, they \emph{merge} into the identity.}
 \end{align*}
 I hope you can handle all that merging.
-There's something I didn't do! Show $\AdjointRep\of\matg\matx\in\LAsutwo$. ---``I have to \emph{show} that it somehow \emph{metamorphoses} into $\LAsutwo$.''---Maybe \emph{mirrors} would be a good metaphor.---``No. I don't like mirrors.''
+There's something I didn't do! I need to show $\AdjointRep\of\matg\matx\in\LAsutwo$. ---``I have to \emph{show} that it somehow \emph{metamorphoses} into $\LAsutwo$.''---Maybe \emph{mirrors} would be a good metaphor.---``No. I don't like mirrors.''
 \begin{align*}
 \adj{\pa{\AdjointRep\of\matg\matx}}&=\adj{\pa{\matg\matx\matg^{-1}}}\\
 &=\adj{\pa{\matg^{-1}}}\adj\matx\adj\matg\\
@@ -1620,7 +1623,7 @@ $\AdjointRep\of\matg\AdjointRep\of\matrh\matx
 \end{proof}
 \end{proposition}
 \begin{proposition}
-$\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}\Isomorphic\tuple{\R^3,\scal{\quad}{\quad}}$. The isomorphism is given by
+$\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}\Isomorphic\tuple{\R^3,\scal{\:}{\:}}$. The isomorphism is given by
 \begin{multline*}
 \FunctionBody
 {\R^3\owns\vgx}
@@ -1650,13 +1653,13 @@ $\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}\Isomorphic\tuple{\R^3,
 \begin{proof}
 The poet:---We already encountered this formula last year.---``That's right, but I certainly didn't expect you to remember it.'' \emph{the professor holds on to a table and breathes deeply.} ``Sorry. I was beginning to hyperventilate.  I certainly didn't expect you to remember this.''---Isn't this also the measurement operator of a Stern-Gerlach box?---``A what? [...] Yes, that's right.''
 \[
-\FrobeniusInner{\frac{\I}{\sqrt2}\scal\vgx\tensgs}{\frac{\I}{\sqrt2}\scal\vgl\tensgs}
+\FrobeniusInner{\frac{\I}{\sqrt2}\scal\vgx\PauliTensor}{\frac{\I}{\sqrt2}\scal\vgl\PauliTensor}
 =\gx_1\gl_1+\gx_2\gl_2+\gx_3\gl_3\text.
 \]
 \end{proof}
 \end{proposition}
 \[
-\tuplespec{\AdjointRep\of\matg}{kl} = \FrobeniusInner{\AdjointRep\of\matg\frac{\I}{\sqrt2}\matgs_k}{\frac{\I}{\sqrt2}\matgs_l}
+\tuplespec{\AdjointRep\of\matg}{kl} = \FrobeniusInner{\AdjointRep\of\matg\frac{\I}{\sqrt2}\PauliMatrix k}{\frac{\I}{\sqrt2}\PauliMatrix l}
 \]
 The poet:---I'm not sure about the order of the $k$ and $l$ I dictated you.---``Let's just check! Here's how you do linear algebra.''
 \[
@@ -1664,43 +1667,83 @@ The poet:---I'm not sure about the order of the $k$ and $l$ I dictated you.---``
 \]
 I don't want to write $\frac\I{\sqrt2}$ all the time, so I defined
 \[
-\ReducedPauli k \DefineAs \frac{\I}{\sqrt2}\matgs_k\text.
+\ReducedPauli k \DefineAs \frac{\I}{\sqrt2}\PauliMatrix k\text.
 \]
----``Algebraic conscience, do you agree?'' \emph{Claude looks confused} ``I'll just give him a few seconds to give us the go-ahead.'' \emph{Claude points out a mistake.} ``It's good to have an algebraic conscience. I don't have an algebraic conscience---I don't have a conscience at all, but that's another matter.''
-EQ15 %TODO:WTF
-``Algebraic conscience, do you agree? You see, I'm doing this to show that you don't have to memorise this. If you memorise, you always make a mistake.''
+---``Algebraic conscience, do you agree? I'm just projecting onto an orthogonal basis.'' \emph{Claude looks confused} ``I'll just give him a few seconds to give us the go-ahead.'' \emph{Claude points out a mistake.} ``It's good to have an algebraic conscience. I don't have an algebraic conscience---I don't have a conscience at all, but that's another matter.''
 \begin{align*}
-\AdjointRep\of\matg & = \tuple{\FrobeniusInner{\AdjointRep\of\matg\ReducedPauli l}{\ReducedPauli k}}\\
+\AdjointRep\of\matg\matx &= \sum{k=1}[3]\FrobeniusInner\matx{\ReducedPauli k}\AdjointRep\of\matg\ReducedPauli k\text.
+\intertext{Let us look at $\AdjointRep\of\matg\ReducedPauli k$.}
+\AdjointRep\of\matg\ReducedPauli k &= \sum{k=1}[3]\FrobeniusInner{\AdjointRep\of\matg\ReducedPauli k}{\ReducedPauli l}\text.
+\intertext{Substituting,}
+\AdjointRep\of\matg\matx&=\sum{k,l=1}[3]\FrobeniusInner{\AdjointRep\matg\ReducedPauli k}{\ReducedPauli l}\FrobeniusInner{\matx}{\ReducedPauli k} \ReducedPauli l\text.
+\end{align*}
+Algebraic conscience, do you agree? You see, I'm doing this to show that you don't have to memorise this. If you memorise, you always make a mistake. We have proven:
+\begin{align*}
+\AdjointRep\of\matg & = \tuple{\FrobeniusInner{\AdjointRep\of\matg\ReducedPauli l}{\ReducedPauli k}}\text.
+\intertext{Moreover,}
 \AdjointRep\of\matg\adj{\AdjointRep\of\matg} &= \Identity_{\LAsutwo}\text.\\
 \FrobeniusInner{\AdjointRep\of\matg\ReducedPauli l}{\ReducedPauli k} &= \FrobeniusInner{\ReducedPauli k}{\AdjointRep\of\matg\ReducedPauli l}\\
 &=\FrobeniusInner{\adj{\pa{\AdjointRep\of\matg}}\ReducedPauli k}{\ReducedPauli l}\\
 &= \FrobeniusInner{\AdjointRep\of\matg^{-1}\ReducedPauli k}{\ReducedPauli l}\\
 &= \FrobeniusInner{\AdjointRep\of{\matg^{-1}}\ReducedPauli k}{\ReducedPauli l}\text{...}
 \end{align*}
----``I want to show it's real. It should be real, right?'' Claude:---The vector space $\LAsutwo$ is a real vector space. $\AdjointRep\of\matg$ is a transformation of it.---``We have to take a break, right?'' $\AdjointRep\in\SpecialOrthogonalGroup\of{\tuple{LAsutwo,\FrobeniusInner\placeholder\placeholder},3}$.
+---``I want to show it's real. It should be real, right?'' Claude:---The vector space $\LAsutwo$ is a real vector space. $\AdjointRep\of\matg$ is a transformation of it.---``We have to take a break, right?''
 
-So what I want to show is that $\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}$ is a real inner product space.
+So what I want to show is that $\AdjointRep\in\SpecialOrthogonalGroup\of{\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder},3}$, where $\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}$ is a real inner product space.
 $\FrobeniusInner \matx\maty = \Trace\of{\matx\adj\maty}=-\Trace\of{\matx\maty}$ is real linear in both variables.
-$\AdjointRep\of\matg\matx\DefineAs\matg\matx\matg^{-1}$ is a real linear transformation of the real inner product space $\tuple{LAsutwo,\FrobeniusInner\placeholder\placeholder}$.
-Claude:---We checked that it's an orthogonal matrix. So we \emph{know} that.---``Yes. We checked $\FrobeniusInner{\AdjointRep\of\matg\matx}{\AdjointRep\of\matg\maty}=\FrobeniusInner\matx\maty$ for $\matg\in\SpecialUnitaryGroup\of 2$, $\matx$, $\maty\in\LAsutwo$, in other words, $\AdjointRep\of\matg\in\OrthogonalGroup\of{\tuple{LAsutwo,\FrobeniusInner\placeholder\placeholder}}$. We checked that in complete detail.'' 
+$\AdjointRep\of\matg\matx\DefineAs\matg\matx\matg^{-1}$ is a real linear transformation of the real inner product space $\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}$.
 
-The poet is right, it's irreducible because it has no invariant subspace. We now know---hey, how do you like that, `we now know', all you have to do is to add a `k' in front of the `n'--- that EQ24
-TODO INSERT LINK FOR LAST YEAR'S NOTES
-[...]
-So we have proven the following.
+Claude:---We checked that it's an orthogonal matrix. So we \emph{know} that.---``Yes. We checked $\FrobeniusInner{\AdjointRep\of\matg\matx}{\AdjointRep\of\matg\maty}=\FrobeniusInner\matx\maty$ for $\matg\in\SpecialUnitaryGroup\of 2$, $\matx$, $\maty\in\LAsutwo$, in other words, $\AdjointRep\of\matg\in\OrthogonalGroup\of{\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}}$. We checked that in complete detail.'' 
+
+The poet is right, it's irreducible because it has no invariant subspace. We now know---hey, how do you like that, `we now know', all you have to do is to add a `k' in front of the `n'--- that $\FunctionBody{\SpecialUnitaryGroup\of 2 \owns\matg}{\AdjointRep\of\matg\in\OrthogonalGroup\of{\tuple{\LAsutwo, \FrobeniusInner\placeholder\placeholder}}}$.
+
+%TODO:QRCODE
+We still have to prove that it's in $\SpecialOrthogonalGroup\of{\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}}$. We already know that it's orthogonal, so we only have to prove that its determinant is $1$. As it's orthogonal, its determinant can only be $1$ or $-1$. Now the determinant is a continuous function. Can a continuous function take both the values $1$ and $-1$, and nothing in between?---No.---``Well, that's not quite true. The domain has to have a property...''---Connected.---``Exactly. Is $\SpecialUnitaryGroup\of 3$ connected? In the notes from last semester...'' The poet:---They are not available online.---``Yes they are.\footnote{The lecture notes from last semester are still available online at \url{http://www.math.ethz.ch/~gruppe5/group5/lectures/mmp/hs12/Files/}.} In \emph{Finite Dimensional Quantum Mechanics}, on page eight, there is a section called ``Unitary Groups'', and there, you have the fact that it's connected. Namely, you have---in an exercise---the fact that $\SpecialUnitaryGroup\of 2$ is homeomorphic to the $3$-sphere $\UnitSphere 3$. As physicists, you don't quite know what the $3$-sphere is, but you know what the $2$-sphere looks like: it's round, and it's connected.''
+
+We have proven the following.
 \begin{proposition}
-EQ15 is a surjective homomorphism.
-and EQ42
+The map $\FunctionSpec\AdjointRep{\SpecialUnitaryGroup\of{2}}{\SpecialOrthogonalGroup\of{\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}}\Isomorphic\SpecialOrthogonalGroup\of 3}$ is a surjective homomorphism, and\begin{align*}
+\matg\in\AdjointRep^{-1}\of\matR &\Implies -\matg\in\AdjointRep^{-1}\of\matR\text, \\
+\forall\matR\in\SpecialOrthogonalGroup\of 3\quad \Cardinality{\AdjointRep^{-1}\of\matR}&=2\text.
+\end{align*}
 \begin{proof}
 We have done the fact that the determinant is one.
-How do we prove it's surjective? When we have proven that, we want to know how many people go to each rotation, \foreign{\textgerman{wieviele blätter liegen im Urbild?}}. So we have to go door-to-door and ask. How the hell are we going to prove that? Or how are we bloody well going to prove that?
-EQ26
----``How do you characterise a rotation.''---You have to have an axis and angle.---``Exactly. It can be an axis of evil, but you need an axis and an angle.'' Now this will amuse you. What is the definition of EQ27? ---``Does this commute? The poet tells me it commutes. Is there an anti-poet?'' The poet:---I have the reason why it commutes.---``You are the reason why it commutes?''---No, I \emph{have} the reason. EQ28
-$\va$ is the axis of the special orthogonal linear transformation $Ad(\E^\va) FORMAT$. 
-EQ29 has axis $\va$. As $\gf$ changes, the angle has to change. The poet:---Traditionally, $\gf$ is the angle, so the angle must be $\gf$.---``You're making the \emph{Candide} argument. Pangloss said, the reason we have noses is to keep up our eyeglasses. But speaking \emph{culturally} $\ga$ could be $\gf$ or $2\gf$. It's a little proposition that it's just $\gf$.'' Claude:---I think it's $2\gf$.---``I think this is an excellent exercise''. So there is a beautiful map from the beautiful poetic space $\SpecialUnitaryGroup\of 2$ onto the space $\SpecialOrthogonalGroup\of 3$ where we, as sinners, all live.
+How do we prove it's surjective? When we have proven that, we want to know how many people go to each rotation, \foreign{\textgerman{wieviele blätter diese Überlagerung hat}}. So we have to go door-to-door and ask. How the hell are we going to prove that? Or how are we bloody well going to prove that?---you see, in the thirties, `bloody well' was really vulgar. Now if you say that, you just sound like a bad British actor. Look at the maps\begin{align*}
+\FunctionBody*{\mata\in\LAsutwo}{\E^\mata\in\SpecialUnitaryGroup\of 2}\text,\\
+\FunctionBody*{\mata\in\LAsutwo}{\AdjointRep\of{\E^\mata}\in\SpecialOrthogonalGroup\of 3}\text.
+\end{align*}
+---``How do you characterise a rotation?''---You have to have an axis and angle.---``Exactly. It can be an axis of evil, but you need an axis and an angle. Now this will amuse you. What is the definition of $\AdjointRep\of{\E^\mata}\matA$?'' The poet:---$\E^\mata\mata\pa{\E^\mata}^{-1}=\mata\E^\mata\E^{-\mata}=\mata$---``Does this commute? The poet tells me it commutes. Is there an anti-poet?''---I have the reason why it commutes.---``You are the reason why it commutes?''---No, I \emph{have} the reason.
+
+$\mata$ is the axis of the special orthogonal linear transformation $\AdjointRep\of{\E^\mata}$. 
+$\AdjointRep\of{\E^{\gf\mata}}$ has axis $\mata$. As $\gf$ changes, the angle has to change. The poet:---Traditionally, $\gf$ is the angle, so the angle must be $\gf$.---``You're making the \emph{Candide} argument. Pangloss said ``the reason we have noses is to keep up our eyeglasses''\footnote{\foreign{\textfrench{<<~Il est démontré, disait-il, que les choses ne peuvent être autrement: car tout étant fait pour une fin, tout est nécessairement pour la meilleure fin. Remarquez bien que les nez ont été faits pour porter des lunettes; aussi avons-nous des lunettes.~[...]~>>}}---Voltaire, \emph{Candide, ou l’Optimisme}.}. But speaking \emph{culturally} $\ga$ could be $\gf$ or $2\gf$. It's a little proposition that it's just $\gf$.'' Claude:---I think it's $2\gf$.---``I think this is an excellent exercise''. So there is a beautiful map from the beautiful poetic space $\SpecialUnitaryGroup\of 2$ onto the space $\SpecialOrthogonalGroup\of 3$ where we, as sinners, all live.
 \end{proof}
 \end{proposition}
 
+\end{lecture}
+\begin{lecture}[date=2013-05-07]
+I learned yesterday that there was no lecture on Thursday, so I'll try to do something that fits in the hour.
+EQ1
+Infinitesimal rotation stuff(DE).
+EQ2
+\begin{lemma}
+EQ4 is an isomorphism of Lie algebras, EQ5, and you can easily check that it's surjective and blah blah blah blah. You just have to prove that the kernel is empty. You had something about that last year, when you were younger and things were still partially commutative. ---``They did that last year, didn't they?'' Claude:---Yes, yes.---``Should we do that again?''---No, no!---``I hope that this rings a bell, or at least a---what's it called, the thing from Proust, \emph{À la recherche du temps perdu}''---A madeleine.---``Yes, exactly, a madeleine. That's in \emph{Du côté de chez Swann}.'' 
+\end{lemma}
+---``Do you agree? You look like you don't agree.''---It's morning.---``It depends on your job. I see you're not a nocturnal animal. If you want, you can come back at two, I'll be there. I don't think [Claude] will come though. Will you?'' Claude:---Nooo...
+EQ6
+So, we sum.
+EQ7
+What is the Taylor series of the sine? You think it's not worth knowing that stuff, but it is. You don't remember the series, but you seem to be pretty good at remembering the first terms. \emph{The professor whistles ``La Vie en rose'' while writing the series.}
+EQ8
+So we have this very nice formula---and we don't need Euler angles. The calculation is so simple that going to the North pole doesn't bring you anything.
+EQ9
+Once we have the angle $\ga$, we have the axis and the angle, so we have a rotation.
+EQ10
+Why didn't I take the vector product with an arbitrary vector? I want to actually calculate with this.
+EQ11
+The poet:---Couldn't you just give us the result? It's a $3\times3$ matrix, we can do it ourselves, if we want.---``If you \emph{want}. But you won't do it. So once in your life, do some calculations. I know it's painful. No pain, no gain.''
+
+---``You see, the point is I didn't prepare for this calculation.'' The poet:---Evidently.
+We now know that $\abs x$ is the angle, goodbye, farewell, have a nice holiday.
 \end{lecture}
 \endgroup%QM
 

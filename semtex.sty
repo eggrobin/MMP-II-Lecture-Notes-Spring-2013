@@ -47,6 +47,9 @@
 \newcommand{\TensorSymbol}\mathbfsfit
 \newcommand{\OperatorSymbol}[1]{\operatorname{\mathit{#1}}}
 \newcommand{\StandardSymbol}\mathrm
+\newcommand{\StandardMatrixSymbol}{\mathbfup}
+\newcommand{\StandardVectorSymbol}{\mathbfup}
+\newcommand{\StandardTensorSymbol}{\mathbfsfup}
 
 \RequirePackage[amsmath,thmmarks,hyperref]{ntheorem}
 
@@ -89,10 +92,13 @@
 \cs_gset_protected_nopar:Npx \widecheck {
   \um_accent:nnn {} { \um_symfont_tl } { "030C }
 }
-\cs_gset_protected_nopar:Npx \slashed { %circumvent an extremely weird bug...
-  \um_accent:nnn {} { \um_symfont_tl } { "0338 }
-}
+%\cs_gset_protected_nopar:Npx \slashed { %circumvent an extremely weird bug...
+%  \um_accent:nnn {} { \um_symfont_tl } { "0338 }
+%}
 \ExplSyntaxOff
+\usepackage{cancel}
+% U00338 works well for operators, but isn't so nice for letters.
+\newcommand{\slashed}{\cancel}
 
 % This is declares a scaling delimiter which does not scale
 % with indices, exponents, limits etc.
@@ -332,6 +338,9 @@
 \newcommand\EulerGamma{\StandardSymbol{\gamma}}
 % \GaussPi is Gauss's notation for \Gamma, with \Gamma\of{z+1}=\GaussPi\of z.
 \newcommand\GaussPi{\StandardSymbol{\capitalPi}}
+% \Pauli k is the k-th Pauli matrix.
+\newcommand{\PauliMatrix}[1]{\StandardMatrixSymbol{\sigma}_{k}}
+%\newcommand{\PauliTensor}{\StandardTensorSymbol\sigma} Nonstandard.
 
 %%% Operators, standard functions.
 %% Prefix operators and functions.
@@ -680,6 +689,7 @@
 
 \newcommand{\matgg}{\MatrixSymbol \gg}
 \newcommand{\matg}{\MatrixSymbol g}
+\newcommand{\mata}{\MatrixSymbol a}
 \newcommand{\matx}{\MatrixSymbol x}
 \newcommand{\maty}{\MatrixSymbol y}
 \newcommand{\matgs}{\MatrixSymbol \gs}
@@ -736,7 +746,13 @@
 }
 }
 \newcommand{\FunctionNamedBody}[3]{{#1}:{#2}\mapsto{#3}}
-\newcommand{\FunctionBody}[2]{{#1}\mapsto{#2}}
+\DeclareDocumentCommand{\FunctionBody}{s m m}{
+\IfBooleanTF{#1}{
+#2&\mapsto#3
+}{
+#2\mapsto#3
+}
+}
 % \conv[<type>]{a_k}a indicates that the sequence of a_k s converges to a.
 % the type of convergence, e.g., uniform, uniform for all derivatives, etc.
 % is indicated by <type>. Use \conv{a_k}{a} when <type> is implicit.
