@@ -90,3 +90,32 @@
 \draw[gray] (b) -- (O) -- (c);
 \end{tikzpicture}%
 }
+
+\newcommand{\FigureRotationRThree}{%
+\begin{tikzpicture}
+\coordinate (O)  at (0,0);
+\coordinate (N)  at (90:1);
+\coordinate (NE) at (30:1);
+\coordinate (S)  at ($(O)-(N)$);
+\coordinate (SE) at ($(S)+(NE)$);
+\coordinate (E)  at ($(SE)+(NE)$);
+\coordinate (W)  at ($(O)-(E)$);
+\coordinate (NW) at ($(O)-(SE)$);
+\coordinate (SW) at ($(O)-(NE)$);
+\coordinate (a)  at ($2*(N)$);
+\coordinate (b)  at ({cos(160)*sqrt(3)/sqrt(2)},{sin(160)/sqrt(2)});
+\coordinate (c)  at ({cos(250)*sqrt(3)/sqrt(2)},{sin(250)/sqrt(2)});
+\draw[gray, very thin] (N) -- (W) -- (S) -- (E) -- cycle;
+\draw[gray, very thin] (NE) -- (SW);
+\draw[gray, very thin] (NW) -- (SE);
+\draw[->] (O) -- (a);
+\draw ($.2*(SE)$) -- ($.2*(NE)$) -- ($.2*(N)$);
+\node at (b) [name=i, circle, inner sep = .01 cm, fill=black, label={[label distance=0.25cm]90:$\Transpose{\tuple{x_2, -x_1, 0}}$}, draw] {};
+\node at (c) [name=i, circle, inner sep = .01 cm, fill=black, label={[label distance=0.25cm]270:$\E^{\matL_\vx}\Transpose{\tuple{x_2, -x_1, 0}}$}, draw] {};
+\node at (a) [name=i, label={[label distance=0.25cm]250:$\vx$}] {};
+\node at (O) [label={[label distance=0.25cm]190:$\ga$}] {};
+%\draw (O) ellipse ({sqrt(3)/sqrt(2)} and {1/sqrt(2)});
+\draw[->] (O) ($.2*(b)$) arc (160:250:{.2*sqrt(3)/sqrt(2)} and {.2/sqrt(2)});
+\draw[gray] (b) -- (O) -- (c);
+\end{tikzpicture}%
+}

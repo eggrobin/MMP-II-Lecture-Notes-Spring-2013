@@ -23,7 +23,8 @@
 \newcommand{\PauliTensor}{\tensgs}
 \newcommand{\sqftnrm}{\frac{1}{\pa{2\Pi}^n} }
 \newcommand{\ftnrm}{\frac{1}{\pa{2\Pi}^{\frac{n}{2}}} }
-\DeclareMathOperator{\AdjointRep}{Ad}
+%TODO: I think this makes sense. It has to be bold somehow in any case.
+\DeclareMathOperator{\AdjointRep}{\StandardTensorSymbol{Ad}}
 
 \newcommand{\opAdag}{\adj{\opA}}
 
@@ -1727,32 +1728,124 @@ Pick a $\matb\in\LAsutwo$ perpendicular to $\mata$ such that $\norm\matb = 1$. W
 ---``What is $\ga$ as a function of $\gf$?'' The poet:---Traditionally, $\gf$ is the angle, so the angle must be $\gf$.---``You're making the \emph{Candide} argument. Pangloss said ``the reason we have noses is to keep up our eyeglasses''\footnote{\foreign{\textfrench{<<~Il est démontré, disait-il, que les choses ne peuvent être autrement: car tout étant fait pour une fin, tout est nécessairement pour la meilleure fin. Remarquez bien que les nez ont été faits pour porter des lunettes; aussi avons-nous des lunettes.~[...]~>>}}---Voltaire, \emph{Candide, ou l’Optimisme}.}. But speaking \emph{culturally} $\ga$ could be $\gf$ or $2\gf$. It's a little proposition that it's just $\gf$.'' Claude:---I think it's $2\gf$.---``I think this is an excellent exercise''. So there is a beautiful map from the beautiful poetic space $\SpecialUnitaryGroup\of 2$ onto the space $\SpecialOrthogonalGroup\of 3$ where we, as sinners, all live.
 \end{proof}
 \end{proposition}
-
 \end{lecture}
+\newcommand{\LAso}{\LieAlgebraSymbol{so}}%
+\newcommand{\vbracket}[2]{\lsquareCommaRsquare{#1}{#2}_{\R^3}}%
 \begin{lecture}[date=2013-05-07]
 I learned yesterday that there was no lecture on Thursday, so I'll try to do something that fits in the hour.
-EQ1
-Infinitesimal rotation stuff(DE).
-EQ2
+Let \[\matX\in\LAso\of3\DefineAs\setst{\matX\in\LAgl\of{3,\R}}{\Transpose\matX+\matX=0}\text.\]
+We have $x_{ji}=-x_{ij}$, and thus $x_{ii}=0$, so
+\begin{align*}
+\Transpose{\pa{\E^\matX}}&=\E^{\Transpose\matX}=\E^{-\matX}=\pa{\E^\matX}^{-1}\text,\\
+\Determinant\of{\E^\matX}&=\E^{\Trace\matX}=\E^0=1\text{, so we have proven}\\
+\FunctionBody*{\LAso\of3\owns\matX}{\E^\matX\in\SpecialOrthogonalGroup\of3}\text.
+\end{align*}
+You were probably told that this is an infinitesimal rotation---\foreign{\textgerman{das ist eine infinitesimale Drehung}}---but we are going to prove it. For $\vx$, $\vy\in\R^3$, define
+\begin{align*}
+\vbracket\vx\vy&\DefineAs
+\begin{pmatrix}
+x_2y_3-x_3y_2\\
+x_3y_1-x_1y_3\\
+x_1y_2-x_2y_1
+\end{pmatrix}\text,\\
+{\matL_\vx}&\DefineAs\begin{pmatrix}
+0&-x_3&x_2\\
+x_3&0&-x_1\\
+-x_2&x_1&0
+\end{pmatrix}\text.
+\intertext{We have}
+\Transpose{{\matL_\vx}}&=-{\matL_\vx}\text.
+\end{align*}
 \begin{lemma}
-EQ4 is an isomorphism of Lie algebras, EQ5, and you can easily check that it's surjective and blah blah blah blah. You just have to prove that the kernel is empty. You had something about that last year, when you were younger and things were still partially commutative. ---``They did that last year, didn't they?'' Claude:---Yes, yes.---``Should we do that again?''---No, no!---``I hope that this rings a bell, or at least a---what's it called, the thing from Proust, \emph{À la recherche du temps perdu}''---A madeleine.---``Yes, exactly, a madeleine. That's in \emph{Du côté de chez Swann}.'' 
+$\FunctionBody{\R^3\owns\vx}{{\matL_\vx}\in\LAso\of3}$ is an isomorphism of Lie algebras, $\smash{\matL_{\vbracket\vx\vy}=\commutator{{\matL_\vx}}{\matL_\vy}}$, and you can easily check that it's surjective and blah blah blah blah.
+\begin{proof}You just have to prove that the kernel is empty. You had something about that last year, when you were younger and things were still partially commutative. ---``They did that last year, didn't they?'' Claude:---Yes, yes.---``Should we do that again?''---No, no!---``I hope that this rings a bell, or at least a---what's it called, the thing from Proust, \emph{À la recherche du temps perdu}''---A \foreign{\textfrench{madeleine}}.---``Yes, exactly, a \foreign{\textfrench{madeleine}}. That's in \emph{Du côté de chez Swann}.\footnote{``\foreign{\textfrench{Et dès que j’eus reconnu le goût du morceau de madeleine trempé dans le tilleul que me donnait ma tante (quoique je ne susse pas encore et dusse remettre à bien plus tard de découvrir pourquoi ce souvenir me rendait si heureux), aussitôt la vieille maison grise sur la rue, où était sa chambre, vint comme un décor de théâtre s’appliquer au petit pavillon donnant sur le jardin, qu’on avait construit pour mes parents sur ses derrières (ce pan tronqué que seul j’avais revu jusque-là) ; et avec la maison, la ville, la Place où on m’envoyait avant déjeuner, les rues où j’allais faire des courses depuis le matin jusqu’au soir et par tous les temps, les chemins qu’on prenait si le temps était beau.}}''---Marcel Proust, \emph{À la recherche du temps perdu}.}'' 
+\end{proof}
 \end{lemma}
 ---``Do you agree? You look like you don't agree.''---It's morning.---``It depends on your job. I see you're not a nocturnal animal. If you want, you can come back at two, I'll be there. I don't think [Claude] will come though. Will you?'' Claude:---Nooo...
-EQ6
+\begin{align*}
+\matL_{\vx}\vy&=\vbracket\vx\vy\\
+\matL_{\vx}\vx&=0\\
+\E^{{\matL_\vx}}&=\sum{l\geq0}\frac{{\matL_\vx}^l}{\Factorial l}\\
+\E^{{\matL_\vx}}\vx&=\sum{l\geq 0}\frac{{\matL_\vx}^l}{\Factorial l}\vx=\Identity\vx=\vx\text{, that is, $\E^{{\matL_\vx}}$ is a rotation around $\vx$.}\span\omit\span\omit\\
+{\matL_\vx}^2&=\begin{pmatrix}
+-\pa{{x_3}^2+{x_2}^2} & x_1x_2 & x_1x_3\\
+x_1x_2 & -\pa{{x_1}^2+{x_3}^2} & x_2x_3\\
+x_1x_3 & -x_2x_3 & -\pa{{x_1}^2 + {x_2}^2}\\
+\end{pmatrix}\span\omit\span\omit\\
+{\matL_\vx}^3&=-\norm\vx^2{\matL_\vx}
+\intertext{and by induction}
+{\matL_\vx}^{2m+1} &= \pa{-\norm\vx^2}^m{\matL_\vx} &&\text{for $m\geq 0$,}\\
+{\matL_\vx}^{2m} &= \pa{-\norm\vx^2}^{m-1}{\matL_\vx}^2 &&\text{for $m\geq 1$.}
+\end{align*}
 So, we sum.
-EQ7
-What is the Taylor series of the sine? You think it's not worth knowing that stuff, but it is. You don't remember the series, but you seem to be pretty good at remembering the first terms. \emph{The professor whistles ``La Vie en rose'' while writing the series.}
-EQ8
+\begin{align*}
+\E^{{\matL_\vx}} &= \Identity 
++ \sum{m\geq 1} \frac{1}{\Factorial{\pa{2m}}} {\matL_\vx}^{2m} 
++ \sum{m\geq 0} \frac{1}{\Factorial{\pa{2m+1}}}{\matL_\vx}^{2m+1}\\
+&=\Identity 
++ \sum{m\geq 1}\frac{\pa{-\norm\vx^2}^{m-1}}{\Factorial{\pa{2m}}} {\matL_\vx}^2 
++ \sum{m\geq 0}\frac{\pa{-\norm\vx^2}^{m}}{\Factorial{\pa{2m+1}}} {\matL_\vx}
+\end{align*}
+What is the Taylor series of the sine? You think it's not worth knowing that stuff, but it is. \emph{Somebody says $\smash{x - \frac{x^3}{\Factorial 3} + \frac{x^5}{\Factorial 5} - \dotsb}$.} Just give me the series!
+\begin{align*}
+\sin x &= x - \frac{x^3}{\Factorial 3} +  \frac{x^5}{\Factorial 5} - \dotsb\\
+&= \sum{m=0}[\infty] \pa{-1}^m \frac{x^{2m+1}}{\Factorial{\pa{2m+1}}}
+\end{align*} 
+So we get\[
+\E^{{\matL_\vx}} = \Identity - \frac{1}{\norm\vx^2}\sum{m\geq1}\frac{\pa{-\norm\vx^2}^m}{\Factorial{\pa{2m}}}{\matL_\vx}^2+\frac{1}{\norm\vx}{\matL_\vx}\sin\norm\vx\text.
+\]
+Now what is the Taylor series of the cosine? You don't remember the series, but you seem to be pretty good at remembering the first terms. \emph{The professor whistles ``La Vie en rose'' while writing the series.}
+\begin{align*}
+\cos x &= 1 - \frac{x^2}{\Factorial 2} + \dotsb\\
+&= \sum{m=0}[\infty] \pa{-1}^m \frac{x^{2m}}{\Factorial{2m}}
+\end{align*}
+We get\[
+\E^{{\matL_\vx}} = \Identity + \frac{1-\cos \norm\vx}{\norm\vx^2}{\matL_\vx}^2+\frac{\sin \norm\vx}{\norm\vx}{\matL_\vx}\text.\]
 So we have this very nice formula---and we don't need Euler angles. The calculation is so simple that going to the North pole doesn't bring you anything.
-EQ9
+\marginfig[$\E^{{\matL_\vx}}\in\SpecialOrthogonalGroup\of3$ is a rotation around $\vx$. What is the angle $\ga$?]{\FigureRotationRThree}
+We have $\smash{\scal\vx{\Transpose{\tuple{x_2,-x_1,0}}}}$, and $\smash{
+\scal{\pascal{\E^{{\matL_\vx}}\tuple{x_2,-x_1,0}}}{\tuple{x_2,-x_1,0}}=\norm{\tuple{x_2,-x_1,0}}^2\cos\ga}$.
 Once we have the angle $\ga$, we have the axis and the angle, so we have a rotation.
-EQ10
-Why didn't I take the vector product with an arbitrary vector? I want to actually calculate with this.
-EQ11
+Why didn't I take the vector product with an arbitrary vector? I want to actually calculate with this. We will need the following vectors:
+\begin{align*}
+{\matL_\vx}\begin{pmatrix}
+x_2\\-x_1\\0
+\end{pmatrix} &= \begin{pmatrix}
+x_3x_1\\ x_2x_3\\ -{x_1}^2-{x_2}^2
+\end{pmatrix}\text,\\
+{\matL_\vx}^2\begin{pmatrix}
+x_2\\-x_1\\0
+\end{pmatrix} &= \begin{pmatrix}
+-x_2{x_3}^2 - x_2\pa{{x_1}^2+{x_2}^2}\\
+{x_3}^2x_1+x_1\pa{{x_1}^2+{x_2}^2}\\
+-x_1x_2x_3+x_1x_2x_3
+\end{pmatrix}\text,\\
+\E^{{\matL_\vx}}\begin{pmatrix}
+x_2\\-x_1\\0
+\end{pmatrix} &=\begin{pmatrix}
+x_2\\-x_1\\0
+\end{pmatrix} + \frac{\sin\norm\vx}{\norm\vx}\begin{pmatrix}
+x_3x_1\\ x_2x_3\\ -{x_1}^2-{x_2}^2
+\end{pmatrix} + \frac{1-\cos\norm\vx}{\norm\vx^2}
+\begin{pmatrix}
+-x_2\norm\vx^2\\
+x_1\norm\vx^2\\
+0
+\end{pmatrix}\text.
+\end{align*}
 The poet:---Couldn't you just give us the result? It's a $3\times3$ matrix, we can do it ourselves, if we want.---``If you \emph{want}. But you won't do it. So once in your life, do some calculations. I know it's painful. No pain, no gain.''
-
----``You see, the point is I didn't prepare for this calculation.'' The poet:---Evidently.
-We now know that $\abs x$ is the angle, goodbye, farewell, have a nice holiday.
+\begin{align*}
+\scal{
+\pascal{\E^{{\matL_\vx}}\begin{pmatrix}
+x_2\\-x_1\\0
+\end{pmatrix}}
+}{\begin{pmatrix}
+x_2\\-x_1\\0
+\end{pmatrix}} &= {x_1}^2 +{x_2}^2 + \frac{1-\cos\norm\vx}{\norm\vx^2}\pa{-{x_2}^2\norm\vx^2-{x_1}^2\norm\vx^2}\\
+&={x_1}^2+{x_2}^2 + \pa{1-\cos\norm\vx}\pa{-\pa{{x_1}^2+{x_2}^2}}\\
+&=\pa{{x_1}^2+{x_2}^2}\cos\norm\vx
+\end{align*}
+---``You see, the point is I didn't prepare for this calculation.''---Evidently.---``We now know that $\norm\vx$ is the angle, goodbye, farewell, have a nice holiday.''
 \end{lecture}
 \endgroup%QM
 
