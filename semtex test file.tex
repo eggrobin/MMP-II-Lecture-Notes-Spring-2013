@@ -1,15 +1,28 @@
 \documentclass[10pt, twoside]{lecturenotes}
-\usepackage{semtex}
+%\usepackage{semtex}
+\usepackage[slash-delimiter=frac]{unicode-math}
+\setmathfont[Scale=MatchLowercase, math-style=ISO]{Cambria Math}
+\setmathfont[Scale=MatchLowercase, range={\mathcal,\mathbfcal}]{texgyrepagella-math.otf}
 
+\ExplSyntaxOn
+\cs_gset_protected_nopar:Npx \notnot {
+  \um_accent:nnn {} { \um_symfont_tl } { "0338 }
+}
+\ExplSyntaxOff
 
+%\setmathfont[version=calligraphic,Scale=MatchLowercase]{texgyrepagella-math.otf}
+%\renewcommand{\mathcal}[1]{\mathord{\mbox{\mathversion{calligraphic}$\mathscr{#1}$\mathversion{default}}}}
+%\renewcommand{\mathbfcal}[1]{\mathversion{calligraphic} \mathbfscr{#1} \mathversion{default}}
+%\mathversion{default}
+
+\newcommand{\partialup}{\raisebox{.25pt}{\rotatebox[origin=c]{10}{$\!\partial\!$}}}
 \begin{document}
 \[
-\left(
-\binom n k
-\right)
+\mathord{\mbox{$\mathscr{S}$}}^2\mathscr{S}^2
 \]
 \[
-\binom n k
-\binom {\binom{\binom {n} {p}} m} {\sum{i}\frac{1}{i}}
+\mathbf{\notnot\sigma} = 1 \mathcal{S} \mathbfcal{S}
 \]
+$\mathop{{}\partial}^2\mathop{{}\partial}\mathop{{}\partial}\partial^2\partial\partial$\\*
+$\mathop{{}\partialup}^2\mathop{{}\partialup}\mathop{{}\partial}\partial^2\partial\partial\partialup\partialup\partialup$
 \end{document}
