@@ -17,8 +17,14 @@
 \newcommand{\TemperedDistributions}{{\contdual\SchwartzSpace\of{\Rn}}}
 
 %% Freqently-used expressions.
+% Nonstandard, but seen as the application of an informal / to the Pauli matrices.
+\newcommand{\ReducedPauli}[1]{\slashed{\StandardMatrixSymbol{\sigma}}_{#1}}
+% Nonstandard.
+\newcommand{\PauliTensor}{\tensgs}
 \newcommand{\sqftnrm}{\frac{1}{\pa{2\Pi}^n} }
 \newcommand{\ftnrm}{\frac{1}{\pa{2\Pi}^{\frac{n}{2}}} }
+%TODO: I think this makes sense. It has to be bold somehow in any case.
+\DeclareMathOperator{\AdjointRep}{\StandardTensorSymbol{Ad}}
 
 \newcommand{\opAdag}{\adj{\opA}}
 
@@ -861,19 +867,21 @@ Concluding, we have the following
   If $\gy \in \SchwartzSpace\of\R$, then $\abs{\LTwoInner \gy {h_n}} \leq \frac{\Lnorm[2]{\opH^p \gy}}{n^p}$, $n \geq 1$, $p \geq 0$.
 \end{lemma}
 \end{lecture}
+\newcommand{\selt}{\mathscr{s}}
+\newcommand{\vecs}{\mathbfscr{s}}
 \begin{lecture}*[date=2013-04-09]
-\begin{proposition}\LectureStartsHere The $h_n\of x$, $n\geq 0$ form an orthonormal basis of $\SchwartzSpace\of\R$. More precisely, let \[\SchwartzSpace\of\N \DefineAs \setst{\tuple{s_0,s_1,s_2,\dotsc}}{s_j \in \C \text{ and } \forall p, \exists c_p, \abs{s_j} \leq c_p \frac{1}{\pa{1 + j}^p}}\text.\]
+\begin{proposition}\LectureStartsHere The $h_n\of x$, $n\geq 0$ form an orthonormal basis of $\SchwartzSpace\of\R$. More precisely, let \[\SchwartzSpace\of\N \DefineAs \setst{\tuple{\selt_0,\selt_1,\selt_2,\dotsc}}{\selt_j \in \C \text{ and } \forall p, \exists c_p, \abs{\selt_j} \leq c_p \frac{1}{\pa{1 + j}^p}}\text.\]
 Then,
 \begin{align*}
     \MapSpecBody
     {\SchwartzSpace\of \N}
     {\SchwartzSpace\of\R}
-    {\vs}
-    {\sum{n=0}[\infty] s_n h_n\of x}
+    {\vecs}%TODO:use script s, that's what he did.
+    {\sum{n=0}[\infty] \selt_n h_n\of x}
 \end{align*}
 is a continuous, bijective linear map with a continuous inverse.
 \end{proposition}
-``Whatever somebody means by an orthonormal basis for an infinite dimensional vetor space, this is about as good as it gets.'' In proving the theorem, which is an exercise, we will have to do something like \[ \abs{\sum{n \geq 0} s_n h_n\of x} \leq \sum{n \geq 0} \abs{s_n} \abs{h_n\of x} \]---and remember, the macho waits as long as possible before bringing the $\abs{\placeholder}$ in. Compare this to what we had for Fourier series:
+``Whatever somebody means by an orthonormal basis for an infinite dimensional vetor space, this is about as good as it gets.'' In proving the theorem, which is an exercise, we will have to do something like \[ \abs{\sum{n \geq 0} \selt_n h_n\of x} \leq \sum{n \geq 0} \abs{\selt_n} \abs{h_n\of x} \]---and remember, the macho waits as long as possible before bringing the $\abs{\placeholder}$ in. Compare this to what we had for Fourier series:
 \[
   \abs{\sum{j=-\infty}[\infty] \ft{\gj}\of j \E^{\I j x}} \leq \sum{j=-\infty}[\infty] \abs{\ft{\gj}\of j} \underbrace{\abs{\E^{\I j x}}}_{=1}
 \]
@@ -995,7 +1003,7 @@ There is an $\vs$ if and only if $\setst{\gj}{\Poisson\gj h = 0}$ has an Abelian
 \Poisson{I_j}{h}&=0\text.
 \end{align*}
 \
-Setting things up like this, the logical structure is crystal clear. This is something a mathematician could do. You may say, as a physicist, ``frankly, my dear, I don't give a damn'',\footnote{\emph{Gone with the Wind}, 1939, directed by Victor Fleming.} but the reason this structure is interesting is because we have beautiful examples. So, if mathematicians are coming up with all different kinds of beautiful structures, the question is---and I am putting this in very low terms---``Are they not just playing with themselves?'' With this you can predict where Pluto or Neptune is. String theory has predicted nothing, and it may never.
+Setting things up like this, the logical structure is crystal clear. This is something a mathematician could do. You may say, as a physicist, ``frankly, my dear, I don't give a damn''\footnote{\emph{Gone with the Wind}, 1939, directed by Victor Fleming.}, but the reason this structure is interesting is because we have beautiful examples. So, if mathematicians are coming up with all different kinds of beautiful structures, the question is---and I am putting this in very low terms---``Are they not just playing with themselves?'' With this you can predict where Pluto or Neptune is. String theory has predicted nothing, and it may never.
 
 In the case $h\of{q,p}=\frac{1}{2}\pa{\frac{p^2}{n} + m\gw^2 q^2}$, where $\tuple{q,p}\in\R\Cartesian\R$, we have the harmonic oscillator.
 And that's classical mechanics. Now on to quantum mechanics.
@@ -1025,7 +1033,7 @@ Let me give you two examples of observables:
 \end{align*}
 \begin{proposition}
 $\tuple{\QuantumObservables, \frac  \I \ReducedPlanck \commutator \opA \opB}$ is a Lie algebra.
-\begin{proof} We check that $\QuantumObservables$ is closed under the bracket $\frac \I \ReducedPlanck \commutator\placeholder\placeholder$: let $\opA${, }$\opB$ be self-adjoint. Then
+\begin{proof} We check that $\QuantumObservables$ is closed under the bracket $\frac \I \ReducedPlanck \commutator\placeholder\placeholder$. Let $\opA${, }$\opB$ be self-adjoint. Then
 \begin{align*}
 \adj{\pa{\frac \I \ReducedPlanck \commutator\opA\opB}}
 &= -\frac \I \ReducedPlanck\adj{\pa{\opA\opB-\opB\opA}}\\
@@ -1056,7 +1064,7 @@ Okay! So where were we, ladies and gentlemen? When I last saw you, we talked abo
 \end{gather*}
 We're doing this the French way. This is a 5-tuple, the way Bourbaki would write it. To them, mathematics is just long strings of symbols.
 
-Such a logical structure is of no interest if you can't find $\opH$, unless there is a way of picking $\opH$s that describe quantum systems, not just because you believe they do, but because they do actually predict things that you can verify. It's like finding Waldo.\footnote{This is a reference to Martin Handford's \emph{Where's Wally?}, a series of children's books in which a character (Wally) is hidden on every page, published in the United Kingdom from 1987 onwards. It was published as \emph{Where's Waldo?} in the United States, and as \emph{\textgerman{Wo ist Walter?}} in Germany.} Unless you can find Waldo, it's just a meaningless complicated picture. Finding Waldo gives it its meaning. Actually let's call the Hamiltonian $\opW$.\footnote{This notation was---fortunately---not actually used during the lecture, so we stick to $\opH$.} Finding Waldo is \emph{not} the Bourbaki way of doing things. I'll show you two books any physicist will tell you about: \emph{Find classical Waldo}, and \emph{Find quantum Waldo}. \emph{Find classical Waldo} you already had a lecture about last semester.
+Such a logical structure is of no interest if you can't find $\opH$, unless there is a way of picking $\opH$s that describe quantum systems, not just because you believe they do, but because they do actually predict things that you can verify. It's like finding Waldo\footnote{This is a reference to Martin Handford's \emph{Where's Wally?}, a series of children's books in which a character (Wally) is hidden on every page, published in the United Kingdom from 1987 onwards. It was published as \emph{Where's Waldo?} in the United States, and as \emph{\textgerman{Wo ist Walter?}} in Germany.}. Unless you can find Waldo, it's just a meaningless complicated picture. Finding Waldo gives it its meaning. Actually let's call the Hamiltonian $\opW$\footnote{This notation was---fortunately---not actually used during the lecture, so we stick to $\opH$.}. Finding Waldo is \emph{not} the Bourbaki way of doing things. I'll show you two books any physicist will tell you about: \emph{Find classical Waldo}, and \emph{Find quantum Waldo}. \emph{Find classical Waldo} you already had a lecture about last semester.
 
 Recall the two quantum observables from the last lecture.
 \begin{definition}[Momentum and position operators]
@@ -1200,9 +1208,11 @@ The biggest mistake people do when they decide to do research is to read a book.
 \emph{The professor being extremely sleep-deprived, he ends the lecture 25~minutes early, leading to widespread cheering and applause.}
 \end{lecture}
 
+\newcommand{\LAsutwo}{\LieAlgebraSymbol{su}\of 2}%
+\newcommand{\LAgl}{\LieAlgebraSymbol{gl}}
 \newcommand{\Field}{\mathbb{K}}
 \begin{lecture}[date=2013-04-23]
-You've talked at length about $\Matrices n \R \Isomorphic \R^{n^2}$, $\Matrices n \C \Isomorphic \C^{n^2}$. $n\times n$ matrices on $\Field$ are just elements of $\Field^{n^2}$. The only reason we write them as square arrays is to equip these spaces with a---polynomial---multiplication,\[
+You've talked at length about $\smash{\Matrices n \R \Isomorphic \R^{n^2}}$, $\smash{\Matrices n \C \Isomorphic \C^{n^2}}$. $n\times n$ matrices on $\Field$ are just elements of $\smash{\Field^{n^2}}$. The only reason we write them as square arrays is to equip these spaces with a---polynomial---multiplication,\[
 \tuplespec{\matA \matB}{ij} \DefineAs \sum{k=1}[n]A_{ij}B_{ij}\text.
 \]
 Manifolds are just $\R^d$ or $\C^d$ if what you are doing has anything to do with reality.
@@ -1215,7 +1225,7 @@ Define\begin{align*}
 \GeneralLinearGroup\of{n,\Field} &\DefineAs \setst{\matg\in\Matrices n \Field}{\Determinant \matg \neq 0}\\
 &=\Matrices n \Field \setminus \underbrace{\setst{\matg\in\Matrices n \Field}{\Determinant \matg = 0}}_{\mathclap{\text{closed as $\Determinant$ is continuous and $\set{0}$ is closed.}}}\\
 \end{align*}
-$\GeneralLinearGroup\of{n,\Field}$ is an open subset of $\Field^{n^2}$. Now let us look at the multiplication and inversion.
+$\GeneralLinearGroup\of{n,\Field}$ is an open subset of $\smash{\Field^{n^2}}$. Now let us look at the multiplication and inversion.
 \begin{align*}
 \MapSpecBody[\Continf\text{ map}]
 {\GeneralLinearGroup\of{n,\Field}\Cartesian\GeneralLinearGroup\of{n,\Field}}
@@ -1253,7 +1263,7 @@ Why is it closed? Look at the map\[
 Do I have to prove that it's continuous? 
 The poet:---Isn't it open?---``Well, that's the problem with education. Does anyone remember the definition of connected?'' \emph{The poet answers with the definition of path-connected}.---``There was another definition, one with open sets and so on. What are the subsets of $\Rn$ that are both open and closed?'' Somebody else:---The half open, half closed intervals. \emph{The professor whistles ``La Vie en rose''}.---``Sorry, nothing personal. I had to wait for my blood pressure to go down.''
 
-An open set $\gW$ of $\Rn$ is a set such that every point is contained in an open ball inside $\gW$. A closed set of  $\Rn$ is a set in which every Cauchy sequence converges. Here our group verifies both, so it is both open and closed in $\R^{{n+2}^2}$, and thus it is connected.
+An open set $\gW$ of $\Rn$ is a set such that every point is contained in an open ball inside $\gW$. A closed set of  $\Rn$ is a set in which every Cauchy sequence converges. Here our group verifies both, so it is both open and closed in $\R^{\pa{n+2}^2}$, and thus it is connected.
 
 Now we look at a Lie group at the very bottom of the food chain. This is the plankton in the sea of algebraic objects. The reason we talk about it though is that to understand spin, you have to eat plankton sandwiches with $\SpecialUnitaryGroup\of{2}$ inside. And you have to look at the representations. That's what we need this representation crap for.
 \begin{definition}[Special unitary group of degree $2$] We define the group of unitary $2\times2$ matrices with determinant $1$,
@@ -1281,7 +1291,7 @@ It is closed, as $\FunctionBody \matrh {\adj\matrh}$ is a continuous function, a
 and the determinant is a continuous function too.
 So you have a nice closed subgroup of $\GeneralLinearGroup\of{2,\C}$ looking at you. Now I don't know how you feel about things looking at you, but it's looking at you.
 
-``Do you remember what a compact set is?''---Any cover by open sets has a finite subcover.---``This is correct, but with this definition you have to look at all open covers, and check whether they have a finite subcover, and we don't have time for that. There is a nicer property, named after two Germans---actually it was one German and one Frenchman.\footnote{This is the Heine-Borel theorem, after Heinrich Eduard Heine (1828/1881) and Félix Édouard Justin Émile Borel (1871/1956). Note that in France this is called the \foreign{\textfrench{théorème de Borel-Lebesgue}} after the aforementioned Borel and an additional Frenchman, Henri Léon Lebesgue (1875/1941). We have found no Russians associated with this theorem, but interestingly, the theorem is called \foreign{\textrussian{лемма Гейне --- Бореля}} there, so it is only a lemma. Many mathematicians have actually contributed to this theorem, so taking those mentioned by \emph{Wikipedia}, it could be called the Borel-Cousin-Dirichlet-Heine-Pincherle-Lebesgue-Schoenflies-Weierstrass theorem---that's 1 Italian, 3 French, 3 Prussians and Dirichlet, who was born in Napoleonic France in 1805 and became \foreign{\textlatin{de facto}} Prussian in 1815. Do not confuse this Heine with Christian Johann Heinrich Heine (1797/1856), another poet.}'' The poet answers ``closed and bounded'', though he got the answer from someone else.\footnote{This is true in $\Rn$. For a general metric space, replace ``closed and bounded'' by ``complete and totally bounded''.}---``You should be a novelist. You know how to incorporate ideas from others''. So $\SpecialUnitaryGroup\of{2}$ is a compact matrix Lie group, as \[
+``Do you remember what a compact set is?''---Any cover by open sets has a finite subcover.---``This is correct, but with this definition you have to look at all open covers, and check whether they have a finite subcover, and we don't have time for that. There is a nicer property, named after two Germans---actually it was one German and one Frenchman\footnote{This is the Heine-Borel theorem, after Heinrich Eduard Heine (1828/1881) and Félix Édouard Justin Émile Borel (1871/1956). Note that in France this is called the \foreign{\textfrench{théorème de Borel-Lebesgue}} after the aforementioned Borel and an additional Frenchman, Henri Léon Lebesgue (1875/1941). We have found no Russians associated with this theorem, but interestingly, the theorem is called \foreign{\textrussian{лемма Гейне --- Бореля}} there, so it is only a lemma. Many mathematicians have actually contributed to this theorem, so taking those mentioned by \emph{Wikipedia}, it could be called the Borel-Cousin-Dirichlet-Heine-Pincherle-Lebesgue-Schoenflies-Weierstrass theorem---that's 1 Italian, 3 French, 3 Prussians and Dirichlet, who was born in Napoleonic France in 1805 and became \foreign{\textlatin{de facto}} Prussian in 1815. Do not confuse this Heine with Christian Johann Heinrich Heine (1797/1856), another poet.}.'' The poet answers ``closed and bounded''\footnote{This is true in $\Rn$. For a general metric space, replace ``closed and bounded'' by ``complete and totally bounded''.}, though he got the answer from someone else.---``You should be a novelist. You know how to incorporate ideas from others''. So $\SpecialUnitaryGroup\of{2}$ is a compact matrix Lie group, as \[
 \matg\in\SpecialUnitaryGroup\of 2 \Implies \FrobeniusNorm\matg = \sqrt{\Trace \matg\adj\matg} = \sqrt{\Trace \Identity_2} = \sqrt{2}\text.
 \]
 
@@ -1356,7 +1366,6 @@ So the infinitesimal version of (\ref{DeterminantZero})is \[
 \Trace \TimeDerivative\matgg\of 0 = 0\text.
 \]
 These two conditions on the tangent vectors motivate the following definition.
-\newcommand{\LAsutwo}{\LieAlgebraSymbol{su}\of 2}
 \begin{definition}We call $\LAsutwo$ the set of skew-Hermitian $2\times2$ complex matrices with trace $0$,\[
 \LAsutwo\DefineAs\setst{\matX\in\Matrices 2 \C}{\matX+\adj\matX=0, \Trace\matX=0}\text.
 \]
@@ -1378,7 +1387,7 @@ As the gentleman said here, ``exponentiate''. Let $\matX\in \LAsutwo$. We have\b
 \matX+\adj\matX &= \nullmat\text,\\
 \Trace\matX&=0\text.
 \end{align*}
-\emph{Pointing to the poet}---``You told me you had done the properties of the exponential map.''---So it's my fault.---``We've got to have a fall guy. It's like \emph{the Maltese Falcon}.\footnote{\emph{The Maltese Falcon}, 1941, directed by John Huston.}''
+\emph{Pointing to the poet}---``You told me you had done the properties of the exponential map.''---So it's my fault.---``We've got to have a fall guy. It's like \emph{the Maltese Falcon}\footnote{\emph{The Maltese Falcon}, 1941, directed by John Huston.}.''
 \begin{align*}
 \E^\matA&=\sum{k=0}[\infty]\frac{\matA^k}{\Factorial k}\text, \\
 \E^{-\matA}&=\pa{\E^\matA}^{-1}\text.
@@ -1504,7 +1513,7 @@ That finds no object worth its constancy?
 ---Percy Bysshe Shelley.
 \end{flushright}
 \end{verse}
-So you can write poetry about modern science---`the stars that have a different birth' was modern science at the time---but you've got to have temperature as part of the equation.''---I'm not here for poetry.---``You may not be here for that, but maybe that's what you are, like this basketball player.\footnote{This is a reference to \textsc{nba} player Jason Collins, who recently revealed he is gay. ``I didn't set out to be the first openly gay athlete playing in a major American team sport. But since I am, I'm happy to start the conversation.''}''
+So you can write poetry about modern science---`the stars that have a different birth' was modern science at the time---but you've got to have temperature as part of the equation.''---I'm not here for poetry.---``You may not be here for that, but maybe that's what you are, like this basketball player\footnote{This is a reference to \textsc{nba} player Jason Collins, who recently revealed he is gay. ``I didn't set out to be the first openly gay athlete playing in a major American team sport. But since I am, I'm happy to start the conversation.''}.''
 
 Spin one has three dimensions,\[
 \begin{pmatrix}
@@ -1540,6 +1549,303 @@ Heisenberg---\emph{he}'s dead, like Franco---considered a part of that, and he c
 \newcommand{\one}{\mathbf 1}
 
 The law of physics is that the antiquark lives in the dual flavour space $\Dual{{\C^3}}$. The flavour space is a representation $\three$ of $\SpecialUnitaryGroup\of 3$, and the dual flavour space is the dual representation $\threebar$. So if we have a quark-antiquark pair---a meson---, it lies in the tensor product $\C^3\Tensor\Dual{{\C^3}}$, or $\three\Tensor\threebar$. Now the dimension of this representation is $3\times3=9$, and it decomposes into the trivial---one-dimensional---representation $\one$, and another---eight-dimensional---irreducible representation, which we call $\eight$, that is, $\three\Tensor\threebar=\one\DirectSum\eight$. Gell-Mann came up with this, and he called it the eightfold way. I hope I have convinced you we need to look at this stuff. This is not some bourgeois pedantic mathematician stuff. When I do it next Friday you cannot complain. You can leave the room, but you cannot complain.
+\end{lecture}
+\begin{lecture}[date=2013-05-02]
+Alright, here we are. I'm going to talk to you about $\LAsutwo$ and $\SpecialUnitaryGroup\of 2$ at a rate at which you can absorb the information---I know that's a slow rate. I'm going to give you a lecture today, just using the blackboard and talking.
+\begin{align*}
+\SpecialUnitaryGroup\of 2 &\DefineAs \setst{\matg\in\GeneralLinearGroup\of{2,\C}}{\matg\adj\matg = 1, \Determinant \matg = 1}\\
+\LAsutwo\of 2 &\DefineAs \setst{\matx\in\LAgl\of{2,\C}}{\adj\matx+\matx=0, \Trace \matx = 0}
+\end{align*}
+We have a little lemma.
+\begin{lemma}
+\[
+\frac{\I}{\sqrt 2} \PauliMatrix 1 = \frac{\I}{\sqrt2}\begin{pmatrix}
+0&1\\
+1&0
+\end{pmatrix}\text,
+\frac{\I}{\sqrt 2} \PauliMatrix 2 = \frac{\I}{\sqrt2}\begin{pmatrix}
+0&-\I\\
+\I&0
+\end{pmatrix}\text,
+\frac{\I}{\sqrt 2} \PauliMatrix 3 = \frac{\I}{\sqrt2}\begin{pmatrix}
+1&0\\
+0&-1
+\end{pmatrix}
+\]  is an orthonormal basis for $\tuple{\LAsutwo, \FrobeniusInner\placeholder\placeholder}$, where $\FrobeniusInner\matA\matB\DefineAs\Trace\of{\matA\adj\matB}$.
+\begin{proof}
+Calculate\begin{align*}
+\FrobeniusInner{\frac{\I\PauliMatrix 1}{\sqrt2}}{\frac{\I\PauliMatrix 1}{\sqrt2}}
+&= \Trace\of{\frac{\I}{\sqrt2}\PauliMatrix 1\frac{-\I}{\sqrt2}\adj{\PauliMatrix 1}}\\
+&=\frac{1}{2}\Trace\PauliMatrix 1^2 = \frac{1}{2} \Trace\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix} = 1\text,
+\end{align*}
+etc.
+\end{proof}
+\end{lemma}
+So you have an orthonormal basis. It's nice to have an orthonormal basis. 
+\begin{definition}
+$\AdjointRep\of\matg \matx \DefineAs \matg\matx\matg^{-1}$, for $\matg\in\SpecialUnitaryGroup\of 2$ and $\matx\in\LAsutwo$.
+Two by two matrix, two by two matrix, two by two matrix. It's well defined.
+\end{definition}
+\begin{proposition}
+$\FunctionSpec\AdjointRep{\SpecialUnitaryGroup\of 2}{\UnitaryGroup\of{\LAsutwo}}\DefineAs\UnitaryGroup\of{\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}}$ is an irreducible representation of $\SpecialOrthogonalGroup\of2$.
+\begin{proof}
+Let us prove $\AdjointRep\of\matg\in \UnitaryGroup\of{\LAsutwo}$:
+\begin{align*}
+\begin{split}
+\FrobeniusInner{\AdjointRep\of\matg\matx}{\AdjointRep\of\matg\maty}
+&= \Trace\of{\pa{\AdjointRep\of\matg\matx}\adj{\pa{\AdjointRep\of\matg\maty}}}\\
+&= \Trace\of{\matg\matx\matg^{-1}\adj{\pa{\matg\maty\matg^{-1}}}}\\
+&= \Trace\of{\matg\matx\matg^{-1}\adj{\pa{\matg^{-1}}}\adj\maty\adj\matg}\\
+&= \Trace\of{\matg\matx\matg^{-1}\matg\adj\maty\matg^{-1}}\\
+&= \Trace\of{\matx\adj\maty} = \FrobeniusInner\matx\maty\text.
+\end{split}\quad\parbox{.4\textwidth}{$\matg$ and $\matg^{-1}$ kill each other off---no, let's use a more poetic term. They \emph{merge} into the identity. Then we bring the $\matg^{-1}$ to the front, and again, they \emph{merge} into the identity.}
+\end{align*}
+I hope you can handle all that merging.
+There's something I didn't do! I need to show $\AdjointRep\of\matg\matx\in\LAsutwo$. ---``I have to \emph{show} that it somehow \emph{metamorphoses} into $\LAsutwo$.''---Maybe \emph{mirrors} would be a good metaphor.---``No. I don't like mirrors.''
+\begin{align*}
+\adj{\pa{\AdjointRep\of\matg\matx}}&=\adj{\pa{\matg\matx\matg^{-1}}}\\
+&=\adj{\pa{\matg^{-1}}}\adj\matx\adj\matg\\
+&=\matg\adj\matx\matg^{-1}=-\matg\matx\matg^{-1}\text.
+\end{align*}
+
+The trace is \foreign{\textgerman{ewig entlang Konjugationsklassen}}---it's \emph{much} easier to be a bad poet than a bad mathematician. This is a basic fact, as our algebraic conscience would tell us. It's as basic as ``you don't eat soup with a fork''. Isn't it? \emph{Claude nods}. It's good to have an algebraic conscience, because I don't have one.
+
+Now we prove that it's a representation,
+$\AdjointRep\of\matg\AdjointRep\of\matrh\matx
+= \AdjointRep\of{\matg\matrh}$ for all $\matg$, $\matrh\in\SpecialUnitaryGroup\of 2$ and $\matx\in\LAsutwo$.
+\begin{align*}
+\AdjointRep\of\matg\pa{\AdjointRep\of\matrh\matx}&=\matg\pa{\matrh\matx\matrh^{-1}}\matg^{-1}\\
+&=\pa{\matg\matrh}\matx\pa{\matg\matrh}^{-1} = \AdjointRep\of{\matg\matrh}\matx\text,\\
+\AdjointRep\of\Identity\matx&=\Identity\text.
+\end{align*}
+\end{proof}
+\end{proposition}
+\begin{proposition}
+$\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}\Isomorphic\tuple{\R^3,\scal{\:}{\:}}$. The isomorphism is given by
+\begin{multline*}
+\FunctionBody
+{\R^3\owns\vgx}
+{
+\gx_1\frac{\I}{\sqrt2}
+\begin{pmatrix}
+1&0\\
+0&-1
+\end{pmatrix}
++\gx_3\frac{\I}{\sqrt2}
+\begin{pmatrix}
+0&-\I\\
+\I&0
+\end{pmatrix}
++\gx_2\frac{\I}{\sqrt2}
+\begin{pmatrix}
+0&1\\
+1&0
+\end{pmatrix}}\\
+=\frac{\I}{\sqrt2}
+\begin{pmatrix}
+\gx_1&\gx_2-\I\gx_3\\
+\gx_2+\I\gx_3&-\gx_1
+\end{pmatrix}
+\text.
+\end{multline*}
+\begin{proof}
+The poet:---We already encountered this formula last year.---``That's right, but I certainly didn't expect you to remember it.'' \emph{the professor holds on to a table and breathes deeply.} ``Sorry. I was beginning to hyperventilate.  I certainly didn't expect you to remember this.''---Isn't this also the measurement operator of a Stern-Gerlach box?---``A what? [...] Yes, that's right.''
+\[
+\FrobeniusInner{\frac{\I}{\sqrt2}\scal\vgx\PauliTensor}{\frac{\I}{\sqrt2}\scal\vgl\PauliTensor}
+=\gx_1\gl_1+\gx_2\gl_2+\gx_3\gl_3\text.
+\]
+\end{proof}
+\end{proposition}
+\[
+\tuplespec{\AdjointRep\of\matg}{kl} = \FrobeniusInner{\AdjointRep\of\matg\frac{\I}{\sqrt2}\PauliMatrix k}{\frac{\I}{\sqrt2}\PauliMatrix l}
+\]
+The poet:---I'm not sure about the order of the $k$ and $l$ I dictated you.---``Let's just check! Here's how you do linear algebra.''
+\[
+\AdjointRep\of\matg\matx = \AdjointRep\of\matg\sum{k=1}[3]\FrobeniusInner\matx{\ReducedPauli k}\ReducedPauli k\text.
+\]
+I don't want to write $\frac\I{\sqrt2}$ all the time, so I defined
+\[
+\ReducedPauli k \DefineAs \frac{\I}{\sqrt2}\PauliMatrix k\text.
+\]
+---``Algebraic conscience, do you agree? I'm just projecting onto an orthogonal basis.'' \emph{Claude looks confused} ``I'll just give him a few seconds to give us the go-ahead.'' \emph{Claude points out a mistake.} ``It's good to have an algebraic conscience. I don't have an algebraic conscience---I don't have a conscience at all, but that's another matter.''
+\begin{align*}
+\AdjointRep\of\matg\matx &= \sum{k=1}[3]\FrobeniusInner\matx{\ReducedPauli k}\AdjointRep\of\matg\ReducedPauli k\text.
+\intertext{Let us look at $\AdjointRep\of\matg\ReducedPauli k$.}
+\AdjointRep\of\matg\ReducedPauli k &= \sum{k=1}[3]\FrobeniusInner{\AdjointRep\of\matg\ReducedPauli k}{\ReducedPauli l}\text.
+\intertext{Substituting,}
+\AdjointRep\of\matg\matx&=\sum{k,l=1}[3]\FrobeniusInner{\AdjointRep\matg\ReducedPauli k}{\ReducedPauli l}\FrobeniusInner{\matx}{\ReducedPauli k} \ReducedPauli l\text.
+\end{align*}
+Algebraic conscience, do you agree? You see, I'm doing this to show that you don't have to memorise this. If you memorise, you always make a mistake. We have proven:
+\begin{align*}
+\AdjointRep\of\matg & = \tuple{\FrobeniusInner{\AdjointRep\of\matg\ReducedPauli l}{\ReducedPauli k}}\text.
+\intertext{Moreover,}
+\AdjointRep\of\matg\adj{\AdjointRep\of\matg} &= \Identity_{\LAsutwo}\text.\\
+\FrobeniusInner{\AdjointRep\of\matg\ReducedPauli l}{\ReducedPauli k} &= \FrobeniusInner{\ReducedPauli k}{\AdjointRep\of\matg\ReducedPauli l}\\
+&=\FrobeniusInner{\adj{\pa{\AdjointRep\of\matg}}\ReducedPauli k}{\ReducedPauli l}\\
+&= \FrobeniusInner{\AdjointRep\of\matg^{-1}\ReducedPauli k}{\ReducedPauli l}\\
+&= \FrobeniusInner{\AdjointRep\of{\matg^{-1}}\ReducedPauli k}{\ReducedPauli l}\text{...}
+\end{align*}
+---``I want to show it's real. It should be real, right?'' Claude:---The vector space $\LAsutwo$ is a real vector space. $\AdjointRep\of\matg$ is a transformation of it.---``We have to take a break, right?''
+
+So what I want to show is that $\AdjointRep\in\SpecialOrthogonalGroup\of{\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder},3}$, where $\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}$ is a real inner product space.
+$\FrobeniusInner \matx\maty = \Trace\of{\matx\adj\maty}=-\Trace\of{\matx\maty}$ is real linear in both variables.
+$\AdjointRep\of\matg\matx\DefineAs\matg\matx\matg^{-1}$ is a real linear transformation of the real inner product space $\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}$.
+
+Claude:---We checked that it's an orthogonal matrix. So we \emph{know} that.---``Yes. We checked $\FrobeniusInner{\AdjointRep\of\matg\matx}{\AdjointRep\of\matg\maty}=\FrobeniusInner\matx\maty$ for $\matg\in\SpecialUnitaryGroup\of 2$, $\matx$, $\maty\in\LAsutwo$, in other words, $\AdjointRep\of\matg\in\OrthogonalGroup\of{\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}}$. We checked that in complete detail.'' 
+
+The poet is right, it's irreducible because it has no invariant subspace. We now know---hey, how do you like that, `we now know', all you have to do is to add a `k' in front of the `n'--- that $\FunctionBody{\SpecialUnitaryGroup\of 2 \owns\matg}{\AdjointRep\of\matg\in\OrthogonalGroup\of{\tuple{\LAsutwo, \FrobeniusInner\placeholder\placeholder}}}$.
+
+%TODO:QRCODE
+We still have to prove that it's in $\SpecialOrthogonalGroup\of{\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}}$. We already know that it's orthogonal, so we only have to prove that its determinant is $1$. As it's orthogonal, its determinant can only be $1$ or $-1$. Now the determinant is a continuous function. Can a continuous function take both the values $1$ and $-1$, and nothing in between?---No.---``Well, that's not quite true. The domain has to have a property...''---Connected.---``Exactly. Is $\SpecialUnitaryGroup\of 3$ connected? In the notes from last semester...'' The poet:---They are not available online.---``Yes they are\footnote{The lecture notes from last semester are still available online at \url{http://www.math.ethz.ch/~gruppe5/group5/lectures/mmp/hs12/Files/}.}. In \emph{Finite Dimensional Quantum Mechanics}, on page eight, there is a section called ``Unitary Groups'', and there, you have the fact that it's connected. Namely, you have---in an exercise---the fact that $\SpecialUnitaryGroup\of 2$ is homeomorphic to the $3$-sphere $\UnitSphere 3$. As physicists, you don't quite know what the $3$-sphere is, but you know what the $2$-sphere looks like: it's round, and it's connected.''
+
+We have proven the following.
+\begin{proposition}
+The map $\FunctionSpec\AdjointRep{\SpecialUnitaryGroup\of{2}}{\SpecialOrthogonalGroup\of{\tuple{\LAsutwo,\FrobeniusInner\placeholder\placeholder}}\Isomorphic\SpecialOrthogonalGroup\of 3}$ is a surjective homomorphism, and\begin{align*}
+\matg\in\AdjointRep^{-1}\of\matR &\Implies -\matg\in\AdjointRep^{-1}\of\matR\text, \\
+\forall\matR\in\SpecialOrthogonalGroup\of 3\quad \Cardinality{\AdjointRep^{-1}\of\matR}&=2\text,
+\end{align*}
+that is, it is a double covering.
+\begin{proof}
+We have done the fact that the determinant is one.
+How do we prove it's surjective? When we have proven that, we want to know how many people go to each rotation, \foreign{\textgerman{wieviele blätter diese Überlagerung hat}}. So we have to go door-to-door and ask. How the hell are we going to prove that? Or how are we bloody well going to prove that?---you see, in the thirties, `bloody well' was really vulgar. Now if you say that, you just sound like a bad British actor. Look at the maps\begin{align*}
+\FunctionBody*{\mata\in\LAsutwo}{\E^\mata\in\SpecialUnitaryGroup\of 2}\text,\\
+\FunctionBody*{\mata\in\LAsutwo}{\AdjointRep\of{\E^\mata}\in\SpecialOrthogonalGroup\of 3}\text.
+\end{align*}
+---``How do you characterise a rotation?''---You have to have an axis and angle.---``Ex\-act\-ly. It can be an axis of evil, but you need an axis and an angle. Now this will amuse you. What is the definition of $\AdjointRep\of{\E^\mata}\matA$?'' The poet:---$\E^\mata\mata\pa{\E^\mata}^{-1}=\mata\E^\mata\E^{-\mata}=\mata$---``Does this commute? The poet tells me it commutes. Is there an anti-poet?''---I have the reason why it commutes.---``You are the reason why it commutes?''---No, I \emph{have} the reason.
+
+$\mata$ is the axis of the special orthogonal linear transformation $\AdjointRep\of{\E^\mata}$. 
+$\AdjointRep\of{\E^{\gf\mata}}$ has axis $\mata$. As $\gf$ changes, the angle has to change.
+\marginfig[$\AdjointRep\of{\E^{\gf\mata}}$ is a rotation around $\mata$ of angle $\ga$. What is $\ga$ as a function of $\gf$?]{\FigureRotationAdjointRep}%
+Pick a $\matb\in\LAsutwo$ perpendicular to $\mata$ such that $\norm\matb = 1$. We have
+\begin{align*}
+\FrobeniusInner\mata\matb&=0\text,\\
+\FrobeniusInner\matb\matb&=1\text,\\
+\FrobeniusInner\matb{\AdjointRep\of{\E^{\gf\mata}\matb}}&=\cos\ga\text.
+\end{align*}
+---``What is $\ga$ as a function of $\gf$?'' The poet:---Traditionally, $\gf$ is the angle, so the angle must be $\gf$.---``You're making the \emph{Candide} argument. Pangloss said ``the reason we have noses is to keep up our eyeglasses''\footnote{\foreign{\textfrench{<<~Il est démontré, disait-il, que les choses ne peuvent être autrement: car tout étant fait pour une fin, tout est nécessairement pour la meilleure fin. Remarquez bien que les nez ont été faits pour porter des lunettes; aussi avons-nous des lunettes.~[...]~>>}}---Voltaire, \emph{Candide, ou l’Optimisme}.}. But speaking \emph{culturally} $\ga$ could be $\gf$ or $2\gf$. It's a little proposition that it's just $\gf$.'' Claude:---I think it's $2\gf$.---``I think this is an excellent exercise''. So there is a beautiful map from the beautiful poetic space $\SpecialUnitaryGroup\of 2$ onto the space $\SpecialOrthogonalGroup\of 3$ where we, as sinners, all live.
+\end{proof}
+\end{proposition}
+\end{lecture}
+\newcommand{\LAso}{\LieAlgebraSymbol{so}}%
+\newcommand{\vbracket}[2]{\lsquareCommaRsquare{#1}{#2}_{\R^3}}%
+\begin{lecture}[date=2013-05-07]
+I learned yesterday that there was no lecture on Thursday, so I'll try to do something that fits in the hour.
+Let \[\matX\in\LAso\of3\DefineAs\setst{\matX\in\LAgl\of{3,\R}}{\Transpose\matX+\matX=0}\text.\]
+We have $x_{ji}=-x_{ij}$, and thus $x_{ii}=0$, so
+\begin{align*}
+\Transpose{\pa{\E^\matX}}&=\E^{\Transpose\matX}=\E^{-\matX}=\pa{\E^\matX}^{-1}\text,\\
+\Determinant\of{\E^\matX}&=\E^{\Trace\matX}=\E^0=1\text{, so we have proven}\\
+\FunctionBody*{\LAso\of3\owns\matX}{\E^\matX\in\SpecialOrthogonalGroup\of3}\text.
+\end{align*}
+You were probably told that this is an infinitesimal rotation---\foreign{\textgerman{das ist eine infinitesimale Drehung}}---but we are going to prove it. For $\vx$, $\vy\in\R^3$, define
+\begin{align*}
+\vbracket\vx\vy&\DefineAs
+\begin{pmatrix}
+x_2y_3-x_3y_2\\
+x_3y_1-x_1y_3\\
+x_1y_2-x_2y_1
+\end{pmatrix}\text,\\
+{\matL_\vx}&\DefineAs\begin{pmatrix}
+0&-x_3&x_2\\
+x_3&0&-x_1\\
+-x_2&x_1&0
+\end{pmatrix}\text.
+\intertext{We have}
+\Transpose{{\matL_\vx}}&=-{\matL_\vx}\text.
+\end{align*}
+\begin{lemma}
+$\FunctionBody{\R^3\owns\vx}{{\matL_\vx}\in\LAso\of3}$ is an isomorphism of Lie algebras, $\smash{\matL_{\vbracket\vx\vy}=\commutator{{\matL_\vx}}{\matL_\vy}}$, and you can easily check that it's surjective and blah blah blah blah.
+\begin{proof}You just have to prove that the kernel is empty. You had something about that last year, when you were younger and things were still partially commutative. ---``They did that last year, didn't they?'' Claude:---Yes, yes.---``Should we do that again?''---No, no!---``I hope that this rings a bell, or at least a---what's it called, the thing from Proust, \emph{À la recherche du temps perdu}''---A \foreign{\textfrench{madeleine}}.---``Yes, exactly, a \foreign{\textfrench{madeleine}}. That's in \emph{Du côté de chez Swann}.\footnote{``\foreign{\textfrench{Et dès que j’eus reconnu le goût du morceau de madeleine trempé dans le tilleul que me donnait ma tante (quoique je ne susse pas encore et dusse remettre à bien plus tard de découvrir pourquoi ce souvenir me rendait si heureux), aussitôt la vieille maison grise sur la rue, où était sa chambre, vint comme un décor de théâtre s’appliquer au petit pavillon donnant sur le jardin, qu’on avait construit pour mes parents sur ses derrières (ce pan tronqué que seul j’avais revu jusque-là) ; et avec la maison, la ville, la Place où on m’envoyait avant déjeuner, les rues où j’allais faire des courses depuis le matin jusqu’au soir et par tous les temps, les chemins qu’on prenait si le temps était beau.}}''---Marcel Proust, \emph{À la recherche du temps perdu}.}'' 
+\end{proof}
+\end{lemma}
+---``Do you agree? You look like you don't agree.''---It's morning.---``It depends on your job. I see you're not a nocturnal animal. If you want, you can come back at two, I'll be there. I don't think [Claude] will come though. Will you?'' Claude:---Nooo...
+\begin{align*}
+\matL_{\vx}\vy&=\vbracket\vx\vy\\
+\matL_{\vx}\vx&=0\\
+\E^{{\matL_\vx}}&=\sum{l\geq0}\frac{{\matL_\vx}^l}{\Factorial l}\\
+\E^{{\matL_\vx}}\vx&=\sum{l\geq 0}\frac{{\matL_\vx}^l}{\Factorial l}\vx=\Identity\vx=\vx\text{, that is, $\E^{{\matL_\vx}}$ is a rotation around $\vx$.}\span\omit\span\omit\\
+{\matL_\vx}^2&=\begin{pmatrix}
+-\pa{{x_3}^2+{x_2}^2} & x_1x_2 & x_1x_3\\
+x_1x_2 & -\pa{{x_1}^2+{x_3}^2} & x_2x_3\\
+x_1x_3 & -x_2x_3 & -\pa{{x_1}^2 + {x_2}^2}\\
+\end{pmatrix}\span\omit\span\omit\\
+{\matL_\vx}^3&=-\norm\vx^2{\matL_\vx}
+\intertext{and by induction}
+{\matL_\vx}^{2m+1} &= \pa{-\norm\vx^2}^m{\matL_\vx} &&\text{for $m\geq 0$,}\\
+{\matL_\vx}^{2m} &= \pa{-\norm\vx^2}^{m-1}{\matL_\vx}^2 &&\text{for $m\geq 1$.}
+\end{align*}
+So, we sum.
+\begin{align*}
+\E^{{\matL_\vx}} &= \Identity 
++ \sum{m\geq 1} \frac{1}{\Factorial{\pa{2m}}} {\matL_\vx}^{2m} 
++ \sum{m\geq 0} \frac{1}{\Factorial{\pa{2m+1}}}{\matL_\vx}^{2m+1}\\
+&=\Identity 
++ \sum{m\geq 1}\frac{\pa{-\norm\vx^2}^{m-1}}{\Factorial{\pa{2m}}} {\matL_\vx}^2 
++ \sum{m\geq 0}\frac{\pa{-\norm\vx^2}^{m}}{\Factorial{\pa{2m+1}}} {\matL_\vx}
+\end{align*}
+What is the Taylor series of the sine? You think it's not worth knowing that stuff, but it is. \emph{Somebody says $\smash{x - \frac{x^3}{\Factorial 3} + \frac{x^5}{\Factorial 5} - \dotsb}$.} Just give me the series!
+\begin{align*}
+\sin x &= x - \frac{x^3}{\Factorial 3} +  \frac{x^5}{\Factorial 5} - \dotsb\\
+&= \sum{m=0}[\infty] \pa{-1}^m \frac{x^{2m+1}}{\Factorial{\pa{2m+1}}}
+\end{align*} 
+So we get\[
+\E^{{\matL_\vx}} = \Identity - \frac{1}{\norm\vx^2}\sum{m\geq1}\frac{\pa{-\norm\vx^2}^m}{\Factorial{\pa{2m}}}{\matL_\vx}^2+\frac{1}{\norm\vx}{\matL_\vx}\sin\norm\vx\text.
+\]
+Now what is the Taylor series of the cosine? You don't remember the series, but you seem to be pretty good at remembering the first terms. \emph{The professor whistles ``La Vie en rose'' while writing the series.}
+\begin{align*}
+\cos x &= 1 - \frac{x^2}{\Factorial 2} + \dotsb\\
+&= \sum{m=0}[\infty] \pa{-1}^m \frac{x^{2m}}{\Factorial{2m}}
+\end{align*}
+We get\[
+\E^{{\matL_\vx}} = \Identity + \frac{1-\cos \norm\vx}{\norm\vx^2}{\matL_\vx}^2+\frac{\sin \norm\vx}{\norm\vx}{\matL_\vx}\text.\]
+So we have this very nice formula---and we don't need Euler angles. The calculation is so simple that going to the North pole doesn't bring you anything.
+\marginfig[$\E^{{\matL_\vx}}\in\SpecialOrthogonalGroup\of3$ is a rotation around $\vx$. What is the angle $\ga$?]{\FigureRotationRThree}
+We have $\smash{\scal\vx{\Transpose{\tuple{x_2,-x_1,0}}}}$, and $\smash{
+\scal{\pascal{\E^{{\matL_\vx}}\tuple{x_2,-x_1,0}}}{\tuple{x_2,-x_1,0}}=\norm{\tuple{x_2,-x_1,0}}^2\cos\ga}$.
+Once we have the angle $\ga$, we have the axis and the angle, so we have a rotation.
+Why didn't I take the vector product with an arbitrary vector? I want to actually calculate with this. We will need the following vectors:
+\begin{align*}
+{\matL_\vx}\begin{pmatrix}
+x_2\\-x_1\\0
+\end{pmatrix} &= \begin{pmatrix}
+x_3x_1\\ x_2x_3\\ -{x_1}^2-{x_2}^2
+\end{pmatrix}\text,\\
+{\matL_\vx}^2\begin{pmatrix}
+x_2\\-x_1\\0
+\end{pmatrix} &= \begin{pmatrix}
+-x_2{x_3}^2 - x_2\pa{{x_1}^2+{x_2}^2}\\
+{x_3}^2x_1+x_1\pa{{x_1}^2+{x_2}^2}\\
+-x_1x_2x_3+x_1x_2x_3
+\end{pmatrix}\text,\\
+\E^{{\matL_\vx}}\begin{pmatrix}
+x_2\\-x_1\\0
+\end{pmatrix} &=\begin{pmatrix}
+x_2\\-x_1\\0
+\end{pmatrix} + \frac{\sin\norm\vx}{\norm\vx}\begin{pmatrix}
+x_3x_1\\ x_2x_3\\ -{x_1}^2-{x_2}^2
+\end{pmatrix} + \frac{1-\cos\norm\vx}{\norm\vx^2}
+\begin{pmatrix}
+-x_2\norm\vx^2\\
+x_1\norm\vx^2\\
+0
+\end{pmatrix}\text.
+\end{align*}
+The poet:---Couldn't you just give us the result? It's a $3\times3$ matrix, we can do it ourselves, if we want.---``If you \emph{want}. But you won't do it. So once in your life, do some calculations. I know it's painful. No pain, no gain.''
+\begin{align*}
+\scal{
+\pascal{\E^{{\matL_\vx}}\begin{pmatrix}
+x_2\\-x_1\\0
+\end{pmatrix}}
+}{\begin{pmatrix}
+x_2\\-x_1\\0
+\end{pmatrix}} &= {x_1}^2 +{x_2}^2 + \frac{1-\cos\norm\vx}{\norm\vx^2}\pa{-{x_2}^2\norm\vx^2-{x_1}^2\norm\vx^2}\\
+&={x_1}^2+{x_2}^2 + \pa{1-\cos\norm\vx}\pa{-\pa{{x_1}^2+{x_2}^2}}\\
+&=\pa{{x_1}^2+{x_2}^2}\cos\norm\vx
+\end{align*}
+---``You see, the point is I didn't prepare for this calculation.''---Evidently.---``We now know that $\norm\vx$ is the angle, goodbye, farewell, have a nice holiday.''
 \end{lecture}
 \endgroup%QM
 
