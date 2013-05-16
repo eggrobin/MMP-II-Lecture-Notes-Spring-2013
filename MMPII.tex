@@ -26,7 +26,7 @@
 %TODO: I think this makes sense. It has to be bold somehow in any case.
 \DeclareMathOperator{\AdjointRep}{\StandardTensorSymbol{Ad}}
 
-\newcommand{\cz}{\mathscr{z}}
+\newcommand{\cz}{\mathscr{Z}}
 
 \newcommand{\opAdag}{\adj{\opA}}
 
@@ -1850,6 +1850,7 @@ x_2\\-x_1\\0
 ---``You see, the point is I didn't prepare for this calculation.''---Evidently.---``We now know that $\norm\vx$ is the angle, goodbye, farewell, have a nice holiday.''
 \end{lecture}
 \begin{lecture}[date=2013-05-14]
+Let 
 We could take representations of $\LAsutwo$ and sort of exponentiate them, and get representations of $\SpecialUnitaryGroup\of 2$, but we are going to construct them by hand. Define
 \[
 V_n\DefineAs\setst{p\of{z_1,z_2}\DefineAs\sum{j=0}[n]c_j{z_1}^{n-j}{z_2}^j}{c_j\in\Z, j=0,\dotsc,n}\text.
@@ -1905,8 +1906,8 @@ We have
 Let
 \begin{align*}
 \matT_t&\DefineAs\begin{pmatrix}
-\cos t & sin t\\
--sin t & cos t
+\cos t & \sin t\\
+-\sin t & \cos t
 \end{pmatrix}
 \in \SpecialUnitaryGroup\of 2\text.
 \intertext{Then}
@@ -1922,6 +1923,36 @@ Now somebody who is familiar with this knows that I have taken the Cartan, the m
 ---How much time is left?---``One minute.''---One minute?---``Yes.''
 \paragraph*{Strategy} suppose that for some $\opA\in\Endomorphisms\of{V_n}$, $\gr_n\of\matg\opA = \opA\gr_n\of\matg$ for all $\matg\in\SpecialUnitaryGroup\of 2$. Show $\opA=\gl\Identity$.
 \end{proof}
+\end{theorem}
+\end{lecture}
+\begin{lecture}[date=2013-05-16]
+In particular, EQ1.%TODO: this really belongs before the strategy...
+EQ2
+\emph{To Claude}:---Okay? Oh, you just got here.---``Er... yes''.
+
+How do you interpret this? Should I speed up? You don't care anyway.
+There are only a couple of weeks of school, and you are still here just by inertia.
+\foreign{\textgerman{das heisst}}, $\opA\cz_{n,j}$ is an eigenvector of $\gr_n\of{\matR_t}$ with eigenvalue $\E^{-\I\pa{n-2j}t}$. Find a $t$ such that $\E^{-I\pa{n-2j}t}=\E^{-I\pa{n-2k}t}\Equivalent 0\leq j=k\leq n$, \foreign{\textlatin{id est}}, \foreign{\textgerman{das heisst}}, $\E^{\I\pa{n-2j}t}$ for $j=0,\dotsc, n$ are all different. (multiple of pi -> hyperventilating; running in the wrong direction, das ist nicht guet.)
+Let's pick $t$ irrational, for instance $t = \sqrt{2}$, EQ3.---I need something more. I need that you can't multiply $\Pi$ by a rational number and get $\sqrt 2$.Claude:---``If you stick with the square root of two.''---Yes. Let's pick $t=\sqrt 2 \Pi$. Then we can stop because you all know about that poor Greek guy who talked too much, so they took him in a row boat on the lake of Zürich and drowned him. This was before the Greeks had an economic crisis.
+$\gr_n\of{\matR_{\sqrt2 \Pi}}$ is diagonalisable, its eigenvectors are the $\opA\cz_{n,j}$ and its  eigenvalues are the $\E^{-\I\pa{n-2j}\sqrt2\Pi}$, and are distinct.
+EQ4
+Seinfeld:It isn't a lie if you believe it. (about the fact that n+1 distinct evalues => 1 dim espaces)
+So if $\gr_n\of\R_{\sqrt 2\Pi}$ commutes with $\opA$, $\opA$ is very special: the basis of the vector space diagonalises it.
+We have EQ5.
+Now we do the same with $\matT_t$.
+EQ6
+Now we use logic: if $a=b$ and $b=c$, then we conclude that $a=c$.
+EQ7
+Now go back to your first year of linear algebra. Go back to those happy times of your childhood. The poet:---``The coefficients have to be equal.''
+EQ8
+Pick $t$ such that $\pa{\sin t}\pa{\cos t}\neq 0$. It follows $\gm_j=\gm_n$, so $\opA\cz_{n,j}=\gm_n\gz_{n,j}$, i.e., $\opA=\gm_n\Identity$. How do you use this to prove that $\gr_n$ is irreducible? Here is the painful part. You have climbed the mountain, and you are looking at the valley where raspberries grow---I like raspberries---and watermelons. (bet stuff) (...)[It could, or it does?---``It does.''---It's the only psychologically sound answer.] Suppose $\opPi$ is an orthogonal projection from $V_n$ onto $W$ Claude: It has to be unitary.---That's why you don't count. [When my son was born, I took  all the algebra books out of my house. You don't want to take chances.]
+\begin{theorem}
+$\gr_n$ is an irrep of $\SpecialUnitaryGroup\of2$ on $V_n$ for all $n\geq 0$ and $\gc_n\of{\matR_t}\DefineAs\Trace\gr_n\of{\matR_t}=\frac{\sin\of{\pa{n+1}t}}{\sin t}$. What are the conjugacy classes of $\SpecialUnitaryGroup\of 2$?
+$\ConjugacyClass\of{\matg}=\setst{\matrh\matg\matrh^{-1}}{\matrh\in\SpecialUnitaryGroup\of 2}$.
+EQ9
+---Did we call it a class function?---``In the solutions.''
+
+After an entire year of me making fun of you, one of you got it.
 \end{theorem}
 \end{lecture}
 \endgroup%QM
