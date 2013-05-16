@@ -26,6 +26,8 @@
 %TODO: I think this makes sense. It has to be bold somehow in any case.
 \DeclareMathOperator{\AdjointRep}{\StandardTensorSymbol{Ad}}
 
+\newcommand{\cz}{\mathscr{z}}
+
 \newcommand{\opAdag}{\adj{\opA}}
 
 % Non-standard definitions.
@@ -1714,7 +1716,7 @@ How do we prove it's surjective? When we have proven that, we want to know how m
 \FunctionBody*{\mata\in\LAsutwo}{\E^\mata\in\SpecialUnitaryGroup\of 2}\text,\\
 \FunctionBody*{\mata\in\LAsutwo}{\AdjointRep\of{\E^\mata}\in\SpecialOrthogonalGroup\of 3}\text.
 \end{align*}
----``How do you characterise a rotation?''---You have to have an axis and angle.---``Ex\-act\-ly. It can be an axis of evil, but you need an axis and an angle. Now this will amuse you. What is the definition of $\AdjointRep\of{\E^\mata}\matA$?'' The poet:---$\E^\mata\mata\pa{\E^\mata}^{-1}=\mata\E^\mata\E^{-\mata}=\mata$---``Does this commute? The poet tells me it commutes. Is there an anti-poet?''---I have the reason why it commutes.---``You are the reason why it commutes?''---No, I \emph{have} the reason.
+---``How do you characterise a rotation?''---You have to have an axis and angle.---``Ex\-act\-ly. It can be an axis of evil, but you need an axis and an angle. Now this will amuse you. What is the definition of $\AdjointRep\of{\E^\mata}\mata$?'' The poet:---$\E^\mata\mata\pa{\E^\mata}^{-1}=\mata\E^\mata\E^{-\mata}=\mata$---``Does this commute? The poet tells me it commutes. Is there an anti-poet?''---I have the reason why it commutes.---``You are the reason why it commutes?''---No, I \emph{have} the reason.
 
 $\mata$ is the axis of the special orthogonal linear transformation $\AdjointRep\of{\E^\mata}$. 
 $\AdjointRep\of{\E^{\gf\mata}}$ has axis $\mata$. As $\gf$ changes, the angle has to change.
@@ -1723,9 +1725,9 @@ Pick a $\matb\in\LAsutwo$ perpendicular to $\mata$ such that $\norm\matb = 1$. W
 \begin{align*}
 \FrobeniusInner\mata\matb&=0\text,\\
 \FrobeniusInner\matb\matb&=1\text,\\
-\FrobeniusInner\matb{\AdjointRep\of{\E^{\gf\mata}\matb}}&=\cos\ga\text.
+\FrobeniusInner\matb{\AdjointRep\of{\E^{\gf\mata}}\matb}&=\cos\ga\text.
 \end{align*}
----``What is $\ga$ as a function of $\gf$?'' The poet:---Traditionally, $\gf$ is the angle, so the angle must be $\gf$.---``You're making the \emph{Candide} argument. Pangloss said ``the reason we have noses is to keep up our eyeglasses''\footnote{\foreign{\textfrench{<<~Il est démontré, disait-il, que les choses ne peuvent être autrement: car tout étant fait pour une fin, tout est nécessairement pour la meilleure fin. Remarquez bien que les nez ont été faits pour porter des lunettes; aussi avons-nous des lunettes.~[...]~>>}}---Voltaire, \emph{Candide, ou l’Optimisme}.}. But speaking \emph{culturally} $\ga$ could be $\gf$ or $2\gf$. It's a little proposition that it's just $\gf$.'' Claude:---I think it's $2\gf$.---``I think this is an excellent exercise''. So there is a beautiful map from the beautiful poetic space $\SpecialUnitaryGroup\of 2$ onto the space $\SpecialOrthogonalGroup\of 3$ where we, as sinners, all live.
+---``What is $\ga$ as a function of $\gf$?'' The poet:---Traditionally, $\gf$ is the angle, so the angle must be $\gf$.---``You're making the \emph{Candide} argument. Pangloss said ``the reason we have noses is to keep up our eyeglasses''\footnote{\textfrench{<<~Il est démontré, disait-il, que les choses ne peuvent être autrement: car tout étant fait pour une fin, tout est nécessairement pour la meilleure fin. Remarquez bien que les nez ont été faits pour porter des lunettes; aussi avons-nous des lunettes.~[...]~>>}---Voltaire, \emph{Candide, ou l’Optimisme}.}. But speaking \emph{culturally} $\ga$ could be $\gf$ or $2\gf$. It's a little proposition that it's just $\gf$.'' Claude:---I think it's $2\gf$.---``I think this is an excellent exercise.\footnote{The angle is actually $\gf\sqrt 2$, as was stated in exercise sheet 10.}'' So there is a beautiful map from the beautiful poetic space $\SpecialUnitaryGroup\of 2$ onto the space $\SpecialOrthogonalGroup\of 3$ where we, as sinners, all live.
 \end{proof}
 \end{proposition}
 \end{lecture}
@@ -1758,7 +1760,7 @@ x_3&0&-x_1\\
 \end{align*}
 \begin{lemma}
 $\FunctionBody{\R^3\owns\vx}{{\matL_\vx}\in\LAso\of3}$ is an isomorphism of Lie algebras, $\smash{\matL_{\vbracket\vx\vy}=\commutator{{\matL_\vx}}{\matL_\vy}}$, and you can easily check that it's surjective and blah blah blah blah.
-\begin{proof}You just have to prove that the kernel is empty. You had something about that last year, when you were younger and things were still partially commutative. ---``They did that last year, didn't they?'' Claude:---Yes, yes.---``Should we do that again?''---No, no!---``I hope that this rings a bell, or at least a---what's it called, the thing from Proust, \emph{À la recherche du temps perdu}''---A \foreign{\textfrench{madeleine}}.---``Yes, exactly, a \foreign{\textfrench{madeleine}}. That's in \emph{Du côté de chez Swann}.\footnote{``\foreign{\textfrench{Et dès que j’eus reconnu le goût du morceau de madeleine trempé dans le tilleul que me donnait ma tante (quoique je ne susse pas encore et dusse remettre à bien plus tard de découvrir pourquoi ce souvenir me rendait si heureux), aussitôt la vieille maison grise sur la rue, où était sa chambre, vint comme un décor de théâtre s’appliquer au petit pavillon donnant sur le jardin, qu’on avait construit pour mes parents sur ses derrières (ce pan tronqué que seul j’avais revu jusque-là) ; et avec la maison, la ville, la Place où on m’envoyait avant déjeuner, les rues où j’allais faire des courses depuis le matin jusqu’au soir et par tous les temps, les chemins qu’on prenait si le temps était beau.}}''---Marcel Proust, \emph{À la recherche du temps perdu}.}'' 
+\begin{proof}You just have to prove that the kernel is empty. You had something about that last year, when you were younger and things were still partially commutative. ---``They did that last year, didn't they?'' Claude:---Yes, yes.---``Should we do that again?''---No, no!---``I hope that this rings a bell, or at least a---what's it called, the thing from Proust, \emph{À la recherche du temps perdu}''---A \foreign{\textfrench{madeleine}}.---``Yes, exactly, a \foreign{\textfrench{madeleine}}. That's in \emph{Du côté de chez Swann}.\footnote{``\textfrench{Et dès que j’eus reconnu le goût du morceau de madeleine trempé dans le tilleul que me donnait ma tante (quoique je ne susse pas encore et dusse remettre à bien plus tard de découvrir pourquoi ce souvenir me rendait si heureux), aussitôt la vieille maison grise sur la rue, où était sa chambre, vint comme un décor de théâtre s’appliquer au petit pavillon donnant sur le jardin, qu’on avait construit pour mes parents sur ses derrières (ce pan tronqué que seul j’avais revu jusque-là) ; et avec la maison, la ville, la Place où on m’envoyait avant déjeuner, les rues où j’allais faire des courses depuis le matin jusqu’au soir et par tous les temps, les chemins qu’on prenait si le temps était beau.}''---Marcel Proust, \emph{À la recherche du temps perdu}.}'' 
 \end{proof}
 \end{lemma}
 ---``Do you agree? You look like you don't agree.''---It's morning.---``It depends on your job. I see you're not a nocturnal animal. If you want, you can come back at two, I'll be there. I don't think [Claude] will come though. Will you?'' Claude:---Nooo...
@@ -1848,20 +1850,77 @@ x_2\\-x_1\\0
 ---``You see, the point is I didn't prepare for this calculation.''---Evidently.---``We now know that $\norm\vx$ is the angle, goodbye, farewell, have a nice holiday.''
 \end{lecture}
 \begin{lecture}[date=2013-05-14]
-We could take representations of $\LAsutwo$ and sort of exponentiate them, and get representations of $\SpecialUnitaryGroup\of 2$, but we are going to construct them by hand. 
-EQ1
----What is the dimension of this vector space? Can somebody find a basis of this space? The poet:---``The monomials.''---And how many monomials are there?---``$n$''---I understand that when $n$ is sufficiently large, the difference between $n$ and $n+1$ looks as small as (daffodil stuff) a daffodil seen from the space station.---``$n+1$?''---Yes.
-EQ2
-\emph{The inverse of the matrix was false, TODO: format and rewrite} If you end up working in the aeronautic industry, or anywhere where you could do harm---actually I should encourage you to do string theory. There it doesn't matter.
-EQ3
+We could take representations of $\LAsutwo$ and sort of exponentiate them, and get representations of $\SpecialUnitaryGroup\of 2$, but we are going to construct them by hand. Define
+\[
+V_n\DefineAs\setst{p\of{z_1,z_2}\DefineAs\sum{j=0}[n]c_j{z_1}^{n-j}{z_2}^j}{c_j\in\Z, j=0,\dotsc,n}\text.
+\]
+---What is the dimension of this vector space? Can somebody find a basis of this space? The poet:---``The monomials.''---And how many monomials are there?---``$n$''---I understand that when $n$ is sufficiently large, the difference between $n$ and $n+1$ looks as small as a daffodil seen from the space station.
+\renewcommand{\poemtoc}{paragraph}
+\poemtitle{I Wandered Lonely as a Cloud}
+\settowidth{\versewidth}{That floats on high o'er vales and hills,}
+\begin{verse}[\versewidth]
+{\large\textinitial{I}} wandered lonely as a cloud\\
+That floats on high o'er vales and hills,\\
+When all at once I saw a crowd,\\
+A host of golden daffodils;\\
+Beside the lake, beneath the trees,\\
+Fluttering and dancing in the breeze.
+
+[...]
+\begin{flushright}
+---William Wordsworth.
+\end{flushright}
+\end{verse}
+---``Is it $n+1$?''---Yes. $\Dimension[\C]V_n=n+1$. Now we define a representation of $\SpecialUnitaryGroup\of 2$ onto $V_n$,
+\begin{align*}
+\pa{\gr_n\of\matg p}\of{z1,z2}&\DefineAs p\of{\matg^{-1}\begin{pmatrix}
+z_1\\z_2
+\end{pmatrix}}\\
+&=p\of{\conj\ga z_1 -\gb z_2, \conj\gb z_1 + \ga z_2}\text.
+\end{align*}
+\emph{The inverse of the matrix was false, TODO: format and rewrite---actually move it upwards.} [If you end up working in the aeronautic industry, or anywhere where you could do harm---actually I should encourage you to do string theory. There it doesn't matter.]
+We check that $\gr_n\of\matg p\in V_n$ for all $\matg\in\SpecialUnitaryGroup\of 2$, $p\in V_n$,
+\begin{align*}
+\pa{\gr_n\of\matg p}\of{z_1,z_2} &= \sum{j=1}[n]c_j\pa{\conj\ga z_1 -\gb z_2}^{n-j}\pa{\conj\gb z_1 + \ga z_2}^j\\
+&=\sum{j=0}[n]\sum{k=0}[n-j]\sum{l=0}[j]\pa{c_j\binom{n-j}{k}\binom{j}{l}\conj\ga^{n-j-k}\gb^k\conj\gb^{j-l}\ga^l}{z_1}^{n-\pa{k+l}}{z_2}^{k+l}\in V_n\text.
+\end{align*}
 \begin{theorem}
-$\matgr_n$ is an irrrep.---how many `r's? Should it be ``irrep.''?--- of $\SpecialUnitaryGroup\of 2$ on $V_n$ for all $n\geq 1$. (Irma Vep stuff).
+$\gr_n$ is an irrrep.---how many `r's? It's \textsc{irr}educible \textsc{rep}resentation, so three. Should it be ``irrep.''? ``Irrep.'' sounds like \emph{Irma Vep}\footnote{\emph{Irma Vep}, 1996, directed by Olivier Assayas, a film about a French film director attempting to remake Louis Feuillade's 1915/1916 serial film \emph{Les Vampires}.}---of $\SpecialUnitaryGroup\of 2$ on $V_n$ for all $n\geq 1$.
 \begin{proof}
-EQ4
+Define
+\begin{align*}
+\matR_t&\DefineAs \begin{pmatrix}
+\E^{\I t} & 0\\
+0 & \E^{-\I t}
+\end{pmatrix}\in\SpecialUnitaryGroup\of 2\text,\\
+\cz_j&\DefineAs {z_1}^{n-j}{z_2}^j\text{ for }j=0,\dotsc,n\text.
+\end{align*}
+We have
+\begin{align*}
+\gr_n\of{\matR_t}\cz_j
+&=\pa{\conj\ga z_1 - \gb z_2}^{n-j}\pa{\conj\gb z_1 + \ga z_2}^j\\
+&=\pa{\E^{-\I t} z_1}^{n-j}\pa{\E^{\I t} z_2}^j\\
+&=\E^{\I jt}\E^{-\I\pa{n-j}t}\cz_j\text.
+\end{align*}
+Let
+\begin{align*}
+\matT_t&\DefineAs\begin{pmatrix}
+\cos t & sin t\\
+-sin t & cos t
+\end{pmatrix}
+\in \SpecialUnitaryGroup\of 2\text.
+\intertext{Then}
+\gr_n\of{\matT_t}\cz_j&=\sum{k=0}[n-j]\sum{l=0}[j]\binom{n-j}{k}\binom{j}{l}\pa{\cos t}^{n-j-k+l}\pa{-1}^k\pa{\sin t}^{j+k-l}{z_1}^{j-k-l}{z_2}^{k+l}\text.
+\end{align*}
+We check this,% TODO: Spacing (or reorder)
+\[
+\pa{\cos t z_1 - \sin t z_2}^{n-j}\pa{\sin t z_1 + \cos t z_2}^j
+= \pa{\sum{k=0}[n-j]\binom{n-j}{k}\pa{\cos t}^{n-j-k}{z_1}^{n-j-k}\pa{-\sin t}^k{z_2}^k}
+\pa{\sum{l=0}[j]\binom{j}{l}\pa{\sin t}^{j-l}{z_1}^{j-l}\pa{\cos t}^l{z_2}^l}\text.
+\]
 Now somebody who is familiar with this knows that I have taken the Cartan, the maximal toral blah blah.
-EQ5(picture)
 ---How much time is left?---``One minute.''---One minute?---``Yes.''
-\paragraph*{Strategy} suppose EQ6
+\paragraph*{Strategy} suppose that for some $\opA\in\Endomorphisms\of{V_n}$, $\gr_n\of\matg\opA = \opA\gr_n\of\matg$ for all $\matg\in\SpecialUnitaryGroup\of 2$. Show $\opA=\gl\Identity$.
 \end{proof}
 \end{theorem}
 \end{lecture}
