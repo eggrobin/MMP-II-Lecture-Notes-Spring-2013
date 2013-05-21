@@ -908,6 +908,14 @@
 \newcommand{\ifrac}[2]{\emptySlashEmpty{#1}{#2}}
 \newcommand{\Dimension}[1][]{\operatorname{dim}_{#1}}
 
+\renewcommand{\binom}[2]{\begin{pmatrix}
+#1\\#2
+\end{pmatrix}
+}
+
+\DeclareMathOperator{\ConjugacyClass}{C}
+
+\newcommand{\Multiply}{\cdot}
 
 %\makeatletter
 %\killchars@
