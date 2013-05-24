@@ -2034,26 +2034,59 @@ Now define $\InvariantInnerVn\vv\vw\DefineAs\sum{g\in G}\InnerVn{\matgr\of g \vv
 \InvariantInnerVn{\matgr\of g \vv}{\matgr\of g \vw}=\InvariantInnerVn\vv\vw
 \text.\]
 
-Let us do the same for $\SpecialUnitrayGroup\of 2$. Pick a Hermitian inner product $\InnerVn\placeholder\placeholder$ on $V_n$, for instance, for
+Let us do the same for $\SpecialUnitaryGroup\of 2$. Pick a Hermitian inner product $\InnerVn\placeholder\placeholder$ on $V_n$, for instance, for
 \begin{align*}
 p &= \sum{j=0}[n] p_j {z_1}^{n-j} {z_2}^j\text,
 q &= \sum{j=0}[n] q_j {z_1}^{n-j} {z_2}^j\text,
 \intertext{let}
-\InnerVn p q &\DefineAs \sum{j=0}[n]\conj{\p_j}q_j\text.
+\InnerVn p q &\DefineAs \sum{j=0}[n]\conj{p_j}q_j\text.
 \end{align*}
 ---What do you do now?
-The poet:---``In physics talk, instead of summing, you integrate over the group. But I don't know if that makes sense.''---Never admit that. You're a physicist. Your stomach tells you that you have to integrate,
+The poet:---``In physics talk, instead of summing, you integrate over the group, but I don't know if that makes sense.''---Never admit that. You're a physicist. Your stomach tells you that you have to integrate,
 \[\InvariantInnerVn p q \DefineAs \int{\SpecialUnitaryGroup\of 2} \InnerVn {\gr_n\of\matg p} {\gr_n\of\matg q} \diffd \matg\text.\]
-And that's exactly what a physicist should write.
-EQ3
+And that's exactly what a physicist should write. What you used here is that
+\[
+\int{\SpecialUnitaryGroup\of 2}f\of{\matg\matrh} \diffd \matg = \int{\SpecialUnitaryGroup\of 2}f\of\mata \diffd \mata\text.
+\]
 I'm sorry it's boring, but what the hell.
+This is good enough for a physicist, but a mathematician needs more than their stomach to integrate. I'm going to do it for a mathematician who doesn't mind a formula. $\SpecialUnitaryGroup\of2$ is the three-sphere $\UnitSphere 3$. Let us consider an $\vx$ in $\R^4$.
+\[
+\R^4\owns\vx=r\begin{pmatrix}
+\cos \gf_1                     \\
+\sin \gf_1 \cos \gf_2          \\
+\sin \gf_1 \sin \gf_2 \cos \gq \\
+\sin \gf_1 \sin \gf_2 \sin \gq
+\end{pmatrix}\text,
+\]
+where $r=\sqrt{{x_1}^2+{x_2}^2+{x_3}^2+{x_4}^2}$, $\gf_1$, $\gf_2 \in \intclos 0 \Pi$ and $\gq\in\intclop 0 {2\Pi}$.
+We have
+\[
+\diffd \vx = r^3 \sin^2 \gf_1 \sin \gf_2 \diffd \gf_1 \diffd \gf_2 \diffd \gq 
+\text.
+\]
+The map
+\begin{align*}
+\MapSpecBody
+{\intclos 0 \Pi \Cartesian \intclos 0 \Pi \Cartesian \intclop 0 {2\Pi}}
+{\SpecialUnitaryGroup\of 2}
+{\tuple{\gf_1,\gf_2,\gq}}
+{
+  \begin{pmatrix}
+    \cos \gf_1 + \I\sin \gf_1 \cos \gf_2 & \sin \gf_1\sin \gf_2 \E^{\I\gq} \\
+    -\sin \gf_1 \sin \gf_2 \E^{-\I\gq} & \cos \gf_1 - \I\sin \gf_1 \cos \gf_2
+  \end{pmatrix}
+}
+\end{align*}
+is surjective. We define
+\[
+\int{\SpecialUnitaryGroup\of 2} f\of \matg \diffd\matg \DefineAs \int{0}[2\Pi]\int{0}[\Pi]\int{0}[\Pi]f\of{\gf_1,\gf_2,\gq} \sin^2\gf_1 \sin\gf_2 \diffd\gf_1\diffd\gf_2\diffd\gq\text.
+\] We now have a Hermitian inner product, so proved it's irreducible. Now what I've got to do is calculate the characters.
 \end{proof}
 \end{claim}
 \end{proof}
 \end{theorem}
 \end{proof}
 \end{theorem}
-We proved it's irreducible. Now what I've got to do is calculate the characters.
 
 \NewLecture[date=2013-05-23]
 EQ1
