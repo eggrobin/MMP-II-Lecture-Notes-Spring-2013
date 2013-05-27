@@ -26,10 +26,16 @@
 }}%
 \nopagebreak%
 }
-\NewDocumentEnvironment{lecture}{s o}{
+%\NewDocumentEnvironment{lecture}{s o}{
+%\refstepcounter{Lecture}
+%\setkeys{lecture}{official, #2}
+%
+%\IfBooleanTF{#1}{}{\LectureStartsHere\nopagebreak}
+%}{}
+\NewDocumentCommand{\NewLecture}{s o}{
 \refstepcounter{Lecture}
 \setkeys{lecture}{official, #2}
 
 \IfBooleanTF{#1}{}{\LectureStartsHere\nopagebreak}
-}{}
+}
 \newenvironment{supplemental}{}{}
