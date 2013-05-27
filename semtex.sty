@@ -82,6 +82,7 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{corollary}{Corollary}
 \newtheorem{proposition}{Proposition}
+\newtheorem{claim}{Claim}
 %%%% Typographical constructs, not to be used directly.
 
 %%% begin Voodoo
@@ -303,6 +304,9 @@
 \DeclareDelimiterX\rsquareCommaLsquare[2]{]}{[}{#1, #2}
 \DeclareDelimiterX\langleBarRangle[2]{\langle}{\rangle}{#1\delimsize\vert #2} 
 \DeclareDelimiterX\langleCommaRangle[2]{\langle}{\rangle}{#1, #2}
+\DeclareDelimiterX\lAngleCommaRAngle[2]{\lAngle}{\rAngle}{#1, #2}
+\DeclareDelimiterX\lparenCommaRparen[2]{\lparen}{\rparen}{#1, #2}
+\DeclareDelimiterX\lParenCommaRParen[2]{\lParen}{\rParen}{#1, #2}
 \DeclareDelimiterX\unkernedEmptySlashEmpty[2]{.}{.}{#1\delimsize\fracslash #2}
 \DeclareDelimiterX\unkernedEmptyDotEmpty[2]{.}{.}{#1\cdot #2}
 \DeclareDelimiterX\lcurlyBarRcurly[2]{\lbrace}{\rbrace}{#1\:\delimsize\vert\: #2}
@@ -619,6 +623,7 @@
 
 \newcommand{\vgg}{\VectorSymbol \gamma}
 \newcommand{\vgl}{\VectorSymbol \lambda}
+\newcommand{\vgm}{\VectorSymbol \mu}
 \newcommand{\vgx}{\VectorSymbol \xi}
 
 \newcommand{\nullmi}{\mathbf 0}
@@ -688,6 +693,7 @@
 \newcommand{\tensZ}{\TensorSymbol Z}
 
 \newcommand{\matgg}{\MatrixSymbol \gg}
+\newcommand{\matgr}{\MatrixSymbol \gr}
 \newcommand{\matg}{\MatrixSymbol g}
 \newcommand{\mata}{\MatrixSymbol a}
 \newcommand{\matb}{\MatrixSymbol b}
@@ -896,8 +902,8 @@
 \newcommand{\MapSpecBody}[5][]{#2&\ifstrempty{#1}{\rightarrow}{\xrightarrow{#1}} #3\\#4 &\mapsto #5}
 
 \newcommand{\Probability}[2][]{\operatorname{P_{#1}}\squareBrackets{#2}}
-\newcommand{\ExpectedValue}[2][]{\operatorname{E_{#1}}\squareBrackets{#2}}
-\renewcommand{\Variance}[2][]{\operatorname{Var_{#1}}\squareBrackets{#2}}
+\newcommand{\ExpectedValue}[2][]{\operatorname{E}_{#1}\squareBrackets{#2}}
+\renewcommand{\Variance}[2][]{\operatorname{Var}_{#1}\squareBrackets{#2}}
 
 \DeclareMathOperator\Determinant{det}
 \DeclareMathOperator\Trace{tr}
@@ -905,7 +911,16 @@
 \newcommand{\Tensor}{\otimes}
 
 \newcommand{\ifrac}[2]{\emptySlashEmpty{#1}{#2}}
+\newcommand{\Dimension}[1][]{\operatorname{dim}_{#1}}
 
+\renewcommand{\binom}[2]{\begin{pmatrix}
+#1\\#2
+\end{pmatrix}
+}
+
+\DeclareMathOperator{\ConjugacyClass}{C}
+
+\newcommand{\Multiply}{\cdot}
 
 %\makeatletter
 %\killchars@
