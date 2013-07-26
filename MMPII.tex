@@ -1624,7 +1624,7 @@ The trace is \foreign{\textgerman{ewig entlang Konjugationsklassen}}---it's \emp
 
 Now we prove that it's a representation,
 $\AdjointRep\of\matg\AdjointRep\of\matrh\matx
-= \AdjointRep\of{\matg\matrh}$ for all $\matg$, $\matrh\in\SpecialUnitaryGroup\of 2$ and $\matx\in\LAsutwo$.
+= \AdjointRep\of{\matg\matrh}\matx$ for all $\matg$, $\matrh\in\SpecialUnitaryGroup\of 2$ and $\matx\in\LAsutwo$.
 \begin{align*}
 \AdjointRep\of\matg\pa{\AdjointRep\of\matrh\matx}&=\matg\pa{\matrh\matx\matrh^{-1}}\matg^{-1}\\
 &=\pa{\matg\matrh}\matx\pa{\matg\matrh}^{-1} = \AdjointRep\of{\matg\matrh}\matx\text,\\
@@ -1865,16 +1865,15 @@ Let \[\begin{pmatrix}
 What is the inverse of this matrix? Can somebody invert a $2\times 2$ matrix? \emph{Somebody laboriously answers $\smash{\tuple{\begin{smallmatrix}
 \conj\ga &\conj\gb\\
 -\gb & \ga
-\end{smallmatrix}}}$.} How did you get that? You used minors. That works, but there is an easier way to do that. What is the definition of $\SpecialUnitaryGroup\of2$? $\adj\matU=\matU^{-1}$, so you just need to dagger the matrix, \[\begin{matrix}
-\begin{pmatrix}
+\end{smallmatrix}}}$.} How did you get that? You used minors. That works, but there is an easier way to do that. What is the definition of $\SpecialUnitaryGroup\of2$? $\adj\matU=\matU^{-1}$, so you just need to dagger the matrix, \[
+\adj{\begin{pmatrix}
 \ga & \gb\\
 -\conj\gb & \conj\ga
-\end{pmatrix}
+\end{pmatrix}}
 =\begin{pmatrix}
 \conj\ga & -\gb\\
 \conj\gb & \ga
-\end{pmatrix}
-\end{matrix}\text,
+\end{pmatrix}\text,
 \]
 and the inverse you gave me was wrong. If you end up working in the aeronautic industry, or anywhere where you could do harm---actually I should encourage you to do string theory. There it doesn't matter.
 
@@ -1902,7 +1901,7 @@ Fluttering and dancing in the breeze.
 \end{verse}
 But it's not $n$.---``Is it $n+1$?''---Yes. $\Dimension[\C]V_n=n+1$. Now we define a representation of $\SpecialUnitaryGroup\of 2$ onto $V_n$,
 \begin{align*}
-\pa{\irrep{n+1}[\matg] p}\of{z1,z2}&\DefineAs p\of{\matg^{-1}\begin{pmatrix}
+\pa{\irrep{n+1}[\matg] p}\of{z_1,z_2}&\DefineAs p\of{\matg^{-1}\begin{pmatrix}
 z_1\\z_2
 \end{pmatrix}}\\
 &=p\of{\conj\ga z_1 -\gb z_2, \conj\gb z_1 + \ga z_2}\text.
