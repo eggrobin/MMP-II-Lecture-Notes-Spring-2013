@@ -2105,7 +2105,7 @@ Define
 \begin{align*}
 \Character[n]\of\matg &\DefineAs \Trace \irrep{n}[\matg]\text.
 \intertext{We have}
-\Character[n]\of{\matrh\matg\matrh^{-1}} &\DefineAs \Character[n]\of\matg \text.
+\Character[n]\of{\matrh\matg\matrh^{-1}} &= \Character[n]\of\matg \text.
 \intertext{Recall}
 \matR_t&\DefineAs \begin{pmatrix}
 \E^{\I t} & 0 \\
@@ -2153,7 +2153,7 @@ The elements of $\SpecialUnitaryGroup\of 2$ are the
 -\conj\gb&\conj\ga
 \end{pmatrix}\text,
 \]
----What do I need $\ga$ and $\gb$ to verify? You can answer in German--``-\foreign{\textgerman{$\ga$ Betrag im Quadrat plus $\gb$ Betrag im Quadrat}} equals one.''---That's English. `\foreign{\textgerman{ist gleich Eins}}'. %TODO: Check capitalisation.
+---What do I need $\ga$ and $\gb$ to verify? You can answer in German---``\foreign{\textgerman{$\ga$ Betrag im Quadrat plus $\gb$ Betrag im Quadrat}} equals one.''---That's English. `\foreign{\textgerman{ist gleich Eins}}'. %TODO: Check capitalisation.
 Define
 \begin{align*}
 \ga&\DefineAs \cos\gf_1 + \I \sin\gf_1 \cos \gf_2\\
@@ -2216,25 +2216,42 @@ cos\gf_2\\\sin\gf_2\cos\gq\\\sin\gf_2\sin\gq
 I know that you are a mathematician, and what that means is that when you go to a restaurant, you can't calculate the tip, and you can't calculate $\sin \Pi$. Never help design an oil rig. Stick to your categories and your sheaths---I like mathematicians, they don't do any harm. I'm a mathematician.\\*
 TODO: MISSING FIGURE (EAST POLE)
 
+Have you heard of Euclid's fifth postulate?
 TODO: MISSING FIGURE (FIFTH POSTULATE)\\*
 Maybe it's because Euclid was Greek, and because Germany has to support the Greek economy they don't call it like that. This is Brünnhilde's fifth postulate.
+\begin{postulate}[Brünnhilde's fifth postulate]
+At most one line can be drawn through any point not on a given line parallel to the given line in a plane.\footnote{This version is actually by Scottish mathematician John Playfair \textsc{frse}, \textsc{frs} (1748/1819).}
+\end{postulate}
 In spherical geometry, the fifth postulate fails.
+\\*TODO: MISSING FIGURE (SPHERICAL TRIANGLE)\\*
+Take a spherical triangle---three great circles. Define the angles as the angles between the tangents. You can have a triangle with three right angles.
+Moreover, given a spherical triangle on the unit sphere whose sides have lengths $a$, $b$ and $c$, we have $\cos c = \cos a\cos b$.
 
-TODO: MISSING FIGURE (SPHERICAL TRIANGLE)\\*
-Take a spherical triangle---three great circles. Define the angles as the angles between the tangents.
-
-Is it about anything? Take the open upper half plane.\\*
+Recall that \[\cos t = \frac{\E^{\I t}+\E^{-\I t}}{2}\text.\] You have learned about the hyperbolic cosine, \[\cos \I t = \HyperbolicCosine t\text.\]
+Is it about anything? Take the open upper half plane, and define the \emph{straight lines} to be the half-circles whose center lie on the real line.\\*
 TODO: MISSING FIGURE (UPPER HALF PLANE)\\*
 TODO: MISSING FIGURE (PARALLELOGRAM, ELLIPTIC FUNCTIONS)\\*
 TODO: MISSING FIGURE (DOUGHNUT)\\*
 TODO: MISSING FIGURE (HOMERIC DOUGHNUT)
-
+Consider a right-angled triangle with sides $a$, $b$ and $c$, $c$ being the hypotenuse, we have $\HyperbolicCosine c = \HyperbolicCosine a \HyperbolicCosine b$.
+\\*TODO: MISSING STUFF\\*
 Had Wagner been born later, he'd have written \emph{Star Wars}.
-TODO: MISSING STUFF
-Now that I have your attention, let's go back to something less beautiful.
-TODO: MISSING STUFF
-Is this not the moment to draw a veil over this relationship?
-\emph{Exeunt.}
+
+Now that I have your attention, let's go back to something less beautiful. We had a class function $f$, and we had found that\[
+\int{\SpecialUnitaryGroup\of 2} f\of{\gf_1,\placeholder,\placeholder}\diffd\matg = C \int{0}[\Pi]f\of{\gf_1}\sin^2\of\gf_2\diffd\gf_1\text.
+\]
+He even told us that $C=4\Pi$. Now assume for an $f$ in the space of class functions, for all $n\geq 1$,
+\begin{align*}
+0 &= \int{0}[\Pi] \frac{\sin n \gf}{\sin \gf} f\of\gf \sin^2\gf\diffd\gf \\
+  &= \int{0}[\Pi]\sin n\gf \pa{f\of\gf\sin\gf}\diffd\gf\\
+  &=\frac{1}{2}\int{-\Pi}[\Pi]\sin n \gf g\of \gf \diffd\gf
+\intertext{where $g\of\gf$ is the \st{even} \st{odd} \st{even} odd extension of $f\of\gf\sin\gf$ to $\intopen{-\Pi}{\Pi}$.}\\
+  &= \frac{1}{2} \int{-\Pi}[\Pi] \frac{\E^{\I n \gf} - \E^{-\I n \gf}}{2\I}g\of\gf\diffd\gf\text.
+\end{align*}
+It follows that the $n$th Fourier coefficient is $0$ for $n\geq 1$. As the function is odd, the $0$th coefficient is $0$, so $g\Identically 0$ and thus $f\Identically 0$.
+
+We have found that there is no other irreducible representation, as it would need to have a character independent from the $\Character[n]$. We have found every irreducible representation of the wonderful group $\SpecialUnitaryGroup\of 2$.
+Is this not the moment to draw a veil over this relationship?\hspace*{\fill}\emph{Exeunt.}
 \endgroup%QM
 
 \appendix
