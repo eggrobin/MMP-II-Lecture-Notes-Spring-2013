@@ -69,6 +69,7 @@
 \theoremseparator{.}
 \theoremsymbol{\ensuremath{\mdlgwhtlozenge}}
 \newtheorem{definition}{Definition}
+\newtheorem{postulate}{Postulate}
 \NoEndMark
 \newtheorem{example}{Example}
 \newtheorem{consequence}{Consequence}
@@ -355,6 +356,12 @@
 \newcommand{\RiemannZeta}{\operatorname{\zeta}}
 % \Gamma is the Euler's gamma function.
 \renewcommand{\Gamma}{\operatorname{\capitalGamma}}
+% \HyperbolicCosine is the hyperbolic cosine.
+\DeclareMathOperator{\HyperbolicCosine}{ch}
+% \HyperbolicSine is the hyperbolic cosine.
+\DeclareMathOperator{\HyperbolicSine}{sh}
+% \HyperbolicTangent is the hyperbolic cosine.
+\DeclareMathOperator{\HyperbolicTangent}{th}
 % \Sign is the sign function.
 \DeclareMathOperator{\Sign}{sgn}
 % \Laplacian is the Laplacian.
@@ -562,6 +569,7 @@
 \newcommand\gcq\vartheta
 \newcommand\gi\iota
 \newcommand\gl\lambda
+\newcommand\gk\kappa
 \newcommand\gm\mu
 \newcommand\gn\nu
 \newcommand\gx\xi
@@ -801,6 +809,7 @@
 
 \newcommand{\FreeGroup}[1]{\operatorname{F}_{#1}}
 \newcommand{\GroupGeneratedBy}[1]{\angleBrackets{#1}}
+\newcommand{\Subgroup}{\leq}
 \newcommand{\NormalSubgroup}{\trianglelefteq}
 \newcommand{\Cardinality}[1]{\singleBars{#1}}
 \newcommand{\HeisenbergGroup}[1][]{\ifstrempty{#1}{\operatorname{H}}{\operatorname{Heisenberg}_{#1}}}
@@ -860,6 +869,7 @@
 {\bigcap_{#1}^{#2}}
 {\bigcap_{#1}^{#2}}
 }
+\newcommand{\Homeomorphic}{\simeq}
 \newcommand{\Isomorphic}{\cong}
 \renewcommand\And\wedge
 \newcommand\Transpose[1]{{#1}^\top}
