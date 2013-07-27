@@ -102,7 +102,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
     \pa{1+\norm{\vx}^2}^m \pd\vx\miga \gj\of\vx 
     &= \sum{j = 0}[m] \binom{m}{j} \norm{\vx}^{2j} \pd\vx\miga \gj\of\vx \\
     &= \sum{j = 0}[m] \binom{m}{j} \pa{\sum{i=1}[n]x_i^2}^j \pd\vx\miga \gj\of\vx \\
-    &= \sum{j = 0}[m] \binom{m}{j} \sum{\total{\miga} = j}\pa{\prod{i = 1}[n] x_i^{2\ga_i}} \pd\vx\miga \gj\of\vx
+    &= \sum{j = 0}[m] \binom{m}{j} \sum{\total{\migb} = j}\pa{\prod{i = 1}[n] x_i^{2\gb_i}} \pd\vx\miga \gj\of\vx
   \end{align*}
   and $\sup_{\vx \in \Rn}\abs{\vx^{2 \miga} \gj\of\vx}<\infty$. It immediately follows:
   \begin{lemma}
@@ -136,7 +136,7 @@ Intuition tells us that the smaller, i.e., more restricted, a space of functions
   for some $s > 0$ (e.g. $f\of\vx \sum{\total\migb\leq s} c_\migb \vx^\migb$),
   then 
   \begin{equation*}
-    U_f\of\gj \DefineAs \int\Rn f\of{\vx} \gj\of{\vx} \diffd{x}
+    U_f\of\gj \DefineAs \int\Rn f\of{\vx} \gj\of{\vx} \diffd{\vx}
   \end{equation*}
   is a tempered distribution.
   \begin{definition}[Dirac delta distribution]
@@ -266,7 +266,7 @@ We define $\SignDistrib\of\gj \DefineAs \int{-\infty}[\infty] \Sign\of{x} \gj\of
       \end{align*}
       Proof of the second part of (\ref{FTDerivative}):
       \begin{align*}
-        \ft{x_j\gj}\of\vx 
+        \ft{x_j\gj}\of\vk
         &= \ftnrm\int\Rn x_j\gj\of{\vx}\E^{-\I\scal\vk\vx}\diffd\vx \\
         &= \ftnrm
           \int\Rn\gj\of{\vx}\I\pderivop{k_j}\E^{-\I\scal\vk\vx} \diffd\vx 
@@ -585,7 +585,7 @@ If $G=\Rn=X$ acts by addition on itself, the decomposition of $\Lspace[2]\of X =
 \begin{equation*}
  \ft\gj\of \vk = \ftnrm\int \Rn \gj\of \vx \E^{-\I \scal\vk \vx}\diffd \vx = \int \Rn \gj \E^{-\I \scal\vk{}}\diffd \gm = \LTwoInner {\E^{\I \scal\vk{}}} \gj
 \end{equation*}
-by taking $\gm = \ftnrm\LebesgueMeasure n$, where $\LebesgueMeasure n$ is the Lebesgue measure on $\Rn$. Again, we see that the $\E^{\I \scal\vk{}}\DefineAs \FunctionBody \vx \E^{\I \scal\vk{\vx}}$ are exactly the elements of $\PontryaginDual\Rn\Isomorphic\Rn$, and that the $V_\vk\DefineAs\LinearSpan\set{\E^{\I \scal\vk{}}}$ are $\gr$-invariant, where $\gr$ acts by translation and are orthogonal. The projector onto $V_\vk$ is  $\ft{\placeholder}\of \vk$. As for $\gj\in\Lspace[2]\of\Rn$,
+by taking $\gm = {\pa{2\Pi}^{-\frac n 2}}\LebesgueMeasure n$, where $\LebesgueMeasure n$ is the Lebesgue measure on $\Rn$. Again, we see that the $\E^{\I \scal\vk{}}\DefineAs \FunctionBody \vx \E^{\I \scal\vk{\vx}}$ are exactly the elements of $\PontryaginDual\Rn\Isomorphic\Rn$, and that the $V_\vk\DefineAs\LinearSpan\set{\E^{\I \scal\vk{}}}$ are $\gr$-invariant, where $\gr$ acts by translation and are orthogonal. The projector onto $V_\vk$ is  $\ft{\placeholder}\of \vk$. As for $\gj\in\Lspace[2]\of\Rn$,
 \begin{equation*} 
 \rft{\ft\gj}\of\vx = \ftnrm\int\Rn\ft\gj\of\vk\E^{\I\scal\vk\vx}\diffd\vk \gj\of\vx=
 \int\Rn\ft\gj\E^{\I\scal\vx{}}\diffd \PontryaginDual\gm = \gj\of\vx
@@ -706,9 +706,9 @@ Now we compute:
 \begin{align*}
 2\commutator \opA \opAdag \gj &= 2 \opA\opAdag\gj- 2 \opAdag\opA\gj\\
 &=\pa{\derivop x + x}\pa{-\derivop x + x}\gj - \pa{-\derivop x + x}\pa{\derivop x + x}\gj\\
-&=\pa{\derivop x + x}\pa{\gj\der + x\gj} - \pa{-\derivop x + x}\pa{\gj\der + x\gj}\\
-&= \pa{\gj\dder + \pa{x\gj}\der + \pa{-x\gj\der}+x^2\gj}
- - \pa{\gj\dder - \pa{x\gj}\der + x\gj\der+x^2\gj}\\
+&=\pa{\derivop x + x}\pa{-\gj\der + x\gj} - \pa{-\derivop x + x}\pa{\gj\der + x\gj}\\
+&= \pa{-\gj\dder + \pa{x\gj}\der + \pa{-x\gj\der}+x^2\gj}
+ - \pa{-\gj\dder - \pa{x\gj}\der + x\gj\der+x^2\gj}\\
  &= 2\pa{x\gj}\der - 2 x\gj\der = 2\gj
 \end{align*}
 This yields the following proposition.
@@ -837,8 +837,8 @@ which, if we look carefully, we can recognize as a Fourier transform:
 Note that $\conj \gj \of x h_0\of x\in \SchwartzSpace\of\R$. It follows:
 \begin{alignat*}{3}
          & \forall k\in \R \quad & \ft{\conj \gj  h_0}\of k &= 0\\
-\Implies & \forall x\in \R \quad &\conj \gj\of x  h_0\of x &= 0 && \quad \text{(as shown previously)}\\
-\Implies & \forall x\in \R \quad & \gj \of x &=0 \text. && \quad \text{($h_0(x) \neq 0\text, \forall x\in\R$)}
+\Implies & \forall x\in \R \quad &\conj \gj\of x  h_0\of x &= 0\text{, as shown previously,}\\
+\Implies & \forall x\in \R \quad & \gj \of x &=0 \text{, as $\forall x\in\R, h_0(x) \neq 0$.}
 \end{alignat*}
 So $\gj\Identically 0$.
 \end{proof}
@@ -846,7 +846,7 @@ So $\gj\Identically 0$.
 
 We now know that the $h_n$ form a basis of $\SchwartzSpace\of\R$. But we are greedy. We really want to write
 \[
-\gy\in\SchwartzSpace\of\R \stackrel{?}{=} \sum{n=0}[\infty] \LTwoInner\gy {h_n} h_n\of x \DefineAs \lim_{\conv N \infty} \sum{n=0}[N] \LTwoInner\gy {h_n} h_n\of x\text.
+\SchwartzSpace\of\R \owns \gy \stackrel{?}{=} \sum{n=0}[\infty] \LTwoInner\gy {h_n} h_n\of x \DefineAs \lim_{\conv N \infty} \sum{n=0}[N] \LTwoInner\gy {h_n} h_n\of x\text.
 \]
 It is exceedingly boring to prove this, I'm sure you don't have the patience. But there is something I \emph{can} do:
 \begin{align*}
@@ -1036,7 +1036,7 @@ Now we need an algebra of quantum observables.
 Let me give you two examples of observables: 
 \begin{align*}
 \pa{\opQ_j\gy}\of\vq &\DefineAs q_j\gy\of\vq\text, \\
-\pa{\opP_j\gy}\of\vq &\DefineAs \frac{\ReducedPlanck}{\I} \pderivop{q_j}\text.
+\pa{\opP_j\gy}\of\vq &\DefineAs \frac{\ReducedPlanck}{\I} \pderivop{q_j}\gy\of\vq\text.
 \end{align*}
 \begin{proposition}
 $\tuple{\QuantumObservables, \frac  \I \ReducedPlanck \commutator \opA \opB}$ is a Lie algebra.
@@ -1249,7 +1249,7 @@ $\GeneralLinearGroup\of{n,\Field}$ is an open subset of $\smash{\Field^{n^2}}$. 
 where $\matA_{ij}\of{\matg}$ is the determinant  of $\matg$ with the $i$th row and $j$th column cut out.
 Thus $\tuple{\GeneralLinearGroup\of{n,\Field},\text{matrix multiplication}}$ is a group with smooth operations. What you do when you talk about Lie groups is the same, except you start with completely abstract manifolds. As physicists, it's unlikely that you'll work with Lie groups that are not very closely related to the following concept.
 \begin{definition}[Matrix Lie group] A matrix Lie group $G$ is a closed subgroup of $\GeneralLinearGroup\of{n,\Field}$ under the topology generated by the norm\[
-\FrobeniusNorm\matg \DefineAs \sqrt{\Trace\matg\adj\matg} = \pa{\sum{i,j=1}[n]\abs{g_{ij}}^2}^{\frac{1}{2}}\text.
+\FrobeniusNorm\matg \DefineAs \sqrt{\Trace\matg\smash{\adj\matg}} = \pa{\sum{i,j=1}[n]\abs{g_{ij}}^2}^{\frac{1}{2}}\text.
 \]
 \end{definition}
 You already know an example of one from last week, the continuous Heisenberg group\[
@@ -1271,7 +1271,7 @@ Why is it closed? Look at the map\[
 Do I have to prove that it's continuous? 
 \emph{The poet:}---Isn't it open?---``Well, that's the problem with education. Does anyone remember the definition of connected?'' \emph{The poet answers with the definition of path-connected}.---``There was another definition, one with open sets and so on. What are the subsets of $\Rn$ that are both open and closed?'' Somebody else:---The half open, half closed intervals. \emph{The professor whistles ``La Vie en rose''}.---``Sorry, nothing personal. I had to wait for my blood pressure to go down.''
 
-An open set $\gW$ of $\Rn$ is a set such that every point is contained in an open ball inside $\gW$. A closed set of  $\Rn$ is a set in which every Cauchy sequence converges. Here our group verifies both, so it is both open and closed in $\R^{\pa{n+2}^2}$, and thus it is connected.
+An open set $\gW$ of $\Rn$ is a set such that every point is contained in an open ball inside $\gW$. A closed set of  $\Rn$ is a set in which every Cauchy sequence converges. Here our group verifies both, so it is both open and closed in $\smash{\R^{\pa{n+2}^2}}$, and thus it is connected.
 
 Now we look at a Lie group at the very bottom of the food chain. This is the plankton in the sea of algebraic objects. The reason we talk about it though is that to understand spin, you have to eat plankton sandwiches with $\SpecialUnitaryGroup\of{2}$ inside. And you have to look at the representations. That's what we need this representation crap for.
 \begin{definition}[Special unitary group of degree $2$] We define the group of unitary $2\times2$ matrices with determinant $1$,
@@ -1300,7 +1300,7 @@ and the determinant is a continuous function too.
 So you have a nice closed subgroup of $\GeneralLinearGroup\of{2,\C}$ looking at you. Now I don't know how you feel about things looking at you, but it's looking at you.
 
 ``Do you remember what a compact set is?''---Any cover by open sets has a finite subcover.---``This is correct, but with this definition you have to look at all open covers, and check whether they have a finite subcover, and we don't have time for that. There is a nicer property, named after two Germans---actually it was one German and one Frenchman\footnote{This is the Heine-Borel theorem, after Heinrich Eduard Heine (1828/1881) and Félix Édouard Justin Émile Borel (1871/1956). Note that in France this is called the \foreign{\textfrench{théorème de Borel-Lebesgue}} after the aforementioned Borel and an additional Frenchman, Henri Léon Lebesgue (1875/1941). We have found no Russians associated with this theorem, but interestingly, the theorem is called \foreign{\textrussian{лемма Гейне --- Бореля}} there, so it is only a lemma. Many mathematicians have actually contributed to this theorem, so taking those mentioned by \emph{Wikipedia}, it could be called the Borel-Cousin-Dirichlet-Heine-Pincherle-Lebesgue-Schoenflies-Weierstrass theorem---that's 1 Italian, 3 French, 3 Prussians and Dirichlet, who was born in Napoleonic France in 1805 and became \foreign{\textlatin{de facto}} Prussian in 1815. Do not confuse this Heine with Christian Johann Heinrich Heine (1797/1856), another poet.}.'' The poet answers ``closed and bounded''\footnote{This is true in $\Rn$. For a general metric space, replace ``closed and bounded'' by ``complete and totally bounded''.}, though he got the answer from someone else.---``You should be a novelist. You know how to incorporate ideas from others''. So $\SpecialUnitaryGroup\of{2}$ is a compact matrix Lie group, as \[
-\matg\in\SpecialUnitaryGroup\of 2 \Implies \FrobeniusNorm\matg = \sqrt{\Trace \matg\adj\matg} = \sqrt{\Trace \Identity_2} = \sqrt{2}\text.
+\matg\in\SpecialUnitaryGroup\of 2 \Implies \FrobeniusNorm\matg = \sqrt{\Trace \matg\smash{\adj\matg}} = \sqrt{\Trace \Identity_2} = \sqrt{2}\text.
 \]
 
 The fundamental reason we study compact sets is that it's like being finite without being finite. For instance you can extract a finite subcover from any open cover.
@@ -1311,7 +1311,7 @@ Now, after an hour of being yelled at and patronised, and all sorts of other won
 Okay, so we have $\SpecialUnitaryGroup\of 2 \Subset \GeneralLinearGroup\of{2,\C}$, which is a compact matrix group. We inflicted upon you all sorts of things about %WHAT
 finite groups. What is it about these groups that make them richer? Let's look at $\GeneralLinearGroup\of{n,\Field}\Subset\Matrices n \Field \Isomorphic \Field^{n^2}$. Now one thing that you've learned about is paths.
 \begin{definition}[Smooth path]
-A smooth path in $\GeneralLinearGroup\of{n,\Field}$ is a smooth map\[\FunctionSpec\matgg{\tuple{a,b}}{\GeneralLinearGroup\of{n,\Field}}\text.\]
+A smooth path in $\GeneralLinearGroup\of{n,\Field}$ is a smooth map\[\FunctionSpec\matgg{\intopen{a}{b}}{\GeneralLinearGroup\of{n,\Field}}\text.\]
 \end{definition}
 \begin{definition}[Tangent vector]
 A tangent vector $\matX$ to the matrix Lie group $G$  at $\Identity\in G$ is \[\matX=\Evaluate{\derivop t \matgg}{t=0}\] for some smooth path $\matgg\of t\in G$, $a<t<b$ and $\matgg\of 0 = \Identity$. %TODO appropriate symbol types.
@@ -1335,14 +1335,14 @@ Consider a path in $\SpecialUnitaryGroup \of 2$,
 {\matgg}
 {\intopen{-\ge}{\ge}}
 {\SpecialUnitaryGroup\of 2}\text,\\
-\matgg\of 0 &= \Identity_2\text,\numberthis\label{NonlinearCondition}\\
+\matgg\of 0 &= \Identity_2\text,\\
 \matgg\of t &=
 \begin{pmatrix}
 \gg_{11}\of t & \gg_{12}\of t \\
 \gg_{21}\of t & \gg_{22}\of t
 \end{pmatrix}&&\text{for $-\ge<t<\ge$\text.}
 \intertext{As the path lies in $\SpecialUnitaryGroup \of 2$,}
-\Identity_2 &= \matgg\of{t}\adj{\matgg\of{t}}\text,\\
+\Identity_2 &= \matgg\of{t}\adj{\matgg\of{t}}\text,\numberthis\label{NonlinearCondition}\\
 \nullmat &= \derivop t\of{\matgg\of t \adj{\matgg\of t}} && \text{---`Who do you gotta call?'---Leibniz.}\\
 &= \pa{\derivop t \matgg\of t}\adj{\matgg\of t} + \matgg\of t \pa{\derivop t\of{\adj{\matgg\of t}}}\span\omit\span\omit\\
 &= \TimeDerivative\matgg\of t \adj{\matgg\of t} + \matgg\of t \adj{\pa{\derivop t \matgg\of t}}\text.\span\omit\span\omit
@@ -1370,7 +1370,7 @@ For the moment, don't be a mathematician. You don't need to know how to differen
 \intertext{At $t=0$,}
 0 &= \Evaluate{\derivop t \Determinant \matgg\of t}{t=0} = \TimeDerivative\gg_{11}\of t +\TimeDerivative\gg_{22}\of t\text,\span\omit
 \end{align*}
-So the infinitesimal version of (\ref{DeterminantZero})is \[
+So the infinitesimal version of (\ref{DeterminantZero}) is \[
 \Trace \TimeDerivative\matgg\of 0 = 0\text.
 \]
 These two conditions on the tangent vectors motivate the following definition.
@@ -1407,10 +1407,10 @@ As the gentleman said here, ``exponentiate''. Let $\matX\in \LAsutwo$. We have\b
 \Determinant \matgg_\matX\of t &=\Determinant \E^{t\matX}= \E^{\Trace t\matX}\\
 &= \E^{t\Trace\matX}=1\text.
 \end{align*}
-So we have the following \textsc{fact}:$
+So we have the following \textsc{fact}:\[
 \forall t \in \R\quad
 \forall \matX \in \LAsutwo\quad
-\matgg_\matX\of t \in \SpecialUnitaryGroup\of 2$.
+\matgg_\matX\of t \in \SpecialUnitaryGroup\of 2\text.\]
 Moreover, $\matgg_\matX\of 0 = \Identity$, so\[
 \matX = \Evaluate{\derivop t \matgg_\matX}{t=0}\in \LieAlgebra\of{\SpecialUnitaryGroup\of 2}\text.\]
 We have proven the following proposition.
@@ -1563,7 +1563,7 @@ The law of physics is that the antiquark lives in the dual flavour space $\Dual{
 Alright, here we are. I'm going to talk to you about $\LAsutwo$ and $\SpecialUnitaryGroup\of 2$ at a rate at which you can absorb the information---I know that's a slow rate. I'm going to give you a lecture today, just using the blackboard and talking.
 \begin{align*}
 \SpecialUnitaryGroup\of 2 &\DefineAs \setst{\matg\in\GeneralLinearGroup\of{2,\C}}{\matg\adj\matg = 1, \Determinant \matg = 1}\\
-\LAsutwo\of 2 &\DefineAs \setst{\matx\in\LAgl\of{2,\C}}{\adj\matx+\matx=0, \Trace \matx = 0}
+\LAsutwo &\DefineAs \setst{\matx\in\LAgl\of{2,\C}}{\adj\matx+\matx=0, \Trace \matx = 0}
 \end{align*}
 We have a little lemma.
 \begin{lemma}
@@ -1679,7 +1679,7 @@ I don't want to write $\frac\I{\sqrt2}$ all the time, so I defined
 \[
 \ReducedPauli k \DefineAs \frac{\I}{\sqrt2}\PauliMatrix k\text.
 \]
----``Algebraic conscience, do you agree? I'm just projecting onto an orthogonal basis.'' \emph{Claude looks confused} ``I'll just give him a few seconds to give us the go-ahead.'' \emph{Claude points out a mistake.} ``It's good to have an algebraic conscience. I don't have an algebraic conscience---I don't have a conscience at all, but that's another matter.''
+---Algebraic conscience, do you agree? I'm just projecting onto an orthogonal basis. \emph{Claude looks confused.} I'll just give him a few seconds to give us the go-ahead. \emph{Claude points out a mistake.} It's good to have an algebraic conscience. I don't have an algebraic conscience---I don't have a conscience at all, but that's another matter.
 \begin{align*}
 \AdjointRep\of\matg\matx &= \sum{k=1}[3]\FrobeniusInner\matx{\ReducedPauli k}\AdjointRep\of\matg\ReducedPauli k\text.
 \intertext{Let us look at $\AdjointRep\of\matg\ReducedPauli k$.}
@@ -1972,15 +1972,15 @@ Let's pick $t$ irrational, for instance $t = \sqrt{2}$, \begin{alignat*}{4}
  \E^{-\I\pa{n-2j}t} &= \E^{-\I\pa{n-2k}t}
  &\Equivalent && \pa{n-2j}t &= \pa{n-2k}t + 2m\Pi\\
 && \Equivalent && t &= \frac{2m\Pi}{2\pa{k-j}}\text.
-\end{alignat*} I need something more. I need that you can't multiply $\Pi$ by a rational number and get $\sqrt 2$. \emph{Claude:}---``If you stick with the square root of two.''---Yes. Let's pick $t=\sqrt 2 \Pi$. Then we can stop because you all know about that poor Greek guy who talked too much, so they took him in a row boat on the lake of Zürich and drowned him. This was before the Greeks had an economic crisis.
-$\irrep{n+1}[\matR_{\sqrt2 \Pi}]$ is diagonalisable, its eigenvectors are the $\opA\cz_{n,j}$ and its  eigenvalues are the $\E^{-\I\pa{n-2j}\sqrt2\Pi}$, and are distinct.
+\end{alignat*} I need something more. I need that you can't multiply $\Pi$ by a rational number and get $\sqrt 2$. \emph{Claude:}---``If you stick with the square root of two.''---Yes. Let's pick $t= \Pi\sqrt 2$. Then we can stop because you all know about that poor Greek guy who talked too much, so they took him in a row boat on the lake of Zürich and drowned him. This was before the Greeks had an economic crisis.
+$\irrep{n+1}[\matR_{\Pi\sqrt2}]$ is diagonalisable, its eigenvectors are the $\opA\cz_{n,j}$ and its  eigenvalues are the $\E^{-\I\pa{n-2j}\Pi\sqrt2}$, and are distinct.
 Recall that
 \[
 \irrep{n+1}[\matR_t]\cz_{n,j}=\E^{-\I\pa{n-2j}t}\cz_{n,j}\text,
 \]
 and thus the $\opA\cz{n,j}$ and the $\cz_{n,j}$ are eigenvectors of $\smash{\irrep{n+1}[\matR_{\Pi\sqrt{2}}]}$ with the distinct eigenvalues $\smash{\E^{-\I\pa{n-2j}\Pi\sqrt{2}}}$. As there are $n+1$ distinct eigenvalues and the space is $n+1$-dimensional, the eigenspaces have to be one-dimensional. Do you believe that? Can you look at me in the eyes and say, ``if there are $n+1$ distinct eigenvalues and the space is $n+1$-dimensional, then the eigenspaces have to be one-dimensional''? It's like Seinfeld: ``It's not a lie if you believe it''.\footnote{\emph{Seinfeld}, season 6, episode 16 ``The Beard'', directed by Andy Ackerman.}
 
-So if $\smash{\irrep{n+1}[\matR_{\sqrt 2\Pi}]}$ commutes with $\opA$, then $\opA$ is very special: the basis of the vector space diagonalises it.
+So if $\smash{\irrep{n+1}[\matR_{\Pi\sqrt2}]}$ commutes with $\opA$, then $\opA$ is very special: the basis of the vector space diagonalises it.
 We have \[
 \exists\tuple{\gm_0,\dotsc,\gm_n}\in\C^{n+1}\quad\opA\cz_{n,j}=\gm_j\cz_{n,j}
 \text.\]
@@ -2006,7 +2006,7 @@ Now go back to your first year of linear algebra. Go back to those happy times o
 \]
 Pick $t$ such that $\pa{\sin t}\pa{\cos t}\neq 0$. It follows $\gm_j=\gm_n$, so $\opA\cz_{n,j}=\gm_n\gz_{n,j}$, i.e., $\opA=\gm_n\Identity$. How do you use this to prove that $\irrep{n+1}$ is irreducible? Here is the painful part. You have climbed the mountain, and you are looking at the valley where raspberries grow---I like raspberries---and watermelons. How do you prove it is irreducible? I bet someone that nobody would answer this question. It looks like I'm going to make some money. \emph{Claude:}---``How much money?''---You don't count. 
 %TODO: Where does this come from? [It could, or it does?---``It does.''---It's the only psychologically sound answer.]
-MISSING TEXT MISSING TEXT MISSING TEXT
+
 Suppose $\opgP$ is an orthogonal projection from $V_n$ onto $W$ \emph{Claude:}---``It has to be unitary.''---That's why you don't count.
 
 When my son was born, I took  all the algebra books out of my house. You don't want to take chances.
@@ -2064,8 +2064,7 @@ This is good enough for a physicist, but a mathematician needs more than their s
 where $r=\sqrt{{x_1}^2+{x_2}^2+{x_3}^2+{x_4}^2}$, $\gf_1$, $\gf_2 \in \intclos 0 \Pi$ and $\gq\in\intclop 0 {2\Pi}$.
 We have
 \[
-\abs{\Determinant\diffd \vx} = r^3 \sin^2 \gf_1 \sin \gf_2 \diffd \gf_1 \diffd \gf_2 \diffd \gq 
-\text.
+\abs{\Determinant\diffd \vx} = r^3 \sin^2 \gf_1 \sin \gf_2\text.
 \]
 The map
 \begin{align*}
@@ -2242,8 +2241,8 @@ Now that I have your attention, let's go back to something less beautiful. We ha
 He even told us that $C=4\Pi$. Now assume for an $f$ in the space of class functions, for all $n\geq 1$,
 \begin{align*}
 0 &= \int{0}[\Pi] \frac{\sin n \gf}{\sin \gf} f\of\gf \sin^2\gf\diffd\gf \\
-  &= \int{0}[\Pi]\sin n\gf \pa{f\of\gf\sin\gf}\diffd\gf\\
-  &=\frac{1}{2}\int{-\Pi}[\Pi]\sin n \gf g\of \gf \diffd\gf
+  &= \int{0}[\Pi] \pa{f\of\gf\sin\gf}\sin n\gf\diffd\gf\\
+  &=\frac{1}{2}\int{-\Pi}[\Pi] g\of \gf \sin n \gf \diffd\gf
 \intertext{where $g\of\gf$ is the \st{even} \st{odd} \st{even} odd extension of $f\of\gf\sin\gf$ to $\intopen{-\Pi}{\Pi}$.}\\
   &= \frac{1}{2} \int{-\Pi}[\Pi] \frac{\E^{\I n \gf} - \E^{-\I n \gf}}{2\I}g\of\gf\diffd\gf\text.
 \end{align*}
